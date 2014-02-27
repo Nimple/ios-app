@@ -14,9 +14,6 @@
 {
     // Override point for customization after application launch.
     
-    // Make sure that the FBLoginView class is loaded before the view is shown
-    [FBLoginView class];
-    
     return YES;
 }
 							

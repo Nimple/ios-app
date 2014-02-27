@@ -23,6 +23,7 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
+		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D1B4B42C18BC082F00DBD097 /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressBook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D1B4B42B18BC080300DBD097 /* Images */,
 				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
 				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
@@ -157,6 +160,14 @@
 				D151DA9B18B432F800C5850F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1B4B42B18BC080300DBD097 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4B42C18BC082F00DBD097 /* AddressBook.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */,
 				D151DA8718B432F700C5850F /* Main_iPad.storyboard in Resources */,
 				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
 				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
@@ -487,6 +499,7 @@
 				D151DAA418B432F800C5850F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D151DAA518B432F800C5850F /* Build configuration list for PBXNativeTarget "nimple-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +508,7 @@
 				D151DAA718B432F800C5850F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
