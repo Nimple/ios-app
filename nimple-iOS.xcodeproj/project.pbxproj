@@ -14,8 +14,6 @@
 		D151DA7D18B432F700C5850F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA7C18B432F700C5850F /* main.m */; };
 		D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA8018B432F700C5850F /* NimpleAppDelegate.m */; };
 		D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D151DA8218B432F700C5850F /* Main_iPhone.storyboard */; };
-		D151DA8718B432F700C5850F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D151DA8518B432F700C5850F /* Main_iPad.storyboard */; };
-		D151DA8A18B432F800C5850F /* NimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA8918B432F800C5850F /* NimpleViewController.m */; };
 		D151DA8C18B432F800C5850F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D151DA8B18B432F800C5850F /* Images.xcassets */; };
 		D151DA9318B432F800C5850F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA9218B432F800C5850F /* XCTest.framework */; };
 		D151DA9418B432F800C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
@@ -23,6 +21,12 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
+		D17C7EE618BFF10700157673 /* tab-add.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE518BFF10700157673 /* tab-add.png */; };
+		D17C7EE818BFF18400157673 /* tab-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE718BFF18400157673 /* tab-settings.png */; };
+		D17C7EEA18BFF1AE00157673 /* tab-overview.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE918BFF1AE00157673 /* tab-overview.png */; };
+		D17C7EEC18BFF2D100157673 /* tab-nimplecode.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */; };
+		D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */; };
+		D1919EF518BFC09200A70269 /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D1919EF418BFC09200A70269 /* QR-Code.png */; };
 		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +52,6 @@
 		D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NimpleAppDelegate.h; sourceTree = "<group>"; };
 		D151DA8018B432F700C5850F /* NimpleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NimpleAppDelegate.m; sourceTree = "<group>"; };
 		D151DA8318B432F700C5850F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		D151DA8618B432F700C5850F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		D151DA8818B432F700C5850F /* NimpleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NimpleViewController.h; sourceTree = "<group>"; };
-		D151DA8918B432F800C5850F /* NimpleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NimpleViewController.m; sourceTree = "<group>"; };
 		D151DA8B18B432F800C5850F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D151DA9118B432F800C5850F /* nimple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nimple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D151DA9218B432F800C5850F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,6 +59,13 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D17C7EE518BFF10700157673 /* tab-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-add.png"; path = "icons/tab-add.png"; sourceTree = "<group>"; };
+		D17C7EE718BFF18400157673 /* tab-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-settings.png"; path = "icons/tab-settings.png"; sourceTree = "<group>"; };
+		D17C7EE918BFF1AE00157673 /* tab-overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-overview.png"; path = "icons/tab-overview.png"; sourceTree = "<group>"; };
+		D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-nimplecode.png"; path = "icons/tab-nimplecode.png"; sourceTree = "<group>"; };
+		D18B4FB318BFED6500C39225 /* EditNimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeViewController.h; sourceTree = "<group>"; };
+		D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeViewController.m; sourceTree = "<group>"; };
+		D1919EF418BFC09200A70269 /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QR-Code.png"; sourceTree = "<group>"; };
 		D1B4B42C18BC082F00DBD097 /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressBook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,13 +128,13 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D18B4FB318BFED6500C39225 /* EditNimpleCodeViewController.h */,
+				D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */,
+				D17C7EE318BFF0F300157673 /* Icons */,
 				D1B4B42B18BC080300DBD097 /* Images */,
 				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
 				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
-				D151DA8518B432F700C5850F /* Main_iPad.storyboard */,
-				D151DA8818B432F700C5850F /* NimpleViewController.h */,
-				D151DA8918B432F800C5850F /* NimpleViewController.m */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
 			);
@@ -162,9 +170,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D17C7EE318BFF0F300157673 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				D17C7EE418BFF0FC00157673 /* Tabbar */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		D17C7EE418BFF0FC00157673 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */,
+				D17C7EE918BFF1AE00157673 /* tab-overview.png */,
+				D17C7EE718BFF18400157673 /* tab-settings.png */,
+				D17C7EE518BFF10700157673 /* tab-add.png */,
+			);
+			name = Tabbar;
+			sourceTree = "<group>";
+		};
 		D1B4B42B18BC080300DBD097 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D1919EF418BFC09200A70269 /* QR-Code.png */,
 				D1B4B42C18BC082F00DBD097 /* AddressBook.png */,
 			);
 			name = Images;
@@ -248,10 +276,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */,
-				D151DA8718B432F700C5850F /* Main_iPad.storyboard in Resources */,
 				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
+				D17C7EE818BFF18400157673 /* tab-settings.png in Resources */,
+				D1919EF518BFC09200A70269 /* QR-Code.png in Resources */,
 				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
+				D17C7EEC18BFF2D100157673 /* tab-nimplecode.png in Resources */,
 				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
+				D17C7EEA18BFF1AE00157673 /* tab-overview.png in Resources */,
+				D17C7EE618BFF10700157673 /* tab-add.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
+				D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
-				D151DA8A18B432F800C5850F /* NimpleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,14 +341,6 @@
 				D151DA8318B432F700C5850F /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		D151DA8518B432F700C5850F /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D151DA8618B432F700C5850F /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		D151DA9B18B432F800C5850F /* InfoPlist.strings */ = {
