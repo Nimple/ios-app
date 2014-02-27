@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D151DA7018B432F700C5850F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D151DA7218B432F700C5850F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +139,7 @@
 				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
+				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
 			);
 			path = "nimple-iOS";
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
+				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
 			);
@@ -535,6 +539,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D151DA6518B432F700C5850F /* Project object */;
 }

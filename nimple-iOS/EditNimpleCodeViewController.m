@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    fields = [NSArray arrayWithObjects:@"Vorname", @"Nachname", nil];
+    fields = [NSArray arrayWithObjects:@"Vorname", @"Nachname", @"E-Mail Adresse", @"Telefonnummer",nil];
 }
 
 - (void)didReceiveMemoryWarning
