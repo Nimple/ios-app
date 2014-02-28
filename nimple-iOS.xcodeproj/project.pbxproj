@@ -8,15 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
-		9E46C5CD18BFFC9F00800F87 /* ic_xing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5CC18BFFC9F00800F87 /* ic_xing.png */; };
-		9E46C5CF18BFFCB400800F87 /* ic_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5CE18BFFCB400800F87 /* ic_twitter.png */; };
-		9E46C5D118BFFCBD00800F87 /* ic_linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5D018BFFCBD00800F87 /* ic_linkedin.png */; };
-		9E46C5D418BFFCC500800F87 /* ic_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5D218BFFCC500800F87 /* ic_facebook.png */; };
-		9E46C5D518BFFCC500800F87 /* ic_googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5D318BFFCC500800F87 /* ic_googleplus.png */; };
-		9E46C5D718BFFCEE00800F87 /* ic_action_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5D618BFFCEE00800F87 /* ic_action_call.png */; };
-		9E46C5D918BFFCF600800F87 /* ic_action_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5D818BFFCF600800F87 /* ic_action_email.png */; };
-		9E46C5DB18BFFD1600800F87 /* ic_action_go_to_today.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5DA18BFFD1600800F87 /* ic_action_go_to_today.png */; };
-		9E46C5DD18BFFD2400800F87 /* ic_action_labels.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E46C5DC18BFFD2400800F87 /* ic_action_labels.png */; };
+		9E42B66518C0EDD800E8C9CA /* tab-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66118C0EDD800E8C9CA /* tab-add.png */; };
+		9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66218C0EDD800E8C9CA /* tab-nimplecode.png */; };
+		9E42B66718C0EDD800E8C9CA /* tab-overview.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66318C0EDD800E8C9CA /* tab-overview.png */; };
+		9E42B66818C0EDD800E8C9CA /* tab-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66418C0EDD800E8C9CA /* tab-settings.png */; };
+		9E42B66F18C0EE9C00E8C9CA /* ic_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66A18C0EE9C00E8C9CA /* ic_facebook.png */; };
+		9E42B67018C0EE9C00E8C9CA /* ic_googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66B18C0EE9C00E8C9CA /* ic_googleplus.png */; };
+		9E42B67118C0EE9C00E8C9CA /* ic_linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66C18C0EE9C00E8C9CA /* ic_linkedin.png */; };
+		9E42B67218C0EE9C00E8C9CA /* ic_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66D18C0EE9C00E8C9CA /* ic_twitter.png */; };
+		9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66E18C0EE9C00E8C9CA /* ic_xing.png */; };
+		9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6858B718C0F0CC00C7D889 /* NimpleContact.m */; };
+		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
+		9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */; };
+		9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817618C0EF45001A1416 /* ic_action_call.png */; };
+		9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817718C0EF45001A1416 /* ic_action_email.png */; };
+		9EFF817D18C0EF45001A1416 /* ic_action_go_to_today.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817818C0EF45001A1416 /* ic_action_go_to_today.png */; };
+		9EFF817E18C0EF45001A1416 /* ic_action_labels.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817918C0EF45001A1416 /* ic_action_labels.png */; };
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
@@ -31,10 +38,6 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
-		D17C7EE618BFF10700157673 /* tab-add.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE518BFF10700157673 /* tab-add.png */; };
-		D17C7EE818BFF18400157673 /* tab-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE718BFF18400157673 /* tab-settings.png */; };
-		D17C7EEA18BFF1AE00157673 /* tab-overview.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EE918BFF1AE00157673 /* tab-overview.png */; };
-		D17C7EEC18BFF2D100157673 /* tab-nimplecode.png in Resources */ = {isa = PBXBuildFile; fileRef = D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */; };
 		D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */; };
 		D1919EF518BFC09200A70269 /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D1919EF418BFC09200A70269 /* QR-Code.png */; };
 		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
@@ -52,15 +55,23 @@
 
 /* Begin PBXFileReference section */
 		9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		9E46C5CC18BFFC9F00800F87 /* ic_xing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_xing.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_xing.png"; sourceTree = "<group>"; };
-		9E46C5CE18BFFCB400800F87 /* ic_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_twitter.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_twitter.png"; sourceTree = "<group>"; };
-		9E46C5D018BFFCBD00800F87 /* ic_linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_linkedin.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_linkedin.png"; sourceTree = "<group>"; };
-		9E46C5D218BFFCC500800F87 /* ic_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_facebook.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_facebook.png"; sourceTree = "<group>"; };
-		9E46C5D318BFFCC500800F87 /* ic_googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_googleplus.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_googleplus.png"; sourceTree = "<group>"; };
-		9E46C5D618BFFCEE00800F87 /* ic_action_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_call.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_action_call.png"; sourceTree = "<group>"; };
-		9E46C5D818BFFCF600800F87 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_action_email.png"; sourceTree = "<group>"; };
-		9E46C5DA18BFFD1600800F87 /* ic_action_go_to_today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_go_to_today.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_action_go_to_today.png"; sourceTree = "<group>"; };
-		9E46C5DC18BFFD2400800F87 /* ic_action_labels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_labels.png; path = "../../nimple-android/res/drawable-xxhdpi/ic_action_labels.png"; sourceTree = "<group>"; };
+		9E42B66118C0EDD800E8C9CA /* tab-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-add.png"; path = "icons/tabbar/tab-add.png"; sourceTree = "<group>"; };
+		9E42B66218C0EDD800E8C9CA /* tab-nimplecode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-nimplecode.png"; path = "icons/tabbar/tab-nimplecode.png"; sourceTree = "<group>"; };
+		9E42B66318C0EDD800E8C9CA /* tab-overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-overview.png"; path = "icons/tabbar/tab-overview.png"; sourceTree = "<group>"; };
+		9E42B66418C0EDD800E8C9CA /* tab-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-settings.png"; path = "icons/tabbar/tab-settings.png"; sourceTree = "<group>"; };
+		9E42B66A18C0EE9C00E8C9CA /* ic_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_facebook.png; path = icons/social/ic_facebook.png; sourceTree = "<group>"; };
+		9E42B66B18C0EE9C00E8C9CA /* ic_googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_googleplus.png; path = icons/social/ic_googleplus.png; sourceTree = "<group>"; };
+		9E42B66C18C0EE9C00E8C9CA /* ic_linkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_linkedin.png; path = icons/social/ic_linkedin.png; sourceTree = "<group>"; };
+		9E42B66D18C0EE9C00E8C9CA /* ic_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_twitter.png; path = icons/social/ic_twitter.png; sourceTree = "<group>"; };
+		9E42B66E18C0EE9C00E8C9CA /* ic_xing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_xing.png; path = icons/social/ic_xing.png; sourceTree = "<group>"; };
+		9E6858B618C0F0CC00C7D889 /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
+		9E6858B718C0F0CC00C7D889 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
+		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_add_person_dark.png; path = icons/ic_action_add_person_dark.png; sourceTree = "<group>"; };
+		9EFF817618C0EF45001A1416 /* ic_action_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_call.png; path = icons/ic_action_call.png; sourceTree = "<group>"; };
+		9EFF817718C0EF45001A1416 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = icons/ic_action_email.png; sourceTree = "<group>"; };
+		9EFF817818C0EF45001A1416 /* ic_action_go_to_today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_go_to_today.png; path = icons/ic_action_go_to_today.png; sourceTree = "<group>"; };
+		9EFF817918C0EF45001A1416 /* ic_action_labels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_labels.png; path = icons/ic_action_labels.png; sourceTree = "<group>"; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D151DA7018B432F700C5850F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D151DA7218B432F700C5850F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -79,10 +90,6 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D17C7EE518BFF10700157673 /* tab-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-add.png"; path = "icons/tab-add.png"; sourceTree = "<group>"; };
-		D17C7EE718BFF18400157673 /* tab-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-settings.png"; path = "icons/tab-settings.png"; sourceTree = "<group>"; };
-		D17C7EE918BFF1AE00157673 /* tab-overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-overview.png"; path = "icons/tab-overview.png"; sourceTree = "<group>"; };
-		D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-nimplecode.png"; path = "icons/tab-nimplecode.png"; sourceTree = "<group>"; };
 		D18B4FB318BFED6500C39225 /* EditNimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeViewController.h; sourceTree = "<group>"; };
 		D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeViewController.m; sourceTree = "<group>"; };
 		D1919EF418BFC09200A70269 /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QR-Code.png"; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */,
 				D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */,
 				D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */,
 				D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */,
@@ -114,6 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E42B66918C0EE9400E8C9CA /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				9E42B66A18C0EE9C00E8C9CA /* ic_facebook.png */,
+				9E42B66B18C0EE9C00E8C9CA /* ic_googleplus.png */,
+				9E42B66C18C0EE9C00E8C9CA /* ic_linkedin.png */,
+				9E42B66D18C0EE9C00E8C9CA /* ic_twitter.png */,
+				9E42B66E18C0EE9C00E8C9CA /* ic_xing.png */,
+			);
+			name = Social;
+			sourceTree = "<group>";
+		};
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +156,7 @@
 		D151DA6F18B432F700C5850F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E6858B918C0F47E00C7D889 /* AVFoundation.framework */,
 				D151DAA818B433F500C5850F /* FacebookSDK.framework */,
 				D151DA7018B432F700C5850F /* Foundation.framework */,
 				D151DA7218B432F700C5850F /* CoreGraphics.framework */,
@@ -158,6 +179,8 @@
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
+				9E6858B618C0F0CC00C7D889 /* NimpleContact.h */,
+				9E6858B718C0F0CC00C7D889 /* NimpleContact.m */,
 			);
 			path = "nimple-iOS";
 			sourceTree = "<group>";
@@ -194,6 +217,12 @@
 		D17C7EE318BFF0F300157673 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */,
+				9EFF817618C0EF45001A1416 /* ic_action_call.png */,
+				9EFF817718C0EF45001A1416 /* ic_action_email.png */,
+				9EFF817818C0EF45001A1416 /* ic_action_go_to_today.png */,
+				9EFF817918C0EF45001A1416 /* ic_action_labels.png */,
+				9E42B66918C0EE9400E8C9CA /* Social */,
 				D17C7EE418BFF0FC00157673 /* Tabbar */,
 			);
 			name = Icons;
@@ -202,10 +231,10 @@
 		D17C7EE418BFF0FC00157673 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				D17C7EEB18BFF2D100157673 /* tab-nimplecode.png */,
-				D17C7EE918BFF1AE00157673 /* tab-overview.png */,
-				D17C7EE718BFF18400157673 /* tab-settings.png */,
-				D17C7EE518BFF10700157673 /* tab-add.png */,
+				9E42B66118C0EDD800E8C9CA /* tab-add.png */,
+				9E42B66218C0EDD800E8C9CA /* tab-nimplecode.png */,
+				9E42B66318C0EDD800E8C9CA /* tab-overview.png */,
+				9E42B66418C0EDD800E8C9CA /* tab-settings.png */,
 			);
 			name = Tabbar;
 			sourceTree = "<group>";
@@ -213,15 +242,6 @@
 		D1B4B42B18BC080300DBD097 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				9E46C5DC18BFFD2400800F87 /* ic_action_labels.png */,
-				9E46C5DA18BFFD1600800F87 /* ic_action_go_to_today.png */,
-				9E46C5D818BFFCF600800F87 /* ic_action_email.png */,
-				9E46C5D618BFFCEE00800F87 /* ic_action_call.png */,
-				9E46C5D218BFFCC500800F87 /* ic_facebook.png */,
-				9E46C5D318BFFCC500800F87 /* ic_googleplus.png */,
-				9E46C5D018BFFCBD00800F87 /* ic_linkedin.png */,
-				9E46C5CE18BFFCB400800F87 /* ic_twitter.png */,
-				9E46C5CC18BFFC9F00800F87 /* ic_xing.png */,
 				D1919EF418BFC09200A70269 /* QR-Code.png */,
 				D1B4B42C18BC082F00DBD097 /* AddressBook.png */,
 			);
@@ -276,6 +296,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = nimple;
 				TargetAttributes = {
+					D151DA6C18B432F700C5850F = {
+						DevelopmentTeam = BRCR8B3TM9;
+					};
 					D151DA9018B432F800C5850F = {
 						TestTargetID = D151DA6C18B432F700C5850F;
 					};
@@ -306,23 +329,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */,
-				9E46C5CF18BFFCB400800F87 /* ic_twitter.png in Resources */,
+				9EFF817E18C0EF45001A1416 /* ic_action_labels.png in Resources */,
+				9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */,
+				9EFF817D18C0EF45001A1416 /* ic_action_go_to_today.png in Resources */,
 				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
-				D17C7EE818BFF18400157673 /* tab-settings.png in Resources */,
-				9E46C5DD18BFFD2400800F87 /* ic_action_labels.png in Resources */,
+				9E42B66818C0EDD800E8C9CA /* tab-settings.png in Resources */,
+				9E42B66F18C0EE9C00E8C9CA /* ic_facebook.png in Resources */,
+				9E42B67018C0EE9C00E8C9CA /* ic_googleplus.png in Resources */,
 				D1919EF518BFC09200A70269 /* QR-Code.png in Resources */,
 				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
-				9E46C5D918BFFCF600800F87 /* ic_action_email.png in Resources */,
-				D17C7EEC18BFF2D100157673 /* tab-nimplecode.png in Resources */,
+				9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */,
+				9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */,
 				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
-				9E46C5D518BFFCC500800F87 /* ic_googleplus.png in Resources */,
-				9E46C5CD18BFFC9F00800F87 /* ic_xing.png in Resources */,
-				9E46C5D418BFFCC500800F87 /* ic_facebook.png in Resources */,
-				D17C7EEA18BFF1AE00157673 /* tab-overview.png in Resources */,
-				9E46C5D718BFFCEE00800F87 /* ic_action_call.png in Resources */,
-				9E46C5DB18BFFD1600800F87 /* ic_action_go_to_today.png in Resources */,
-				D17C7EE618BFF10700157673 /* tab-add.png in Resources */,
-				9E46C5D118BFFCBD00800F87 /* ic_linkedin.png in Resources */,
+				9E42B66718C0EDD800E8C9CA /* tab-overview.png in Resources */,
+				9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */,
+				9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */,
+				9E42B67218C0EE9C00E8C9CA /* ic_twitter.png in Resources */,
+				9E42B66518C0EDD800E8C9CA /* tab-add.png in Resources */,
+				9E42B67118C0EE9C00E8C9CA /* ic_linkedin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +369,7 @@
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
+				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +498,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -481,6 +508,7 @@
 				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -490,6 +518,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -498,6 +528,7 @@
 				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

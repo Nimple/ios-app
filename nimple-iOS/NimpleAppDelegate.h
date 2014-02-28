@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import "NimpleContact.h"
 
 @interface NimpleAppDelegate : UIResponder <UIApplicationDelegate>
 
