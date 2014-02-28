@@ -19,6 +19,7 @@
 		9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66E18C0EE9C00E8C9CA /* ic_xing.png */; };
 		9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6858B718C0F0CC00C7D889 /* NimpleContact.m */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
+		9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */; };
 		9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */; };
 		9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817618C0EF45001A1416 /* ic_action_call.png */; };
 		9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817718C0EF45001A1416 /* ic_action_email.png */; };
@@ -67,6 +68,8 @@
 		9E6858B618C0F0CC00C7D889 /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
 		9E6858B718C0F0CC00C7D889 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleCodeReaderController.h; path = "nimple-iOS/NimpleCodeReaderController.h"; sourceTree = "<group>"; };
+		9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleCodeReaderController.m; path = "nimple-iOS/NimpleCodeReaderController.m"; sourceTree = "<group>"; };
 		9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_add_person_dark.png; path = icons/ic_action_add_person_dark.png; sourceTree = "<group>"; };
 		9EFF817618C0EF45001A1416 /* ic_action_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_call.png; path = icons/ic_action_call.png; sourceTree = "<group>"; };
 		9EFF817718C0EF45001A1416 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = icons/ic_action_email.png; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
+				9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */,
+				9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */,
 				D151DA7618B432F700C5850F /* nimple-iOS */,
 				D151DA9818B432F800C5850F /* nimple-iOSTests */,
 				D151DA6F18B432F700C5850F /* Frameworks */,
@@ -369,6 +374,7 @@
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
+				9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */,
 				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

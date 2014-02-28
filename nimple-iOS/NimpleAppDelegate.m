@@ -25,9 +25,7 @@
     
     NSLog(@"Contact created %@!", [contact print]);
     
-    
-    
-    
+
     return YES;
 }
 							
