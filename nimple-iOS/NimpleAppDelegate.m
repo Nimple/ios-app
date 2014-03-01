@@ -20,13 +20,6 @@
 {
     // Override point for customization after application launch.
     
-    // Create a contact
-    NimpleContact *contact = [[NimpleContact alloc] initWithSurname:@"Sebastian" Prename:@"Long" Mail:@"sebastian@nimple.de" Phone:@"01761234567"];
-    if(contact)
-    {
-        NSLog(@"Contact created %@!", [contact print]);
-    }
-
     return YES;
 }
 							

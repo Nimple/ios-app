@@ -2,46 +2,48 @@
 //  NimpleContact.m
 //  nimple-iOS
 //
-//  Created by Sebastian Lang on 28.02.14.
+//  Created by Guido Schmidt on 28.02.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
 #import "NimpleContact.h"
+#import <DKCoreDataManager/DKCoreDataManager.h>
 
 @implementation NimpleContact
-{
-    NSString *surname;
-    NSString *prename;
-    NSString *_mailAddress;
-    NSString *phoneNumber;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.surName = nil;
-        self.preName = nil;
-        self.mailAddress = nil;
-        self.phoneNumer = nil;
-    }
-    return self;
-}
-
--(id) initWithSurname:(NSString *)p_surname Prename:(NSString *)p_prename Mail:(NSString*)p_mailaddress Phone:(NSString*)p_phonenumber
-{
-    self = [super init];
-    if (self) {
-        self.surName     = p_surname;
-        self.preName     = p_prename;
-        self.mailAddress = p_mailaddress;
-        self.phoneNumer  = p_phonenumber;
-    }
-    return self;
-}
+@dynamic surname, prename, phone, email, company, job;
 
 - (NSString*) print {
-    return [NSString stringWithFormat:@"%@ %@ %@ %@", self.preName, self.surName, self.mailAddress, self.phoneNumer];
+    return [NSString stringWithFormat:@"%@ %@ %@ %@", self.prename, self.surname, self.email, self.phone];
+}
+
+
++ (NimpleContact *) createContact {
+    NSManagedObjectContext *contact = [DKCoreDataManager sharedManager].managedObjectContext;
+    return [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact"
+                                         inManagedObjectContext:contact];
+}
+
+// Creates a nimple contact with all contact parameters
+/*
+    Prename
+    Surname
+    PhoneNumber
+    MailAddress
+    CompanyName
+    JobTitle
+*/
++ (NimpleContact *) createContactWithPrename:(NSString *)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone EmailAddress:(NSString*)p_email CompanyName:(NSString*)p_company JobTitle:(NSString*)p_job {
+    
+    NimpleContact *contact = [NimpleContact createContact];
+    
+    contact.prename = p_prename;
+    contact.surname = p_surname;
+    contact.phone   = p_phone;
+    contact.email   = p_email;
+    contact.company = p_company;
+    contact.job     = p_job;
+    
+    return contact;
 }
 
 @end

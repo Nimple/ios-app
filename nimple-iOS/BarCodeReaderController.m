@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-#import "NimpleCodeReaderController.h"
+#import "BarCodeReaderController.h"
 
-@interface NimpleCodeReaderController ()
+@interface BarCodeReaderController ()
 
 @property (nonatomic) BOOL isReading;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation NimpleCodeReaderController
+@implementation BarCodeReaderController
 {
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;

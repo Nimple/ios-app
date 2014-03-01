@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-861" y="-561"/>
         </scene>
-        <!--Nimple Code Reader Controller - Kontakt hinzufügen-->
+        <!--Bar Code Reader Controller - Kontakt hinzufügen-->
         <scene sceneID="xF9-o1-4kp">
             <objects>
-                <viewController id="o5E-Ml-Dot" customClass="NimpleCodeReaderController" sceneMemberID="viewController">
+                <viewController id="o5E-Ml-Dot" customClass="BarCodeReaderController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TP9-UC-0EE"/>
                         <viewControllerLayoutGuide type="bottom" id="pg5-V6-dt7"/>
@@ -68,7 +68,7 @@
                             <tableViewSection id="maD-CN-UYk">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="clh-BZ-4qX">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="clh-BZ-4qX" id="SOg-Yo-tvx">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>

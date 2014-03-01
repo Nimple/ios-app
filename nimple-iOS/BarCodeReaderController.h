@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface NimpleCodeReaderController : UIViewController
+@interface BarCodeReaderController : UIViewController
     <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *codeReaderCameraView;

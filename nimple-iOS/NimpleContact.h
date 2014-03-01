@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface NimpleContact : NSObject
+@interface NimpleContact : NSManagedObject
 
-@property NSString *preName;
-@property NSString *surName;
-@property NSString *phoneNumer;
-@property NSString *mailAddress;
+@property NSString *prename;
+@property NSString *surname;
+@property NSString *phone;
+@property NSString *email;
+@property NSString *company;
+@property NSString *job;
 
 - (NSString*) print;
--(id) initWithSurname:(NSString *)p_surname Prename:(NSString *)p_prename Mail:(NSString*)p_mailaddress Phone:(NSString*)p_phonenumber;
 
 @end

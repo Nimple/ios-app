@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041C1AA8A22A499E904B14CD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
 		9E42B66518C0EDD800E8C9CA /* tab-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66118C0EDD800E8C9CA /* tab-add.png */; };
 		9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66218C0EDD800E8C9CA /* tab-nimplecode.png */; };
@@ -19,7 +20,7 @@
 		9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66E18C0EE9C00E8C9CA /* ic_xing.png */; };
 		9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6858B718C0F0CC00C7D889 /* NimpleContact.m */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
-		9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */; };
+		9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
 		9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */; };
 		9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA74A3418C142AA0047B33B /* app_icon_highres.png */; };
@@ -44,7 +45,9 @@
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
 		D1919EF518BFC09200A70269 /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D1919EF418BFC09200A70269 /* QR-Code.png */; };
+		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
+		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +74,8 @@
 		9E6858B618C0F0CC00C7D889 /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
 		9E6858B718C0F0CC00C7D889 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeReaderController.h; sourceTree = "<group>"; };
-		9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeReaderController.m; sourceTree = "<group>"; };
+		9E9CAB1C18C1058200A4FE27 /* BarCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeReaderController.h; sourceTree = "<group>"; };
+		9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeReaderController.m; sourceTree = "<group>"; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
 		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
@@ -84,6 +87,8 @@
 		9EFF817718C0EF45001A1416 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = icons/ic_action_email.png; sourceTree = "<group>"; };
 		9EFF817818C0EF45001A1416 /* ic_action_go_to_today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_go_to_today.png; path = icons/ic_action_go_to_today.png; sourceTree = "<group>"; };
 		9EFF817918C0EF45001A1416 /* ic_action_labels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_labels.png; path = icons/ic_action_labels.png; sourceTree = "<group>"; };
+		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D151DA7018B432F700C5850F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D151DA7218B432F700C5850F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,7 +108,9 @@
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D1919EF418BFC09200A70269 /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QR-Code.png"; sourceTree = "<group>"; };
+		D1ABE42D18C1F50F00154101 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1B4B42C18BC082F00DBD097 /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressBook.png; sourceTree = "<group>"; };
+		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,12 +118,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */,
 				9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */,
 				9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */,
 				D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */,
 				D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */,
 				D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */,
 				D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */,
+				041C1AA8A22A499E904B14CD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,10 +165,12 @@
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
+				D1ABE42D18C1F50F00154101 /* Podfile */,
 				D151DA7618B432F700C5850F /* nimple-iOS */,
 				D151DA9818B432F800C5850F /* nimple-iOSTests */,
 				D151DA6F18B432F700C5850F /* Frameworks */,
 				D151DA6E18B432F700C5850F /* Products */,
+				C11D1B32A73841EF9434D94B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +186,7 @@
 		D151DA6F18B432F700C5850F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1E55F1618C1F1450035D828 /* CoreData.framework */,
 				9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */,
 				9E6858B918C0F47E00C7D889 /* AVFoundation.framework */,
 				D151DAA818B433F500C5850F /* FacebookSDK.framework */,
@@ -182,6 +194,7 @@
 				D151DA7218B432F700C5850F /* CoreGraphics.framework */,
 				D151DA7418B432F700C5850F /* UIKit.framework */,
 				D151DA9218B432F800C5850F /* XCTest.framework */,
+				A798CAD0311D484FB6A0B5A1 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,17 +202,12 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
-				9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */,
-				9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */,
-				9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */,
+				D1E55F1418C1F04A0035D828 /* ViewControllers */,
 				D17C7EE318BFF0F300157673 /* Icons */,
 				D1B4B42B18BC080300DBD097 /* Images */,
 				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
 				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
-				9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */,
-				9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
@@ -273,6 +281,19 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */,
+				9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */,
+				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
+				9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */,
+				9E9CAB1C18C1058200A4FE27 /* BarCodeReaderController.h */,
+				9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,9 +301,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D151DAA218B432F800C5850F /* Build configuration list for PBXNativeTarget "nimple-iOS" */;
 			buildPhases = (
+				08D412D5137F47E28DDF7534 /* Check Pods Manifest.lock */,
 				D151DA6918B432F700C5850F /* Sources */,
 				D151DA6A18B432F700C5850F /* Frameworks */,
 				D151DA6B18B432F700C5850F /* Resources */,
+				6F2291329DE145489E46EDA6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +388,7 @@
 				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
 				9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */,
 				9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */,
+				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
 				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
 				9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */,
 				9E42B66718C0EDD800E8C9CA /* tab-overview.png in Resources */,
@@ -386,6 +410,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08D412D5137F47E28DDF7534 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6F2291329DE145489E46EDA6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D151DA6918B432F700C5850F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -395,7 +452,7 @@
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
 				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
-				9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */,
+				9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */,
 				9EA74A3818C152530047B33B /* EditNimpleCodeViewController.m in Sources */,
 				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
 			);
@@ -523,6 +580,7 @@
 		};
 		D151DAA318B432F800C5850F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -543,6 +601,7 @@
 		};
 		D151DAA418B432F800C5850F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
