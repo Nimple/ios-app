@@ -43,18 +43,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"NimpleCodeViewLoaded");
-
-    
-    //[self updateQRCodeImageSurname:@"init" Prename:@"init" Phone:@"init" Mail:@"init"];
+    [self updateQRCodeImageSurname:@"init" Prename:@"init" Phone:@"init" Mail:@"init"];
 }
 
 - (void) updateQRCodeImageSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail {
     
-    
     generatedCodeImage = [self generateNimpleQRCodeSurname:p_surname Prename:p_prename Phone:p_phone Mail:p_mail];
-
     self.nimpleQRCodeImage.image = generatedCodeImage;
-    
     nimpleCodeExists = true;
 }
 
