@@ -2,12 +2,16 @@
 //  EditNimpleCodeViewController.h
 //  nimple-iOS
 //
-//  Created by Guido Schmidt on 27.02.14.
+//  Created by Sebastian Lang on 01.03.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface EditNimpleCodeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface EditNimpleCodeViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *prenameField;
+@property (weak, nonatomic) IBOutlet UITextField *surnameField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *mailField;
 
 @end

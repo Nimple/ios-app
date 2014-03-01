@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NimpleContact.h"
+
 
 @interface NimpleAppDelegate : UIResponder <UIApplicationDelegate>
 

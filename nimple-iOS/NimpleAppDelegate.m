@@ -7,24 +7,25 @@
 //
 
 #import "NimpleAppDelegate.h"
+#import <CoreImage/CoreImage.h>
+#import "NimpleContact.h"
 
 @implementation NimpleAppDelegate
 {
+    CIImage* generatedQRCode;
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NimpleContact *contact = [[NimpleContact alloc] init];
     
-    contact.surName     = @"Lang";
-    contact.preName     = @"Sebastian";
-    contact.mailAddress = @"sebastian@nimple.de";
-    contact.phoneNumer  = @"0176123456789";
-    
-    NSLog(@"Contact created %@!", [contact print]);
-    
+    // Create a contact
+    NimpleContact *contact = [[NimpleContact alloc] initWithSurname:@"Sebastian" Prename:@"Long" Mail:@"sebastian@nimple.de" Phone:@"01761234567"];
+    if(contact)
+    {
+        NSLog(@"Contact created %@!", [contact print]);
+    }
 
     return YES;
 }

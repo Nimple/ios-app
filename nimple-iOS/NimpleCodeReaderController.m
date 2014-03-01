@@ -2,7 +2,7 @@
 //  NimpleCodeReaderController.m
 //  nimple-iOS
 //
-//  Created by Sebastian Lang on 28.02.14.
+//  Created by Guido Schmidt on 28.02.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
@@ -11,12 +11,11 @@
 @interface NimpleCodeReaderController ()
 
 @property (nonatomic) BOOL isReading;
-
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-
 -(BOOL)startReading;
 -(void)stopReading;
+
 @end
 
 @implementation NimpleCodeReaderController
@@ -61,13 +60,12 @@
 - (IBAction)startStopReading:(id)sender {
     if (!_isReading) {
         if ([self startReading]) {
-            [_lblStatus setText:@"Scanning Nimple Code..."];
+
         }
     }
     else{
         [self stopReading];
     }
-    
     _isReading = !_isReading;
 }
 
@@ -113,7 +111,6 @@
         NSLog(@"\nQR VALUE:\n%@", [metadataObj stringValue]);
         
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            [_lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             
             /*
              [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];

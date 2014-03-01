@@ -16,5 +16,6 @@
 @property NSString *mailAddress;
 
 - (NSString*) print;
+-(id) initWithSurname:(NSString *)p_surname Prename:(NSString *)p_prename Mail:(NSString*)p_mailaddress Phone:(NSString*)p_phonenumber;
 
 @end

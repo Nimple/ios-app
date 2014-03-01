@@ -20,6 +20,10 @@
 		9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E6858B718C0F0CC00C7D889 /* NimpleContact.m */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */; };
+		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
+		9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */; };
+		9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA74A3418C142AA0047B33B /* app_icon_highres.png */; };
+		9EA74A3818C152530047B33B /* EditNimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */; };
 		9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */; };
 		9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817618C0EF45001A1416 /* ic_action_call.png */; };
 		9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817718C0EF45001A1416 /* ic_action_email.png */; };
@@ -39,7 +43,6 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
-		D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */; };
 		D1919EF518BFC09200A70269 /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D1919EF418BFC09200A70269 /* QR-Code.png */; };
 		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
 /* End PBXBuildFile section */
@@ -68,8 +71,14 @@
 		9E6858B618C0F0CC00C7D889 /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
 		9E6858B718C0F0CC00C7D889 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleCodeReaderController.h; path = "nimple-iOS/NimpleCodeReaderController.h"; sourceTree = "<group>"; };
-		9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleCodeReaderController.m; path = "nimple-iOS/NimpleCodeReaderController.m"; sourceTree = "<group>"; };
+		9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeReaderController.h; sourceTree = "<group>"; };
+		9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeReaderController.m; sourceTree = "<group>"; };
+		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
+		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
+		9EA74A3418C142AA0047B33B /* app_icon_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_highres.png; path = icons/app/app_icon_highres.png; sourceTree = "<group>"; };
+		9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeViewController.h; sourceTree = "<group>"; };
+		9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeViewController.m; sourceTree = "<group>"; };
 		9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_add_person_dark.png; path = icons/ic_action_add_person_dark.png; sourceTree = "<group>"; };
 		9EFF817618C0EF45001A1416 /* ic_action_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_call.png; path = icons/ic_action_call.png; sourceTree = "<group>"; };
 		9EFF817718C0EF45001A1416 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = icons/ic_action_email.png; sourceTree = "<group>"; };
@@ -93,8 +102,6 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D18B4FB318BFED6500C39225 /* EditNimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeViewController.h; sourceTree = "<group>"; };
-		D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeViewController.m; sourceTree = "<group>"; };
 		D1919EF418BFC09200A70269 /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QR-Code.png"; sourceTree = "<group>"; };
 		D1B4B42C18BC082F00DBD097 /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressBook.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */,
 				9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */,
 				D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */,
 				D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */,
@@ -137,11 +145,17 @@
 			name = Social;
 			sourceTree = "<group>";
 		};
+		9EA74A3318C1429F0047B33B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9EA74A3418C142AA0047B33B /* app_icon_highres.png */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
-				9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */,
-				9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */,
 				D151DA7618B432F700C5850F /* nimple-iOS */,
 				D151DA9818B432F800C5850F /* nimple-iOSTests */,
 				D151DA6F18B432F700C5850F /* Frameworks */,
@@ -161,6 +175,7 @@
 		D151DA6F18B432F700C5850F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */,
 				9E6858B918C0F47E00C7D889 /* AVFoundation.framework */,
 				D151DAA818B433F500C5850F /* FacebookSDK.framework */,
 				D151DA7018B432F700C5850F /* Foundation.framework */,
@@ -174,13 +189,17 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D18B4FB318BFED6500C39225 /* EditNimpleCodeViewController.h */,
-				D18B4FB418BFED6500C39225 /* EditNimpleCodeViewController.m */,
+				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
+				9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */,
+				9E9CAB1C18C1058200A4FE27 /* NimpleCodeReaderController.h */,
+				9E9CAB1D18C1058200A4FE27 /* NimpleCodeReaderController.m */,
 				D17C7EE318BFF0F300157673 /* Icons */,
 				D1B4B42B18BC080300DBD097 /* Images */,
 				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
 				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
+				9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */,
+				9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
@@ -222,6 +241,7 @@
 		D17C7EE318BFF0F300157673 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				9EA74A3318C1429F0047B33B /* App */,
 				9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */,
 				9EFF817618C0EF45001A1416 /* ic_action_call.png */,
 				9EFF817718C0EF45001A1416 /* ic_action_email.png */,
@@ -346,6 +366,7 @@
 				9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */,
 				9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */,
 				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
+				9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */,
 				9E42B66718C0EDD800E8C9CA /* tab-overview.png in Resources */,
 				9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */,
 				9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */,
@@ -372,9 +393,10 @@
 			files = (
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
-				D18B4FB518BFED6500C39225 /* EditNimpleCodeViewController.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
+				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
 				9E9CAB1E18C1058200A4FE27 /* NimpleCodeReaderController.m in Sources */,
+				9EA74A3818C152530047B33B /* EditNimpleCodeViewController.m in Sources */,
 				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@
 //  NimpleCodeReaderController.h
 //  nimple-iOS
 //
-//  Created by Sebastian Lang on 28.02.14.
+//  Created by Guido Schmidt on 28.02.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
@@ -13,7 +13,6 @@
     <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *codeReaderCameraView;
-@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 
 - (IBAction)startStopReading:(id)sender;
 

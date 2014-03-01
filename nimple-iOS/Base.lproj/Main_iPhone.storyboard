@@ -23,7 +23,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIT-Kq-A6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-701" y="-199"/>
+            <point key="canvasLocation" x="-861" y="-561"/>
         </scene>
         <!--Nimple Code Reader Controller - Kontakt hinzufügen-->
         <scene sceneID="xF9-o1-4kp">
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="546" y="-869"/>
         </scene>
-        <!--View Controller - Nimple Code-->
+        <!--Nimple Code View Controller - Nimple Code-->
         <scene sceneID="LNO-1x-xf3">
             <objects>
-                <viewController id="wdH-3I-tgZ" sceneMemberID="viewController">
+                <viewController id="wdH-3I-tgZ" customClass="NimpleCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UqV-Mc-Efl"/>
                         <viewControllerLayoutGuide type="bottom" id="hIy-ip-6lh"/>
@@ -150,56 +150,108 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTU-k0-qIR">
-                                <rect key="frame" x="89" y="119" width="143" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mein Nimple Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTU-k0-qIR">
+                                <rect key="frame" x="65" y="94" width="191" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Mein Nimple Code">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mein Nimple Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnY-8h-il8">
-                                <rect key="frame" x="89" y="438" width="143" height="21"/>
+                                <rect key="frame" x="89" y="436" width="143" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGe-E0-WrQ">
-                                <rect key="frame" x="36" y="160" width="248" height="248"/>
+                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
+                                <rect key="frame" x="15" y="129" width="290" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="QR-Code.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="eoF-2X-F0f" kind="push" id="ygc-fm-SMf"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" red="0.90760869570000002" green="0.90760869570000002" blue="0.90760869570000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nimple Code" id="93b-pI-kqe">
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="0yX-GC-7hd">
                             <connections>
-                                <segue destination="DC4-iM-hTh" kind="push" id="HVA-4V-n4c"/>
+                                <segue destination="jR6-Mj-0yw" kind="push" id="8iT-Av-0GS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nimpleQRCodeImage" destination="6BA-IE-nrP" id="GeA-9m-UzG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="546" y="481"/>
         </scene>
-        <!--Edit Nimple Code View Controller - Nimple Code Bearbeiten-->
+        <!--Edit Nimple Code View Controller - Nimple Code Daten Eingeben-->
+        <scene sceneID="klY-v0-KY7">
+            <objects>
+                <viewController id="jR6-Mj-0yw" customClass="EditNimpleCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l9d-ov-zxI"/>
+                        <viewControllerLayoutGuide type="bottom" id="pcc-SX-pr8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cjd-sq-vFY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Prename" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weT-Z0-dI7">
+                                <rect key="frame" x="31" y="112" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Surname" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B62-lb-cm8">
+                                <rect key="frame" x="31" y="150" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd7-pg-pWQ">
+                                <rect key="frame" x="31" y="188" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Mail" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQF-6D-1Zo">
+                                <rect key="frame" x="31" y="226" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaK-ID-bOs">
+                                <rect key="frame" x="31" y="74" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSaveButton:" destination="jR6-Mj-0yw" eventType="touchUpInside" id="bvU-H2-liQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nimple Code Daten Eingeben" id="WqW-lT-ocu"/>
+                    <connections>
+                        <outlet property="mailField" destination="AQF-6D-1Zo" id="uET-XS-wLG"/>
+                        <outlet property="phoneField" destination="vd7-pg-pWQ" id="AGC-bY-yL6"/>
+                        <outlet property="prenameField" destination="weT-Z0-dI7" id="On3-gf-gXw"/>
+                        <outlet property="surnameField" destination="B62-lb-cm8" id="B7X-yP-UjS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olW-r0-Tpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="385"/>
+        </scene>
+        <!--Edit Nimple Code View Controller Old - Nimple Code Bearbeiten-->
         <scene sceneID="Vqd-pN-r4j">
             <objects>
-                <viewController id="DC4-iM-hTh" customClass="EditNimpleCodeViewController" sceneMemberID="viewController">
+                <viewController id="DC4-iM-hTh" customClass="EditNimpleCodeViewControllerOld" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zDx-0p-DWu"/>
                         <viewControllerLayoutGuide type="bottom" id="SeL-RU-S1Z"/>
@@ -213,30 +265,106 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections>
-                                    <tableViewSection id="mbr-eE-MD2">
+                                    <tableViewSection headerTitle="Personal" id="gh0-mY-O76">
                                         <cells>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CU9-dy-Wjr">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="CU9-dy-Wjr">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CU9-dy-Wjr" id="CXA-dF-Sou">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Prename" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QPh-iB-EHo">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DB0-fx-7U6">
-                                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="dJW-3U-rP9">
+                                                <rect key="frame" x="0.0" y="72" width="320" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DB0-fx-7U6" id="HIO-9Q-726">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dJW-3U-rP9" id="wIb-bz-QfE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Surname" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Opj-Hq-fRA">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7Tp-cy-WQl">
-                                                <rect key="frame" x="0.0" y="88" width="320" height="44"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="Pud-Iw-h63">
+                                                <rect key="frame" x="0.0" y="122" width="320" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Tp-cy-WQl" id="A0W-J3-uvH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pud-Iw-h63" id="7o1-wI-czu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Cell Phone" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIl-Dl-yH8">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="yf2-tq-Hge">
+                                                <rect key="frame" x="0.0" y="172" width="320" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yf2-tq-Hge" id="qel-7C-onl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Mail" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Gd-PQ-hGo">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </cells>
+                                    </tableViewSection>
+                                    <tableViewSection headerTitle="Business" id="Cri-Bt-rVY">
+                                        <cells>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="pop-U2-kxk">
+                                                <rect key="frame" x="0.0" y="244" width="320" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pop-U2-kxk" id="dTw-FR-Oe3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Company" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQn-Cx-eMy">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="8xn-LU-ccC">
+                                                <rect key="frame" x="0.0" y="294" width="320" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8xn-LU-ccC" id="IfG-t6-nOs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Job Title" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="evY-qm-oS5">
+                                                            <rect key="frame" x="41" y="10" width="259" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </cells>
@@ -254,13 +382,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06H-gn-vyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="-174"/>
+            <point key="canvasLocation" x="1217" y="-492"/>
         </scene>
-        <!--Navigation Controller - Nimple Code-->
+        <!--Navigation Controller - nimple code-->
         <scene sceneID="yMh-Po-ToZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nimple Code" image="tab-nimplecode.png" id="H5F-wD-xYX"/>
+                    <tabBarItem key="tabBarItem" title="nimple code" image="tab-nimplecode.png" id="H5F-wD-xYX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ItV-Cv-Zb7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -295,11 +423,11 @@
             </objects>
             <point key="canvasLocation" x="538" y="-1559"/>
         </scene>
-        <!--Navigation Controller - Übersicht-->
+        <!--Navigation Controller - contacts-->
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Übersicht" image="tab-overview.png" id="hFR-7f-QgP"/>
+                    <tabBarItem key="tabBarItem" title="contacts" image="tab-overview.png" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cmE-Bg-O4g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -314,11 +442,11 @@
             </objects>
             <point key="canvasLocation" x="20" y="-869"/>
         </scene>
-        <!--Navigation Controller - Kontakt Hinzufügen-->
+        <!--Navigation Controller - add contact-->
         <scene sceneID="LI8-0w-Bi5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAQ-PA-uRr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Kontakt Hinzufügen" image="tab-add.png" id="jPL-Gd-fOY"/>
+                    <tabBarItem key="tabBarItem" title="add contact" image="tab-add.png" id="jPL-Gd-fOY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DZj-Pd-raD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -333,11 +461,11 @@
             </objects>
             <point key="canvasLocation" x="20" y="-174"/>
         </scene>
-        <!--Navigation Controller - Einstellungen-->
+        <!--Navigation Controller - settings-->
         <scene sceneID="8Lq-Hs-uXh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XTa-tD-9fe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Einstellungen" image="tab-settings.png" id="ej1-ym-vBc"/>
+                    <tabBarItem key="tabBarItem" title="settings" image="tab-settings.png" id="ej1-ym-vBc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XVW-CG-R5e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -462,9 +590,6 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" red="0.90760869565217395" green="0.90760869565217395" blue="0.90760869565217395" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="wdH-3I-tgZ" kind="push" id="zT0-dE-1mM"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93478260869565222" green="0.93478260869565222" blue="0.93478260869565222" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,12 +607,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFc-YN-RXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="481"/>
+            <point key="canvasLocation" x="1035" y="1040"/>
         </scene>
     </scenes>
     <resources>
         <image name="AddressBook.png" width="47" height="59"/>
-        <image name="QR-Code.png" width="246" height="248"/>
         <image name="ic_action_call.png" width="96" height="96"/>
         <image name="ic_action_email.png" width="96" height="96"/>
         <image name="ic_action_go_to_today.png" width="96" height="96"/>
@@ -508,7 +632,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="zT0-dE-1mM"/>
-    </inferredMetricsTieBreakers>
 </document>
