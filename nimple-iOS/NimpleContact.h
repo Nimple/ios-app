@@ -18,6 +18,8 @@
 @property NSString *company;
 @property NSString *job;
 
-- (NSString*) print;
-
+- (NSString*) toString;
++ (NimpleContact *) createContact;
++ (void) createDefaultContact;
++ (NimpleContact *) createContactWithPrename:(NSString *)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone EmailAddress:(NSString*)p_email CompanyName:(NSString*)p_company JobTitle:(NSString*)p_job;
 @end

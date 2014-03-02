@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Contact" representedClassName="NimpleContact" syncable="YES">
+    <entity name="NimpleContact" representedClassName="NimpleContact" syncable="YES">
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="NimpleContact" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

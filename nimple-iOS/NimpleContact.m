@@ -12,8 +12,9 @@
 @implementation NimpleContact
 @dynamic surname, prename, phone, email, company, job;
 
-- (NSString*) print {
-    return [NSString stringWithFormat:@"%@ %@ %@ %@", self.prename, self.surname, self.email, self.phone];
+// Returns a string representation of the contact
+- (NSString*) toString {
+    return [NSString stringWithFormat:@"%@ %@ %@ %@ %@ %@", self.prename, self.surname, self.email, self.phone, self.company, self.job];
 }
 
 
@@ -44,6 +45,12 @@
     contact.job     = p_job;
     
     return contact;
+}
+
+// Creates a default contact
++ (void) createDefaultContact {
+    [self createContactWithPrename:@"default" Surname:@"default" PhoneNumber:@"default" EmailAddress:@"default" CompanyName:@"default" JobTitle:@"default"];
+    [[DKCoreDataManager sharedManager] saveContext];
 }
 
 @end

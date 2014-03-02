@@ -11,6 +11,7 @@
 
 @interface NimpleAppDelegate : UIResponder <UIApplicationDelegate>
 
+// Properties imply a private variable with prefix '_', a .variable-getter and a setVariable-setter method
 @property (strong, nonatomic) UIWindow *window;
 
 @end

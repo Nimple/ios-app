@@ -7,7 +7,6 @@
 //
 
 #import "NimpleCodeViewController.h"
-#import "EditNimpleCodeViewController.h"
 
 @interface NimpleCodeViewController ()
 

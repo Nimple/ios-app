@@ -23,8 +23,6 @@
 		9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
 		9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */; };
-		9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA74A3418C142AA0047B33B /* app_icon_highres.png */; };
-		9EA74A3818C152530047B33B /* EditNimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */; };
 		9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */; };
 		9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817618C0EF45001A1416 /* ic_action_call.png */; };
 		9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF817718C0EF45001A1416 /* ic_action_email.png */; };
@@ -44,9 +42,10 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
-		D1919EF518BFC09200A70269 /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D1919EF418BFC09200A70269 /* QR-Code.png */; };
+		D15B89D118C200A9001FFB2D /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89CF18C200A9001FFB2D /* AddressBook.png */; };
+		D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89D018C200A9001FFB2D /* QR-Code.png */; };
+		D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
-		D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B4B42C18BC082F00DBD097 /* AddressBook.png */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,9 +78,6 @@
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
 		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
-		9EA74A3418C142AA0047B33B /* app_icon_highres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_highres.png; path = icons/app/app_icon_highres.png; sourceTree = "<group>"; };
-		9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeViewController.h; sourceTree = "<group>"; };
-		9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeViewController.m; sourceTree = "<group>"; };
 		9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_add_person_dark.png; path = icons/ic_action_add_person_dark.png; sourceTree = "<group>"; };
 		9EFF817618C0EF45001A1416 /* ic_action_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_call.png; path = icons/ic_action_call.png; sourceTree = "<group>"; };
 		9EFF817718C0EF45001A1416 /* ic_action_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_action_email.png; path = icons/ic_action_email.png; sourceTree = "<group>"; };
@@ -107,9 +103,11 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D1919EF418BFC09200A70269 /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QR-Code.png"; sourceTree = "<group>"; };
+		D15B89CF18C200A9001FFB2D /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AddressBook.png; path = images/AddressBook.png; sourceTree = "<group>"; };
+		D15B89D018C200A9001FFB2D /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Code.png"; path = "images/QR-Code.png"; sourceTree = "<group>"; };
+		D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
+		D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
 		D1ABE42D18C1F50F00154101 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D1B4B42C18BC082F00DBD097 /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddressBook.png; sourceTree = "<group>"; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -154,14 +152,6 @@
 			name = Social;
 			sourceTree = "<group>";
 		};
-		9EA74A3318C1429F0047B33B /* App */ = {
-			isa = PBXGroup;
-			children = (
-				9EA74A3418C142AA0047B33B /* app_icon_highres.png */,
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
@@ -202,12 +192,12 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D15B89CE18C1FCD4001FFB2D /* Storyboards */,
 				D1E55F1418C1F04A0035D828 /* ViewControllers */,
 				D17C7EE318BFF0F300157673 /* Icons */,
 				D1B4B42B18BC080300DBD097 /* Images */,
 				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
-				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
@@ -246,10 +236,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D15B89CE18C1FCD4001FFB2D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		D17C7EE318BFF0F300157673 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				9EA74A3318C1429F0047B33B /* App */,
 				9EFF817518C0EF45001A1416 /* ic_action_add_person_dark.png */,
 				9EFF817618C0EF45001A1416 /* ic_action_call.png */,
 				9EFF817718C0EF45001A1416 /* ic_action_email.png */,
@@ -275,8 +272,8 @@
 		D1B4B42B18BC080300DBD097 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D1919EF418BFC09200A70269 /* QR-Code.png */,
-				D1B4B42C18BC082F00DBD097 /* AddressBook.png */,
+				D15B89CF18C200A9001FFB2D /* AddressBook.png */,
+				D15B89D018C200A9001FFB2D /* QR-Code.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -284,8 +281,8 @@
 		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9EA74A3618C152530047B33B /* EditNimpleCodeViewController.h */,
-				9EA74A3718C152530047B33B /* EditNimpleCodeViewController.m */,
+				D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */,
+				D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */,
 				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
 				9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */,
 				9E9CAB1C18C1058200A4FE27 /* BarCodeReaderController.h */,
@@ -376,25 +373,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1B4B42D18BC082F00DBD097 /* AddressBook.png in Resources */,
 				9EFF817E18C0EF45001A1416 /* ic_action_labels.png in Resources */,
 				9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */,
+				D15B89D118C200A9001FFB2D /* AddressBook.png in Resources */,
 				9EFF817D18C0EF45001A1416 /* ic_action_go_to_today.png in Resources */,
 				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
 				9E42B66818C0EDD800E8C9CA /* tab-settings.png in Resources */,
 				9E42B66F18C0EE9C00E8C9CA /* ic_facebook.png in Resources */,
 				9E42B67018C0EE9C00E8C9CA /* ic_googleplus.png in Resources */,
-				D1919EF518BFC09200A70269 /* QR-Code.png in Resources */,
 				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
 				9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */,
 				9EFF817B18C0EF45001A1416 /* ic_action_call.png in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
 				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
-				9EA74A3518C142AA0047B33B /* app_icon_highres.png in Resources */,
 				9E42B66718C0EDD800E8C9CA /* tab-overview.png in Resources */,
 				9EFF817A18C0EF45001A1416 /* ic_action_add_person_dark.png in Resources */,
 				9EFF817C18C0EF45001A1416 /* ic_action_email.png in Resources */,
 				9E42B67218C0EE9C00E8C9CA /* ic_twitter.png in Resources */,
+				D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */,
 				9E42B66518C0EDD800E8C9CA /* tab-add.png in Resources */,
 				9E42B67118C0EE9C00E8C9CA /* ic_linkedin.png in Resources */,
 			);
@@ -448,12 +444,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
 				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
 				9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */,
-				9EA74A3818C152530047B33B /* EditNimpleCodeViewController.m in Sources */,
 				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
