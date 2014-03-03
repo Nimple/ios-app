@@ -29,7 +29,6 @@
 
 - (IBAction)EditingDidEnd:(id)sender {
     self.value = self.inputField.text;
-    [self.inputField setText:self.value];
 }
 
 

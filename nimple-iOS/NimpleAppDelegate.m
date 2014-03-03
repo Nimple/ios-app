@@ -8,7 +8,7 @@
 
 #import "NimpleAppDelegate.h"
 #import <CoreImage/CoreImage.h>
-#import "NimpleContact.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation NimpleAppDelegate
 {

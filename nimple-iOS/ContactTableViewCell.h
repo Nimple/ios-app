@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 @interface ContactTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *prenameSurnameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phuneNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mailAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
 @property (weak, nonatomic) IBOutlet UIImageView *saveToContactsView;
+
+- (void) fillCellName:(NSString*)p_name PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail;
 
 @end

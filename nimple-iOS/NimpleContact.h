@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface NimpleContact : NSManagedObject
+@interface NimpleContact : NSObject
 
 @property NSString *prename;
 @property NSString *surname;
@@ -18,8 +18,11 @@
 @property NSString *company;
 @property NSString *job;
 
+- (id) init;
 - (NSString*) toString;
-+ (NimpleContact *) createContact;
-+ (void) createDefaultContact;
-+ (NimpleContact *) createContactWithPrename:(NSString *)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone EmailAddress:(NSString*)p_email CompanyName:(NSString*)p_company JobTitle:(NSString*)p_job;
+
+//+ (NimpleContact *) createContact;
+//+ (void) createDefaultContact;
+//+ (NimpleContact *) createContactWithPrename:(NSString *)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone EmailAddress:(NSString*)p_email CompanyName:(NSString*)p_company JobTitle:(NSString*)p_job;
+
 @end
