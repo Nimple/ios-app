@@ -45,6 +45,9 @@
 		D15B89D118C200A9001FFB2D /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89CF18C200A9001FFB2D /* AddressBook.png */; };
 		D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89D018C200A9001FFB2D /* QR-Code.png */; };
 		D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */; };
+		D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */; };
+		D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */; };
+		D1A0C03A18C3F72A00490E72 /* EditInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +110,12 @@
 		D15B89D018C200A9001FFB2D /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Code.png"; path = "images/QR-Code.png"; sourceTree = "<group>"; };
 		D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
 		D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
+		D19864CF18C4931700F9CB66 /* ConnectSocialProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectSocialProfileViewCell.h; sourceTree = "<group>"; };
+		D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectSocialProfileViewCell.m; sourceTree = "<group>"; };
+		D19864D318C495DD00F9CB66 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		D1A0C03818C3F72A00490E72 /* EditInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInputViewCell.h; sourceTree = "<group>"; };
+		D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInputViewCell.m; sourceTree = "<group>"; };
 		D1ABE42D18C1F50F00154101 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -192,6 +201,8 @@
 		D151DA7618B432F700C5850F /* nimple-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D1CB48FA18C4C91300414E5D /* DataModel */,
+				D1A0C03B18C3FB4600490E72 /* Views */,
 				D15B89CE18C1FCD4001FFB2D /* Storyboards */,
 				D1E55F1418C1F04A0035D828 /* ViewControllers */,
 				D17C7EE318BFF0F300157673 /* Icons */,
@@ -200,9 +211,6 @@
 				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
 				D151DA8B18B432F800C5850F /* Images.xcassets */,
 				D151DA7718B432F700C5850F /* Supporting Files */,
-				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
-				9E6858B618C0F0CC00C7D889 /* NimpleContact.h */,
-				9E6858B718C0F0CC00C7D889 /* NimpleContact.m */,
 			);
 			path = "nimple-iOS";
 			sourceTree = "<group>";
@@ -269,6 +277,35 @@
 			name = Tabbar;
 			sourceTree = "<group>";
 		};
+		D19864D218C495B800F9CB66 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				D19864D318C495DD00F9CB66 /* ContactTableViewCell.h */,
+				D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		D1A0C03B18C3FB4600490E72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D19864D218C495B800F9CB66 /* Contacts */,
+				D1A0C03C18C3FB5000490E72 /* EditNimpleCode */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D1A0C03C18C3FB5000490E72 /* EditNimpleCode */ = {
+			isa = PBXGroup;
+			children = (
+				D19864CF18C4931700F9CB66 /* ConnectSocialProfileViewCell.h */,
+				D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */,
+				D1A0C03818C3F72A00490E72 /* EditInputViewCell.h */,
+				D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */,
+			);
+			name = EditNimpleCode;
+			sourceTree = "<group>";
+		};
 		D1B4B42B18BC080300DBD097 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +313,16 @@
 				D15B89D018C200A9001FFB2D /* QR-Code.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		D1CB48FA18C4C91300414E5D /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
+				9E6858B618C0F0CC00C7D889 /* NimpleContact.h */,
+				9E6858B718C0F0CC00C7D889 /* NimpleContact.m */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
@@ -446,11 +493,14 @@
 			files = (
 				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
+				D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */,
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
+				D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */,
 				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
 				9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */,
 				9E6858B818C0F0CC00C7D889 /* NimpleContact.m in Sources */,
+				D1A0C03A18C3F72A00490E72 /* EditInputViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

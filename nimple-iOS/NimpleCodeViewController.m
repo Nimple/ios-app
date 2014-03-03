@@ -6,6 +6,15 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+// return true if the device has a retina display, false otherwise
+#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 10.0f
+
+// return the scale value based on device's display (2 retina, 1 other)
+#define DISPLAY_SCALE IS_RETINA_DISPLAY() ? 10.0f : 5.0f
+
+// if the device has a retina display return the real scaled pixel size, otherwise the same size will be returned
+#define PIXEL_SIZE(size) IS_RETINA_DISPLAY() ? CGSizeMake(size.width/10.0f, size.height/10.0f) : size
+
 #import "NimpleCodeViewController.h"
 
 @interface NimpleCodeViewController ()
@@ -100,7 +109,7 @@
     
     // Get generated QRCode and convert to UIImage
     CIImage *result     = [filter valueForKey:kCIOutputImageKey];
-    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result];
+    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:DISPLAY_SCALE orientation: UIImageOrientationUp];
     
     NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
     
