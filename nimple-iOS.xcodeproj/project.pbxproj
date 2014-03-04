@@ -42,7 +42,6 @@
 		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
 		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
-		D15B89D118C200A9001FFB2D /* AddressBook.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89CF18C200A9001FFB2D /* AddressBook.png */; };
 		D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89D018C200A9001FFB2D /* QR-Code.png */; };
 		D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */; };
 		D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */; };
@@ -51,6 +50,8 @@
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1CB490018C4E52700414E5D /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1CB48FF18C4E52700414E5D /* ContactsTableViewController.m */; };
 		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; };
+		D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490618C500BD00414E5D /* AddressBookUI.framework */; };
+		D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490818C500C800414E5D /* AddressBook.framework */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +109,6 @@
 		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D15B89CF18C200A9001FFB2D /* AddressBook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AddressBook.png; path = images/AddressBook.png; sourceTree = "<group>"; };
 		D15B89D018C200A9001FFB2D /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Code.png"; path = "images/QR-Code.png"; sourceTree = "<group>"; };
 		D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
 		D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		D1CB48FE18C4E52700414E5D /* ContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsTableViewController.h; sourceTree = "<group>"; };
 		D1CB48FF18C4E52700414E5D /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
 		D1CB490118C4EE9700414E5D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D1CB490618C500BD00414E5D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		D1CB490818C500C800414E5D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */,
+				D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */,
 				D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */,
 				D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */,
 				9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */,
@@ -191,6 +195,8 @@
 		D151DA6F18B432F700C5850F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1CB490818C500C800414E5D /* AddressBook.framework */,
+				D1CB490618C500BD00414E5D /* AddressBookUI.framework */,
 				D1CB490118C4EE9700414E5D /* MessageUI.framework */,
 				D1E55F1618C1F1450035D828 /* CoreData.framework */,
 				9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */,
@@ -316,7 +322,6 @@
 		D1B4B42B18BC080300DBD097 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D15B89CF18C200A9001FFB2D /* AddressBook.png */,
 				D15B89D018C200A9001FFB2D /* QR-Code.png */,
 			);
 			name = Images;
@@ -431,7 +436,6 @@
 			files = (
 				9EFF817E18C0EF45001A1416 /* ic_action_labels.png in Resources */,
 				9E42B67318C0EE9C00E8C9CA /* ic_xing.png in Resources */,
-				D15B89D118C200A9001FFB2D /* AddressBook.png in Resources */,
 				9EFF817D18C0EF45001A1416 /* ic_action_go_to_today.png in Resources */,
 				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
 				9E42B66818C0EDD800E8C9CA /* tab-settings.png in Resources */,

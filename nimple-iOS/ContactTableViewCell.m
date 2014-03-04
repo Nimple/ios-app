@@ -64,7 +64,7 @@
     if([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
-        mailContent.mailComposeDelegate = self.window.rootViewController;
+        mailContent.mailComposeDelegate = self;
         
         [mailContent setSubject:@""];
         [mailContent setToRecipients:[NSArray arrayWithObject:self.emailButton.currentTitle]];
@@ -78,6 +78,92 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Saves a contact to the iPhone address book
+- (IBAction)saveToAddressBookButtonClicked:(id)sender {
+    ABAddressBookRef addressBook = NULL;
+    CFErrorRef error = NULL;
+    
+    switch (ABAddressBookGetAuthorizationStatus()) {
+        case kABAuthorizationStatusAuthorized: {
+            addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+            
+            [self addAccountWithFirstName:self.nameLabel.text lastName:self.nameLabel.text inAddressBook:addressBook];
+            
+            if (addressBook != NULL) CFRelease(addressBook);
+            break;
+        }
+        case kABAuthorizationStatusDenied: {
+            NSLog(@"Access denied to address book");
+            break;
+        }
+        case kABAuthorizationStatusNotDetermined: {
+            addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+                if (granted) {
+                    NSLog(@"Access was granted");
+                    [self addAccountWithFirstName:self.nameLabel.text lastName:self.nameLabel.text inAddressBook:addressBook];
+                }
+                else NSLog(@"Access was not granted");
+                if (addressBook != NULL) CFRelease(addressBook);
+            });
+            break;
+        }
+        case kABAuthorizationStatusRestricted: {
+            NSLog(@"access restricted to address book");
+            break;
+        }
+    }
+}
+
+// Saves a contact to the address book of the phone
+- (ABRecordRef)addAccountWithFirstName:(NSString *)firstName lastName:(NSString *)lastName inAddressBook:(ABAddressBookRef)addressBook
+{
+    ABRecordRef result = NULL;
+    CFErrorRef error = NULL;
+    
+    //1
+    result = ABPersonCreate();
+    if (result == NULL) {
+        NSLog(@"Failed to create a new person.");
+        return NULL;
+    }
+    
+    //2
+    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)firstName, &error);
+    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)lastName, &error);
+    
+    if (couldSetFirstName && couldSetLastName) {
+        NSLog(@"Successfully set the first name and the last name of the person.");
+    } else {
+        NSLog(@"Failed.");
+    }
+    
+    //3
+    BOOL couldAddPerson = ABAddressBookAddRecord(addressBook, result, &error);
+    
+    if (couldAddPerson) {
+        NSLog(@"Successfully added the person.");
+    } else {
+        NSLog(@"Failed to add the person.");
+        CFRelease(result);
+        result = NULL;
+        return result;
+    }
+    
+    //4
+    if (ABAddressBookHasUnsavedChanges(addressBook)) {
+        BOOL couldSaveAddressBook = ABAddressBookSave(addressBook, &error);
+        
+        if (couldSaveAddressBook) {
+            NSLog(@"Succesfully saved the address book.");
+        } else {
+            NSLog(@"Failed.");
+        }
+    }
+    
+    return result;
 }
 
 @end

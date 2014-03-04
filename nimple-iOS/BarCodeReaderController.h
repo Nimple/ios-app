@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBook/ABPerson.h>
+#import <AddressBook/ABRecord.h>
 
 @interface BarCodeReaderController : UIViewController
     <AVCaptureMetadataOutputObjectsDelegate>

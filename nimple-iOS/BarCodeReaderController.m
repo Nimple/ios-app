@@ -22,6 +22,7 @@
 {
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;
+
 }
 
 
@@ -38,15 +39,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _isReading = NO;
+    _isReading = FALSE;
     _captureSession = nil;
     
     [self startReading];
 }
 
 
+- (void) viewDidAppear:(BOOL)animated {
+    [self startReading];
+}
+
+
 - (void) viewWillUnload {
-    [self stopReading];
+    //[self stopReading];
 }
 
 
@@ -108,15 +114,59 @@
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
 
         // Log to console
-        NSLog(@"\nQR VALUE:\n%@", [metadataObj stringValue]);
+        //NSLog(@"\nQR VALUE:\n%@", [metadataObj stringValue]);
+        
+        // Get data from vcard string
+        NSString *vCardString = metadataObj.stringValue;
+        
+        //@"BEGIN:VCARD\nN:%@;%@\nTEL;Cell:%@\nEMAIL;Internet:%@\nURL:%@\nURL:%@\nEND:VCARD"
+        
+        
+        
+        // Decomposing the vCard string
+        NSArray        *lines;
+        NSMutableArray *tokens = [[NSMutableArray alloc] init];
+        
+        NSLog(@"Tokenize VCARD:");
+
+        lines = [vCardString componentsSeparatedByString:@"\n"];
+        
+        for(NSString* token in lines)
+        {
+            //NSLog(@"%@", token);
+            NSArray *keyValuePair = [token componentsSeparatedByString:@":"];
+            if([keyValuePair[1] isEqualToString:@"VCARD"])
+               continue;
+            else
+            {
+                //NSLog(@"%@", keyValuePair[1]);
+                [tokens addObject: keyValuePair[1]];
+            }
+        }
+        //NSLog(@"array length is %lu", (unsigned long)tokens.count);
+        
+        // Get Data as strings
+        NSArray *name     = [tokens[1] componentsSeparatedByString:@";"];
+        NSString *mail    = tokens[2];
+        NSString *phone   = tokens[3];
+        NSString *job     = tokens[4];
+        NSString *company = tokens[5];
+        
+        NSLog(@"Name: %@ %@", name[1], name[0]);
+        NSLog(@"Phone: %@", phone);
+        NSLog(@"Mail: %@", mail);
+        NSLog(@"Job Title: %@", job);
+        NSLog(@"Company: %@", company);
         
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            
             /*
              [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
             _isReading = NO;
              */
         }
+        
+        
+        [self stopReading];
     }
 }
 
