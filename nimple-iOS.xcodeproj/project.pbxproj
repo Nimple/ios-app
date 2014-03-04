@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041C1AA8A22A499E904B14CD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
 		9E42B66518C0EDD800E8C9CA /* tab-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66118C0EDD800E8C9CA /* tab-add.png */; };
 		9E42B66618C0EDD800E8C9CA /* tab-nimplecode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42B66218C0EDD800E8C9CA /* tab-nimplecode.png */; };
@@ -142,7 +141,6 @@
 				D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */,
 				D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */,
 				D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */,
-				041C1AA8A22A499E904B14CD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

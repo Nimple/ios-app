@@ -7,7 +7,6 @@
 //
 
 #import "NimpleContact.h"
-#import <DKCoreDataManager/DKCoreDataManager.h>
 
 @implementation NimpleContact
 @dynamic surname;
