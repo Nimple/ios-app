@@ -47,14 +47,19 @@
     [self startReading];
 }
 
-
+// Starts the capture session when the view is currently presented
 - (void) viewDidAppear:(BOOL)animated {
     [self startReading];
 }
 
+// Stops the capture session when the view is not presented
+- (void) viewWillDisappear:(BOOL)animated {
+    [self stopReading];
+}
 
+// Stops the capture session when the view will be undloaded from memory
 - (void) viewWillUnload {
-    //[self stopReading];
+    [self stopReading];
 }
 
 
@@ -64,12 +69,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+// Toggles the capture session
 - (IBAction)startStopReading:(id)sender {
     if (!_isReading) {
-        if ([self startReading]) {
-
-        }
+        [self startReading];
     }
     else{
         [self stopReading];
@@ -77,7 +80,7 @@
     _isReading = !_isReading;
 }
 
-
+// Starts the capture session
 - (BOOL)startReading {
     NSError *error;
     
@@ -182,7 +185,7 @@
     }
 }
 
-
+// Stops the capture session
 -(void)stopReading{
     [_captureSession stopRunning];
     _captureSession = nil;

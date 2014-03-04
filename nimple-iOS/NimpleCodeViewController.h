@@ -11,6 +11,7 @@
 @interface NimpleCodeViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIImageView *nimpleQRCodeImage;
+
 - (UIImage*) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail;
 - (void) SetQRCodeImageSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail;
 - (void) updateQRCodeImageSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail;

@@ -24,7 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
 @property (weak, nonatomic) IBOutlet UIImageView *saveToContactsView;
 
-- (void) fillCellName:(NSString*)p_name PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company;
 - (ABRecordRef)addAccountWithFirstName:(NSString*)p_prename LastName:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company inAddressBook:(ABAddressBookRef)addressBook;
 
 @end

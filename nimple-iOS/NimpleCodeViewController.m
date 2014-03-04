@@ -49,11 +49,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    NSLog(@"NimpleCodeViewLoaded");
+    
     [self updateQRCodeImageSurname:@"init" Prename:@"init" Phone:@"init" Mail:@"init"];
 }
 
+//
 - (void) updateQRCodeImageSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail {
     
     generatedCodeImage = [self generateNimpleQRCodeSurname:p_surname Prename:p_prename Phone:p_phone Mail:p_mail];
@@ -61,7 +61,7 @@
     nimpleCodeExists = true;
 }
 
-
+//
 - (void) SetQRCodeImageSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail {
     
     generatedCodeImage = [self generateNimpleQRCodeSurname:p_surname Prename:p_prename Phone:p_phone Mail:p_mail];
@@ -77,7 +77,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+// Generates a nimple QR code with given
+// prename
+// surname
+// phone
+// mail
 - (UIImage*) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail{
     
     // 1. Surname

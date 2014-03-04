@@ -26,12 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,27 +36,33 @@
 
 #pragma mark - Table view data source
 
+// Returns the number of sections used in this table view
+// 1. personal section
+// 2. social section
+// 3. business section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 3;
 }
 
+// Returns the number of cells in the given section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger cellCount = 0;
-    // Return the number of rows in the section.
+    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail
     if(section == 0)
         cellCount = 4;
+    // 2. section (social)
     else if (section == 1)
         cellCount = 0;
+    // 3. section (business): 1. job title 2. company
     else if(section == 2)
         cellCount = 2;
     
     return cellCount;
 }
 
-
+// Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ContactInputCell";
@@ -81,6 +81,7 @@
     return cell;
 }
 
+// Returns the title for a given section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString* sectionName = @"";
     

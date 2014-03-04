@@ -30,34 +30,32 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Add test contact
-    
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
     
     [contact SetValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@""];
     NSLog(@"Contact created: %@", [contact toString]);
-     
+    
+    
+    // Find and delegate view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    NSLog(@"NavigationController is %@", navigationController.title);
     
-    NSLog(@"# NavigationControllers is %i", [navigationController.childViewControllers count]);
-    
-    // Contacts
+    // Find contacts view controller
     UINavigationController *presentedController0 = (UINavigationController *) navigationController.childViewControllers[0];
     NSLog(@"Controller 1  is %@", presentedController0.title);
-    
     ContactsViewController *contactsViewController = (ContactsViewController*)presentedController0.childViewControllers[0];
     contactsViewController.managedObjectContext = self.managedObjectContext;
     
-    // Nimple Code
+    // Find nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController *) navigationController.childViewControllers[1];
     NSLog(@"Controller 2 is %@", presentedController1.title);
     
-    // Code Reader
+    // Find code reader view controller
     UINavigationController *presentedController2 = (UINavigationController *) navigationController.childViewControllers[2];
     NSLog(@"Controller 3 is %@", presentedController2.title);
     BarCodeReaderController *barCodeReadercontroller = (BarCodeReaderController*)presentedController2.childViewControllers[0];
     barCodeReadercontroller.managedObjectContext = self.managedObjectContext;
     
+    // Find settings view controller
     UINavigationController *presentedController3 = (UINavigationController *) navigationController.childViewControllers[3];
     NSLog(@"Controller 4 is %@", presentedController3.title);
     

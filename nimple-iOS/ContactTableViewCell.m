@@ -22,21 +22,10 @@
     return self;
 }
 
-// Fill the cell with name, phone nr. and mail address
-- (void) fillCellName:(NSString*)p_name PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company;
-{
-    self.nameLabel.text = p_name;
-    [self.phoneButton setTitle:p_phone forState:UIControlStateNormal];
-    [self.emailButton setTitle:p_mail  forState:UIControlStateNormal];
-    self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ %@", p_job, p_company];
-}
-
-//
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 // Delegates calling a phone number to the phone app
@@ -76,7 +65,7 @@
         NSLog(@"Error: Your Mail Account may not be set up.");
 }
 
-//
+// Called when returning from mail app
 - (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
@@ -94,7 +83,7 @@
     }
 }
 
-// Saves a contact to the iPhone address book
+// Handles clicking the phone book icon
 - (IBAction)saveToAddressBookButtonClicked:(id)sender {
     ABAddressBookRef addressBook = NULL;
     CFErrorRef error = NULL;
@@ -105,7 +94,7 @@
         {
             addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             
-            [self addAccountWithFirstName:self.nameLabel.text LastName:self.nameLabel.text PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
+            [self addAccountWithFirstName:self.contact.prename LastName:self.contact.surname PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
             
             if (addressBook != NULL) CFRelease(addressBook);
             break;
