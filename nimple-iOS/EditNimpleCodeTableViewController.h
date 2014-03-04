@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditInputViewCell.h"
 
 @interface EditNimpleCodeTableViewController : UITableViewController
 

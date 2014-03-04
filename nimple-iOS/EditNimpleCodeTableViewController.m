@@ -18,7 +18,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -50,19 +50,48 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger cellCount = 0;
     // Return the number of rows in the section.
-    return 3;
+    if(section == 0)
+        cellCount = 4;
+    else if (section == 1)
+        cellCount = 0;
+    else if(section == 2)
+        cellCount = 2;
+    
+    return cellCount;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ContactInputCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"Input";
+    if(indexPath.row == 0)
+        [cell.inputField setPlaceholder:@"Dein Vorname"];
+    else if(indexPath.row == 1)
+        [cell.inputField setPlaceholder:@"Dein Nachname"];
+    else if(indexPath.row == 2)
+        [cell.inputField setPlaceholder:@"Dein Telefonnummer"];
+    else if(indexPath.row == 3)
+        [cell.inputField setPlaceholder:@"Deine E-Mail-Adresse"];
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString* sectionName = @"";
+    
+    if(section == 0)
+        sectionName = @"Personal";
+    else if(section == 1)
+        sectionName = @"Social";
+    else if(section == 2)
+        sectionName = @"Business";
+    
+    return sectionName;
 }
 
 /*
