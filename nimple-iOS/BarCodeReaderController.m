@@ -7,6 +7,7 @@
 //
 
 #import "BarCodeReaderController.h"
+#import "NimpleContact.h"
 
 @interface BarCodeReaderController ()
 
@@ -22,8 +23,9 @@
 {
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;
-
 }
+
+@synthesize managedObjectContext;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -146,9 +148,9 @@
         //NSLog(@"array length is %lu", (unsigned long)tokens.count);
         
         // Get Data as strings
-        NSArray *name     = [tokens[1] componentsSeparatedByString:@";"];
-        NSString *mail    = tokens[2];
-        NSString *phone   = tokens[3];
+        NSArray  *name    = [tokens[1] componentsSeparatedByString:@";"];
+        NSString *phone   = tokens[2];
+        NSString *mail    = tokens[3];
         NSString *job     = tokens[4];
         NSString *company = tokens[5];
         
@@ -165,7 +167,17 @@
              */
         }
         
+        NSManagedObjectContext *context = [self managedObjectContext];
+        NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
+        [contact SetValueForPrename:name[1] Surname:name[0] PhoneNumber:phone MailAddress:mail JobTitle:job Company:company];
+        NSLog(@"Contact created: %@", [contact toString]);
         
+        NSError *error;
+        [context save:&error];
+        
+        [self.successLabel setText:@"Contact saved!"];
+        [self.successLabel setHidden:FALSE];
+
         [self stopReading];
     }
 }

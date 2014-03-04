@@ -1,18 +1,22 @@
 //
-//  ContactsTableViewController.m
+//  ContactsViewController.m
 //  nimple-iOS
 //
-//  Created by Guido Schmidt on 03.03.14.
+//  Created by Guido Schmidt on 04.03.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-#import "ContactsTableViewController.h"
+#import "ContactsViewController.h"
+#import "ContactTableViewCell.h"
 
-@interface ContactsTableViewController ()
+@interface ContactsViewController ()
 
 @end
 
-@implementation ContactsTableViewController
+@implementation ContactsViewController
+
+@synthesize nimpleContacts;
+@synthesize managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,15 +27,14 @@
     return self;
 }
 
+// Will be executed when the view is loaded to memory
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self updateData];
+    
+    self.title = @"Contacts";
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,39 +43,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Will be executed when the view appears
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self updateData];
+}
+
+// Updates the data by fetchRequest from the managed object context
+- (void) updateData
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity  = [NSEntityDescription
+                                    entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [self.tableView reloadData];
+}
+
+//
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+//
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remove the deleted object from your data source.
+        //If your data source is an NSMutableArray, do this
+        //[self.nimpleContacts delete: [self.nimpleContacts objectAtIndex:0]];
+    }
+}
+
 #pragma mark - Table view data source
 
+// Sets the number of sections in the table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
+//
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return [nimpleContacts count];
 }
 
+//
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ContacteCell";
+    static NSString *CellIdentifier = @"ContactCell";
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    
-    
-    // Configure the cell...
-    [cell fillCellName:@"Sebastian Lang" PhoneNumber:@"017632640073" MailAddress:@"sebastian@nimple.de"];
+    NimpleContact *contact = [nimpleContacts objectAtIndex:indexPath.row];
+    [cell setContact:contact];
     
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString* sectionName = @"";
-    
-    sectionName = @"Contacts";
-    
-    return sectionName;
 }
 
 /*

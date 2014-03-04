@@ -6,12 +6,14 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-
+// Framework imports
 #import <CoreImage/CoreImage.h>
 #import <FacebookSDK/FacebookSDK.h>
-
+// Nimple imports
 #import "NimpleAppDelegate.h"
 #import "NimpleContact.h"
+#import "ContactsViewController.h"
+#import "BarCodeReaderController.h"
 
 @implementation NimpleAppDelegate
 
@@ -19,17 +21,63 @@
 @synthesize managedObjectModel         = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+//
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-    NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
-
-    NSLog(@"Nimple launched successfully!");
     
+    // Add test contact
+    
+    NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
+    
+    [contact SetValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@""];
+    NSLog(@"Contact created: %@", [contact toString]);
+     
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    NSLog(@"NavigationController is %@", navigationController.title);
+    
+    NSLog(@"# NavigationControllers is %i", [navigationController.childViewControllers count]);
+    
+    // Contacts
+    UINavigationController *presentedController0 = (UINavigationController *) navigationController.childViewControllers[0];
+    NSLog(@"Controller 1  is %@", presentedController0.title);
+    
+    ContactsViewController *contactsViewController = (ContactsViewController*)presentedController0.childViewControllers[0];
+    contactsViewController.managedObjectContext = self.managedObjectContext;
+    
+    // Nimple Code
+    UINavigationController *presentedController1 = (UINavigationController *) navigationController.childViewControllers[1];
+    NSLog(@"Controller 2 is %@", presentedController1.title);
+    
+    // Code Reader
+    UINavigationController *presentedController2 = (UINavigationController *) navigationController.childViewControllers[2];
+    NSLog(@"Controller 3 is %@", presentedController2.title);
+    BarCodeReaderController *barCodeReadercontroller = (BarCodeReaderController*)presentedController2.childViewControllers[0];
+    barCodeReadercontroller.managedObjectContext = self.managedObjectContext;
+    
+    UINavigationController *presentedController3 = (UINavigationController *) navigationController.childViewControllers[3];
+    NSLog(@"Controller 4 is %@", presentedController3.title);
+    
+    /*
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+        
+        UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
+        ContactsViewController *controller = (ContactsViewController *)masterNavigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    } else {
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        ContactsViewController *controller = (ContactsViewController *)navigationController.topViewController;
+        controller.managedObjectContext = self.managedObjectContext;
+    }
+     */
+    
+    NSLog(@"Nimple launched successfully!");
     return YES;
 }
 							
@@ -99,7 +147,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"FailedBankCD" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -112,7 +160,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FailedBankCD.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"NimpleContact.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

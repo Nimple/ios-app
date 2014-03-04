@@ -78,11 +78,6 @@
 }
 
 
--(void) viewWillAppear:(BOOL)animated {
-
-}
-
-
 - (UIImage*) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail{
     
     // 1. Surname

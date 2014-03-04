@@ -10,6 +10,7 @@
 
 
 @implementation ContactTableViewCell
+@synthesize contact = _contact;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,14 +23,15 @@
 }
 
 // Fill the cell with name, phone nr. and mail address
-- (void) fillCellName:(NSString*)p_name PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail
+- (void) fillCellName:(NSString*)p_name PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company;
 {
     self.nameLabel.text = p_name;
     [self.phoneButton setTitle:p_phone forState:UIControlStateNormal];
     [self.emailButton setTitle:p_mail  forState:UIControlStateNormal];
+    self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ %@", p_job, p_company];
 }
 
-
+//
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -42,18 +44,16 @@
     NSLog(@"Phone calling...");
     
     UIDevice *device = [UIDevice currentDevice];
-    
     NSString *cellNameStr = [NSString stringWithFormat:@"%@", self.phoneButton.currentTitle];
     
-    if ([[device model] isEqualToString:@"iPhone"] ) {
-        
+    if ([[device model] isEqualToString:@"iPhone"])
+    {
         NSString *phoneNumber = [@"tel://" stringByAppendingString:cellNameStr];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-        
-    } else {
-        
-        UIAlertView *warning =[[UIAlertView alloc] initWithTitle:@"Note" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
+    }
+    else
+    {
+        UIAlertView *warning =[[UIAlertView alloc] initWithTitle:@"Note" message:@"Error: Phone Calls does not work properly" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [warning show];
     }
 }
@@ -73,11 +73,25 @@
         [self.window.rootViewController presentViewController:mailContent animated:YES completion:nil];
     }
     else
-        NSLog(@"error");
+        NSLog(@"Error: Your Mail Account may not be set up.");
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+//
+- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Sets the contact of the cell
+- (void)setContact:(NimpleContact *)contact;
+{
+    if (contact != _contact)
+    {
+        _contact = contact;
+        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.prename, self.contact.surname]];
+        [self.phoneButton setTitle:self.contact.phone forState:UIControlStateNormal];
+        [self.emailButton setTitle:self.contact.email forState:UIControlStateNormal];
+        self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ @ %@", contact.job, contact.company];
+    }
 }
 
 // Saves a contact to the iPhone address book
@@ -85,25 +99,29 @@
     ABAddressBookRef addressBook = NULL;
     CFErrorRef error = NULL;
     
-    switch (ABAddressBookGetAuthorizationStatus()) {
-        case kABAuthorizationStatusAuthorized: {
+    switch (ABAddressBookGetAuthorizationStatus())
+    {
+        case kABAuthorizationStatusAuthorized:
+        {
             addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             
-            [self addAccountWithFirstName:self.nameLabel.text lastName:self.nameLabel.text inAddressBook:addressBook];
+            [self addAccountWithFirstName:self.nameLabel.text LastName:self.nameLabel.text PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
             
             if (addressBook != NULL) CFRelease(addressBook);
             break;
         }
-        case kABAuthorizationStatusDenied: {
+        case kABAuthorizationStatusDenied:
+        {
             NSLog(@"Access denied to address book");
             break;
         }
-        case kABAuthorizationStatusNotDetermined: {
+        case kABAuthorizationStatusNotDetermined:
+        {
             addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
                 if (granted) {
                     NSLog(@"Access was granted");
-                    [self addAccountWithFirstName:self.nameLabel.text lastName:self.nameLabel.text inAddressBook:addressBook];
+                    [self addAccountWithFirstName:self.nameLabel.text LastName:self.nameLabel.text PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
                 }
                 else NSLog(@"Access was not granted");
                 if (addressBook != NULL) CFRelease(addressBook);
@@ -118,29 +136,32 @@
 }
 
 // Saves a contact to the address book of the phone
-- (ABRecordRef)addAccountWithFirstName:(NSString *)firstName lastName:(NSString *)lastName inAddressBook:(ABAddressBookRef)addressBook
+- (ABRecordRef)addAccountWithFirstName:(NSString*)p_prename LastName:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company inAddressBook:(ABAddressBookRef)addressBook
 {
     ABRecordRef result = NULL;
-    CFErrorRef error = NULL;
+    CFErrorRef error   = NULL;
     
-    //1
     result = ABPersonCreate();
     if (result == NULL) {
         NSLog(@"Failed to create a new person.");
         return NULL;
     }
     
-    //2
-    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)firstName, &error);
-    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)lastName, &error);
+
+    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)p_prename, &error);
+    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)p_surname, &error);
+    //BOOL couldSetPhone = ABRecordSetValue(result, kABPersonPhoneProperty, (__bridge CFTypeRef)p_phone, &error);
+    //BOOL couldSetMail = ABRecordSetValue(result, kABPersonEmailProperty, (__bridge CFTypeRef)p_mail, &error);
+    //BOOL couldSetJob = ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef)p_job, &error);
+    //BOOL couldSetCompany = ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef)p_company, &error);
     
-    if (couldSetFirstName && couldSetLastName) {
+    if (couldSetFirstName && couldSetLastName)
+    {
         NSLog(@"Successfully set the first name and the last name of the person.");
     } else {
         NSLog(@"Failed.");
     }
     
-    //3
     BOOL couldAddPerson = ABAddressBookAddRecord(addressBook, result, &error);
     
     if (couldAddPerson) {
@@ -152,7 +173,6 @@
         return result;
     }
     
-    //4
     if (ABAddressBookHasUnsavedChanges(addressBook)) {
         BOOL couldSaveAddressBook = ABAddressBookSave(addressBook, &error);
         
