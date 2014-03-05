@@ -7,7 +7,6 @@
         <!--Tab Bar Controller - Tab Bar Controller-->
         <scene sceneID="7Yv-QL-b6T">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jIT-Kq-A6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController title="Tab Bar Controller" definesPresentationContext="YES" id="9vL-qg-3SR" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -24,6 +23,7 @@
                         <segue destination="XTa-tD-9fe" kind="relationship" relationship="viewControllers" id="qf8-gM-cBT"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIT-Kq-A6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-861" y="-561"/>
         </scene>
@@ -129,7 +129,7 @@
                     <navigationItem key="navigationItem" title="Nimple Code" id="93b-pI-kqe">
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="0yX-GC-7hd">
                             <connections>
-                                <segue destination="Tgh-Wo-huh" kind="push" id="yOf-NH-Wbv"/>
+                                <segue destination="fNF-4g-urE" kind="modal" identifier="Edit" modalTransitionStyle="coverVertical" id="PHQ-Tn-0Ou"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,7 +140,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="484" y="525"/>
+            <point key="canvasLocation" x="397" y="525"/>
+        </scene>
+        <!--Navigation Controller - Edit Nimple Code View Controller-->
+        <scene sceneID="Ory-hC-d3M">
+            <objects>
+                <navigationController title="Edit Nimple Code View Controller" definesPresentationContext="YES" id="fNF-4g-urE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qFO-AX-7Zw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Tgh-Wo-huh" kind="relationship" relationship="rootViewController" id="JMS-2l-9sB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSb-ex-Ajm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="525"/>
         </scene>
         <!--Edit Nimple Code Table View Controller - Edit Nimple Code-->
         <scene sceneID="H2V-Iy-FYx">
@@ -151,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactInputCell" id="bQT-iM-lrq" customClass="EditInputViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactInputCell" id="bQT-iM-lrq" customClass="EditInputViewCell">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQT-iM-lrq" id="Zkh-j9-886">
@@ -170,16 +185,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="inputField" destination="J4o-ny-TGZ" id="KI0-l8-xyc"/>
+                                    <outlet property="inputField" destination="J4o-ny-TGZ" id="7BF-qT-Q0K"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactInputCell" id="KfU-sU-t8b">
-                                <rect key="frame" x="0.0" y="163" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KfU-sU-t8b" id="IZa-3x-itD">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -188,11 +195,30 @@
                             <outlet property="delegate" destination="Tgh-Wo-huh" id="0Ac-oa-PCi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Nimple Code" id="Zpe-sv-8TL"/>
+                    <toolbarItems>
+                        <barButtonItem id="iz0-pP-983"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Bearbeiten" id="Xjc-5C-ta5">
+                        <barButtonItem key="leftBarButtonItem" title="Abbrechen" id="Vog-qG-3bk">
+                            <color key="tintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="Tgh-Wo-huh" id="BsB-IH-Ogg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Fertig" id="r4C-uO-736">
+                            <color key="tintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="done:" destination="Tgh-Wo-huh" id="9g9-o4-rHm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjz-aP-Ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="525"/>
+            <point key="canvasLocation" x="1296" y="525"/>
         </scene>
         <!--Navigation Controller - Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
@@ -206,12 +232,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wdH-3I-tgZ" kind="relationship" relationship="rootViewController" id="JMp-vq-qVe"/>
+                        <segue destination="wdH-3I-tgZ" kind="relationship" relationship="rootViewController" id="rLq-IV-pgA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fd-gD-fc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="513"/>
+            <point key="canvasLocation" x="20" y="525"/>
         </scene>
         <!--View Controller - Einstellungen-->
         <scene sceneID="mqr-I9-OMI">
@@ -293,7 +319,7 @@
         <scene sceneID="LLr-Di-jWV">
             <objects>
                 <tableViewController id="gqP-yl-IrF" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" sectionHeaderHeight="22" sectionFooterHeight="22" id="bDQ-xD-m4U">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="134" sectionHeaderHeight="22" sectionFooterHeight="22" id="bDQ-xD-m4U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -311,7 +337,7 @@
                                 <rect key="frame" x="0.0" y="130" width="320" height="134"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ca-QZ-fxh" id="plr-gO-2rl">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZm-ic-gp5">
@@ -602,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFc-YN-RXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531" y="1020"/>
+            <point key="canvasLocation" x="1814" y="945"/>
         </scene>
     </scenes>
     <resources>

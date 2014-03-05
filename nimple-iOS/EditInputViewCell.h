@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OwnNimpleCode.h"
+#import "EditNimpleCodeTableViewController.h"
 
 @interface EditInputViewCell : UITableViewCell
 
+@property (atomic) NSInteger index;
+@property (atomic) NSInteger section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
-@property (weak, nonatomic) NSString* value;
+@property (weak, nonatomic) NSString             *value;
+@property NSUserDefaults        *myNimpleCode;
 
 @end

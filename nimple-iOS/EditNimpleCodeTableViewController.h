@@ -12,9 +12,24 @@
 #import "EditInputViewCell.h"
 #import "OwnNimpleCode.h"
 
+@class  EditNimpleCodeTableViewController;
+
+@protocol EditNimpleCodeTableControllerDelegate <NSObject>
+
+- (void) editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController*)controller;
+- (void) editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController*)controller;
+
+@end
+
 @interface EditNimpleCodeTableViewController : UITableViewController
 
-@property (nonatomic, strong) OwnNimpleCode          *myNimpleCode;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
+
+@property (atomic) BOOL ownNimpleCodeExists;
+@property (nonatomic, strong) NSMutableArray *cells;
+@property (atomic, strong) NSUserDefaults    *myNimpleCode;
+
+- (IBAction)cancel:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end

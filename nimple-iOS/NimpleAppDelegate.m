@@ -6,23 +6,14 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-// Framework imports
-#import <CoreImage/CoreImage.h>
-#import <FacebookSDK/FacebookSDK.h>
-// Nimple imports
 #import "NimpleAppDelegate.h"
-#import "NimpleContact.h"
-#import "OwnNimpleCode.h"
-#import "ContactsViewController.h"
-#import "BarCodeReaderController.h"
-#import "EditNimpleCodeTableViewController.h"
-#import "NimpleCodeViewController.h"
 
 @implementation NimpleAppDelegate
 
 @synthesize managedObjectContext       = _managedObjectContext;
 @synthesize managedObjectModel         = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize myNimpleCode = _myNimpleCode;
 
 //
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -31,11 +22,9 @@
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-
     
-    // Add test contact
+    // Insert default contact
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
-    
     [contact SetValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@""];
     NSLog(@"Contact created: %@", [contact toString]);
     
@@ -53,10 +42,6 @@
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 2 is %@", presentedController1.title);
     NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
-    //id target = nimpleCodeViewController.editButton.target;
-    //UIStoryboardSegue *temp = target;
-    //UIViewController *dest = temp.sourceViewController;
-    //NSLog(@"Edit Nimple is %@", dest.title);
     
     // Find code reader view controller
     UINavigationController *presentedController2 = (UINavigationController *) navigationController.childViewControllers[2];

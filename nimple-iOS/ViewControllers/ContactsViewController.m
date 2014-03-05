@@ -33,8 +33,6 @@
     [super viewDidLoad];
     
     [self updateData];
-    
-    self.title = @"Contacts";
 }
 
 - (void)didReceiveMemoryWarning

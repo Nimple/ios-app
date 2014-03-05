@@ -14,8 +14,9 @@
 
 @implementation EditNimpleCodeTableViewController
 
+@synthesize ownNimpleCodeExists;
 @synthesize myNimpleCode;
-@synthesize managedObjectContext;
+@synthesize cells;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,12 +30,59 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Initalize user defaults if needed
+    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
+    NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
+    if(surname.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"surname"];
+    }
+    
+    NSString* prename = [self.myNimpleCode valueForKey:@"prename"];
+    if(prename.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"prename"];
+    }
+    
+    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
+    if(phone.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"phone"];
+    }
+    
+    NSString* email = [self.myNimpleCode valueForKey:@"email"];
+    if(email.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"email"];
+    }
+
+    NSString* job = [self.myNimpleCode valueForKey:@"job"];
+    if(job.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"job"];
+    }
+    
+    NSString* company = [self.myNimpleCode valueForKey:@"company"];
+    if(company.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"company"];
+    }
+
+    [self.myNimpleCode synchronize];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self.myNimpleCode synchronize];
+    NSLog(@"My Nimple Code is: %@ %@, %@, %@, %@ @ %@", [self.myNimpleCode valueForKey:@"prename"], [self.myNimpleCode valueForKey:@"surname"], [self.myNimpleCode valueForKey:@"phone"], [self.myNimpleCode valueForKey:@"email"], [self.myNimpleCode valueForKey:@"job"], [self.myNimpleCode valueForKey:@"company"]);
+
 }
 
 #pragma mark - Table view data source
@@ -68,19 +116,82 @@
 // Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.myNimpleCode synchronize];
     static NSString *CellIdentifier = @"ContactInputCell";
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    if(indexPath.row == 0)
-        [cell.inputField setPlaceholder:@"Dein Vorname"];
-    else if(indexPath.row == 1)
-        [cell.inputField setPlaceholder:@"Dein Nachname"];
-    else if(indexPath.row == 2)
-        [cell.inputField setPlaceholder:@"Dein Telefonnummer"];
-    else if(indexPath.row == 3)
-        [cell.inputField setPlaceholder:@"Deine E-Mail-Adresse"];
-    
+    switch (indexPath.section) {
+        // Section: personal
+        case 0:
+            if(indexPath.row == 0)
+            {
+                if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Dein Vorname"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            if(indexPath.row == 1)
+            {
+                if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Dein Nachname"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            if(indexPath.row == 2)
+            {
+                if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"phone"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            if(indexPath.row == 3)
+            {
+                if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            break;
+        // Section: social
+        case 1:
+            break;
+        // Section: business
+        case 2:
+            if(indexPath.row == 0)
+            {
+                if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Deine Job Bezeichnung"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            if(indexPath.row == 1)
+            {
+                if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Deine Firma"];
+                else
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
+                
+                [cell setIndex: indexPath.item];
+                [cell setSection: indexPath.section];
+            }
+            break;
+    }
     return cell;
 }
 
@@ -96,6 +207,19 @@
         sectionName = @"Business";
     
     return sectionName;
+}
+
+//
+- (IBAction)cancel:(id)sender
+{
+    [self.delegate editNimpleCodeTableViewControllerDidCancel:self];
+}
+
+//
+- (IBAction)done:(id)sender
+{
+    [self.delegate editNimpleCodeTableViewControllerDidSave:self];
+    [self.myNimpleCode synchronize];
 }
 
 /*
