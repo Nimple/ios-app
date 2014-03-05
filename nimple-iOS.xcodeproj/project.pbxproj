@@ -52,6 +52,7 @@
 		D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490818C500C800414E5D /* AddressBook.framework */; };
 		D1E29FA018C62C4D00BE2A63 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29F9F18C62C4D00BE2A63 /* NimpleContact.m */; };
 		D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */; };
+		D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,8 @@
 		D1E29F9F18C62C4D00BE2A63 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleContact.m; path = Model/NimpleContact.m; sourceTree = "<group>"; };
 		D1E29FEE18C647ED00BE2A63 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = ViewControllers/ContactsViewController.h; sourceTree = "<group>"; };
 		D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsViewController.m; path = ViewControllers/ContactsViewController.m; sourceTree = "<group>"; };
+		D1E29FF118C6A1C800BE2A63 /* OwnNimpleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OwnNimpleCode.h; path = Model/OwnNimpleCode.h; sourceTree = "<group>"; };
+		D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OwnNimpleCode.m; path = Model/OwnNimpleCode.m; sourceTree = "<group>"; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -331,6 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
+				D1E29FF118C6A1C800BE2A63 /* OwnNimpleCode.h */,
+				D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */,
 				D1E29F9E18C62C4D00BE2A63 /* NimpleContact.h */,
 				D1E29F9F18C62C4D00BE2A63 /* NimpleContact.m */,
 			);
@@ -506,6 +511,7 @@
 			files = (
 				D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */,
 				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
+				D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */,
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
 				D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */,
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,

@@ -29,6 +29,8 @@
     NSString    *vCardString;
 }
 
+@synthesize editButton;
+
 - (id)init
 {
     self = [super init];

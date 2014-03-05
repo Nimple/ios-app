@@ -118,6 +118,8 @@
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
 
+        [self.successLabel setText:@"Contact saved!"];
+        [self stopReading];
         // Log to console
         //NSLog(@"\nQR VALUE:\n%@", [metadataObj stringValue]);
         
@@ -170,18 +172,15 @@
              */
         }
         
+        
         NSManagedObjectContext *context = [self managedObjectContext];
+        
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
         [contact SetValueForPrename:name[1] Surname:name[0] PhoneNumber:phone MailAddress:mail JobTitle:job Company:company];
         NSLog(@"Contact created: %@", [contact toString]);
         
         NSError *error;
         [context save:&error];
-        
-        [self.successLabel setText:@"Contact saved!"];
-        [self.successLabel setHidden:FALSE];
-
-        [self stopReading];
     }
 }
 

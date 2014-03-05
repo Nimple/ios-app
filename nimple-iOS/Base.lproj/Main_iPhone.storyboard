@@ -40,28 +40,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-LG-kyz">
-                                <rect key="frame" x="0.0" y="86" width="320" height="332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER2-mF-Aik">
-                                        <rect key="frame" x="0.0" y="471" width="320" height="61"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="highlightedColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1R-jr-7a3">
-                                <rect key="frame" x="0.0" y="472" width="320" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.020162645999999999" blue="0.81017003570000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -70,7 +52,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="codeReaderCameraView" destination="rgd-LG-kyz" id="gki-yv-r0R"/>
-                        <outlet property="successLabel" destination="E1R-jr-7a3" id="yIW-8q-6XH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dj7-po-nne" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,35 +79,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="clh-BZ-4qX" id="SOg-Yo-tvx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tM-4m-DPQ">
-                                            <rect key="frame" x="0.0" y="93" width="320" height="41"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_xing.png" translatesAutoresizingMaskIntoConstraints="NO" id="tl4-dM-0Lc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q7q-xO-hUN">
-                                                    <rect key="frame" x="40" y="0.0" width="41" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-KD-KMn">
-                                                    <rect key="frame" x="81" y="0.0" width="41" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_linkedin.png" translatesAutoresizingMaskIntoConstraints="NO" id="INn-Li-Jfu">
-                                                    <rect key="frame" x="122" y="0.0" width="41" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_googleplus.png" translatesAutoresizingMaskIntoConstraints="NO" id="CBK-mc-OGe">
-                                                    <rect key="frame" x="163" y="0.0" width="41" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.90760869565217395" green="0.90760869565217395" blue="0.90760869565217395" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="emailButton" destination="2EL-di-PP3" id="0ni-3p-tKC"/>
@@ -177,22 +129,23 @@
                     <navigationItem key="navigationItem" title="Nimple Code" id="93b-pI-kqe">
                         <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="0yX-GC-7hd">
                             <connections>
-                                <segue destination="Tgh-Wo-huh" kind="push" id="tf5-DW-te5"/>
+                                <segue destination="Tgh-Wo-huh" kind="push" id="yOf-NH-Wbv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="0yX-GC-7hd" id="Kxp-Hr-Nap"/>
                         <outlet property="nimpleQRCodeImage" destination="6BA-IE-nrP" id="GeA-9m-UzG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="546" y="513"/>
+            <point key="canvasLocation" x="484" y="525"/>
         </scene>
-        <!--Edit Nimple Code Table View Controller-->
+        <!--Edit Nimple Code Table View Controller - Edit Nimple Code-->
         <scene sceneID="H2V-Iy-FYx">
             <objects>
-                <tableViewController id="Tgh-Wo-huh" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Edit Nimple Code" id="Tgh-Wo-huh" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="YGx-Sr-jw5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,11 +188,11 @@
                             <outlet property="delegate" destination="Tgh-Wo-huh" id="0Ac-oa-PCi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Zpe-sv-8TL"/>
+                    <navigationItem key="navigationItem" title="Edit Nimple Code" id="Zpe-sv-8TL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjz-aP-Ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="513"/>
+            <point key="canvasLocation" x="924" y="525"/>
         </scene>
         <!--Navigation Controller - Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
@@ -321,7 +274,7 @@
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="contacts" image="tab-overview.png" id="hFR-7f-QgP"/>
+                    <tabBarItem key="tabBarItem" title="contacts" image="contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cmE-Bg-O4g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -368,7 +321,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKa-h7-Hc2">
-                                            <rect key="frame" x="57" y="43" width="189" height="30"/>
+                                            <rect key="frame" x="57" y="38" width="189" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Phone Number">
@@ -381,7 +334,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EL-di-PP3">
-                                            <rect key="frame" x="57" y="64" width="189" height="30"/>
+                                            <rect key="frame" x="57" y="59" width="189" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="E-Mail Address">
@@ -394,7 +347,7 @@
                                             </connections>
                                         </button>
                                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_call" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-kG-z5c">
-                                            <rect key="frame" x="20" y="46" width="24" height="24"/>
+                                            <rect key="frame" x="20" y="41" width="24" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -402,7 +355,7 @@
                                             </accessibility>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_email" translatesAutoresizingMaskIntoConstraints="NO" id="boZ-5W-jtr">
-                                            <rect key="frame" x="20" y="67" width="24" height="24"/>
+                                            <rect key="frame" x="20" y="62" width="24" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Title @ Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-w7-hxh">
@@ -424,6 +377,33 @@
                                                 <action selector="saveToAddressBookButtonClicked:" destination="clh-BZ-4qX" eventType="touchUpInside" id="dO0-OV-UYk"/>
                                             </connections>
                                         </button>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tM-4m-DPQ">
+                                            <rect key="frame" x="0.0" y="92" width="320" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_xing.png" translatesAutoresizingMaskIntoConstraints="NO" id="tl4-dM-0Lc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q7q-xO-hUN">
+                                                    <rect key="frame" x="40" y="0.0" width="41" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="X9Q-KD-KMn">
+                                                    <rect key="frame" x="81" y="0.0" width="41" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_linkedin.png" translatesAutoresizingMaskIntoConstraints="NO" id="INn-Li-Jfu">
+                                                    <rect key="frame" x="122" y="0.0" width="41" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_googleplus.png" translatesAutoresizingMaskIntoConstraints="NO" id="CBK-mc-OGe">
+                                                    <rect key="frame" x="163" y="0.0" width="41" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.90760869565217395" green="0.90760869565217395" blue="0.90760869565217395" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -461,7 +441,7 @@
         <scene sceneID="LI8-0w-Bi5">
             <objects>
                 <navigationController title="CodeReader Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="UAQ-PA-uRr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="add contact" image="tab-add.png" id="jPL-Gd-fOY"/>
+                    <tabBarItem key="tabBarItem" title="add contact" image="addcontact" id="jPL-Gd-fOY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DZj-Pd-raD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -480,7 +460,7 @@
         <scene sceneID="8Lq-Hs-uXh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XTa-tD-9fe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="settings" image="tab-settings.png" id="ej1-ym-vBc"/>
+                    <tabBarItem key="tabBarItem" title="settings" image="settings" id="ej1-ym-vBc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XVW-CG-R5e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -626,6 +606,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addcontact" width="20" height="20"/>
+        <image name="contacts" width="20" height="20"/>
         <image name="ic_action_call" width="96" height="96"/>
         <image name="ic_action_call.png" width="96" height="96"/>
         <image name="ic_action_email" width="96" height="96"/>
@@ -639,9 +621,7 @@
         <image name="ic_xing.png" width="105" height="105"/>
         <image name="nimplecode" width="20" height="20"/>
         <image name="save-to-address-book" width="25" height="31"/>
-        <image name="tab-add.png" width="30" height="30"/>
-        <image name="tab-overview.png" width="30" height="30"/>
-        <image name="tab-settings.png" width="29" height="30"/>
+        <image name="settings" width="20" height="20"/>
     </resources>
     <color key="tintColor" red="0.5" green="0.0" blue="0.36254722007277884" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

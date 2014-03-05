@@ -12,8 +12,11 @@
 // Nimple imports
 #import "NimpleAppDelegate.h"
 #import "NimpleContact.h"
+#import "OwnNimpleCode.h"
 #import "ContactsViewController.h"
 #import "BarCodeReaderController.h"
+#import "EditNimpleCodeTableViewController.h"
+#import "NimpleCodeViewController.h"
 
 @implementation NimpleAppDelegate
 
@@ -28,6 +31,7 @@
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     NSManagedObjectContext *context = [self managedObjectContext];
+
     
     // Add test contact
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
@@ -40,14 +44,19 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
     // Find contacts view controller
-    UINavigationController *presentedController0 = (UINavigationController *) navigationController.childViewControllers[0];
+    UINavigationController *presentedController0 = (UINavigationController*) navigationController.childViewControllers[0];
     NSLog(@"Controller 1  is %@", presentedController0.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)presentedController0.childViewControllers[0];
     contactsViewController.managedObjectContext = self.managedObjectContext;
     
     // Find nimple code view controller
-    UINavigationController *presentedController1 = (UINavigationController *) navigationController.childViewControllers[1];
+    UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 2 is %@", presentedController1.title);
+    NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
+    //id target = nimpleCodeViewController.editButton.target;
+    //UIStoryboardSegue *temp = target;
+    //UIViewController *dest = temp.sourceViewController;
+    //NSLog(@"Edit Nimple is %@", dest.title);
     
     // Find code reader view controller
     UINavigationController *presentedController2 = (UINavigationController *) navigationController.childViewControllers[2];

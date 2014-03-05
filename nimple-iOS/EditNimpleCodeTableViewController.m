@@ -14,6 +14,9 @@
 
 @implementation EditNimpleCodeTableViewController
 
+@synthesize myNimpleCode;
+@synthesize managedObjectContext;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];

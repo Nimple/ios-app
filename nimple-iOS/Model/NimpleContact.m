@@ -18,7 +18,6 @@
 @dynamic phone;
 @dynamic surname;
 
-
 // Sets all properties of a contact
 -(void) SetValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company
 {
