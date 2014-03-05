@@ -65,7 +65,7 @@
 //
 - (void) UpdateQRCodeImage
 {
-    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:20.0f orientation: UIImageOrientationUp];
+    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:100.0f orientation: UIImageOrientationUp];
     self.nimpleQRCodeImage.image = generatedCodeImage;
 }
 
@@ -84,12 +84,13 @@
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     [filter setValue:asciiData forKey:@"inputMessage"];
-    [filter setValue:@"M" forKey:@"inputCorrectionLevel"];
+    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"];
     // Log the filter
     //NSLog(@"%@: %@", filter.name, filter.description);
     
     // Get generated QRCode and convert to UIImage
-    result     = [filter valueForKey:kCIOutputImageKey];
+    CIImage *filtered   = [filter valueForKey:kCIOutputImageKey];
+    result              = [filtered imageByCroppingToRect:CGRectMake(0, 0, self.nimpleQRCodeImage.bounds.size.width*20.0, self.nimpleQRCodeImage.bounds.size.height*20.0)];
     generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:100.0f orientation: UIImageOrientationUp];
     
     NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
