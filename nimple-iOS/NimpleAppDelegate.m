@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 #import "NimpleAppDelegate.h"
 
 @implementation NimpleAppDelegate
@@ -18,41 +23,44 @@
 //
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x8D0835)];
+    
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Insert default contact
+    /*
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
     [contact SetValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@""];
     NSLog(@"Contact created: %@", [contact toString]);
-    
-    
+    */
+     
     // Find and delegate view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
-    // Find contacts view controller
-    UINavigationController *presentedController0 = (UINavigationController*) navigationController.childViewControllers[0];
-    NSLog(@"Controller 1  is %@", presentedController0.title);
-    ContactsViewController *contactsViewController = (ContactsViewController*)presentedController0.childViewControllers[0];
-    contactsViewController.managedObjectContext = self.managedObjectContext;
-    
-    // Find nimple code view controller
+    // Nimple card view controller
+    UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
+    NSLog(@"Controller 0  is %@", nimpleCardController.title);
+
+    // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
-    NSLog(@"Controller 2 is %@", presentedController1.title);
+    NSLog(@"Controller 1 is %@", presentedController1.title);
     NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
     
+    // Nimple code view controller
+    UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
+    NSLog(@"Controller 2 is %@", contactsController.title);
+    ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
+    contactsViewController.managedObjectContext = context;
+    
     // Find code reader view controller
-    UINavigationController *presentedController2 = (UINavigationController *) navigationController.childViewControllers[2];
-    NSLog(@"Controller 3 is %@", presentedController2.title);
-    BarCodeReaderController *barCodeReadercontroller = (BarCodeReaderController*)presentedController2.childViewControllers[0];
-    barCodeReadercontroller.managedObjectContext = self.managedObjectContext;
-    
-    // Find settings view controller
-    UINavigationController *presentedController3 = (UINavigationController *) navigationController.childViewControllers[3];
-    NSLog(@"Controller 4 is %@", presentedController3.title);
-    
+    UINavigationController *addContactController = (UINavigationController *) navigationController.childViewControllers[3];
+    NSLog(@"Controller 3 is %@", addContactController.title);
+    BarCodeReaderController *barCodeReadercontroller = (BarCodeReaderController*)addContactController.childViewControllers[0];
+    barCodeReadercontroller.managedObjectContext = context;
+     
     /*
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;

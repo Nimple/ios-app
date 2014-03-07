@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIView          *codeReaderCameraView;
 @property (weak, nonatomic) IBOutlet UILabel         *successLabel;
+@property (weak, atomic) NSMutableArray              *capturedContactData;
 
 - (IBAction)startStopReading:(id)sender;
 

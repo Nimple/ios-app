@@ -26,6 +26,7 @@
 }
 
 @synthesize managedObjectContext;
+@synthesize capturedContactData;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -114,74 +115,141 @@
 }
 
 // Get the QRcode output
--(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-    if (metadataObjects != nil && [metadataObjects count] > 0) {
+-(void) captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+    // Valid bar code found
+    if (metadataObjects != nil && [metadataObjects count] > 0)
+    {
+        // Valid QRCode found
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
-
-        [self.successLabel setText:@"Contact saved!"];
-        [self stopReading];
-        // Log to console
-        //NSLog(@"\nQR VALUE:\n%@", [metadataObj stringValue]);
-        
-        // Get data from vcard string
-        NSString *vCardString = metadataObj.stringValue;
-        
-        //@"BEGIN:VCARD\nN:%@;%@\nTEL;Cell:%@\nEMAIL;Internet:%@\nURL:%@\nURL:%@\nEND:VCARD"
-        
-        
-        
-        // Decomposing the vCard string
-        NSArray        *lines;
-        NSMutableArray *tokens = [[NSMutableArray alloc] init];
-        
-        NSLog(@"Tokenize VCARD:");
-
-        lines = [vCardString componentsSeparatedByString:@"\n"];
-        
-        for(NSString* token in lines)
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode])
         {
-            //NSLog(@"%@", token);
-            NSArray *keyValuePair = [token componentsSeparatedByString:@":"];
-            if([keyValuePair[1] isEqualToString:@"VCARD"])
-               continue;
+            //[self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+        
+            // Stop the bar code reader
+            [self stopReading];
+            
+            // Get data from vcard string
+            NSString *qrCodeData = metadataObj.stringValue;
+            // Look for vcard defintion string
+            NSRange rangeValue = [qrCodeData rangeOfString:@"BEGIN:VCARD" options:NSCaseInsensitiveSearch];
+            if (rangeValue.location == NSNotFound)
+            {
+                NSLog(@"ERROR! No valid vCard found!");
+                [NSException raise:@"No vcard found" format:@"No valid vcard defintion found in string %@ ", qrCodeData];
+            }
             else
             {
-                //NSLog(@"%@", keyValuePair[1]);
-                [tokens addObject: keyValuePair[1]];
+                NSLog(@"Valid vCard found!");
+                NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+                NSArray        *lines       = [[NSArray alloc] init];
+                NSString       *url;
+                
+                NSLog(@"Tokenize VCARD:");
+                lines = [qrCodeData componentsSeparatedByString:@"\n"];
+                
+                NSLog(@"%i lines found in vCard", [lines count]);
+                NSLog(@"Lines are %@", lines);
+                
+                for(NSString *line in lines)
+                {
+                    NSArray *keyValuePair = [line componentsSeparatedByString:@":"];
+                    // Skip first two vcard entires
+                    if([keyValuePair[0] isEqualToString:@"BEGIN"] |
+                       [keyValuePair[0] isEqualToString:@"VERSION"])
+                    {
+                        continue;
+                    }
+                    // End found
+                    NSRange endFound = [line rangeOfString:@"END:VCARD"];
+                    if(endFound.location != NSNotFound)
+                        break;
+                    
+                    // Check if vcard entry is URL
+                    if([keyValuePair[0] isEqualToString:@"URL"])
+                    {
+                        NSString *cleanURL = [keyValuePair[2] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                        NSString *utf8URL = [NSString stringWithUTF8String:[cleanURL cStringUsingEncoding:NSUTF8StringEncoding]];
+                        // URLs have to concatened because they have another ':' at http://
+                        url = [NSString stringWithFormat:@"%@:%@", keyValuePair[1], cleanURL];
+                        // facebook URL
+                        if([url rangeOfString:@"facebook"].location != NSNotFound)
+                            contactData[6] = url;
+                        // twitter URL
+                        if([url rangeOfString:@"twitter"].location != NSNotFound)
+                            contactData[8] = url;
+                        // xing URL
+                        if([url rangeOfString:@"xing"].location != NSNotFound)
+                            contactData[10] = url;
+                        // linkedin URL
+                        if([url rangeOfString:@"linkedin"].location != NSNotFound)
+                            contactData[11] = url;
+                    }
+                    
+                    // Name
+                    if([keyValuePair[0] isEqualToString:@"N"])
+                    {
+                        // Seperate sur- and prename and add them to contact data
+                        NSArray  *fullName = [keyValuePair[1] componentsSeparatedByString:@";"];
+                        contactData[0] = fullName[1];
+                        contactData[1] = fullName[0];
+                    }
+                    // Telephone
+                    NSRange telephoneFound = [keyValuePair[0] rangeOfString:@"TEL"];
+                    if(telephoneFound.location != NSNotFound)
+                    {
+                        contactData[2] = keyValuePair[1];
+                    }
+                    // Email
+                    if([keyValuePair[0] isEqualToString:@"EMAIL"])
+                    {
+                        contactData[3] = keyValuePair[1];
+                    }
+                    // Job Title
+                    if([keyValuePair[0] isEqualToString:@"ROLE"])
+                    {
+                        contactData[4] = keyValuePair[1];
+                    }
+                    // Company
+                    if([keyValuePair[0] isEqualToString:@"ORG"])
+                    {
+                        contactData[5] = keyValuePair[1];
+                    }
+                    // facebook
+                    if([keyValuePair[0] isEqualToString:@"X-FACEBOOK-ID"])
+                    {
+                        contactData[7] = keyValuePair[1];
+                    }
+                    // twitter
+                    if([keyValuePair[0] isEqualToString:@"X-TWITTER-ID"])
+                    {
+                        contactData[9] = keyValuePair[1];
+                    }
+                }
+                
+                NSLog(@"Contact found: %@", contactData);
+                capturedContactData = contactData;
+                [self saveToDataBase];
             }
         }
-        //NSLog(@"array length is %lu", (unsigned long)tokens.count);
-        
-        // Get Data as strings
-        NSArray  *name    = [tokens[1] componentsSeparatedByString:@";"];
-        NSString *phone   = tokens[2];
-        NSString *mail    = tokens[3];
-        NSString *job     = tokens[4];
-        NSString *company = tokens[5];
-        
-        NSLog(@"Name: %@ %@", name[1], name[0]);
-        NSLog(@"Phone: %@", phone);
-        NSLog(@"Mail: %@", mail);
-        NSLog(@"Job Title: %@", job);
-        NSLog(@"Company: %@", company);
-        
-        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            /*
-             [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-            _isReading = NO;
-             */
+        // No valid QRCode found
+        else
+        {
+            NSLog(@"ERROR! No valid QRCode found!");
         }
-        
-        
-        NSManagedObjectContext *context = [self managedObjectContext];
-        
-        NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
-        [contact SetValueForPrename:name[1] Surname:name[0] PhoneNumber:phone MailAddress:mail JobTitle:job Company:company];
-        NSLog(@"Contact created: %@", [contact toString]);
-        
-        NSError *error;
-        [context save:&error];
     }
+}
+
+-(void) saveToDataBase
+{
+     NSManagedObjectContext *context = [self managedObjectContext];
+     NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
+    
+    [scannedContact setValueForPrename:capturedContactData[0] Surname:capturedContactData[1] PhoneNumber:capturedContactData[2] MailAddress:capturedContactData[3] JobTitle:capturedContactData[4] Company:capturedContactData[5] FacebookURL:capturedContactData[6] FacebookID:capturedContactData[7] TwitterURL:capturedContactData[8] TwitterID:capturedContactData[9] XingURL:capturedContactData[10] LinkedInURL:capturedContactData[11]];
+    
+     NSError *error;
+     [context save:&error];
+    NSLog(@"Contact successfully saved to database!");
 }
 
 // Stops the capture session

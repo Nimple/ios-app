@@ -6,16 +6,10 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-// return true if the device has a retina display, false otherwise
-#define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 10.0f
-
-// return the scale value based on device's display (2 retina, 1 other)
-#define DISPLAY_SCALE IS_RETINA_DISPLAY() ? 10.0f : 5.0f
-
-// if the device has a retina display return the real scaled pixel size, otherwise the same size will be returned
-#define PIXEL_SIZE(size) IS_RETINA_DISPLAY() ? CGSizeMake(size.width/10.0f, size.height/10.0f) : size
-
 #import "NimpleCodeViewController.h"
+
+// Static template for generating vCards
+static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:%@\nEMAIL:%@\nORG:%@\nROLE:%@\nURL:%@\nX-FACEBOOK-ID:%@\nURL:%@\nX-TWITTER-ID:%@\nURL:%@\nURL:%@\nEND:VCARD";
 
 @interface NimpleCodeViewController ()
 
@@ -54,28 +48,51 @@
     [super viewDidLoad];
     
     [self generateNimpleQRCodeSurname:@"init" Prename:@"init" Phone:@"init" Mail:@"init"];
-    [self UpdateQRCodeImage];
+    [self updateQRCodeImage];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// Fills the vcard with given data
+/* Parameters in order of appearance
+  1. surname
+  2. prename
+  3. phone
+  4. email
+  5. company
+  6. job
+  7. URL: facebook
+  8. X-FACEBOOK-ID
+  9. URL: twitter
+ 10. X-TWITTER-ID
+ 11. URL: xing
+ 12. URL: linkedin
+ */
+- (NSString*) fillVCardCardWithData:(NSArray*)p_data
+{
+    return [NSString stringWithFormat:VCARD_TEMPLATE, p_data[0], p_data[1], p_data[2], p_data[3], p_data[4], p_data[5], p_data[6], p_data[7], p_data[8], p_data[9], p_data[10], p_data[11]];
+}
+
 //
-- (void) UpdateQRCodeImage
+- (void) updateQRCodeImage
 {
     generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:100.0f orientation: UIImageOrientationUp];
     self.nimpleQRCodeImage.image = generatedCodeImage;
 }
 
 // Generates a nimple QR code with given parameters
-- (UIImage*) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail{
+- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail
+{
+    NSArray *vcard_data = [NSArray arrayWithObjects:@"surname", @"prename", @"phone", @"email", @"company", @"job", @"facebookURL", @"facebookID", @"twitterURL", @"twitterID", @"xingURL", @"linkedinURL", nil];
     
-    vCardTemplate = @"BEGIN:VCARD\nN:%@;%@\nTEL;Cell:%@\nEMAIL;Internet:%@\nURL:%@\nURL:%@\nEND:VCARD";
+    NSLog(@"VCARD, %i",[vcard_data count]);
     
     // Fill vcard template & create NSData for QRCode generation
-    NSString *asciiString = [NSString stringWithFormat:vCardTemplate, p_surname, p_prename, p_phone, p_mail, @"www.facebook.de/nimple", @"twitter.de/nimple"];
+    NSString *asciiString = [self fillVCardCardWithData:vcard_data];
     NSLog(@"\"%@\" - Length: %ld", asciiString, (long)[asciiString length]);
     NSData *asciiData = [asciiString dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"Data length: %ld", (unsigned long)[asciiData length]);
@@ -95,7 +112,7 @@
     
     NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
     
-    return generatedCodeImage;
+    [self updateQRCodeImage];
 }
 
 //
@@ -127,7 +144,6 @@
     NSString* job     = [controller.myNimpleCode valueForKey:@"job"];
     NSString* company = [controller.myNimpleCode valueForKey:@"company"];
     [self generateNimpleQRCodeSurname:surname Prename:prename Phone:phone Mail:email];
-    [self UpdateQRCodeImage];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

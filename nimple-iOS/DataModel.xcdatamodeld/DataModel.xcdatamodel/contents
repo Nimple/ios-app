@@ -3,10 +3,16 @@
     <entity name="NimpleContact" representedClassName="NimpleContact" syncable="YES">
         <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_ID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook_URL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkedin_URL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter_ID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="twitter_URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xing_URL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="OwnNimpleCode" representedClassName="OwnNimpleCode" syncable="YES">
         <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
