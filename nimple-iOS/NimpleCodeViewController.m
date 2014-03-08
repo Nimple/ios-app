@@ -21,7 +21,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     UIImage     *generatedCodeImage;
     NSString    *vCardTemplate;
     NSString    *vCardString;
-    CIImage     *result;
+    CGImageRef  result;
 }
 
 @synthesize editButton;
@@ -81,8 +81,33 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 //
 - (void) updateQRCodeImage
 {
-    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:100.0f orientation: UIImageOrientationUp];
-    self.nimpleQRCodeImage.image = generatedCodeImage;
+    generatedCodeImage  = [UIImage imageWithCGImage:result scale:1.0 orientation: UIImageOrientationUp];
+    NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
+    
+    // free memory
+    CGImageRelease(result);
+    
+    UIImage *resized = [self resizeImage:generatedCodeImage withQuality:kCGInterpolationNone rate:5.0];
+    NSLog(@"QRCode size after resizing is: (%f, %f)", resized.size.width, resized.size.height);
+    
+    self.nimpleQRCodeImage.image = resized;
+}
+
+// Resizes image properly
+- (UIImage *)resizeImage:(UIImage *)image withQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate
+{
+	UIImage *resized = nil;
+	CGFloat width = image.size.width * rate;
+	CGFloat height = image.size.height * rate;
+    
+	UIGraphicsBeginImageContext(CGSizeMake(width, height));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSetInterpolationQuality(context, quality);
+	[image drawInRect:CGRectMake(0, 0, width, height)];
+	resized = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    
+	return resized;
 }
 
 // Generates a nimple QR code with given parameters
@@ -99,19 +124,15 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     NSLog(@"Data length: %ld", (unsigned long)[asciiData length]);
     
     // Create core image context & filter and set properties
+    CIContext *context = [CIContext contextWithOptions:nil];
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     [filter setValue:asciiData forKey:@"inputMessage"];
     [filter setValue:@"Q" forKey:@"inputCorrectionLevel"];
-    // Log the filter
-    //NSLog(@"%@: %@", filter.name, filter.description);
     
     // Get generated QRCode and convert to UIImage
-    CIImage *filtered   = [filter valueForKey:kCIOutputImageKey];
-    result              = [filtered imageByCroppingToRect:CGRectMake(0, 0, self.nimpleQRCodeImage.bounds.size.width*20.0, self.nimpleQRCodeImage.bounds.size.height*20.0)];
-    generatedCodeImage  = [[UIImage alloc] initWithCIImage:result scale:100.0f orientation: UIImageOrientationUp];
-    
-    NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
+    CIImage *output   = [filter valueForKey:kCIOutputImageKey];
+    result = [context createCGImage:output fromRect:[output extent]];
     
     [self updateQRCodeImage];
 }
