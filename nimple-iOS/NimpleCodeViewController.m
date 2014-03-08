@@ -25,6 +25,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 }
 
 @synthesize editButton;
+@synthesize editController;
 
 - (id)init
 {
@@ -122,11 +123,11 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
         
         UINavigationController *navigationController = segue.destinationViewController;
         EditNimpleCodeTableViewController *editNimpleCodeController = [navigationController viewControllers][0];
-        editNimpleCodeController.delegate = self;
+        editNimpleCodeController.delegateCode = self;
     }
 }
 
-#pragma mark - PlayerDetailsViewControllerDelegate
+#pragma mark - EditNimpleCodeTableControllerDelegate
 
 // Edit nimple code canceled
 - (void)editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController *)controller

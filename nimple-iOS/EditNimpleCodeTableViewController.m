@@ -212,14 +212,14 @@
 //
 - (IBAction)cancel:(id)sender
 {
-    [self.delegate editNimpleCodeTableViewControllerDidCancel:self];
+    [self.delegateCode editNimpleCodeTableViewControllerDidCancel:self];
 }
 
 //
 - (IBAction)done:(id)sender
 {
-    [self.delegate editNimpleCodeTableViewControllerDidSave:self];
     [self.myNimpleCode synchronize];
+    [self.delegateCode editNimpleCodeTableViewControllerDidSave:self];
 }
 
 /*

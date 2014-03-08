@@ -18,7 +18,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @synthesize managedObjectContext       = _managedObjectContext;
 @synthesize managedObjectModel         = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize myNimpleCode = _myNimpleCode;
+@synthesize myNimpleCode;
 
 //
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -43,17 +43,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     // Nimple card view controller
     UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
     NSLog(@"Controller 0  is %@", nimpleCardController.title);
-
+    NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
+    
     // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 1 is %@", presentedController1.title);
     NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
+    EditNimpleCodeTableViewController* editNimpleCodeController = (EditNimpleCodeTableViewController*) nimpleCodeViewController.editController;
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
     NSLog(@"Controller 2 is %@", contactsController.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
+    
     
     // Find code reader view controller
     UINavigationController *addContactController = (UINavigationController *) navigationController.childViewControllers[3];

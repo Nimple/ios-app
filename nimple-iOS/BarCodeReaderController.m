@@ -148,7 +148,7 @@
                 NSLog(@"Tokenize VCARD:");
                 lines = [qrCodeData componentsSeparatedByString:@"\n"];
                 
-                NSLog(@"%i lines found in vCard", [lines count]);
+                NSLog(@"%lu lines found in vCard", (unsigned long)[lines count]);
                 NSLog(@"Lines are %@", lines);
                 
                 for(NSString *line in lines)
@@ -169,7 +169,6 @@
                     if([keyValuePair[0] isEqualToString:@"URL"])
                     {
                         NSString *cleanURL = [keyValuePair[2] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-                        NSString *utf8URL = [NSString stringWithUTF8String:[cleanURL cStringUsingEncoding:NSUTF8StringEncoding]];
                         // URLs have to concatened because they have another ':' at http://
                         url = [NSString stringWithFormat:@"%@:%@", keyValuePair[1], cleanURL];
                         // facebook URL

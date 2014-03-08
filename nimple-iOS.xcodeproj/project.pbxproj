@@ -53,6 +53,7 @@
 		D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */; };
 		D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
+		D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		D1E29FF118C6A1C800BE2A63 /* OwnNimpleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OwnNimpleCode.h; path = Model/OwnNimpleCode.h; sourceTree = "<group>"; };
 		D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OwnNimpleCode.m; path = Model/OwnNimpleCode.m; sourceTree = "<group>"; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleCardViewController.h; path = "nimple-iOS/Controllers/NimpleCardViewController.h"; sourceTree = "<group>"; };
+		D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleCardViewController.m; path = "nimple-iOS/Controllers/NimpleCardViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +346,8 @@
 		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */,
+				D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */,
 				D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */,
 				D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */,
 				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
@@ -509,6 +514,7 @@
 			files = (
 				D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */,
 				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
+				D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */,
 				D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */,
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
 				D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */,

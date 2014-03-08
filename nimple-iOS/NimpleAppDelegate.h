@@ -13,6 +13,7 @@
 // Nimple imports
 #import "NimpleContact.h"
 #import "OwnNimpleCode.h"
+#import "NimpleCardViewController.h"
 #import "ContactsViewController.h"
 #import "BarCodeReaderController.h"
 #import "EditNimpleCodeTableViewController.h"
@@ -24,7 +25,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext       *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel         *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, atomic) OwnNimpleCode *myNimpleCode;
+@property (atomic, strong) NSUserDefaults    *myNimpleCode;
 
 - (void)   saveContext;
 - (NSURL*) applicationDocumentsDirectory;
