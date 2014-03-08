@@ -84,11 +84,11 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     generatedCodeImage  = [UIImage imageWithCGImage:result scale:1.0 orientation: UIImageOrientationUp];
     NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
     
-    // free memory
-    CGImageRelease(result);
-    
     UIImage *resized = [self resizeImage:generatedCodeImage withQuality:kCGInterpolationNone rate:5.0];
     NSLog(@"QRCode size after resizing is: (%f, %f)", resized.size.width, resized.size.height);
+    
+    // free memory
+    CGImageRelease(result);
     
     self.nimpleQRCodeImage.image = resized;
 }
