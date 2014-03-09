@@ -21,6 +21,45 @@
     return self;
 }
 
+- (IBAction)editingChanged:(id)sender
+{
+    UITableView *tv = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tv.dataSource;
+    
+    switch (self.section) {
+        case 0:
+            switch (self.index) {
+                case 0:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+                    break;
+                case 1:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+                    break;
+                case 2:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+                    break;
+                case 3:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
+                    break;
+            }
+            break;
+        case 2:
+            switch (self.index) {
+                case 0:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+                    break;
+                case 1:
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+                    break;
+            }
+            break;
+    }
+}
+
+- (IBAction)valueChanged:(id)sender
+{
+    NSLog(@"Value changed");
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
@@ -32,36 +71,38 @@
 // Save the user data
 - (IBAction)EditingDidEnd:(id)sender {
     UITableView *tv = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *vc = (EditNimpleCodeTableViewController *) tv.dataSource;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tv.dataSource;
     
     switch (self.section) {
         case 0:
             switch (self.index) {
                 case 0:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
                     break;
                 case 1:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
                     break;
                 case 2:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
                     break;
                 case 3:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"email"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
                     break;
             }
             break;
         case 2:
             switch (self.index) {
                 case 0:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
                     break;
                 case 1:
-                    [vc.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
                     break;
             }
             break;
     }
+    
+    [viewController.myNimpleCode synchronize];
 }
 
 

@@ -22,7 +22,7 @@
 
 @interface EditNimpleCodeTableViewController : UITableViewController
 
-@property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegateCode;
+@property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
 
 @property (atomic) BOOL ownNimpleCodeExists;
 @property (nonatomic, strong) NSMutableArray *cells;
