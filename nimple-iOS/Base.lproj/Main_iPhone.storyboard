@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-LG-kyz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
+                                <rect key="frame" x="0.0" y="-7" width="320" height="383"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -153,12 +153,14 @@
                         <barButtonItem id="iz0-pP-983"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Bearbeiten" id="Xjc-5C-ta5">
-                        <barButtonItem key="leftBarButtonItem" title="Zurück" id="Vog-qG-3bk">
+                        <barButtonItem key="leftBarButtonItem" title="Zurück" style="plain" id="Vog-qG-3bk">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancel:" destination="Tgh-Wo-huh" id="Wlk-qY-wWB"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Fertig" id="r4C-uO-736">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="done:" destination="Tgh-Wo-huh" id="NE6-TH-bqg"/>
                             </connections>
@@ -225,7 +227,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
-                                <rect key="frame" x="25" y="44" width="270" height="259"/>
+                                <rect key="frame" x="25" y="36" width="270" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Mustermann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-yf-iBD">
@@ -259,20 +261,36 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_call.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-EL-W5A">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_call" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-EL-W5A">
                                         <rect key="frame" x="20" y="76" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_email.png" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_email" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
                                         <rect key="frame" x="20" y="105" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_labels.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fh3-Og-dzq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_company" translatesAutoresizingMaskIntoConstraints="NO" id="Fh3-Og-dzq">
                                         <rect key="frame" x="20" y="134" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_go_to_today.png" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-HS-feO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_job" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-HS-feO">
                                         <rect key="frame" x="20" y="163" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="DMZ-qB-kMk">
+                                        <rect key="frame" x="32" y="211" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_twitter" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-gI-g0r">
+                                        <rect key="frame" x="87" y="211" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_xing" translatesAutoresizingMaskIntoConstraints="NO" id="baU-Re-0qS">
+                                        <rect key="frame" x="140" y="211" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="F5T-IT-3Qp">
+                                        <rect key="frame" x="198" y="211" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -517,13 +535,15 @@
         <image name="addcontact" width="20" height="20"/>
         <image name="contacts" width="20" height="20"/>
         <image name="ic_action_call" width="96" height="96"/>
-        <image name="ic_action_call.png" width="96" height="96"/>
+        <image name="ic_action_company" width="96" height="96"/>
         <image name="ic_action_email" width="96" height="96"/>
-        <image name="ic_action_email.png" width="96" height="96"/>
-        <image name="ic_action_go_to_today.png" width="96" height="96"/>
-        <image name="ic_action_labels.png" width="96" height="96"/>
+        <image name="ic_action_job" width="96" height="96"/>
         <image name="ic_facebook.png" width="105" height="105"/>
         <image name="ic_linkedin.png" width="105" height="105"/>
+        <image name="ic_round_facebook" width="59" height="59"/>
+        <image name="ic_round_linkedin" width="59" height="59"/>
+        <image name="ic_round_twitter" width="59" height="59"/>
+        <image name="ic_round_xing" width="59" height="59"/>
         <image name="ic_twitter.png" width="105" height="105"/>
         <image name="ic_xing.png" width="105" height="105"/>
         <image name="nimplecard" width="20" height="20"/>
