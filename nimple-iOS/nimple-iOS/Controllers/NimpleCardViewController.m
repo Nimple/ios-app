@@ -8,6 +8,7 @@
 
 #import "NimpleCardViewController.h"
 
+
 @interface NimpleCardViewController ()
 
 @end
@@ -26,8 +27,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    [self.nameLabel setText:@"YOLO"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleChangedNimpleCode:)
+                                                 name:@"nimpleCodeChanged"
+                                               object:nil];
+}
+
+// Handles the nimpleCodeChanged notifaction
+- (void)handleChangedNimpleCode:(NSNotification *)note {
+    NSLog(@"Received changed Nimple Code @ Nimple CARD VIEW CONTROLLER");
+    
+    NSDictionary *theData = [note userInfo];
+    if (theData != nil) {
+        NSUserDefaults *nimpleCode = [theData objectForKey:@"nimpleCode"];
+        NSLog(@"%@", [nimpleCode valueForKey:@"surname"]);
+        
+        // Fill the nimple card
+        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", [nimpleCode valueForKey:@"prename"], [nimpleCode valueForKey:@"surname"]]];
+        [self.jobLabel setText:[nimpleCode valueForKey:@"job"]];
+        [self.companyLabel setText:[nimpleCode valueForKey:@"company"]];
+        [self.phoneLabel setText:[nimpleCode valueForKey:@"phone"]];
+        [self.emailLabel setText:[nimpleCode valueForKey:@"email"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,22 +57,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+//
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Edit"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        EditNimpleCodeTableViewController *editNimpleCodeController = [navigationController viewControllers][0];
+        editNimpleCodeController.delegate = self;
+    }
+}
+
+#pragma mark - EditNimpleCodeTableControllerDelegate
+
+// Edit nimple code canceled
+- (void)editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController *)controller
+{
+    //NSLog(@"Nimple Card Delegation");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Edit nimple code saved
 - (void)editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController *)controller
 {
-    NSLog(@"SAVED!!!!");
-    NSString* prename = [controller.myNimpleCode valueForKey:@"prename"];
-    NSString* surname = [controller.myNimpleCode valueForKey:@"surname"];
-    NSString* phone   = [controller.myNimpleCode valueForKey:@"phone"];
-    NSString* email   = [controller.myNimpleCode valueForKey:@"email"];
-    NSString* job     = [controller.myNimpleCode valueForKey:@"job"];
-    NSString* company = [controller.myNimpleCode valueForKey:@"company"];
-
-    [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", prename, surname]];
-    [self.phoneLabel setText:phone];
-    [self.emailLabel setText:email];
-    [self.companyLabel setText:company];
-    [self.jobLabel setText:job];
-}*/
+    //NSLog(@"Nimple Card Delegation");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -68,7 +68,7 @@
     {
         [self.myNimpleCode setValue:@"" forKey:@"company"];
     }
-
+    
     [self.myNimpleCode synchronize];
 }
 
@@ -81,8 +81,6 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [self.myNimpleCode synchronize];
-    NSLog(@"My Nimple Code is: %@ %@, %@, %@, %@ @ %@", [self.myNimpleCode valueForKey:@"prename"], [self.myNimpleCode valueForKey:@"surname"], [self.myNimpleCode valueForKey:@"phone"], [self.myNimpleCode valueForKey:@"email"], [self.myNimpleCode valueForKey:@"job"], [self.myNimpleCode valueForKey:@"company"]);
-
 }
 
 #pragma mark - Table view data source
@@ -212,65 +210,18 @@
 //
 - (IBAction)cancel:(id)sender
 {
-    [self.delegateCode editNimpleCodeTableViewControllerDidCancel:self];
+    [self.delegate editNimpleCodeTableViewControllerDidCancel:self];
 }
 
 //
 - (IBAction)done:(id)sender
 {
     [self.myNimpleCode synchronize];
-    [self.delegateCode editNimpleCodeTableViewControllerDidSave:self];
+    // Notification that the nimple code changed
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
+    
+    [self.delegate editNimpleCodeTableViewControllerDidSave:self];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

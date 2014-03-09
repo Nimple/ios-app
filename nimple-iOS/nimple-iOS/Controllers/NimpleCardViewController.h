@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditNimpleCodeTableViewController.h"
 
-@interface NimpleCardViewController : UIViewController
+@interface NimpleCardViewController : UIViewController<EditNimpleCodeTableControllerDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;

@@ -15,7 +15,7 @@
 @property (retain, nonatomic) IBOutlet UIImageView *nimpleQRCodeImage;
 @property (retain, nonatomic) IBOutlet EditNimpleCodeTableViewController *editController;
 
-- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail;
+- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company;
 - (NSString*) fillVCardCardWithData:(NSArray*)p_data;
 - (void) updateQRCodeImage;
 

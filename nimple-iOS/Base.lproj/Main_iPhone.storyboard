@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="525"/>
+            <point key="canvasLocation" x="538" y="-883"/>
         </scene>
         <!--Navigation Controller - Edit Nimple Code View Controller-->
         <scene sceneID="Ory-hC-d3M">
@@ -109,7 +109,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSb-ex-Ajm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="525"/>
+            <point key="canvasLocation" x="1011" y="-883"/>
         </scene>
         <!--Edit Nimple Code Table View Controller - Edit Nimple Code-->
         <scene sceneID="H2V-Iy-FYx">
@@ -134,6 +134,8 @@
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <action selector="EditingDidEnd:" destination="bQT-iM-lrq" eventType="editingDidEnd" id="2LM-BX-mhl"/>
+                                                <action selector="editingChanged:" destination="bQT-iM-lrq" eventType="editingChanged" id="6ub-j9-Y8l"/>
+                                                <action selector="valueChanged:" destination="bQT-iM-lrq" eventType="valueChanged" id="R1F-sJ-FeA"/>
                                             </connections>
                                         </textField>
                                     </subviews>
@@ -170,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjz-aP-Ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="525"/>
+            <point key="canvasLocation" x="1485" y="-883"/>
         </scene>
         <!--Navigation Controller - Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
@@ -191,7 +193,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fd-gD-fc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="525"/>
+            <point key="canvasLocation" x="20" y="-883"/>
         </scene>
         <!--Navigation Controller - Nimple Card Navigation Controller-->
         <scene sceneID="r79-0f-3OM">
@@ -282,7 +284,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Deine nimple-card" id="2Td-P6-r5s"/>
+                    <navigationItem key="navigationItem" title="Deine nimple-card" id="2Td-P6-r5s">
+                        <barButtonItem key="rightBarButtonItem" title="Bearbeiten" id="Aay-Qv-MfA">
+                            <connections>
+                                <segue destination="fNF-4g-urE" kind="modal" identifier="Edit" id="ia0-o9-svB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="companyLabel" destination="bvn-QE-TJ3" id="wmF-6j-ti4"/>
                         <outlet property="emailLabel" destination="fjM-m1-SNy" id="tcs-CT-CKi"/>
@@ -314,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbT-9x-ysb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-869"/>
+            <point key="canvasLocation" x="20" y="443"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="LLr-Di-jWV">
@@ -489,7 +497,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="538" y="-869"/>
+            <point key="canvasLocation" x="538" y="443"/>
         </scene>
         <!--Navigation Controller - CodeReader Navigation Controller-->
         <scene sceneID="LI8-0w-Bi5">
@@ -538,5 +546,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="vJY-OD-AU4"/>
+        <segue reference="ia0-o9-svB"/>
     </inferredMetricsTieBreakers>
 </document>
