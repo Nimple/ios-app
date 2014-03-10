@@ -18,11 +18,29 @@ PODS:
   - AFNetworking/UIKit (2.2.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFOAuth1Client (0.3.1):
+    - AFNetworking (~> 1.3)
+  - IOSLinkedInAPI (2.0.0):
+    - AFNetworking (>= 2.0.0)
+  - Mixpanel (2.3.2)
+  - SSKeychain (1.2.0)
+  - XNGAPIClient (0.1.0):
+    - AFNetworking (~> 1.3.0)
+    - AFOAuth1Client (= 0.3.1)
+    - SSKeychain (= 1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - IOSLinkedInAPI
+  - Mixpanel
+  - XNGAPIClient
 
 SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
+  AFOAuth1Client: 8e83e357129c6dd4511dbb77b03977b206383dc1
+  IOSLinkedInAPI: 1c1b1bc3fcf21607225d2b9cd704bffab0abfbe1
+  Mixpanel: ddd79df92245a14d2b3064544d1e9ff037d8ac3a
+  SSKeychain: 2fe90c92034129d9615a508529b601a520f297d1
+  XNGAPIClient: 4d88f2098701c9ee9e6f5611e2983d3019b2bdc1
 
 COCOAPODS: 0.29.0

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+#define MIXPANEL_TOKEN @"6e3eeca24e9b2372e8582b381295ca0c"
+
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
@@ -20,9 +22,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize myNimpleCode;
 
-//
+// Application launched
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Initialize the library with your
+    // Mixpanel project token, MIXPANEL_TOKEN
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    // Later, you can get your instance with
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    
+    // Set nimple tint color for navigation bar
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x8D0835)];
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
@@ -204,6 +213,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 @end

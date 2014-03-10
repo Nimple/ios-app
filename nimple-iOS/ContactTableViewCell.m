@@ -46,8 +46,7 @@
 - (IBAction)facebookButtonClicked:(id)sender
 {
     NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
-    NSString* formatted = [NSString stringWithFormat:@"%@", self.contact.facebook_URL];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:formatted]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
 }
 
 // Delegates calling a phone number to the phone app

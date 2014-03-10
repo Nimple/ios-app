@@ -168,7 +168,7 @@
                     // Check if vcard entry is URL
                     if([keyValuePair[0] isEqualToString:@"URL"])
                     {
-                        NSString *cleanURL = [keyValuePair[2] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                        NSString *cleanURL = [keyValuePair[2] stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
                         // URLs have to concatened because they have another ':' at http://
                         url = [NSString stringWithFormat:@"%@:%@", keyValuePair[1], cleanURL];
                         // facebook URL

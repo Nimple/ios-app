@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 // Framework imports
 #import <CoreImage/CoreImage.h>
+#import <Mixpanel/Mixpanel.h>
 #import <FacebookSDK/FacebookSDK.h>
 // Nimple imports
 #import "NimpleContact.h"

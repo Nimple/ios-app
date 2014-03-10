@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 // Nimple imports
 #import "EditInputViewCell.h"
-#import "OwnNimpleCode.h"
+#import "ConnectSocialProfileViewCell.h"
 
 @class EditNimpleCodeTableViewController;
 

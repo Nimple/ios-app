@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ConnectSocialProfileViewCell : UITableViewCell
+
+@property (atomic) NSInteger index;
+@property (atomic) NSInteger section;
+@property (weak, nonatomic) IBOutlet UIImageView *socialNetworkIcon;
+@property (weak, nonatomic) IBOutlet UIButton *connectStatusButton;
+@property FBLoginView *fbloginView;
 
 @end
