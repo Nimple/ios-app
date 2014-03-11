@@ -11,16 +11,17 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="aJI-KD-ju4" userLabel="Tab Bar" customClass="NimpleTabBar">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="aJI-KD-ju4" userLabel="Tab Bar">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.97117017660000005" green="0.97117017660000005" blue="0.97117017660000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="iLO-4G-LNe" kind="relationship" relationship="viewControllers" id="oUH-aM-Dma"/>
                         <segue destination="Wfz-29-qjb" kind="relationship" relationship="viewControllers" id="IqV-hF-fzW"/>
                         <segue destination="S1k-kA-kGZ" kind="relationship" relationship="viewControllers" id="dd2-ih-CiJ"/>
-                        <segue destination="UAQ-PA-uRr" kind="relationship" relationship="viewControllers" id="YD0-2C-aic"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIT-Kq-A6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,19 +146,15 @@
                                     <outlet property="inputField" destination="J4o-ny-TGZ" id="7BF-qT-Q0K"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectSocialProfileCell" rowHeight="55" id="wot-6T-nBg" customClass="ConnectSocialProfileViewCell">
-                                <rect key="frame" x="0.0" y="99" width="320" height="55"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectSocialProfileCell" rowHeight="63" id="wot-6T-nBg" customClass="ConnectSocialProfileViewCell">
+                                <rect key="frame" x="0.0" y="99" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wot-6T-nBg" id="XCc-uI-3Up">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9g-oH-54K">
-                                            <rect key="frame" x="20" y="9" width="35" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBC-6f-2xV">
-                                            <rect key="frame" x="77" y="12" width="83" height="30"/>
+                                            <rect key="frame" x="77" y="15" width="223" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="verbinden">
@@ -168,11 +165,14 @@
                                                 <action selector="connectButtonClicked:" destination="wot-6T-nBg" eventType="touchUpInside" id="8wH-82-xQa"/>
                                             </connections>
                                         </button>
+                                        <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_xing" translatesAutoresizingMaskIntoConstraints="NO" id="Avu-tB-Eeo">
+                                            <rect key="frame" x="14" y="10" width="42" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="connectStatusButton" destination="BBC-6f-2xV" id="Dra-2p-BLK"/>
-                                    <outlet property="socialNetworkIcon" destination="U9g-oH-54K" id="TUJ-Vc-MLB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -211,7 +211,7 @@
         <scene sceneID="yMh-Po-ToZ">
             <objects>
                 <navigationController title="Nimple Code Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="nimple-code" image="nimplecode" id="H5F-wD-xYX"/>
+                    <tabBarItem key="tabBarItem" title="nimple-code" image="tabbar_nimple-code" id="H5F-wD-xYX"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -232,7 +232,7 @@
         <scene sceneID="r79-0f-3OM">
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="nimple-card" image="nimplecard" id="ckg-b2-euJ"/>
+                    <tabBarItem key="tabBarItem" title="nimple-card" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Lh6-LU-zaX">
@@ -294,19 +294,19 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_call" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-EL-W5A">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-EL-W5A">
                                         <rect key="frame" x="20" y="76" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_email" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
                                         <rect key="frame" x="20" y="105" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_company" translatesAutoresizingMaskIntoConstraints="NO" id="Fh3-Og-dzq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="company" translatesAutoresizingMaskIntoConstraints="NO" id="Fh3-Og-dzq">
                                         <rect key="frame" x="20" y="134" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_job" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-HS-feO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="job" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-HS-feO">
                                         <rect key="frame" x="20" y="163" width="21" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -356,7 +356,7 @@
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="contacts" image="contacts" id="hFR-7f-QgP"/>
+                    <tabBarItem key="tabBarItem" title="contacts" image="tabbar_contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -428,7 +428,7 @@
                                                 <action selector="mailButtonClicked:" destination="9Ca-QZ-fxh" eventType="touchUpInside" id="iQy-9I-58Q"/>
                                             </connections>
                                         </button>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_call" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-kG-z5c">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-kG-z5c">
                                             <rect key="frame" x="20" y="46" width="24" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
@@ -436,7 +436,7 @@
                                                 <bool key="isElement" value="YES"/>
                                             </accessibility>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_action_email" translatesAutoresizingMaskIntoConstraints="NO" id="boZ-5W-jtr">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="boZ-5W-jtr">
                                             <rect key="frame" x="20" y="79" width="24" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -447,8 +447,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmr-0n-y2i">
-                                            <rect key="frame" x="262" y="15" width="47" height="59"/>
+                                        <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmr-0n-y2i">
+                                            <rect key="frame" x="267" y="37" width="33" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="save-to-address-book">
@@ -465,7 +465,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-YY-LaW">
                                                     <rect key="frame" x="0.0" y="0.0" width="41" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="ic_facebook.png">
+                                                    <state key="normal" title="Button" image="ic_facebook">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -475,7 +475,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-3G-UsG">
                                                     <rect key="frame" x="41" y="0.0" width="41" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="ic_twitter.png">
+                                                    <state key="normal" title="Button" image="ic_twitter">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -486,7 +486,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsY-vb-kmd">
                                                     <rect key="frame" x="81" y="0.0" width="41" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="ic_xing.png">
+                                                    <state key="normal" title="Button" image="ic_xing">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -497,7 +497,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBU-HQ-6BP">
                                                     <rect key="frame" x="122" y="0.0" width="41" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="ic_linkedin.png">
+                                                    <state key="normal" title="Button" image="ic_linkedin">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -525,7 +525,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="bbO-qy-7D2">
-                        <barButtonItem key="rightBarButtonItem" image="addcontact" id="BBF-qX-XYA">
+                        <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
                                 <segue destination="o5E-Ml-Dot" kind="push" id="vJY-OD-AU4"/>
                             </connections>
@@ -552,7 +552,7 @@
         <scene sceneID="LI8-0w-Bi5">
             <objects>
                 <navigationController title="CodeReader Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="UAQ-PA-uRr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="add contact" image="addcontact" id="jPL-Gd-fOY"/>
+                    <tabBarItem key="tabBarItem" title="add contact" image="tabbar_contacts" id="jPL-Gd-fOY"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -571,23 +571,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addcontact" width="20" height="20"/>
-        <image name="contacts" width="20" height="20"/>
-        <image name="ic_action_call" width="96" height="96"/>
-        <image name="ic_action_company" width="96" height="96"/>
-        <image name="ic_action_email" width="96" height="96"/>
-        <image name="ic_action_job" width="96" height="96"/>
-        <image name="ic_facebook.png" width="105" height="105"/>
-        <image name="ic_linkedin.png" width="105" height="105"/>
-        <image name="ic_round_facebook" width="59" height="59"/>
-        <image name="ic_round_linkedin" width="59" height="59"/>
-        <image name="ic_round_twitter" width="59" height="59"/>
-        <image name="ic_round_xing" width="59" height="59"/>
-        <image name="ic_twitter.png" width="105" height="105"/>
-        <image name="ic_xing.png" width="105" height="105"/>
-        <image name="nimplecard" width="20" height="20"/>
-        <image name="nimplecode" width="20" height="20"/>
-        <image name="save-to-address-book" width="25" height="31"/>
+        <image name="add-contact" width="22" height="22"/>
+        <image name="company" width="24" height="24"/>
+        <image name="email" width="26" height="16"/>
+        <image name="ic_facebook" width="105" height="105"/>
+        <image name="ic_linkedin" width="105" height="105"/>
+        <image name="ic_round_facebook" width="30" height="29"/>
+        <image name="ic_round_linkedin" width="60" height="60"/>
+        <image name="ic_round_twitter" width="30" height="29"/>
+        <image name="ic_round_xing" width="20" height="20"/>
+        <image name="ic_twitter" width="105" height="105"/>
+        <image name="ic_xing" width="105" height="105"/>
+        <image name="job" width="27" height="22"/>
+        <image name="phone" width="23" height="24"/>
+        <image name="save-to-address-book" width="64" height="75"/>
+        <image name="tabbar_contacts" width="21" height="24"/>
+        <image name="tabbar_nimple-card" width="23" height="23"/>
+        <image name="tabbar_nimple-code" width="25" height="25"/>
     </resources>
     <color key="tintColor" red="0.95108695652173914" green="0.95108695652173914" blue="0.95108695652173914" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -596,7 +596,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Xfv-8K-qHn"/>
+        <segue reference="vJY-OD-AU4"/>
         <segue reference="ia0-o9-svB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,6 +33,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     // Set nimple tint color for navigation bar
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x8D0835)];
+    [[UITabBar appearance] setTintColor:UIColorFromRGB(0x8D0835)];
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -65,13 +66,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"Controller 2 is %@", contactsController.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
-    
-    
-    // Find code reader view controller
-    UINavigationController *addContactController = (UINavigationController *) navigationController.childViewControllers[3];
-    NSLog(@"Controller 3 is %@", addContactController.title);
-    BarCodeReaderController *barCodeReadercontroller = (BarCodeReaderController*)addContactController.childViewControllers[0];
-    barCodeReadercontroller.managedObjectContext = context;
+
      
     /*
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

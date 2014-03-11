@@ -162,6 +162,8 @@
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_facebook"]];
+                [cell.socialNetworkIcon setAlpha:0.3];
+                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
                 [cell.connectStatusButton setTitle:@"Mit facebook verbinden" forState:UIControlStateNormal];
                 cell.fbloginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
                 
@@ -170,7 +172,9 @@
             {
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+                cell.socialNetworkIcon.contentMode = UIViewContentModeScaleAspectFill;
                 [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_twitter"]];
+                [cell.socialNetworkIcon setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
             }
             if(indexPath.row == 2)
@@ -178,6 +182,8 @@
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_xing"]];
+                [cell.socialNetworkIcon setAlpha:0.3];
+                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
                 [cell.connectStatusButton setTitle:@"Mit xing verbinden" forState:UIControlStateNormal];
             }
             if(indexPath.row == 3)
@@ -185,6 +191,8 @@
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_linkedin"]];
+                [cell.socialNetworkIcon setAlpha:0.3];
+                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
                 [cell.connectStatusButton setTitle:@"Mit linkedin verbinden" forState:UIControlStateNormal];
             }
             break;
