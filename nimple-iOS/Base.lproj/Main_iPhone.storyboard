@@ -75,6 +75,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91847826086956519" green="0.91847826086956519" blue="0.91847826086956519" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFG-k5-iZf">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-up" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-xs-lCa">
+                                        <rect key="frame" x="260" y="14" width="19" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deinen nimple code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="A9x-u3-xi9">
+                                        <rect key="frame" x="87" y="81" width="213" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -88,16 +106,17 @@
                     <connections>
                         <outlet property="editButton" destination="0yX-GC-7hd" id="Kxp-Hr-Nap"/>
                         <outlet property="nimpleQRCodeImage" destination="6BA-IE-nrP" id="GeA-9m-UzG"/>
+                        <outlet property="welcomeView" destination="HFG-k5-iZf" id="WOI-76-ZdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="538" y="-883"/>
         </scene>
-        <!--Navigation Controller - Edit Nimple Code View Controller-->
+        <!--Edit Nimple Code Navigation Controller-->
         <scene sceneID="Ory-hC-d3M">
             <objects>
-                <navigationController title="Edit Nimple Code View Controller" definesPresentationContext="YES" id="fNF-4g-urE" sceneMemberID="viewController">
+                <navigationController title="Edit Nimple Code View Controller" definesPresentationContext="YES" id="fNF-4g-urE" userLabel="Edit Nimple Code Navigation Controller" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="qFO-AX-7Zw">
@@ -112,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1011" y="-883"/>
         </scene>
-        <!--Edit Nimple Code Table View Controller - Edit Nimple Code-->
+        <!--Edit Nimple Code Table View Controller -->
         <scene sceneID="H2V-Iy-FYx">
             <objects>
-                <tableViewController title="Edit Nimple Code" id="Tgh-Wo-huh" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Edit Nimple Code" id="Tgh-Wo-huh" userLabel="Edit Nimple Code Table View Controller " customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="YGx-Sr-jw5">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,15 +165,15 @@
                                     <outlet property="inputField" destination="J4o-ny-TGZ" id="7BF-qT-Q0K"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectSocialProfileCell" rowHeight="63" id="wot-6T-nBg" customClass="ConnectSocialProfileViewCell">
-                                <rect key="frame" x="0.0" y="99" width="320" height="63"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectSocialProfileCell" rowHeight="60" id="wot-6T-nBg" customClass="ConnectSocialProfileViewCell">
+                                <rect key="frame" x="0.0" y="99" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wot-6T-nBg" id="XCc-uI-3Up">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBC-6f-2xV">
-                                            <rect key="frame" x="77" y="15" width="223" height="30"/>
+                                            <rect key="frame" x="77" y="3" width="223" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="verbinden">
@@ -165,14 +184,18 @@
                                                 <action selector="connectButtonClicked:" destination="wot-6T-nBg" eventType="touchUpInside" id="8wH-82-xQa"/>
                                             </connections>
                                         </button>
-                                        <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_xing" translatesAutoresizingMaskIntoConstraints="NO" id="Avu-tB-Eeo">
-                                            <rect key="frame" x="14" y="10" width="42" height="42"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe9-8z-5WE">
+                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
+                                            <state key="normal" title="Button" image="ic_round_linkedin">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="connectStatusButton" destination="BBC-6f-2xV" id="Dra-2p-BLK"/>
+                                    <outlet property="connectStatusButton" destination="BBC-6f-2xV" id="6uy-Rr-Hb9"/>
+                                    <outlet property="socialNetworkButton" destination="xe9-8z-5WE" id="vuv-uS-aUr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -271,25 +294,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+49 173 3484138" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-ch-ZzA">
-                                        <rect key="frame" x="49" y="76" width="199" height="21"/>
+                                        <rect key="frame" x="61" y="76" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="max@mustermann.de" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjM-m1-SNy">
-                                        <rect key="frame" x="49" y="105" width="199" height="21"/>
+                                        <rect key="frame" x="61" y="105" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-QE-TJ3">
-                                        <rect key="frame" x="49" y="134" width="199" height="21"/>
+                                        <rect key="frame" x="61" y="134" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHS-O7-k9s">
-                                        <rect key="frame" x="49" y="163" width="199" height="21"/>
+                                        <rect key="frame" x="61" y="163" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
@@ -329,6 +352,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9x1-Q3-xv7">
+                                <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow-up" translatesAutoresizingMaskIntoConstraints="NO" id="uuv-DQ-HrY">
+                                        <rect key="frame" x="260" y="14" width="19" height="67"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine nimple card zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="9Q7-GR-S5i">
+                                        <rect key="frame" x="87" y="81" width="213" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
@@ -343,9 +384,15 @@
                     <connections>
                         <outlet property="companyLabel" destination="bvn-QE-TJ3" id="wmF-6j-ti4"/>
                         <outlet property="emailLabel" destination="fjM-m1-SNy" id="tcs-CT-CKi"/>
+                        <outlet property="facebookIcon" destination="DMZ-qB-kMk" id="ZdT-UU-TE8"/>
                         <outlet property="jobLabel" destination="PHS-O7-k9s" id="DeB-Tg-X18"/>
+                        <outlet property="linkedinIcon" destination="F5T-IT-3Qp" id="BS2-jg-Rs0"/>
                         <outlet property="nameLabel" destination="Yn7-yf-iBD" id="V6K-od-Zea"/>
+                        <outlet property="nimpleCardView" destination="HNg-Lj-TNH" id="EpZ-T2-IAM"/>
                         <outlet property="phoneLabel" destination="UnW-ch-ZzA" id="sTF-JZ-hul"/>
+                        <outlet property="twitterIcon" destination="u9j-gI-g0r" id="bh1-tA-1bS"/>
+                        <outlet property="welcomeView" destination="9x1-Q3-xv7" id="vBy-P3-jSf"/>
+                        <outlet property="xingIcon" destination="baU-Re-0qS" id="WSA-9z-Ar9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQf-o4-2dT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,13 +446,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZm-ic-gp5">
-                                            <rect key="frame" x="20" y="4" width="234" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKa-h7-Hc2">
-                                            <rect key="frame" x="57" y="43" width="189" height="30"/>
+                                            <rect key="frame" x="57" y="56" width="189" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="Phone Number">
@@ -417,7 +464,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EL-di-PP3">
-                                            <rect key="frame" x="57" y="76" width="189" height="30"/>
+                                            <rect key="frame" x="57" y="84" width="189" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="E-Mail Address">
@@ -429,7 +476,7 @@
                                             </connections>
                                         </button>
                                         <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="YDO-kG-z5c">
-                                            <rect key="frame" x="20" y="46" width="24" height="24"/>
+                                            <rect key="frame" x="20" y="57" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -437,11 +484,11 @@
                                             </accessibility>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="boZ-5W-jtr">
-                                            <rect key="frame" x="20" y="79" width="24" height="24"/>
+                                            <rect key="frame" x="20" y="85" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Title @ Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-w7-hxh">
-                                            <rect key="frame" x="21" y="20" width="234" height="21"/>
+                                            <rect key="frame" x="21" y="30" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -527,7 +574,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="bbO-qy-7D2">
                         <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
-                                <segue destination="o5E-Ml-Dot" kind="push" id="vJY-OD-AU4"/>
+                                <segue destination="o5E-Ml-Dot" kind="push" identifier="AddContact" id="vJY-OD-AU4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -572,14 +619,15 @@
     </scenes>
     <resources>
         <image name="add-contact" width="22" height="22"/>
+        <image name="arrow-up" width="22" height="138"/>
         <image name="company" width="24" height="24"/>
         <image name="email" width="26" height="16"/>
         <image name="ic_facebook" width="105" height="105"/>
         <image name="ic_linkedin" width="105" height="105"/>
-        <image name="ic_round_facebook" width="30" height="29"/>
-        <image name="ic_round_linkedin" width="60" height="60"/>
-        <image name="ic_round_twitter" width="30" height="29"/>
-        <image name="ic_round_xing" width="20" height="20"/>
+        <image name="ic_round_facebook" width="59" height="59"/>
+        <image name="ic_round_linkedin" width="119" height="119"/>
+        <image name="ic_round_twitter" width="59" height="59"/>
+        <image name="ic_round_xing" width="59" height="59"/>
         <image name="ic_twitter" width="105" height="105"/>
         <image name="ic_xing" width="105" height="105"/>
         <image name="job" width="27" height="22"/>
@@ -596,7 +644,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vJY-OD-AU4"/>
         <segue reference="ia0-o9-svB"/>
+        <segue reference="vJY-OD-AU4"/>
     </inferredMetricsTieBreakers>
 </document>

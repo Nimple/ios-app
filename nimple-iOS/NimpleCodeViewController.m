@@ -26,6 +26,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 
 @synthesize editButton;
 @synthesize editController;
+@synthesize myNimpleCode;
 
 - (id)init
 {
@@ -36,7 +37,8 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -45,24 +47,76 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 }
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
+    [myNimpleCode synchronize];
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"
                                                object:nil];
+    NSString* surname = [myNimpleCode valueForKey:@"surname"];
+    NSString* prename = [myNimpleCode valueForKey:@"prename"];
+    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
+    NSString* email = [self.myNimpleCode valueForKey:@"email"];
+    NSString* job = [self.myNimpleCode valueForKey:@"job"];
+    NSString* company = [self.myNimpleCode valueForKey:@"company"];
+    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
+       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    {
+        [self.nimpleQRCodeImage setHidden:TRUE];
+        [self.welcomeView setHidden:FALSE];
+    }
+    else
+    {
+        [self.welcomeView setHidden:TRUE];
+        [self.nimpleQRCodeImage setHidden:FALSE];
+        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
+    }
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    [self.myNimpleCode synchronize];
+    NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
+    NSString* prename = [self.myNimpleCode valueForKey:@"prename"];
+    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
+    NSString* email = [self.myNimpleCode valueForKey:@"email"];
+    NSString* job = [self.myNimpleCode valueForKey:@"job"];
+    NSString* company = [self.myNimpleCode valueForKey:@"company"];
+    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
+       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    {
+        [self.nimpleQRCodeImage setHidden:TRUE];
+        [self.welcomeView setHidden:FALSE];
+    }
+    else
+    {
+        [self.welcomeView setHidden:TRUE];
+        [self.nimpleQRCodeImage setHidden:FALSE];
+        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
+    }
 }
 
 // Handles the nimpleCodeChanged notifaction
 - (void)handleChangedNimpleCode:(NSNotification *)note {
     NSLog(@"Received changed Nimple Code @ Nimple CODE VIEW CONTROLLER");
     
-    NSDictionary *theData = [note userInfo];
-    if (theData != nil) {
-        NSUserDefaults *nimpleCode = [theData objectForKey:@"nimpleCode"];
-        
-        [self generateNimpleQRCodeSurname:[nimpleCode valueForKey:@"surname"] Prename:[nimpleCode valueForKey:@"prename"] Phone:[nimpleCode valueForKey:@"phone"] Mail:[nimpleCode valueForKey:@"email"] JobTitle:[nimpleCode valueForKey:@"job"] CompanyName:[nimpleCode valueForKey:@"company"]];
-    }
+    [self.myNimpleCode synchronize];
+    [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
 }
 
 - (void)didReceiveMemoryWarning

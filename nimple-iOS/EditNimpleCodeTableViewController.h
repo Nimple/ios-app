@@ -15,18 +15,18 @@
 @class EditNimpleCodeTableViewController;
 
 @protocol EditNimpleCodeTableControllerDelegate <NSObject>
+
 @required
 - (void) editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController*)controller;
 - (void) editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController*)controller;
+
 @end
 
 @interface EditNimpleCodeTableViewController : UITableViewController
 
 @property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
-
-@property (atomic) BOOL ownNimpleCodeExists;
-@property (nonatomic, strong) NSMutableArray *cells;
-@property (atomic, strong) NSUserDefaults    *myNimpleCode;
+@property (nonatomic, strong) NSMutableArray                           *cells;
+@property (atomic, weak) NSUserDefaults                                *myNimpleCode;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;

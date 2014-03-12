@@ -59,6 +59,15 @@
     [self.tableView reloadData];
 }
 
+// Prepare the segue by passing the managed object context
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"AddContact"])
+    {
+        BarCodeReaderController *destViewController = segue.destinationViewController;
+        destViewController.managedObjectContext = self.managedObjectContext;
+    }
+}
+
 //
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {

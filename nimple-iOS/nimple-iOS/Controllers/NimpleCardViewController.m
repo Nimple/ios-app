@@ -15,6 +15,8 @@
 
 @implementation NimpleCardViewController
 
+@synthesize myNimpleCode;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,28 +29,82 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
+    [myNimpleCode synchronize];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"
                                                object:nil];
+    NSString* surname = [myNimpleCode valueForKey:@"surname"];
+    NSString* prename = [myNimpleCode valueForKey:@"prename"];
+    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
+    NSString* email = [self.myNimpleCode valueForKey:@"email"];
+    NSString* job = [self.myNimpleCode valueForKey:@"job"];
+    NSString* company = [self.myNimpleCode valueForKey:@"company"];
+    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
+       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    {
+        [self.nimpleCardView setHidden:TRUE];
+        [self.welcomeView setHidden:FALSE];
+    }
+    else
+    {
+        [self.nimpleCardView setHidden:FALSE];
+        [self.welcomeView setHidden:TRUE];
+        [self handleChangedNimpleCode:nil];
+    }
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    NSString* surname = [myNimpleCode valueForKey:@"surname"];
+    NSString* prename = [myNimpleCode valueForKey:@"prename"];
+    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
+    NSString* email = [self.myNimpleCode valueForKey:@"email"];
+    NSString* job = [self.myNimpleCode valueForKey:@"job"];
+    NSString* company = [self.myNimpleCode valueForKey:@"company"];
+    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
+       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    {
+        [self.nimpleCardView setHidden:TRUE];
+        [self.welcomeView setHidden:FALSE];
+    }
+    else
+    {
+        [self.nimpleCardView setHidden:FALSE];
+        [self.welcomeView setHidden:TRUE];
+    }
 }
 
 // Handles the nimpleCodeChanged notifaction
 - (void)handleChangedNimpleCode:(NSNotification *)note {
     NSLog(@"Received changed Nimple Code @ Nimple CARD VIEW CONTROLLER");
-    
-    NSDictionary *theData = [note userInfo];
-    if (theData != nil) {
-        NSUserDefaults *nimpleCode = [theData objectForKey:@"nimpleCode"];
-        NSLog(@"%@", [nimpleCode valueForKey:@"surname"]);
+
+    [self.myNimpleCode synchronize];
+
+    // Fill the nimple card
+    [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", [self.myNimpleCode valueForKey:@"prename"], [self.myNimpleCode valueForKey:@"surname"]]];
+    [self.jobLabel setText:[self.myNimpleCode valueForKey:@"job"]];
+    [self.companyLabel setText:[self.myNimpleCode valueForKey:@"company"]];
+    [self.phoneLabel setText:[self.myNimpleCode valueForKey:@"phone"]];
+    [self.emailLabel setText:[self.myNimpleCode valueForKey:@"email"]];
         
-        // Fill the nimple card
-        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", [nimpleCode valueForKey:@"prename"], [nimpleCode valueForKey:@"surname"]]];
-        [self.jobLabel setText:[nimpleCode valueForKey:@"job"]];
-        [self.companyLabel setText:[nimpleCode valueForKey:@"company"]];
-        [self.phoneLabel setText:[nimpleCode valueForKey:@"phone"]];
-        [self.emailLabel setText:[nimpleCode valueForKey:@"email"]];
-    }
+    NSString *facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    NSString *facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    if(facebook_URL.length != 0 || facebook_ID.length != 0)
+        [self.facebookIcon setAlpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning

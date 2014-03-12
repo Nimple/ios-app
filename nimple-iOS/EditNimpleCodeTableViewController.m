@@ -14,7 +14,6 @@
 
 @implementation EditNimpleCodeTableViewController
 
-@synthesize ownNimpleCodeExists;
 @synthesize myNimpleCode;
 @synthesize cells;
 
@@ -22,7 +21,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        
+
     }
     return self;
 }
@@ -30,49 +29,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Initalize user defaults if needed
     self.myNimpleCode = [NSUserDefaults standardUserDefaults];
     NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
     if(surname.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"surname"];
     }
-    
     NSString* prename = [self.myNimpleCode valueForKey:@"prename"];
     if(prename.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"prename"];
     }
-    
     NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
     if(phone.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"phone"];
     }
-    
     NSString* email = [self.myNimpleCode valueForKey:@"email"];
     if(email.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"email"];
     }
-
     NSString* job = [self.myNimpleCode valueForKey:@"job"];
     if(job.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"job"];
     }
-    
     NSString* company = [self.myNimpleCode valueForKey:@"company"];
     if(company.length == 0)
     {
         [self.myNimpleCode setValue:@"" forKey:@"company"];
     }
-    
-    [self.myNimpleCode synchronize];
-    
+    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+    if(facebook_URL.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"facebook_URL"];
+    }
+    NSString* facebook_ID = [self.myNimpleCode valueForKey:@"facebook_ID"];
+    if(facebook_ID.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"facebook_ID"];
+    }
+    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    if(twitter_URL.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
+    }
+    NSString* twitter_ID = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    if(twitter_ID.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
+    }
+    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    if(xing_URL.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"xing_URL"];
+    }
+    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if(linkedin_URL.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
+    }
     NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
+    [self.myNimpleCode synchronize];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,7 +103,6 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    [self.myNimpleCode synchronize];
 }
 
 #pragma mark - Table view data source
@@ -114,10 +133,17 @@
     return cellCount;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.section == 1)
+        return 60.0;
+    else
+        return 40.0;
+}
+
 // Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.myNimpleCode synchronize];
     static NSString *CellIdentifier = @"ContactInputCell";
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -157,42 +183,59 @@
             break;
         // Section: social
         case 1:
+            // facebook
             if(indexPath.row == 0)
             {
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_facebook"]];
-                [cell.socialNetworkIcon setAlpha:0.3];
-                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
-                [cell.connectStatusButton setTitle:@"Mit facebook verbinden" forState:UIControlStateNormal];
-                cell.fbloginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
+                [cell setSection:1];
+                [cell setIndex:0];
+                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"] forState:UIControlStateNormal];
+                cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
+                cell.fbLoginView.delegate = cell;
+                
+                NSString* facebook_ID = [self.myNimpleCode valueForKey:@"facebook_ID"];
+                if(facebook_ID.length == 0)
+                {
+                    [cell.socialNetworkButton setAlpha:0.3];
+                    [cell.connectStatusButton setTitle:@"Mit facebook verbinden" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [cell.socialNetworkButton setAlpha:1.0];
+                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                    
+                }
                 
             }
             if(indexPath.row == 1)
             {
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                cell.socialNetworkIcon.contentMode = UIViewContentModeScaleAspectFill;
-                [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_twitter"]];
-                [cell.socialNetworkIcon setAlpha:0.3];
+                [cell setSection:1];
+                [cell setIndex:1];
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
                 [cell.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
             }
             if(indexPath.row == 2)
             {
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_xing"]];
-                [cell.socialNetworkIcon setAlpha:0.3];
-                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
+                [cell setSection:1];
+                [cell setIndex:2];
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
                 [cell.connectStatusButton setTitle:@"Mit xing verbinden" forState:UIControlStateNormal];
             }
             if(indexPath.row == 3)
             {
                 static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell.socialNetworkIcon setImage:[UIImage imageNamed:@"ic_round_linkedin"]];
-                [cell.socialNetworkIcon setAlpha:0.3];
-                [cell.socialNetworkIcon setContentMode:UIViewContentModeScaleAspectFill];
+                [cell setSection:1];
+                [cell setIndex:3];
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
                 [cell.connectStatusButton setTitle:@"Mit linkedin verbinden" forState:UIControlStateNormal];
             }
             break;
@@ -246,9 +289,7 @@
 {
     [self.myNimpleCode synchronize];
     // Notification that the nimple code changed
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
     [self.delegate editNimpleCodeTableViewControllerDidSave:self];
 }
 

@@ -6,15 +6,22 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+// SDK imports
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Accounts/Accounts.h>
+#import <Social/Social.h>
+#import <IOSLinkedInAPI/LIALinkedInAuthorizationViewController.h>
+// Nimple imports
+#import "EditNimpleCodeTableViewController.h"
 
-@interface ConnectSocialProfileViewCell : UITableViewCell
+@interface ConnectSocialProfileViewCell : UITableViewCell<FBLoginViewDelegate>
 
 @property (atomic) NSInteger index;
 @property (atomic) NSInteger section;
-@property (weak, nonatomic) IBOutlet UIImageView *socialNetworkIcon;
+@property (weak, nonatomic) IBOutlet UIButton *socialNetworkButton;
 @property (weak, nonatomic) IBOutlet UIButton *connectStatusButton;
-@property FBLoginView *fbloginView;
+@property (atomic, strong) FBLoginView *fbLoginView;
+@property (nonatomic) ACAccountStore   *twitterAcountStore;
 
 @end

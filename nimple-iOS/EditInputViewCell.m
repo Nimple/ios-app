@@ -23,8 +23,8 @@
 
 - (IBAction)editingChanged:(id)sender
 {
-    UITableView *tv = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tv.dataSource;
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
     switch (self.section) {
         case 0:
@@ -70,33 +70,48 @@
 
 // Save the user data
 - (IBAction)EditingDidEnd:(id)sender {
-    UITableView *tv = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tv.dataSource;
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
-    switch (self.section) {
+    switch (self.section)
+    {
         case 0:
-            switch (self.index) {
+            switch (self.index)
+            {
                 case 0:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Dein Vorname"];
                     break;
                 case 1:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Dein Nachname"];
                     break;
                 case 2:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Deine Telefonnummer"];
                     break;
                 case 3:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
                     break;
             }
             break;
         case 2:
-            switch (self.index) {
+            switch (self.index)
+            {
                 case 0:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Deine Job Bezeichnung"];
                     break;
                 case 1:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+                    if(self.inputField.text.length == 0)
+                        [self.inputField setPlaceholder:@"Deine Firma"];
                     break;
             }
             break;

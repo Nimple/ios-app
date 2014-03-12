@@ -11,6 +11,7 @@
 #import <CoreImage/CoreImage.h>
 #import <Mixpanel/Mixpanel.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <IOSLinkedInAPI/LIALinkedInApplication.h>
 // Nimple imports
 #import "NimpleContact.h"
 #import "OwnNimpleCode.h"
@@ -26,7 +27,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext       *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel         *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (atomic, strong) NSUserDefaults    *myNimpleCode;
 
 - (void)   saveContext;
 - (NSURL*) applicationDocumentsDirectory;

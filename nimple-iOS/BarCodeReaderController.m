@@ -23,6 +23,7 @@
 {
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;
+    UIAlertView *alertView;
 }
 
 @synthesize managedObjectContext;
@@ -46,6 +47,11 @@
     _captureSession = nil;
     
     [self startReading];
+    alertView = [[UIAlertView alloc] initWithTitle:@"Title"
+                                     message:@"This is the message."
+                                     delegate:self
+                                     cancelButtonTitle:@"NICE"
+                                     otherButtonTitles:nil];
 }
 
 // Starts the capture session when the view is currently presented
@@ -72,6 +78,7 @@
 
 // Toggles the capture session
 - (IBAction)startStopReading:(id)sender {
+    /*
     if (!_isReading) {
         [self startReading];
     }
@@ -79,6 +86,7 @@
         [self stopReading];
     }
     _isReading = !_isReading;
+     */
 }
 
 // Starts the capture session
@@ -105,6 +113,7 @@
     [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
     
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    _videoPreviewLayer.drawsAsynchronously = TRUE;
     [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [_videoPreviewLayer setFrame:_codeReaderCameraView.layer.bounds];
     [_codeReaderCameraView.layer addSublayer:_videoPreviewLayer];
@@ -124,8 +133,6 @@
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode])
         {
-            //[self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-        
             // Stop the bar code reader
             [self stopReading];
             
@@ -239,6 +246,7 @@
     }
 }
 
+//
 -(void) saveToDataBase
 {
      NSManagedObjectContext *context = [self managedObjectContext];
@@ -246,8 +254,8 @@
     
     [scannedContact setValueForPrename:capturedContactData[0] Surname:capturedContactData[1] PhoneNumber:capturedContactData[2] MailAddress:capturedContactData[3] JobTitle:capturedContactData[4] Company:capturedContactData[5] FacebookURL:capturedContactData[6] FacebookID:capturedContactData[7] TwitterURL:capturedContactData[8] TwitterID:capturedContactData[9] XingURL:capturedContactData[10] LinkedInURL:capturedContactData[11]];
     
-     NSError *error;
-     [context save:&error];
+    NSError *error;
+    [context save:&error];
     NSLog(@"Contact successfully saved to database!");
 }
 
@@ -255,8 +263,9 @@
 -(void)stopReading{
     [_captureSession stopRunning];
     _captureSession = nil;
-    
     [_videoPreviewLayer removeFromSuperlayer];
+    
+    //[[self navigationController] popViewControllerAnimated:YES];
 }
 
 @end

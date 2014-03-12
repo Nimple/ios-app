@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 // Nimple imports
 #import "NimpleContact.h"
+#import "BarCodeReaderController.h"
 
 @interface ContactsViewController : UITableViewController
 

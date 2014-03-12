@@ -20,16 +20,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @synthesize managedObjectContext       = _managedObjectContext;
 @synthesize managedObjectModel         = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize myNimpleCode;
 
 // Application launched
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Initialize the library with your
-    // Mixpanel project token, MIXPANEL_TOKEN
+{    
+    // Initialize mixpanel
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     // Later, you can get your instance with
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    //Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    
+    // Setup social network APIs
+    [FBLoginView class];
     
     // Set nimple tint color for navigation bar
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x8D0835)];
@@ -47,7 +48,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"Contact created: %@", [contact toString]);
     */
      
-    // Find and delegate view controllers
+    // Find and setup view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
     // Nimple card view controller
@@ -59,7 +60,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 1 is %@", presentedController1.title);
     NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
-    EditNimpleCodeTableViewController* editNimpleCodeController = (EditNimpleCodeTableViewController*) nimpleCodeViewController.editController;
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
@@ -127,6 +127,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             abort();
         }
     }
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 #pragma mark - Core Data stack
@@ -208,20 +222,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    
-    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
-    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-    
-    // You can add your app-specific url handling code here if needed
-    
-    return wasHandled;
 }
 
 @end
