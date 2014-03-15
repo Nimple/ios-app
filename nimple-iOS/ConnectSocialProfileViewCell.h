@@ -15,13 +15,15 @@
 // Nimple imports
 #import "EditNimpleCodeTableViewController.h"
 
-@interface ConnectSocialProfileViewCell : UITableViewCell<FBLoginViewDelegate>
+@interface ConnectSocialProfileViewCell : UITableViewCell<FBLoginViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
-@property (atomic) NSInteger index;
-@property (atomic) NSInteger section;
+@property (atomic) NSInteger                  index;
+@property (atomic) NSInteger                  section;
 @property (weak, nonatomic) IBOutlet UIButton *socialNetworkButton;
 @property (weak, nonatomic) IBOutlet UIButton *connectStatusButton;
-@property (atomic, strong) FBLoginView *fbLoginView;
-@property (nonatomic) ACAccountStore   *twitterAcountStore;
+@property (atomic, strong) FBLoginView        *fbLoginView;
+@property (nonatomic) ACAccountStore          *twitterAcount;
+@property (strong, atomic) UIActionSheet      *actionSheet;
+@property (strong, atomic) UIAlertView        *alertView;
 
 @end

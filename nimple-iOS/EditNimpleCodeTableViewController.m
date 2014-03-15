@@ -194,8 +194,9 @@
                 cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
                 cell.fbLoginView.delegate = cell;
                 
-                NSString* facebook_ID = [self.myNimpleCode valueForKey:@"facebook_ID"];
-                if(facebook_ID.length == 0)
+                NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+                NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+                if(facebook_ID.length == 0 || facebook_URL.length == 0)
                 {
                     [cell.socialNetworkButton setAlpha:0.3];
                     [cell.connectStatusButton setTitle:@"Mit facebook verbinden" forState:UIControlStateNormal];
@@ -214,9 +215,20 @@
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell setSection:1];
                 [cell setIndex:1];
-                [cell.socialNetworkButton setAlpha:0.3];
                 [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
-                [cell.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
+                
+                NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+                NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+                if(twitter_ID.length == 0 || twitter_URL.length == 0)
+                {
+                    [cell.socialNetworkButton setAlpha:0.3];
+                    [cell.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [cell.socialNetworkButton setAlpha:1.0];
+                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                }
             }
             if(indexPath.row == 2)
             {

@@ -23,7 +23,6 @@
 {
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;
-    UIAlertView *alertView;
 }
 
 @synthesize managedObjectContext;
@@ -47,11 +46,19 @@
     _captureSession = nil;
     
     [self startReading];
-    alertView = [[UIAlertView alloc] initWithTitle:@"Title"
-                                     message:@"This is the message."
+    self.alertView = [[UIAlertView alloc] initWithTitle:@"Kontakt gefunden"
+                                     message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
                                      delegate:self
-                                     cancelButtonTitle:@"NICE"
+                                     cancelButtonTitle:@"Nice!"
                                      otherButtonTitles:nil];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        
+    }
 }
 
 // Starts the capture session when the view is currently presented
@@ -234,6 +241,9 @@
                 }
                 
                 NSLog(@"Contact found: %@", contactData);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.alertView show];
+                });
                 capturedContactData = contactData;
                 [self saveToDataBase];
             }

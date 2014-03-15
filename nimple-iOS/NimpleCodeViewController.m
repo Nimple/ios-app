@@ -46,12 +46,30 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     return self;
 }
 
+-(void)swipeHandlerRight:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 0];
+}
+
+-(void)swipeHandlerLeft:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 2];
+}
 
 - (void)viewDidLoad
 {
-    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
-    [myNimpleCode synchronize];
     [super viewDidLoad];
+    [myNimpleCode synchronize];
+    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
+    
+    UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandlerRight:)];
+    [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:gestureRecognizerRight];
+    
+    UISwipeGestureRecognizer *gestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandlerLeft:)];
+    [gestureRecognizerLeft setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.view addGestureRecognizer:gestureRecognizerLeft];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"
@@ -78,7 +96,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     {
         [self.welcomeView setHidden:TRUE];
         [self.nimpleQRCodeImage setHidden:FALSE];
-        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
+        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"]];
     }
 }
 
@@ -107,7 +125,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     {
         [self.welcomeView setHidden:TRUE];
         [self.nimpleQRCodeImage setHidden:FALSE];
-        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
+        [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"]];
     }
 }
 
@@ -116,7 +134,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     NSLog(@"Received changed Nimple Code @ Nimple CODE VIEW CONTROLLER");
     
     [self.myNimpleCode synchronize];
-    [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"]];
+    [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -178,9 +196,9 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 }
 
 // Generates a nimple QR code with given parameters
-- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company
+- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company TwitterURL:(NSString*)p_twitterURL
 {
-    NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, @"facebookURL", @"facebookID", @"twitterURL", @"twitterID", @"xingURL", @"linkedinURL", nil];
+    NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, @"facebookURL", @"facebookID", p_twitterURL, @"twitterID", @"xingURL", @"linkedinURL", nil];
     
     // Fill vcard template & create NSData for QRCode generation
     NSString *asciiString = [self fillVCardCardWithData:vcard_data];

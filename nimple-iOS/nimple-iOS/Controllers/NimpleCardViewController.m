@@ -26,9 +26,18 @@
     return self;
 }
 
+-(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 1];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    
     self.myNimpleCode = [NSUserDefaults standardUserDefaults];
     [myNimpleCode synchronize];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -105,6 +114,11 @@
     NSString *facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
     if(facebook_URL.length != 0 || facebook_ID.length != 0)
         [self.facebookIcon setAlpha:1.0];
+    
+    NSString *twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+    NSString *twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+    if(twitter_URL.length != 0 || twitter_ID.length != 0)
+        [self.twitterIcon setAlpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning

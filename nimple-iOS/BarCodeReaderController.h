@@ -14,12 +14,13 @@
 #import <AddressBook/ABRecord.h>
 
 @interface BarCodeReaderController : UIViewController
-    <AVCaptureMetadataOutputObjectsDelegate>
+    <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIView          *codeReaderCameraView;
 @property (weak, nonatomic) IBOutlet UILabel         *successLabel;
 @property (weak, atomic) NSMutableArray              *capturedContactData;
+@property (strong, atomic) UIAlertView                 *alertView;
 
 - (IBAction)startStopReading:(id)sender;
 

@@ -10,6 +10,7 @@
 
 @implementation ConnectSocialProfileViewCell
 
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -27,10 +28,60 @@
 }
 
 //
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    
+    if(self.index == 1)
+    {
+        if(buttonIndex == 0)
+        {
+            [self.socialNetworkButton setAlpha:0.3];
+            [self.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
+            [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
+            [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
+            [viewController.myNimpleCode synchronize];
+        }
+    }
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        NSLog(@"0");
+    }
+    if(buttonIndex == 1)
+    {
+        NSLog(@"1");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TWITTER"]];
+    }
+}
+
+//
 - (IBAction)connectButtonClicked:(id)sender
 {
-    NSLog(@"connect with facebook");
+    NSString *destructiveTitle = @"Log out"; //Action Sheet Button Titles
+    NSString *cancelTitle = @"Cancel";
+    self.actionSheet = [[UIActionSheet alloc]
+                        initWithTitle:@""
+                        delegate:self
+                        cancelButtonTitle:cancelTitle
+                        destructiveButtonTitle:destructiveTitle
+                        otherButtonTitles: nil];
     
+    self.alertView = [[UIAlertView alloc] initWithTitle:@"Hello World!"
+                                          message:@"This is your first UIAlertview message."
+                                          delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil];
+    
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    
+    // handle facebook
     if(self.index == 0)
     {
         self.fbLoginView = [[FBLoginView alloc] init];
@@ -46,9 +97,61 @@
             }
         }
     }
+    // handle twitter
     if(self.index == 1)
     {
-        self.twitterAcountStore = [[ACAccountStore alloc] init];
+        self.twitterAcount = [[ACAccountStore alloc] init];
+        ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        
+        if([[viewController.myNimpleCode valueForKey:@"twitter_ID"] length] == 0)
+        {
+            [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error){
+                
+                if(granted == YES)
+                {
+                    NSLog(@"Acces granted");
+                    NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
+                    NSLog(@"Acoounts count: %i", [accountsArray count]);
+                    if([accountsArray count] > 0 )
+                    {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.socialNetworkButton setAlpha:1.0];
+                            [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                        });
+                        ACAccount *twitterAccount = [accountsArray lastObject];
+                        NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
+                        NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
+                        [viewController.myNimpleCode setValue:twitter_URL forKey:@"twitter_URL"];
+                        [viewController.myNimpleCode setValue:twitter_ID forKey:@"twitter_ID"];
+                        [viewController.myNimpleCode synchronize];
+                    }
+                    else
+                    {
+                        NSLog(@"No twitter profile found!");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.alertView.title = @"Kein twitter Profil gefunden";
+                            self.alertView.message = @"Logge dich in den Einstellungen unter 'Twitter' ein";
+                            [self.alertView show];
+                        });
+                        
+                    }
+                }
+                else
+                {
+                    NSLog(@"%@", [error localizedDescription]);
+                }
+            }];
+        }
+        else
+        {
+            self.actionSheet.title = @"Loggd in using twitter";
+            [self.actionSheet showInView:self.superview.superview];
+        }
+    }
+    // handle xing
+    if(self.index == 2)
+    {
+        
     }
 }
 
@@ -72,6 +175,7 @@
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     [viewController.myNimpleCode setValue:user.id forKey:@"facebook_ID"];
     [viewController.myNimpleCode setValue:user.link forKey:@"facebook_URL"];
+    [viewController.myNimpleCode synchronize];
     [self.socialNetworkButton setAlpha:1.0];
     [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
 }
