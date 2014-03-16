@@ -28,7 +28,20 @@
 
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
     NSLog(@"Swipe received.");
-    [self.tabBarController setSelectedIndex: 1];
+    //[self.tabBarController setSelectedIndex: 1];
+    UIView * fromView = self.tabBarController.selectedViewController.view;
+    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
+    
+    // Transition using a page curl.
+    [UIView transitionFromView:fromView
+                        toView:toView
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    completion:^(BOOL finished) {
+                        if (finished) {
+                            self.tabBarController.selectedIndex = 1;
+                        }
+                    }];
 }
 
 - (void)viewDidLoad
