@@ -46,6 +46,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1BB4A0476F84F4EB34F430C;
+			remoteInfo = Pods;
+		};
+		B5B20A8218D5CD5900356B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3FD8D73BC84C41B09110BD4E;
+			remoteInfo = "Pods-AFNetworking";
+		};
+		B5B20A8418D5CD5900356B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DBD9D51C5555484185A83596;
+			remoteInfo = "Pods-IOSLinkedInAPI";
+		};
+		B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 79F7E2F5F38E4DF29C0C1C2A;
+			remoteInfo = "Pods-Mixpanel";
+		};
 		D151DA9618B432F800C5850F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D151DA6518B432F700C5850F /* Project object */;
@@ -66,6 +94,7 @@
 		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
 		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D10ADD4018D11961001450E8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +172,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5B20A7A18D5CD5900356B50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5B20A8118D5CD5900356B50 /* libPods.a */,
+				B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */,
+				B5B20A8518D5CD5900356B50 /* libPods-IOSLinkedInAPI.a */,
+				B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D151DA6418B432F700C5850F = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +192,7 @@
 				D151DA6F18B432F700C5850F /* Frameworks */,
 				D151DA6E18B432F700C5850F /* Products */,
 				C11D1B32A73841EF9434D94B /* Pods.xcconfig */,
+				B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -373,6 +414,12 @@
 			mainGroup = D151DA6418B432F700C5850F;
 			productRefGroup = D151DA6E18B432F700C5850F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B5B20A7A18D5CD5900356B50 /* Products */;
+					ProjectRef = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D151DA6C18B432F700C5850F /* nimple-iOS */,
@@ -380,6 +427,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B5B20A8118D5CD5900356B50 /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-AFNetworking.a";
+			remoteRef = B5B20A8218D5CD5900356B50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B5B20A8518D5CD5900356B50 /* libPods-IOSLinkedInAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-IOSLinkedInAPI.a";
+			remoteRef = B5B20A8418D5CD5900356B50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-Mixpanel.a";
+			remoteRef = B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D151DA6B18B432F700C5850F /* Resources */ = {
@@ -582,6 +660,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -596,6 +675,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -604,6 +684,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -618,6 +699,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
