@@ -11,7 +11,7 @@
 #import <CoreImage/CoreImage.h>
 #import <Mixpanel/Mixpanel.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import <IOSLinkedInAPI/LIALinkedInApplication.h>
+#import <XNGAPIClient/XNGAPIClient.h>
 // Nimple imports
 #import "NimpleContact.h"
 #import "OwnNimpleCode.h"

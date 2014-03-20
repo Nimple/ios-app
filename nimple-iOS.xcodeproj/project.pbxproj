@@ -60,19 +60,33 @@
 			remoteGlobalIDString = 3FD8D73BC84C41B09110BD4E;
 			remoteInfo = "Pods-AFNetworking";
 		};
-		B5B20A8418D5CD5900356B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DBD9D51C5555484185A83596;
-			remoteInfo = "Pods-IOSLinkedInAPI";
-		};
 		B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 79F7E2F5F38E4DF29C0C1C2A;
 			remoteInfo = "Pods-Mixpanel";
+		};
+		D13C2A0718D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3CA0B612F4044E08781CD5C;
+			remoteInfo = "Pods-AFOAuth1Client";
+		};
+		D13C2A0918D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37ACCC8E36D64DDDA50815F7;
+			remoteInfo = "Pods-SSKeychain";
+		};
+		D13C2A0B18D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F11B1A7DE7B4A6E9A22721C;
+			remoteInfo = "Pods-XNGAPIClient";
 		};
 		D151DA9618B432F800C5850F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -177,8 +191,10 @@
 			children = (
 				B5B20A8118D5CD5900356B50 /* libPods.a */,
 				B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */,
-				B5B20A8518D5CD5900356B50 /* libPods-IOSLinkedInAPI.a */,
+				D13C2A0818D7BAEA006A01E4 /* libPods-AFOAuth1Client.a */,
 				B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */,
+				D13C2A0A18D7BAEA006A01E4 /* libPods-SSKeychain.a */,
+				D13C2A0C18D7BAEA006A01E4 /* libPods-XNGAPIClient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -443,18 +459,32 @@
 			remoteRef = B5B20A8218D5CD5900356B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B5B20A8518D5CD5900356B50 /* libPods-IOSLinkedInAPI.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-IOSLinkedInAPI.a";
-			remoteRef = B5B20A8418D5CD5900356B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libPods-Mixpanel.a";
 			remoteRef = B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D13C2A0818D7BAEA006A01E4 /* libPods-AFOAuth1Client.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-AFOAuth1Client.a";
+			remoteRef = D13C2A0718D7BAEA006A01E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D13C2A0A18D7BAEA006A01E4 /* libPods-SSKeychain.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-SSKeychain.a";
+			remoteRef = D13C2A0918D7BAEA006A01E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D13C2A0C18D7BAEA006A01E4 /* libPods-XNGAPIClient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-XNGAPIClient.a";
+			remoteRef = D13C2A0B18D7BAEA006A01E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

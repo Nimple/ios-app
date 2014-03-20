@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *xingIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *linkedinIcon;
 @property (atomic, strong) NSUserDefaults        *myNimpleCode;
-@property (weak, nonatomic) IBOutlet UIView *welcomeView;
-@property (weak, nonatomic) IBOutlet UIView *nimpleCardView;
+@property (weak, nonatomic) IBOutlet UIView      *welcomeView;
+@property (weak, nonatomic) IBOutlet UIView      *nimpleCardView;
 
 @end

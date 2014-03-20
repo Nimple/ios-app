@@ -111,7 +111,7 @@
                 {
                     NSLog(@"Acces granted");
                     NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
-                    NSLog(@"Acoounts count: %i", [accountsArray count]);
+                    NSLog(@"Acoounts count: %lu", (unsigned long)[accountsArray count]);
                     if([accountsArray count] > 0 )
                     {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -123,7 +123,6 @@
                         NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
                         [viewController.myNimpleCode setValue:twitter_URL forKey:@"twitter_URL"];
                         [viewController.myNimpleCode setValue:twitter_ID forKey:@"twitter_ID"];
-                        [viewController.myNimpleCode synchronize];
                     }
                     else
                     {
@@ -133,7 +132,6 @@
                             self.alertView.message = @"Logge dich in den Einstellungen unter 'Twitter' ein";
                             [self.alertView show];
                         });
-                        
                     }
                 }
                 else
@@ -151,8 +149,64 @@
     // handle xing
     if(self.index == 2)
     {
+        XNGAPIClient *client = [XNGAPIClient sharedClient];
+        client.consumerKey = @"b80c7b411f4742f328bc";
+        client.consumerSecret = @"297e6fb2b69e9ef9f98278693834e490757c538f";
         
+        if(client.isLoggedin)
+        {
+            NSLog(@"XING: Logging out");
+            [client logout];
+            [self.socialNetworkButton setAlpha:0.3];
+            [self.connectStatusButton setTitle:@"Mit XING verbinden" forState:UIControlStateNormal];
+            [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
+        }
+        else
+        {
+            NSLog(@"XING: Logging in");
+            [client loginOAuthWithSuccess:^
+            {
+                // handle success
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.socialNetworkButton setAlpha:1.0];
+                    [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                });
+                NSLog(@"Xing user ID: %@", client.currentUserID);
+                [client getUserWithID:@"me" userFields:nil
+                success:^(id JSON)
+                 {
+
+                    if (![JSON isKindOfClass:[NSDictionary class]]) {
+                         return;
+                    }
+                    NSArray *permalink = [JSON valueForKeyPath:@"users.permalink"];
+                    NSLog(@"url = %@", permalink[0]);
+                    [viewController.myNimpleCode setValue:permalink[0] forKey:@"xing_URL"];
+                }
+                failure:^(NSError *error)
+                {
+                     NSLog(@"Error:\n %@",error);
+                     
+                }];
+
+            }
+            failure:^(NSError *error)
+            {
+                // handle failure
+                NSLog(@"ERROR: xing profile!");
+                NSLog(@"%@", error);
+                dispatch_async(dispatch_get_main_queue(), ^
+                {
+                    self.alertView.title = @"Fehler";
+                    self.alertView.message = [NSString stringWithFormat:@"%@", error];
+                    [self.alertView show];
+                });
+            }];
+        }
     }
+    // linkedin
+    
+    //[viewController.myNimpleCode synchronize];
 }
 
 // ### FACEBOOK ################################################################

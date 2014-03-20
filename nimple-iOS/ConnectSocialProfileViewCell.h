@@ -11,7 +11,8 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
-#import <IOSLinkedInAPI/LIALinkedInAuthorizationViewController.h>
+#import <XNGAPIClient/XNGAPIClient.h>
+#import <XNGAPIClient+UserProfiles.h>
 // Nimple imports
 #import "EditNimpleCodeTableViewController.h"
 

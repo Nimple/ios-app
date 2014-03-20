@@ -38,7 +38,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    
     NSManagedObjectContext *context = [self managedObjectContext];
     
     // Insert default contact
@@ -129,18 +128,22 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
 }
 
-
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
     // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
-    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-    
-    // You can add your app-specific url handling code here if needed
-    
-    return wasHandled;
+    if( [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] )
+    {
+        return YES;
+    }
+    else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
+    {
+        return YES;
+    }
+    else
+        return NO;
 }
 
 #pragma mark - Core Data stack

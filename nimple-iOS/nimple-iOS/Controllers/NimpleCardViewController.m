@@ -132,6 +132,10 @@
     NSString *twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
     if(twitter_URL.length != 0 || twitter_ID.length != 0)
         [self.twitterIcon setAlpha:1.0];
+    
+    NSString *xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+    if(xing_URL.length != 0)
+        [self.xingIcon setAlpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning

@@ -236,9 +236,19 @@
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell setSection:1];
                 [cell setIndex:2];
-                [cell.socialNetworkButton setAlpha:0.3];
                 [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
-                [cell.connectStatusButton setTitle:@"Mit xing verbinden" forState:UIControlStateNormal];
+    
+                NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+                if(xing_URL.length == 0)
+                {
+                    [cell.socialNetworkButton setAlpha:0.3];
+                    [cell.connectStatusButton setTitle:@"Mit XING verbinden" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [cell.socialNetworkButton setAlpha:1.0];
+                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                }
             }
             if(indexPath.row == 3)
             {
