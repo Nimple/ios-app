@@ -23,8 +23,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 //
@@ -32,7 +30,7 @@
 {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
+    // Twitter
     if(self.index == 1)
     {
         if(buttonIndex == 0)
@@ -44,6 +42,17 @@
             [viewController.myNimpleCode synchronize];
         }
     }
+    // LinkedIn
+    if(self.index == 3)
+    {
+        if(buttonIndex == 0)
+        {
+            [self.socialNetworkButton setAlpha:0.3];
+            [self.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+            [viewController.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
+        }
+    }
+    [viewController.myNimpleCode synchronize];
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -56,7 +65,6 @@
     {
         NSLog(@"1");
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"]];
-        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=TWITTER"]];
     }
 }
 
@@ -80,6 +88,7 @@
     
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    [viewController.myNimpleCode synchronize];
     
     // handle facebook
     if(self.index == 0)
@@ -103,6 +112,7 @@
         self.twitterAcount = [[ACAccountStore alloc] init];
         ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
         
+        // Handling log out
         if([[viewController.myNimpleCode valueForKey:@"twitter_ID"] length] == 0)
         {
             [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error){
@@ -140,6 +150,7 @@
                 }
             }];
         }
+        // Handling log out
         else
         {
             self.actionSheet.title = @"Loggd in using twitter";
@@ -149,21 +160,32 @@
     // handle xing
     if(self.index == 2)
     {
+        XNGAPIClient *client = [[XNGAPIClient alloc] initWithBaseURL:@"" consumerKey:@"3d8f3e9a93ca001ca5ea" consumerSecret:@"72a6adfc6298da70515f622ef4d29638be954aa2"];
+        NSLog(@"Logged in via XING:", [client isLoggedin]);
+        /*
         XNGAPIClient *client = [XNGAPIClient sharedClient];
-        client.consumerKey = @"b80c7b411f4742f328bc";
-        client.consumerSecret = @"297e6fb2b69e9ef9f98278693834e490757c538f";
+        if ([client isLoggedin] == NO) {
+            NSLog(@"YOLO You're logged in");
+        } else {
+            NSLog(@"LAME You're not logged in");
+        }
         
         if(client.isLoggedin)
         {
+            NSLog(@"XING: is already logged in");
+
             NSLog(@"XING: Logging out");
             [client logout];
             [self.socialNetworkButton setAlpha:0.3];
             [self.connectStatusButton setTitle:@"Mit XING verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
+
         }
         else
         {
-            NSLog(@"XING: Logging in");
+        */
+            //NSLog(@"XING: Logging in");
+            /*
             [client loginOAuthWithSuccess:^
             {
                 // handle success
@@ -202,16 +224,70 @@
                     [self.alertView show];
                 });
             }];
-        }
+             */
+        //}
     }
     // linkedin
+    if(self.index == 3)
+    {
+        // Handling log in
+        if([[viewController.myNimpleCode valueForKey:@"linkedin_URL"] length] == 0)
+        {
+            self.linkedInClient = [self linkedInClient];
+            [self.linkedInClient getAuthorizationCode:^(NSString *code) {
+                [self.linkedInClient getAccessToken:code success:^(NSDictionary *accessTokenData) {
+                    NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
+                    [self.linkedInClient GET:[NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~?oauth2_access_token=%@&format=json", accessToken] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *result)
+                     {
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             [self.socialNetworkButton setAlpha:1.0];
+                             [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                         });
+                         NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
+                         NSString *url = [profileRequest valueForKey:@"url"];
+                         NSLog(@"Profile url: %@", url);
+                         [viewController.myNimpleCode setValue:url forKey:@"linkedin_URL"];
+                     }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                     {
+                         NSLog(@"failed to fetch current user %@", error);
+                     }];
+                }                   failure:^(NSError *error) {
+                    NSLog(@"Quering accessToken failed %@", error);
+                }];
+            }                      cancel:^{
+                NSLog(@"Authorization was cancelled by user");
+            }                     failure:^(NSError *error) {
+                NSLog(@"Authorization failed %@", error);
+            }];
+        }
+        // Handling log out
+        else
+        {
+            self.actionSheet.title = @"Loggd in using LinkedIn";
+            [self.actionSheet showInView:self.superview.superview];
+        }
+    }
     
-    //[viewController.myNimpleCode synchronize];
+    [viewController.myNimpleCode synchronize];
 }
 
-// ### FACEBOOK ################################################################
+//--- LINKEDIN -----------------------------------------------------------------
+// Creates the LinkedIn client
+- (LIALinkedInHttpClient *)linkedInClient {
+    LIALinkedInApplication *application = [LIALinkedInApplication
+        applicationWithRedirectURL:@"http://www.nimple.de"
+        clientId:@"77pixj2vchhmrj"
+        clientSecret:@"XDzQSRgsL1BOO8nm"
+        state:@"DCEEFWF45453sdffef424"
+        grantedAccess:@[@"r_fullprofile"]];
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    return [LIALinkedInHttpClient clientForApplication:application presentingViewController:viewController];
+}
 
-// Logged-out user experience
+//--- FACEBOOK -----------------------------------------------------------------
+// Logged-out user
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     [self.socialNetworkButton setAlpha:0.3];
     [self.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];

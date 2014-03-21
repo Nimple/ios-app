@@ -40,6 +40,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSManagedObjectContext *context = [self managedObjectContext];
     
+    [XNGAPIClient sharedClient].consumerKey = @"b80c7b411f4742f328bc";
+    [XNGAPIClient sharedClient].consumerSecret = @"297e6fb2b69e9ef9f98278693834e490757c538f";
+    
     // Insert default contact
     /*
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
@@ -133,12 +136,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    // Call facebook API URL handler
     if( [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] )
     {
         return YES;
     }
-    else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
+    // Call Xing API URL handler
+     else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
     {
         return YES;
     }

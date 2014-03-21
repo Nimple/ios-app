@@ -256,9 +256,20 @@
                 ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
                 [cell setSection:1];
                 [cell setIndex:3];
-                [cell.socialNetworkButton setAlpha:0.3];
                 [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
-                [cell.connectStatusButton setTitle:@"Mit linkedin verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+                
+                NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+                if(linkedin_URL.length == 0)
+                {
+                    [cell.socialNetworkButton setAlpha:0.3];
+                    [cell.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [cell.socialNetworkButton setAlpha:1.0];
+                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                }
             }
             break;
         // Section: business

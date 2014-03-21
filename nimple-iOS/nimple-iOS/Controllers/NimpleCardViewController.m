@@ -122,20 +122,24 @@
     [self.companyLabel setText:[self.myNimpleCode valueForKey:@"company"]];
     [self.phoneLabel setText:[self.myNimpleCode valueForKey:@"phone"]];
     [self.emailLabel setText:[self.myNimpleCode valueForKey:@"email"]];
-        
+    // facebook
     NSString *facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
     NSString *facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
     if(facebook_URL.length != 0 || facebook_ID.length != 0)
         [self.facebookIcon setAlpha:1.0];
-    
+    // twitter
     NSString *twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
     NSString *twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
     if(twitter_URL.length != 0 || twitter_ID.length != 0)
         [self.twitterIcon setAlpha:1.0];
-    
+    // xing
     NSString *xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
     if(xing_URL.length != 0)
         [self.xingIcon setAlpha:1.0];
+    // linkedin
+    NSString *linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+    if(linkedin_URL.length != 0)
+        [self.linkedinIcon setAlpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning
