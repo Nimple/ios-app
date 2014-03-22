@@ -46,10 +46,10 @@
         case 2:
             switch (self.index) {
                 case 0:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
                     break;
                 case 1:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
                     break;
             }
             break;

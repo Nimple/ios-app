@@ -18,6 +18,11 @@
                         <color key="barTintColor" red="0.97117017660000005" green="0.97117017660000005" blue="0.97117017660000005" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="iLO-4G-LNe" kind="relationship" relationship="viewControllers" id="oUH-aM-Dma"/>
                         <segue destination="Wfz-29-qjb" kind="relationship" relationship="viewControllers" id="IqV-hF-fzW"/>
@@ -37,11 +42,11 @@
                         <viewControllerLayoutGuide type="bottom" id="pg5-V6-dt7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jog-LJ-klC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-LG-kyz">
-                                <rect key="frame" x="0.0" y="-7" width="320" height="447"/>
+                                <rect key="frame" x="0.0" y="-7" width="320" height="535"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -67,7 +72,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hIy-ip-6lh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c7o-rU-VLc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
@@ -111,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-883"/>
+            <point key="canvasLocation" x="538" y="-822"/>
         </scene>
         <!--Edit Nimple Code Navigation Controller-->
         <scene sceneID="Ory-hC-d3M">
@@ -129,14 +134,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSb-ex-Ajm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="-883"/>
+            <point key="canvasLocation" x="1011" y="-822"/>
         </scene>
         <!--Edit Nimple Code Table View Controller -->
         <scene sceneID="H2V-Iy-FYx">
             <objects>
                 <tableViewController title="Edit Nimple Code" id="Tgh-Wo-huh" userLabel="Edit Nimple Code Table View Controller " customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="YGx-Sr-jw5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -148,7 +153,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J4o-ny-TGZ">
-                                            <rect key="frame" x="20" y="1" width="280" height="42"/>
+                                            <rect key="frame" x="15" y="0.0" width="221" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -159,7 +164,13 @@
                                                 <action selector="valueChanged:" destination="bQT-iM-lrq" eventType="valueChanged" id="R1F-sJ-FeA"/>
                                             </connections>
                                         </textField>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Es-px3">
+                                            <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" red="0.55294117647058827" green="0.031372549019607843" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                        </switch>
                                     </subviews>
+                                    <color key="tintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="inputField" destination="J4o-ny-TGZ" id="7BF-qT-Q0K"/>
@@ -173,7 +184,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBC-6f-2xV">
-                                            <rect key="frame" x="77" y="3" width="223" height="54"/>
+                                            <rect key="frame" x="64" y="3" width="173" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="verbinden">
@@ -185,12 +196,17 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe9-8z-5WE">
-                                            <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                            <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="ic_round_linkedin">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIF-k7-vYh">
+                                            <rect key="frame" x="251" y="14" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" red="0.55294117647058827" green="0.031372549019607843" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                        </switch>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -228,13 +244,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjz-aP-Ykh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="-883"/>
+            <point key="canvasLocation" x="1485" y="-822"/>
         </scene>
         <!--Navigation Controller - Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
             <objects>
                 <navigationController title="Nimple Code Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="nimple-code" image="tabbar_nimple-code" id="H5F-wD-xYX"/>
+                    <tabBarItem key="tabBarItem" title="Code" image="tabbar_nimple-code" id="H5F-wD-xYX"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -249,13 +265,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fd-gD-fc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-883"/>
+            <point key="canvasLocation" x="20" y="-822"/>
         </scene>
         <!--Navigation Controller - Nimple Card Navigation Controller-->
         <scene sceneID="r79-0f-3OM">
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="nimple-card" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
+                    <tabBarItem key="tabBarItem" title="Karte" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Lh6-LU-zaX">
@@ -268,7 +284,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FuM-0a-QOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="-1555"/>
+            <point key="canvasLocation" x="20" y="-1443"/>
         </scene>
         <!--Nimple Card View Controller - Nimple Card-->
         <scene sceneID="HA8-sB-OZd">
@@ -279,7 +295,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Gcn-7F-7dt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wzE-OC-9mV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
@@ -397,13 +413,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQf-o4-2dT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-1555"/>
+            <point key="canvasLocation" x="538" y="-1443"/>
         </scene>
         <!--Navigation Controller - Contacts Navigation Controller-->
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="contacts" image="tabbar_contacts" id="hFR-7f-QgP"/>
+                    <tabBarItem key="tabBarItem" title="Kontakte" image="tabbar_contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -425,7 +441,7 @@
             <objects>
                 <tableViewController id="gqP-yl-IrF" customClass="ContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="154" sectionHeaderHeight="22" sectionFooterHeight="22" id="bDQ-xD-m4U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="rCh-uT-9PL">
@@ -641,10 +657,10 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ia0-o9-svB"/>
-        <segue reference="vJY-OD-AU4"/>
+        <segue reference="PHQ-Tn-0Ou"/>
+        <segue reference="Xfv-8K-qHn"/>
     </inferredMetricsTieBreakers>
 </document>

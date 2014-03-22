@@ -13,7 +13,9 @@
 #import <Social/Social.h>
 #import <IOSLinkedInAPI/LIALinkedInApplication.h>
 #import <IOSLinkedInAPI/LIALinkedInHttpClient.h>
-#import <XNGAPIClient/XNGAPI.h>
+#import <AFOAuth2Client/AFOAuth2Client.h>
+//#import <XNGAPIClient/XNGAPIClient.h>
+//#import <XNGAPIClient+UserProfiles.h>
 // Nimple imports
 #import "EditNimpleCodeTableViewController.h"
 
@@ -25,9 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *connectStatusButton;
 @property (atomic, strong) FBLoginView        *fbLoginView;
 @property (nonatomic) ACAccountStore          *twitterAcount;
-@property (nonatomic) LIALinkedInHttpClient   *linkedInClient;
 @property (strong, atomic) UIActionSheet      *actionSheet;
 @property (strong, atomic) UIAlertView        *alertView;
+@property (nonatomic) LIALinkedInHttpClient   *linkedInClient;
 
 - (LIALinkedInHttpClient *)linkedInClient;
 

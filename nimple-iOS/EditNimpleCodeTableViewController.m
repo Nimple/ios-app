@@ -138,7 +138,7 @@
     if(indexPath.section == 1)
         return 60.0;
     else
-        return 40.0;
+        return 45.0;
 }
 
 // Returns the cell for a given row index
@@ -199,7 +199,7 @@
                 if(facebook_ID.length == 0 || facebook_URL.length == 0)
                 {
                     [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"Mit facebook verbinden" forState:UIControlStateNormal];
+                    [cell.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
                 }
                 else
                 {
@@ -222,7 +222,7 @@
                 if(twitter_ID.length == 0 || twitter_URL.length == 0)
                 {
                     [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
+                    [cell.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
                 }
                 else
                 {
@@ -242,7 +242,7 @@
                 if(xing_URL.length == 0)
                 {
                     [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"Mit XING verbinden" forState:UIControlStateNormal];
+                    [cell.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
                 }
                 else
                 {
@@ -257,13 +257,13 @@
                 [cell setSection:1];
                 [cell setIndex:3];
                 [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
-                [cell.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
                 
                 NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
                 if(linkedin_URL.length == 0)
                 {
                     [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+                    [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
                 }
                 else
                 {
@@ -276,17 +276,17 @@
         case 2:
             if(indexPath.row == 0)
             {
-                if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Deine Job Bezeichnung"];
+                if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
                 else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
             }
             if(indexPath.row == 1)
             {
-                if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Deine Firma"];
+                if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
+                    [cell.inputField setPlaceholder:@"Dein Job/Position"];
                 else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
+                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
             }
             break;
     }

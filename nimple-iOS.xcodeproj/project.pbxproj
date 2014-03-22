@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
+		9E43A05B18DD0299001BE620 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E43A05A18DD0299001BE620 /* LoginWebViewController.m */; };
 		9E4E6FBA18C9FBBE00861D9C /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */; };
@@ -46,6 +47,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9E43A06118DD0299001BE620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D9F914260A48F383FB8A05;
+			remoteInfo = "Pods-AFOAuth2Client";
+		};
+		9E43A06318DD0299001BE620 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21926546482C42A6822E195B;
+			remoteInfo = "Pods-IOSLinkedInAPI";
+		};
 		B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
@@ -67,27 +82,6 @@
 			remoteGlobalIDString = 79F7E2F5F38E4DF29C0C1C2A;
 			remoteInfo = "Pods-Mixpanel";
 		};
-		D13C2A0718D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D3CA0B612F4044E08781CD5C;
-			remoteInfo = "Pods-AFOAuth1Client";
-		};
-		D13C2A0918D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 37ACCC8E36D64DDDA50815F7;
-			remoteInfo = "Pods-SSKeychain";
-		};
-		D13C2A0B18D7BAEA006A01E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7F11B1A7DE7B4A6E9A22721C;
-			remoteInfo = "Pods-XNGAPIClient";
-		};
 		D151DA9618B432F800C5850F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D151DA6518B432F700C5850F /* Project object */;
@@ -99,6 +93,8 @@
 
 /* Begin PBXFileReference section */
 		9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		9E43A05918DD0299001BE620 /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginWebViewController.h; path = "nimple-iOS/Controllers/LoginWebViewController.h"; sourceTree = "<group>"; };
+		9E43A05A18DD0299001BE620 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginWebViewController.m; path = "nimple-iOS/Controllers/LoginWebViewController.m"; sourceTree = "<group>"; };
 		9E4E6FB818C9FBBE00861D9C /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleContact.h; path = Model/NimpleContact.h; sourceTree = "<group>"; };
 		9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleContact.m; path = Model/NimpleContact.m; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -191,10 +187,9 @@
 			children = (
 				B5B20A8118D5CD5900356B50 /* libPods.a */,
 				B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */,
-				D13C2A0818D7BAEA006A01E4 /* libPods-AFOAuth1Client.a */,
+				9E43A06218DD0299001BE620 /* libPods-AFOAuth2Client.a */,
+				9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */,
 				B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */,
-				D13C2A0A18D7BAEA006A01E4 /* libPods-SSKeychain.a */,
-				D13C2A0C18D7BAEA006A01E4 /* libPods-XNGAPIClient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,6 +342,8 @@
 		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E43A05918DD0299001BE620 /* LoginWebViewController.h */,
+				9E43A05A18DD0299001BE620 /* LoginWebViewController.m */,
 				D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */,
 				D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */,
 				D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */,
@@ -445,6 +442,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9E43A06218DD0299001BE620 /* libPods-AFOAuth2Client.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-AFOAuth2Client.a";
+			remoteRef = 9E43A06118DD0299001BE620 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-IOSLinkedInAPI.a";
+			remoteRef = 9E43A06318DD0299001BE620 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B5B20A8118D5CD5900356B50 /* libPods.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -464,27 +475,6 @@
 			fileType = archive.ar;
 			path = "libPods-Mixpanel.a";
 			remoteRef = B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D13C2A0818D7BAEA006A01E4 /* libPods-AFOAuth1Client.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-AFOAuth1Client.a";
-			remoteRef = D13C2A0718D7BAEA006A01E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D13C2A0A18D7BAEA006A01E4 /* libPods-SSKeychain.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-SSKeychain.a";
-			remoteRef = D13C2A0918D7BAEA006A01E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D13C2A0C18D7BAEA006A01E4 /* libPods-XNGAPIClient.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-XNGAPIClient.a";
-			remoteRef = D13C2A0B18D7BAEA006A01E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -559,6 +549,7 @@
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
 				9E4E6FBA18C9FBBE00861D9C /* NimpleContact.m in Sources */,
 				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
+				9E43A05B18DD0299001BE620 /* LoginWebViewController.m in Sources */,
 				D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */,
 				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
 				9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */,

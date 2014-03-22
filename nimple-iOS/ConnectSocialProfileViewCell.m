@@ -36,7 +36,7 @@
         if(buttonIndex == 0)
         {
             [self.socialNetworkButton setAlpha:0.3];
-            [self.connectStatusButton setTitle:@"Mit twitter verbinden" forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
             [viewController.myNimpleCode synchronize];
@@ -48,7 +48,7 @@
         if(buttonIndex == 0)
         {
             [self.socialNetworkButton setAlpha:0.3];
-            [self.connectStatusButton setTitle:@"Mit LinkedIn verbinden" forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
         }
     }
@@ -160,72 +160,7 @@
     // handle xing
     if(self.index == 2)
     {
-        XNGAPIClient *client = [[XNGAPIClient alloc] initWithBaseURL:@"" consumerKey:@"3d8f3e9a93ca001ca5ea" consumerSecret:@"72a6adfc6298da70515f622ef4d29638be954aa2"];
-        NSLog(@"Logged in via XING:", [client isLoggedin]);
-        /*
-        XNGAPIClient *client = [XNGAPIClient sharedClient];
-        if ([client isLoggedin] == NO) {
-            NSLog(@"YOLO You're logged in");
-        } else {
-            NSLog(@"LAME You're not logged in");
-        }
         
-        if(client.isLoggedin)
-        {
-            NSLog(@"XING: is already logged in");
-
-            NSLog(@"XING: Logging out");
-            [client logout];
-            [self.socialNetworkButton setAlpha:0.3];
-            [self.connectStatusButton setTitle:@"Mit XING verbinden" forState:UIControlStateNormal];
-            [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
-
-        }
-        else
-        {
-        */
-            //NSLog(@"XING: Logging in");
-            /*
-            [client loginOAuthWithSuccess:^
-            {
-                // handle success
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.socialNetworkButton setAlpha:1.0];
-                    [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                });
-                NSLog(@"Xing user ID: %@", client.currentUserID);
-                [client getUserWithID:@"me" userFields:nil
-                success:^(id JSON)
-                 {
-
-                    if (![JSON isKindOfClass:[NSDictionary class]]) {
-                         return;
-                    }
-                    NSArray *permalink = [JSON valueForKeyPath:@"users.permalink"];
-                    NSLog(@"url = %@", permalink[0]);
-                    [viewController.myNimpleCode setValue:permalink[0] forKey:@"xing_URL"];
-                }
-                failure:^(NSError *error)
-                {
-                     NSLog(@"Error:\n %@",error);
-                     
-                }];
-
-            }
-            failure:^(NSError *error)
-            {
-                // handle failure
-                NSLog(@"ERROR: xing profile!");
-                NSLog(@"%@", error);
-                dispatch_async(dispatch_get_main_queue(), ^
-                {
-                    self.alertView.title = @"Fehler";
-                    self.alertView.message = [NSString stringWithFormat:@"%@", error];
-                    [self.alertView show];
-                });
-            }];
-             */
-        //}
     }
     // linkedin
     if(self.index == 3)

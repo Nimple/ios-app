@@ -40,9 +40,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    [XNGAPIClient sharedClient].consumerKey = @"b80c7b411f4742f328bc";
-    [XNGAPIClient sharedClient].consumerSecret = @"297e6fb2b69e9ef9f98278693834e490757c538f";
-    
     // Insert default contact
     /*
     NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
@@ -68,8 +65,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"Controller 2 is %@", contactsController.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
-
-     
     /*
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -142,10 +137,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         return YES;
     }
     // Call Xing API URL handler
-     else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
+    /*
+    else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
     {
         return YES;
     }
+     */
     else
         return NO;
 }
