@@ -41,7 +41,6 @@
 		D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490618C500BD00414E5D /* AddressBookUI.framework */; };
 		D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490818C500C800414E5D /* AddressBook.framework */; };
 		D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */; };
-		D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 		D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */; };
 /* End PBXBuildFile section */
@@ -88,6 +87,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D151DA6C18B432F700C5850F;
 			remoteInfo = "nimple-iOS";
+		};
+		D189E4EA18DCFE2300CB3108 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8147F99E62B646BDBBC8707F;
+			remoteInfo = "Pods-IOSLinkedInAPI";
+		};
+		D189E4EC18DCFE2300CB3108 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F59F436AC0D4D8F8F768049;
+			remoteInfo = "Pods-XNGOAuth1Client";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -141,8 +154,6 @@
 		D1CB490818C500C800414E5D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		D1E29FEE18C647ED00BE2A63 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = ViewControllers/ContactsViewController.h; sourceTree = "<group>"; };
 		D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsViewController.m; path = ViewControllers/ContactsViewController.m; sourceTree = "<group>"; };
-		D1E29FF118C6A1C800BE2A63 /* OwnNimpleCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OwnNimpleCode.h; path = Model/OwnNimpleCode.h; sourceTree = "<group>"; };
-		D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OwnNimpleCode.m; path = Model/OwnNimpleCode.m; sourceTree = "<group>"; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleCardViewController.h; path = "nimple-iOS/Controllers/NimpleCardViewController.h"; sourceTree = "<group>"; };
 		D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleCardViewController.m; path = "nimple-iOS/Controllers/NimpleCardViewController.m"; sourceTree = "<group>"; };
@@ -333,8 +344,6 @@
 				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
 				9E4E6FB818C9FBBE00861D9C /* NimpleContact.h */,
 				9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */,
-				D1E29FF118C6A1C800BE2A63 /* OwnNimpleCode.h */,
-				D1E29FF218C6A1C800BE2A63 /* OwnNimpleCode.m */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -543,7 +552,6 @@
 				D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */,
 				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
 				D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */,
-				D1E29FF318C6A1C800BE2A63 /* OwnNimpleCode.m in Sources */,
 				D151DA7D18B432F700C5850F /* main.m in Sources */,
 				D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */,
 				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
