@@ -25,7 +25,6 @@
 @interface EditNimpleCodeTableViewController : UITableViewController
 
 @property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray                           *cells;
 @property (atomic, weak) NSUserDefaults                                *myNimpleCode;
 
 - (IBAction)cancel:(id)sender;

@@ -16,13 +16,12 @@
 @implementation EditNimpleCodeTableViewController
 
 @synthesize myNimpleCode;
-@synthesize cells;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-
+        
     }
     return self;
 }
@@ -142,16 +141,18 @@
         return 45.0;
 }
 
+
 // Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ContactInputCell";
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    switch (indexPath.section) {
-        // Section: personal
-        case 0:
+    [cell.inputField setText:@""];
+    
+        // Configure the cell...
+        if (indexPath.section == 0)
+        {
             if(indexPath.row == 0)
             {
                 if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
@@ -181,9 +182,10 @@
                     [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
                 
             }
-            break;
+        }
         // Section: social
-        case 1:
+        else if(indexPath.section == 1)
+        {
             // facebook
             if(indexPath.row == 0)
             {
@@ -273,9 +275,10 @@
                     [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
                 }
             }
-            break;
+        }
         // Section: business
-        case 2:
+        else if(indexPath.section == 2)
+        {
             if(indexPath.row == 0)
             {
                 if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
@@ -290,8 +293,7 @@
                 else
                     [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
             }
-            break;
-    }
+        }
     
     [cell setIndex: indexPath.item];
     [cell setSection: indexPath.section];
@@ -322,10 +324,27 @@
 //
 - (IBAction)done:(id)sender
 {
-    [self.myNimpleCode synchronize];
-    // Notification that the nimple code changed
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
-    [self.delegate editNimpleCodeTableViewControllerDidSave:self];
+    if(
+       [[self.myNimpleCode valueForKey:@"prename"] length] == 0 ||
+       [[self.myNimpleCode valueForKey:@"surname"] length] == 0)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Vor- & Nachnahme sind Pflichtfelder"
+                                  message:@"Bitte fülle deinen Vor- & Nachnamen aus!"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [alertView show];
+        });
+    }
+    else
+    {
+        [self.myNimpleCode synchronize];
+        // Notification that the nimple code changed
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
+        [self.delegate editNimpleCodeTableViewControllerDidSave:self];
+    }
 }
 
 @end

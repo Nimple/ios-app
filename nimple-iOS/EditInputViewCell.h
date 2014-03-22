@@ -11,10 +11,10 @@
 
 @interface EditInputViewCell : UITableViewCell
 
-@property (atomic) NSInteger index;
-@property (atomic) NSInteger section;
+@property (atomic) NSInteger                      index;
+@property (atomic) NSInteger                      section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) NSString             *value;
-@property NSUserDefaults        *myNimpleCode;
+@property NSUserDefaults                         *myNimpleCode;
 
 @end

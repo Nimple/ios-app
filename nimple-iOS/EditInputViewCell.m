@@ -21,12 +21,13 @@
     return self;
 }
 
+
 - (IBAction)editingChanged:(id)sender
 {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
-    switch (self.section) {
+   switch (self.section) {
         case 0:
             switch (self.index) {
                 case 0:
@@ -58,7 +59,7 @@
 
 - (IBAction)valueChanged:(id)sender
 {
-    NSLog(@"Value changed");
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -72,7 +73,6 @@
 - (IBAction)EditingDidEnd:(id)sender {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
     switch (self.section)
     {
         case 0:
@@ -81,12 +81,16 @@
                 case 0:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
                     if(self.inputField.text.length == 0)
+                    {
                         [self.inputField setPlaceholder:@"Dein Vorname"];
+                    }
                     break;
                 case 1:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
                     if(self.inputField.text.length == 0)
+                    {
                         [self.inputField setPlaceholder:@"Dein Nachname"];
+                    }
                     break;
                 case 2:
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
@@ -116,8 +120,6 @@
             }
             break;
     }
-    
-    [viewController.myNimpleCode synchronize];
 }
 
 
