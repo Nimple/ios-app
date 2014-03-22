@@ -51,26 +51,12 @@
     [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [self.view addGestureRecognizer:gestureRecognizer];
     
-    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
-    [myNimpleCode synchronize];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"
                                                object:nil];
-    NSString* surname = [myNimpleCode valueForKey:@"surname"];
-    NSString* prename = [myNimpleCode valueForKey:@"prename"];
-    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
-    NSString* email = [self.myNimpleCode valueForKey:@"email"];
-    NSString* job = [self.myNimpleCode valueForKey:@"job"];
-    NSString* company = [self.myNimpleCode valueForKey:@"company"];
-    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
-    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
-    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
-    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
-    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
-       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    
+    if(self.checkOwnProperties)
     {
         [self.nimpleCardView setHidden:TRUE];
         [self.welcomeView setHidden:FALSE];
@@ -85,20 +71,7 @@
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    NSString* surname = [myNimpleCode valueForKey:@"surname"];
-    NSString* prename = [myNimpleCode valueForKey:@"prename"];
-    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
-    NSString* email = [self.myNimpleCode valueForKey:@"email"];
-    NSString* job = [self.myNimpleCode valueForKey:@"job"];
-    NSString* company = [self.myNimpleCode valueForKey:@"company"];
-    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
-    NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
-    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
-    NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
-    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-    if( surname.length == 0 && prename.length == 0 && phone.length == 0 && email.length == 0 && job.length == 0 && company.length == 0 && facebook_ID.length == 0 && facebook_URL.length == 0 && twitter_ID.length == 0 &&
-       twitter_URL.length == 0 && xing_URL.length == 0 && linkedin_URL.length == 0)
+    if( self.checkOwnProperties)
     {
         [self.nimpleCardView setHidden:TRUE];
         [self.welcomeView setHidden:FALSE];
@@ -109,6 +82,29 @@
         [self.welcomeView setHidden:TRUE];
     }
 }
+
+-(BOOL)checkOwnProperties
+{
+    if(!myNimpleCode)
+    {
+        self.myNimpleCode = [NSUserDefaults standardUserDefaults];
+        [myNimpleCode synchronize];
+    }
+    
+    return  (((NSString *)[myNimpleCode valueForKey:@"surname"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"prename"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"phone"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"job"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"company"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"facebook_URL"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"facebook_ID"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"twitter_URL"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"twitter_ID"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"xing_URL"]).length == 0) &&
+            (((NSString *)[myNimpleCode valueForKey:@"linkedin_URL"]).length == 0);
+}
+
+
 
 // Handles the nimpleCodeChanged notifaction
 - (void)handleChangedNimpleCode:(NSNotification *)note {

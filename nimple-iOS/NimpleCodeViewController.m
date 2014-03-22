@@ -64,6 +64,7 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
                     }];
 }
 
+
 -(void)swipeHandlerLeft:(UISwipeGestureRecognizer *)recognizer {
     NSLog(@"Swipe received.");
     //[self.tabBarController setSelectedIndex: 2];

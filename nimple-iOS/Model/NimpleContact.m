@@ -2,6 +2,8 @@
 //  NimpleContact.m
 //  nimple-iOS
 //
+//  This class represents a Contact in Nimple with the specified attributes.
+//
 //  Created by Sebastian Lang on 07.03.14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //

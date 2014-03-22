@@ -14,7 +14,6 @@
 #import <XNGAPIClient/XNGAPIClient.h>
 // Nimple imports
 #import "NimpleContact.h"
-#import "OwnNimpleCode.h"
 #import "NimpleCardViewController.h"
 #import "ContactsViewController.h"
 #import "BarCodeReaderController.h"
