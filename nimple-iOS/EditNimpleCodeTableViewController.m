@@ -7,6 +7,7 @@
 //
 
 #import "EditNimpleCodeTableViewController.h"
+#import "NimpleAppDelegate.h"
 
 @interface EditNimpleCodeTableViewController ()
 
@@ -237,7 +238,8 @@
                 [cell setSection:1];
                 [cell setIndex:2];
                 [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
-    
+                [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
+                
                 NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
                 if(xing_URL.length == 0)
                 {

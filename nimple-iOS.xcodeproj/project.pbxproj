@@ -46,19 +46,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9E43A06118DD0299001BE620 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 45D9F914260A48F383FB8A05;
-			remoteInfo = "Pods-AFOAuth2Client";
-		};
 		9E43A06318DD0299001BE620 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 21926546482C42A6822E195B;
 			remoteInfo = "Pods-IOSLinkedInAPI";
+		};
+		9EDAEC9718DDBE0700FF164F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F1FA0DB1863146A7B4408119;
+			remoteInfo = "Pods-BDBOAuth1Manager";
 		};
 		B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -87,20 +87,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D151DA6C18B432F700C5850F;
 			remoteInfo = "nimple-iOS";
-		};
-		D189E4EA18DCFE2300CB3108 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8147F99E62B646BDBBC8707F;
-			remoteInfo = "Pods-IOSLinkedInAPI";
-		};
-		D189E4EC18DCFE2300CB3108 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7F59F436AC0D4D8F8F768049;
-			remoteInfo = "Pods-XNGOAuth1Client";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -198,7 +184,7 @@
 			children = (
 				B5B20A8118D5CD5900356B50 /* libPods.a */,
 				B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */,
-				9E43A06218DD0299001BE620 /* libPods-AFOAuth2Client.a */,
+				9EDAEC9818DDBE0700FF164F /* libPods-BDBOAuth1Manager.a */,
 				9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */,
 				B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */,
 			);
@@ -451,18 +437,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9E43A06218DD0299001BE620 /* libPods-AFOAuth2Client.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-AFOAuth2Client.a";
-			remoteRef = 9E43A06118DD0299001BE620 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libPods-IOSLinkedInAPI.a";
 			remoteRef = 9E43A06318DD0299001BE620 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9EDAEC9818DDBE0700FF164F /* libPods-BDBOAuth1Manager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-BDBOAuth1Manager.a";
+			remoteRef = 9EDAEC9718DDBE0700FF164F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B5B20A8118D5CD5900356B50 /* libPods.a */ = {

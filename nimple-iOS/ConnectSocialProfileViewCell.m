@@ -7,6 +7,7 @@
 //
 
 #import "ConnectSocialProfileViewCell.h"
+#import "NimpleAppDelegate.h"
 
 @implementation ConnectSocialProfileViewCell
 
@@ -40,6 +41,19 @@
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
             [viewController.myNimpleCode synchronize];
+        }
+    }
+    // Xing
+    if(self.index == 2)
+    {
+        if(buttonIndex == 0)
+        {
+            [self deauthorizeWithCompletion:^{
+                [self.socialNetworkButton setAlpha:0.3];
+                [self.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
+                [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
+                [viewController.myNimpleCode synchronize];
+            }];
         }
     }
     // LinkedIn
@@ -94,7 +108,7 @@
     if(self.index == 0)
     {
         self.fbLoginView = [[FBLoginView alloc] init];
-        self.fbLoginView.readPermissions = @[@"basic_info", @"email", @"user_likes"];
+        self.fbLoginView.readPermissions = @[@"basic_info"];
         [self addSubview:self.fbLoginView];
         [self.fbLoginView setHidden:TRUE];
         self.fbLoginView.delegate = self;
@@ -157,10 +171,25 @@
             [self.actionSheet showInView:self.superview.superview];
         }
     }
-    // handle xing
+    // xing
     if(self.index == 2)
     {
+        NSLog(@"Xing connection status: %hhd", [self.networkManager isAuthorized]);
         
+        // Introduce table view cell to app delegate, which handles the URL-opening in the browser
+        if(![NimpleAppDelegate sharedDelegate].xingTableViewCell)
+            [NimpleAppDelegate sharedDelegate].xingTableViewCell = self;
+        
+        if([self.networkManager isAuthorized])
+        {
+            self.actionSheet.title = @"Loggd in using XING";
+            [self.actionSheet showInView:self.superview.superview];
+        }
+        else
+        {
+            NSLog(@"XING has to be authorized");
+            [self authorize];
+        }
     }
     // linkedin
     if(self.index == 3)
@@ -205,6 +234,44 @@
     }
     
     [viewController.myNimpleCode synchronize];
+}
+
+//--- XING ---------------------------------------------------------------------
+// Authorizes the app calling the XING API
+- (void) authorize
+{
+    [self.networkManager
+     fetchRequestTokenWithPath:@"/v1/request_token"
+     method:@"POST"
+     callbackURL:[NSURL URLWithString:@"oauth://xing"]
+     scope:nil
+     success:^(BDBOAuthToken *requestToken)
+     {
+         NSString *authURL = [NSString stringWithFormat:@"https://api.xing.com/v1/authorize?oauth_token=%@", requestToken.token];
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:authURL]];
+     }
+     failure:^(NSError *error)
+     {
+         NSLog(@"Error: %@", error.localizedDescription);
+            dispatch_async(dispatch_get_main_queue(), ^
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Error"
+                                            message:@"Could not acquire OAuth request token. Please try again later."
+                                           delegate:self
+                                  cancelButtonTitle:@"Dismiss"
+                                  otherButtonTitles:nil] show];
+            });
+    }];
+}
+
+// Deauthorized nimple from the XING API
+- (void)deauthorizeWithCompletion:(void (^)(void))completion
+{
+    [self.networkManager deauthorize];
+    
+    if (completion) {
+        completion();
+    }
 }
 
 //--- LINKEDIN -----------------------------------------------------------------

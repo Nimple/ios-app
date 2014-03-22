@@ -17,9 +17,31 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation NimpleAppDelegate
 
+static NimpleAppDelegate * _sharedDelegate = nil;
+
 @synthesize managedObjectContext       = _managedObjectContext;
 @synthesize managedObjectModel         = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize xingTableViewCell;
+
++ (instancetype)sharedDelegate {
+    return _sharedDelegate;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        NSURL *apiURL = [NSURL URLWithString:@"https://api.xing.com/"];
+        NSString *consumerKey = @"3d8f3e9a93ca001ca5ea";
+        NSString *consumerSecret = @"72a6adfc6298da70515f622ef4d29638be954aa2";
+        self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:apiURL consumerKey:consumerKey consumerSecret:consumerSecret];
+            
+        _sharedDelegate = self;
+    }
+    return self;
+}
 
 // Application launched
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -130,21 +152,57 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    
+    if ([url.scheme isEqualToString:@"oauth"]) {
+        if ([url.host isEqualToString:@"xing"]) {
+            NSDictionary *parameters = [NSDictionary dictionaryFromQueryString:url.query];
+            if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
+                [self.networkManager fetchAccessTokenWithPath:@"/v1/access_token"
+                                                       method:@"POST"
+                                                 requestToken:[BDBOAuthToken tokenWithQueryString:url.query]
+                                                      success:^(BDBOAuthToken *accessToken) {
+                                                          [self.networkManager GET:@"/v1/users/me" parameters:nil
+                                                           success:^(NSURLSessionDataTask *task, id response)
+                                                           {
+                                                               NSLog(@"Response %@", response);
+                                                               NSArray *permalinkArray = [response valueForKeyPath:@"users.permalink"];
+                                                               NSString *permalink = permalinkArray[0];
+                                                               NSLog(@"Permalink %@", permalink);
+                                                               
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
+                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                                });
+                                                    
+                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
+                                                               [myNimpleCode setValue:permalink forKeyPath:@"xing_URL"];
+                                                           }
+                                                           failure:^(NSURLSessionDataTask *task, NSError * error)
+                                                           {
+                                                               NSLog(@"ERROR: %@", error);
+                                                           }];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          NSLog(@"Error: %@", error.localizedDescription);
+                                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                                              [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                          message:@"Could not acquire OAuth access token. Please try again later."
+                                                                                         delegate:self
+                                                                                cancelButtonTitle:@"Dismiss"
+                                                                                otherButtonTitles:nil] show];
+                                                          });
+                                                      }];
+            }
+        }
+        
+        return YES;
+    }
     // Call facebook API URL handler
-    if( [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] )
+    else if( [FBAppCall handleOpenURL:url sourceApplication:sourceApplication] )
     {
         return YES;
     }
-    // Call Xing API URL handler
-    /*
-    else if( [[XNGAPIClient sharedClient] handleOpenURL:url] )
-    {
-        return YES;
-    }
-     */
-    else
-        return NO;
+    
+    return NO;
 }
 
 #pragma mark - Core Data stack

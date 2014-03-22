@@ -13,9 +13,7 @@
 #import <Social/Social.h>
 #import <IOSLinkedInAPI/LIALinkedInApplication.h>
 #import <IOSLinkedInAPI/LIALinkedInHttpClient.h>
-#import <AFOAuth2Client/AFOAuth2Client.h>
-//#import <XNGAPIClient/XNGAPIClient.h>
-//#import <XNGAPIClient+UserProfiles.h>
+#import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 // Nimple imports
 #import "EditNimpleCodeTableViewController.h"
 
@@ -31,6 +29,10 @@
 @property (strong, atomic) UIAlertView        *alertView;
 @property (nonatomic) LIALinkedInHttpClient   *linkedInClient;
 
+@property (nonatomic) BDBOAuth1SessionManager *networkManager;
+
 - (LIALinkedInHttpClient *)linkedInClient;
+- (void) authorize;
+- (void) deauthorizeWithCompletion:(void (^)(void))completion;
 
 @end

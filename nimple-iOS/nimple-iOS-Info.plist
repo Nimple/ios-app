@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>xingappb80c7b411f4742f328bc</string>
+				<string>oauth</string>
 			</array>
 		</dict>
 	</array>

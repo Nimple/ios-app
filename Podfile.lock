@@ -18,24 +18,21 @@ PODS:
   - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AFOAuth2Client (0.1.1):
-    - AFNetworking (~> 2.0)
+  - BDBOAuth1Manager (1.2.0):
+    - AFNetworking/NSURLConnection (~> 2.2.0)
+    - AFNetworking/NSURLSession (~> 2.2.0)
   - IOSLinkedInAPI (2.0.0):
     - AFNetworking (>= 2.0.0)
   - Mixpanel (2.3.2)
 
 DEPENDENCIES:
-  - AFOAuth2Client (from `https://github.com/mlwelles/AFOAuth2Client.git`)
+  - BDBOAuth1Manager
   - IOSLinkedInAPI
   - Mixpanel
 
-EXTERNAL SOURCES:
-  AFOAuth2Client:
-    :git: https://github.com/mlwelles/AFOAuth2Client.git
-
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
-  AFOAuth2Client: 05536bd4175add72e7efcb6b749d4e9685ed02f7
+  BDBOAuth1Manager: 25d18d56820695aa18aae44eecad55829274a290
   IOSLinkedInAPI: 1c1b1bc3fcf21607225d2b9cd704bffab0abfbe1
   Mixpanel: ddd79df92245a14d2b3064544d1e9ff037d8ac3a
 
