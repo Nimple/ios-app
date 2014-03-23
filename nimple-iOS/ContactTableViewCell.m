@@ -110,8 +110,43 @@
     }
 }
 
-// Handles clicking the phone book icon
-- (IBAction)saveToAddressBookButtonClicked:(id)sender {
+#pragma mark - Phone Book Icon Handling
+
+// Handles the incoming button click
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // handling adding contact
+    if(buttonIndex == 0) {
+        NSLog(@"Adding contact to address book");
+        [self addingNewContactToAddressBook];
+    }
+    
+    // handle merging
+    if(buttonIndex == 1) {
+        NSLog(@"Begin merging contact to address book");
+        [self mergingContactWithExisting];
+    }
+}
+
+// Displays action sheet for adding contact
+- (void) displayActionSheet
+{
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to add the contact to your address book?"
+                        delegate:self
+                        cancelButtonTitle:nil
+                        destructiveButtonTitle:nil
+                        otherButtonTitles: nil];
+    
+    [self.actionSheet addButtonWithTitle:@"Add new contact"];
+    // [self.actionSheet addButtonWithTitle:@"Merge with existing contact"];
+    [self.actionSheet addButtonWithTitle:@"Cancel"];
+    self.actionSheet.cancelButtonIndex = 1;
+    [self.actionSheet showInView:self.superview.superview];
+}
+
+// Adding new contact
+- (void) addingNewContactToAddressBook
+{
     ABAddressBookRef addressBook = NULL;
     CFErrorRef error = NULL;
     
@@ -121,7 +156,7 @@
         {
             addressBook = ABAddressBookCreateWithOptions(NULL, &error);
             
-            [self addAccountWithFirstName:self.contact.prename LastName:self.contact.surname PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
+            [self addAccountWithFirstName:self.contact.prename LastName:self.contact.surname PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:self.contact.job CompanyName:self.contact.company inAddressBook:addressBook];
             
             if (addressBook != NULL) CFRelease(addressBook);
             break;
@@ -151,6 +186,18 @@
     }
 }
 
+// Merging contact with existing contact in address book
+- (void) mergingContactWithExisting
+{
+    
+}
+
+// Handles clicking the phone book icon
+- (IBAction)saveToAddressBookButtonClicked:(id)sender {
+    [self displayActionSheet];
+    return;
+}
+
 // Saves a contact to the address book of the phone
 - (ABRecordRef)addAccountWithFirstName:(NSString*)p_prename LastName:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company inAddressBook:(ABAddressBookRef)addressBook
 {
@@ -166,10 +213,17 @@
 
     BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)p_prename, &error);
     BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)p_surname, &error);
-    //BOOL couldSetPhone = ABRecordSetValue(result, kABPersonPhoneProperty, (__bridge CFTypeRef)p_phone, &error);
-    //BOOL couldSetMail = ABRecordSetValue(result, kABPersonEmailProperty, (__bridge CFTypeRef)p_mail, &error);
-    //BOOL couldSetJob = ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef)p_job, &error);
-    //BOOL couldSetCompany = ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef)p_company, &error);
+    
+    ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) p_phone, kABPersonPhoneMainLabel, nil);
+    ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
+    
+    ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) p_mail, kABHomeLabel, nil);
+    ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    
+    ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef)p_job, &error);
+    ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef)p_company, &error);
     
     if (couldSetFirstName && couldSetLastName)
     {

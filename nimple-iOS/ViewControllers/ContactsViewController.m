@@ -103,7 +103,19 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this
-        //[self.nimpleContacts delete: [self.nimpleContacts objectAtIndex:0]];
+        
+        NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
+        [self.managedObjectContext deleteObject:nimpleContact];
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error at deleting row -> fix error pls.");
+        }
+        
+        NSLog(@"Deleted row.");
+        
+        // update view after delete
+        [self updateData];
     }
 }
 
