@@ -29,21 +29,21 @@
 // Opens the browser with the linkedin url
 - (IBAction)linkedinButtonClicked:(id)sender
 {
-    //NSLog(@"linkedin clicked");
+    NSLog(@"linkedin clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.linkedin_URL]];
 }
 
 // Opens the browser with the xing url
 - (IBAction)xingButtonClicked:(id)sender
 {
-    //NSLog(@"xing clicked");
+    NSLog(@"xing clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.xing_URL]];
 }
 
 // Opens the browser with the twitter url
 - (IBAction)twitetrButtonClicked:(id)sender
 {
-    //NSLog(@"twitter clicked %@", self.contact.twitter_URL);
+    NSLog(@"twitter clicked %@", self.contact.twitter_URL);
     NSURL *url = [NSURL URLWithString:self.contact.twitter_URL];
     [[UIApplication sharedApplication] openURL:url];
 }
@@ -51,7 +51,7 @@
 // Opens the browser with the facebook url
 - (IBAction)facebookButtonClicked:(id)sender
 {
-    //NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
+    NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
 }
 
@@ -106,7 +106,7 @@
         [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.prename, self.contact.surname]];
         [self.phoneButton setTitle:self.contact.phone forState:UIControlStateNormal];
         [self.emailButton setTitle:self.contact.email forState:UIControlStateNormal];
-        self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ @ %@", contact.job, contact.company];
+        [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@ (%@)", contact.company, contact.job]];
     }
 }
 

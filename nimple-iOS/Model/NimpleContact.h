@@ -26,6 +26,6 @@
 @property (nonatomic, retain) NSString * linkedin_URL;
 
 -(NSString*) toString;
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSNumber*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSNumber*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL;
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL;
 
 @end

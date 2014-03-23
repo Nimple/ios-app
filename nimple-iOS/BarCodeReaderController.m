@@ -182,8 +182,7 @@
                     // Check if vcard entry is URL
                     if([keyValuePair[0] isEqualToString:@"URL"])
                     {
-                        NSString *cleanURL = [keyValuePair[2] stringByReplacingOccurrencesOfString:@"\r\n" withString:@""];
-                        // URLs have to concatened because they have another ':' at http://
+                        NSString *cleanURL = [[keyValuePair[2]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
                         url = [NSString stringWithFormat:@"%@:%@", keyValuePair[1], cleanURL];
                         // facebook URL
                         if([url rangeOfString:@"facebook"].location != NSNotFound)
@@ -204,45 +203,55 @@
                     {
                         // Seperate sur- and prename and add them to contact data
                         NSArray  *fullName = [keyValuePair[1] componentsSeparatedByString:@";"];
-                        contactData[0] = fullName[1];
-                        contactData[1] = fullName[0];
+                        NSString *cleanPrename = [[fullName[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        NSString *cleanSurname = [[fullName[0]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[0] = cleanSurname;
+                        contactData[1] = cleanPrename;
                     }
                     // Telephone
                     NSRange telephoneFound = [keyValuePair[0] rangeOfString:@"TEL"];
                     if(telephoneFound.location != NSNotFound)
                     {
-                        contactData[2] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[2] = clean;
                     }
                     // Email
                     if([keyValuePair[0] isEqualToString:@"EMAIL"])
                     {
-                        contactData[3] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[3] = clean;
                     }
                     // Job Title
                     if([keyValuePair[0] isEqualToString:@"ROLE"])
                     {
-                        contactData[4] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[4] = clean;
                     }
                     // Company
                     if([keyValuePair[0] isEqualToString:@"ORG"])
                     {
-                        contactData[5] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        NSLog(@"CLEAN COMPANY: %@", clean);
+                        contactData[5] = clean;
                     }
                     // facebook
                     if([keyValuePair[0] isEqualToString:@"X-FACEBOOK-ID"])
                     {
-                        contactData[7] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[7] = clean;
                     }
                     // twitter
                     if([keyValuePair[0] isEqualToString:@"X-TWITTER-ID"])
                     {
-                        contactData[9] = keyValuePair[1];
+                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+                        contactData[9] = clean;
                     }
                 }
                 
                 NSLog(@"Contact found: %@", contactData);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.alertView show];
+                    [self.tabBarController setSelectedIndex: 2];
                 });
                 capturedContactData = contactData;
                 [self saveToDataBase];

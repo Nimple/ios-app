@@ -81,7 +81,7 @@
                 [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
             }
             break;
-        case 1:
+        case 2:
             if(self.index == 0)
             {
                 [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
