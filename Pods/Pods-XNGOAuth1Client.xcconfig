@@ -1,1 +1,0 @@
-PODS_XNGOAUTH_CLIENT_OTHER_LDFLAGS = -framework Security

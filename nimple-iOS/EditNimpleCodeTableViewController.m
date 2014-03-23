@@ -152,45 +152,47 @@
     // @TODO load property switch state
     [cell.propertySwitch setOn:FALSE];
     [cell.propertySwitch setHidden:FALSE];
+    [cell setIndex: indexPath.item];
+    [cell setSection: indexPath.section];
     
-        // Configure the cell...
-        if (indexPath.section == 0)
+    // Configure the cell...
+    if (indexPath.section == 0)
+    {
+        if(indexPath.row == 0)
         {
-            if(indexPath.row == 0)
-            {
-                // No propertySwitch, prename is required field
-                [cell.propertySwitch setHidden:TRUE];
-                if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Dein Vorname"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
-            }
-            if(indexPath.row == 1)
-            {
-                // No propertySwitch, surname is required field
-                [cell.propertySwitch setHidden:TRUE];
-                if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Dein Nachname"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
-            }
-            if(indexPath.row == 2)
-            {
-                [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"phone_switch"]];
-                if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"phone"]];
-            }
-            if(indexPath.row == 3)
-            {
-                [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"email_switch"]];
-                if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
-            }
+            // No propertySwitch, prename is required field
+            [cell.propertySwitch setHidden:TRUE];
+            if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
+                [cell.inputField setPlaceholder:@"Dein Vorname"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
         }
+        if(indexPath.row == 1)
+        {
+            // No propertySwitch, surname is required field
+            [cell.propertySwitch setHidden:TRUE];
+            if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
+                [cell.inputField setPlaceholder:@"Dein Nachname"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
+        }
+        if(indexPath.row == 2)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"phone_switch"]];
+            if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
+                [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"phone"]];
+        }
+        if(indexPath.row == 3)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"email_switch"]];
+            if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
+                [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
+        }
+    }
     // Section: business
     else if(indexPath.section == 1)
     {
@@ -218,9 +220,10 @@
         // facebook
         if(indexPath.row == 0)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
+
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
             [cell setSection:1];
             [cell setIndex:0];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
@@ -243,9 +246,9 @@
         // twitter
         if(indexPath.row == 1)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"twitter_switch"]];
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"twitter_switch"]];
             [cell setSection:1];
             [cell setIndex:1];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
@@ -269,6 +272,7 @@
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
             [cell setSection:1];
             [cell setIndex:2];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
@@ -292,6 +296,7 @@
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
             [cell setSection:1];
             [cell setIndex:3];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
@@ -310,9 +315,6 @@
             }
         }
     }
-    
-    [cell setIndex: indexPath.item];
-    [cell setSection: indexPath.section];
     
     return cell;
 }
