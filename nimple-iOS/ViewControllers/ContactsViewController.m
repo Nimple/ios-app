@@ -76,9 +76,22 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity  = [NSEntityDescription
                                     entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
+    
+    // sort nimpleContactsArray by created:NSDate (DESC)
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"created" ascending:NO];
+    
+    NSArray* sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
     [fetchRequest setEntity:entity];
+    
     NSError *error;
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (NimpleContact *c in self.nimpleContacts) {
+        NSLog(@"%@", c.toString);
+    }
     
     // Add default contact
     if([self.nimpleContacts count] == 1)
@@ -88,7 +101,7 @@
     if([self.nimpleContacts count] == 0)
     {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"http://www.twitter.de/nimpleapp" TwitterID:nil XingURL:@"" LinkedInURL:@""];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"http://www.twitter.de/nimpleapp" TwitterID:nil XingURL:@"" LinkedInURL:@"" Created:[NSDate date]];
         NSError *error;
         [self.managedObjectContext save:&error];
         self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
