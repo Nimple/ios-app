@@ -15,7 +15,7 @@
 // Nimple imports
 #import "NimpleContact.h"
 
-@interface ContactTableViewCell : UITableViewCell <MFMailComposeViewControllerDelegate>
+@interface ContactTableViewCell : UITableViewCell <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, retain) NimpleContact* contact;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *twitterButton;
 @property (weak, nonatomic) IBOutlet UIButton *xingButton;
 @property (weak, nonatomic) IBOutlet UIButton *linkedinButton;
+
+@property (strong, atomic) UIActionSheet *actionSheet;
 
 - (ABRecordRef)addAccountWithFirstName:(NSString*)p_prename LastName:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company inAddressBook:(ABAddressBookRef)addressBook;
 

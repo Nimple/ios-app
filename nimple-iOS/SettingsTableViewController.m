@@ -23,6 +23,15 @@
     return self;
 }
 
+
+-(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"Swipe received.");
+    
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+        [self.tabBarController setSelectedIndex: 2];
+}
+
+// Will be executed when the view is loaded to memory
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,6 +41,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:gestureRecognizerRight];
+    
+    UISwipeGestureRecognizer *gestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizerLeft setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.view addGestureRecognizer:gestureRecognizerLeft];
 }
 
 - (void)didReceiveMemoryWarning
