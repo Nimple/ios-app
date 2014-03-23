@@ -81,6 +81,10 @@
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     // Add default contact
+    if([self.nimpleContacts count] == 1)
+    {
+        
+    }
     if([self.nimpleContacts count] == 0)
     {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
