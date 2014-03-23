@@ -123,19 +123,19 @@
     // 1. section (personal): 1. prename 2. surname 3. phone 4. mail
     if(section == 0)
         cellCount = 4;
-    // 2. section (social)
+    // 2. section (business): 1. job title 2. company
     else if (section == 1)
-        cellCount = 4;
-    // 3. section (business): 1. job title 2. company
-    else if(section == 2)
         cellCount = 2;
+    // 3. section (social): 1. facebook 2. twitter 3. xing 4. linkedin
+    else if(section == 2)
+        cellCount = 4;
     
     return cellCount;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.section == 1)
+    if(indexPath.section == 2)
         return 60.0;
     else
         return 45.0;
@@ -145,16 +145,21 @@
 // Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ContactInputCell";
+    static NSString *CellIdentifier = @"EditInputViewCell";
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     [cell.inputField setText:@""];
+    // @TODO load property switch state
+    [cell.propertySwitch setOn:FALSE];
+    [cell.propertySwitch setHidden:FALSE];
     
         // Configure the cell...
         if (indexPath.section == 0)
         {
             if(indexPath.row == 0)
             {
+                // No propertySwitch, prename is required field
+                [cell.propertySwitch setHidden:TRUE];
                 if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
                     [cell.inputField setPlaceholder:@"Dein Vorname"];
                 else
@@ -162,6 +167,8 @@
             }
             if(indexPath.row == 1)
             {
+                // No propertySwitch, surname is required field
+                [cell.propertySwitch setHidden:TRUE];
                 if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
                     [cell.inputField setPlaceholder:@"Dein Nachname"];
                 else
@@ -169,6 +176,7 @@
             }
             if(indexPath.row == 2)
             {
+                [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"phone_switch"]];
                 if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
                     [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
                 else
@@ -176,124 +184,132 @@
             }
             if(indexPath.row == 3)
             {
+                [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"email_switch"]];
                 if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
                     [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
                 else
                     [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
-                
             }
         }
-        // Section: social
-        else if(indexPath.section == 1)
+    // Section: business
+    else if(indexPath.section == 1)
+    {
+        if(indexPath.row == 0)
         {
-            // facebook
-            if(indexPath.row == 0)
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"company_switch"]];
+            if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
+                [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
+                
+        }
+        if(indexPath.row == 1)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"job_switch"]];
+            if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
+                [cell.inputField setPlaceholder:@"Dein Job/Position"];
+            else
+                [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
+        }
+    }
+    // Section: social
+    else if(indexPath.section == 2)
+    {
+        // facebook
+        if(indexPath.row == 0)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
+            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
+            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell setSection:1];
+            [cell setIndex:0];
+            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
+            cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
+            cell.fbLoginView.delegate = cell;
+                
+            NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
+            NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
+            if(facebook_ID.length == 0 || facebook_URL.length == 0)
             {
-                static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-                ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell setSection:1];
-                [cell setIndex:0];
-                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"] forState:UIControlStateNormal];
-                cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
-                cell.fbLoginView.delegate = cell;
-                
-                NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
-                NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
-                if(facebook_ID.length == 0 || facebook_URL.length == 0)
-                {
-                    [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
-                }
-                else
-                {
-                    [cell.socialNetworkButton setAlpha:1.0];
-                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                    
-                }
-                
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
             }
-            if(indexPath.row == 1)
+            else
             {
-                static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-                ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell setSection:1];
-                [cell setIndex:1];
-                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
-                
-                NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
-                NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
-                if(twitter_ID.length == 0 || twitter_URL.length == 0)
-                {
-                    [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
-                }
-                else
-                {
-                    [cell.socialNetworkButton setAlpha:1.0];
-                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                }
+                [cell.socialNetworkButton setAlpha:1.0];
+                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
             }
-            if(indexPath.row == 2)
+        }
+        // twitter
+        if(indexPath.row == 1)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"twitter_switch"]];
+            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
+            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell setSection:1];
+            [cell setIndex:1];
+            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
+            
+            NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
+            NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
+            if(twitter_ID.length == 0 || twitter_URL.length == 0)
             {
-                static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-                ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell setSection:1];
-                [cell setIndex:2];
-                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
-                [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
-                
-                NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-                if(xing_URL.length == 0)
-                {
-                    [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
-                }
-                else
-                {
-                    [cell.socialNetworkButton setAlpha:1.0];
-                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                }
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
             }
-            if(indexPath.row == 3)
+            else
             {
-                static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-                ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-                [cell setSection:1];
-                [cell setIndex:3];
-                [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
+                [cell.socialNetworkButton setAlpha:1.0];
+                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+            }
+        }
+        // xing
+        if(indexPath.row == 2)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
+            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
+            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell setSection:1];
+            [cell setIndex:2];
+            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
+            [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
+                
+            NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
+            if(xing_URL.length == 0)
+            {
+                [cell.socialNetworkButton setAlpha:0.3];
+                [cell.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
+            }
+            else
+            {
+                [cell.socialNetworkButton setAlpha:1.0];
+                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+            }
+        }
+        // linkedin
+        if(indexPath.row == 3)
+        {
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
+            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
+            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
+            [cell setSection:1];
+            [cell setIndex:3];
+            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
+            [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
+                
+            NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
+            if(linkedin_URL.length == 0)
+            {
+                [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
-                
-                NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-                if(linkedin_URL.length == 0)
-                {
-                    [cell.socialNetworkButton setAlpha:0.3];
-                    [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
-                }
-                else
-                {
-                    [cell.socialNetworkButton setAlpha:1.0];
-                    [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                }
+            }
+            else
+            {
+                [cell.socialNetworkButton setAlpha:1.0];
+                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
             }
         }
-        // Section: business
-        else if(indexPath.section == 2)
-        {
-            if(indexPath.row == 0)
-            {
-                if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
-            }
-            if(indexPath.row == 1)
-            {
-                if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
-                    [cell.inputField setPlaceholder:@"Dein Job/Position"];
-                else
-                    [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
-            }
-        }
+    }
     
     [cell setIndex: indexPath.item];
     [cell setSection: indexPath.section];

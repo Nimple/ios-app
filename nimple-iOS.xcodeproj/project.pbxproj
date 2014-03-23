@@ -102,6 +102,11 @@
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
 		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
+		9E9CF28918DF2BA60094E77D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E9CF29218DF307D0094E77D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		9E9CF29418DF3E3C0094E77D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		9EA1D8C718DF23AF0019C715 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9EA1D8C818DF23AF0019C715 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -418,6 +423,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = D151DA6418B432F700C5850F;
 			productRefGroup = D151DA6E18B432F700C5850F /* Products */;
@@ -574,6 +580,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D151DA7A18B432F700C5850F /* en */,
+				9EA1D8C718DF23AF0019C715 /* de */,
+				9E9CF28918DF2BA60094E77D /* Base */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -582,6 +590,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D151DA8318B432F700C5850F /* Base */,
+				9E9CF29218DF307D0094E77D /* en */,
+				9E9CF29418DF3E3C0094E77D /* de */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -590,6 +600,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D151DA9C18B432F800C5850F /* en */,
+				9EA1D8C818DF23AF0019C715 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -687,7 +698,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -711,7 +722,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -26,6 +26,37 @@
     [super setSelected:selected animated:animated];
 }
 
+
+- (IBAction)propertySwitched:(id)sender
+{
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    
+    if(self.section == 2)
+    {
+        // facebook
+        if(self.index == 0)
+        {
+            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"facebook_switch"];
+        }
+        // twitter
+        if(self.index == 1)
+        {
+            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"twitter_switch"];
+        }
+        // xing
+        if(self.index == 2)
+        {
+            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"xing_switch"];
+        }
+        // linkedin
+        if(self.index == 3)
+        {
+            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"linkedin_switch"];
+        }
+    }
+}
+
 //
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

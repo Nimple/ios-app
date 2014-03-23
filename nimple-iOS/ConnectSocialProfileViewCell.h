@@ -28,7 +28,7 @@
 @property (strong, atomic) UIActionSheet      *actionSheet;
 @property (strong, atomic) UIAlertView        *alertView;
 @property (nonatomic) LIALinkedInHttpClient   *linkedInClient;
-
+@property (weak, nonatomic) IBOutlet UISwitch *propertySwitch;
 @property (nonatomic) BDBOAuth1SessionManager *networkManager;
 
 - (LIALinkedInHttpClient *)linkedInClient;

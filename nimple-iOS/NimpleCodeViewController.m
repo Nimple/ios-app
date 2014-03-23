@@ -47,8 +47,10 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 }
 
 -(void)swipeHandlerRight:(UISwipeGestureRecognizer *)recognizer {
-    NSLog(@"Swipe received.");
-    //[self.tabBarController setSelectedIndex: 0];
+    //NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 0];
+    
+    /*
     UIView * fromView = self.tabBarController.selectedViewController.view;
     UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:0] view];
     
@@ -56,18 +58,21 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     [UIView transitionFromView:fromView
                         toView:toView
                       duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                       options:UIViewAnimationOptionTransitionNone
                     completion:^(BOOL finished) {
                         if (finished) {
                             self.tabBarController.selectedIndex = 0;
                         }
                     }];
+     */
 }
 
 
 -(void)swipeHandlerLeft:(UISwipeGestureRecognizer *)recognizer {
-    NSLog(@"Swipe received.");
-    //[self.tabBarController setSelectedIndex: 2];
+    //NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 2];
+    
+    /*
     UIView * fromView = self.tabBarController.selectedViewController.view;
     UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:2] view];
     
@@ -75,12 +80,13 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
     [UIView transitionFromView:fromView
                         toView:toView
                       duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromRight
+                       options:UIViewAnimationOptionTransitionNone
                     completion:^(BOOL finished) {
                         if (finished) {
                             self.tabBarController.selectedIndex = 2;
                         }
                     }];
+     */
 }
 
 - (void)viewDidLoad

@@ -21,6 +21,34 @@
     return self;
 }
 
+- (IBAction)propertySwitched:(id)sender
+{
+    UITableView *tableView = (UITableView *) self.superview.superview;
+    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    switch (self.section) {
+        case 0:
+            if(self.index == 2)
+            {
+                [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"phone_switch"];
+            }
+            if(self.index == 3)
+            {
+                [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
+            }
+            break;
+        case 2:
+            if(self.index == 0)
+            {
+                [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
+            }
+            if(self.index == 1)
+            {
+                [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
+            }
+            break;
+    }
+}
+
 
 - (IBAction)editingChanged:(id)sender
 {
@@ -29,37 +57,49 @@
     
    switch (self.section) {
         case 0:
-            switch (self.index) {
-                case 0:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
-                    break;
-                case 1:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
-                    break;
-                case 2:
+            if(self.index == 0)
+            {
+                // Prename is required, no need toc heck propertySwitch
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+            }
+            if(self.index ==  1)
+            {
+                // Surname is required, no need toc heck propertySwitch
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+            }
+            if(self.index == 2)
+            {
+                if([self.propertySwitch isOn])
+                {
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
-                    break;
-                case 3:
+                }
+            }
+            if(self.index == 3)
+            {
+                if([self.propertySwitch isOn])
+                {
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
-                    break;
+                }
             }
             break;
         case 2:
-            switch (self.index) {
-                case 0:
+            if(self.index == 0)
+            {
+                if([self.propertySwitch isOn])
+                {
                     [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
-                    break;
-                case 1:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
-                    break;
+                    [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
+                }
             }
-            break;
+            if(self.index == 1)
+            {
+                if([self.propertySwitch isOn])
+                {
+                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+                    [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
+                }
+            }
     }
-}
-
-- (IBAction)valueChanged:(id)sender
-{
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

@@ -18,6 +18,12 @@
 @synthesize nimpleContacts;
 @synthesize managedObjectContext;
 
+-(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"Tab Bar should select: %@", viewController.title);
+    return true;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -29,30 +35,25 @@
 
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
     NSLog(@"Swipe received.");
-    //[self.tabBarController setSelectedIndex: 1];
-    
-    UIView * fromView = self.tabBarController.selectedViewController.view;
-    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
-    
-    // Transition using a page curl.
-    [UIView transitionFromView:fromView
-                        toView:toView
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        if (finished) {
-                            self.tabBarController.selectedIndex = 1;
-                        }
-                    }];
+
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
+        [self.tabBarController setSelectedIndex: 1];
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
+        [self.tabBarController setSelectedIndex: 3];
 }
 
 // Will be executed when the view is loaded to memory
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
-    [self.view addGestureRecognizer:gestureRecognizer];
+
+    UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:gestureRecognizerRight];
+    
+    UISwipeGestureRecognizer *gestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
+    [gestureRecognizerLeft setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.view addGestureRecognizer:gestureRecognizerLeft];
     
     [self updateData];
 }

@@ -27,8 +27,10 @@
 }
 
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
-    NSLog(@"Swipe received.");
-    //[self.tabBarController setSelectedIndex: 1];
+    //NSLog(@"Swipe received.");
+    [self.tabBarController setSelectedIndex: 1];
+    
+    /*
     UIView * fromView = self.tabBarController.selectedViewController.view;
     UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
     
@@ -36,12 +38,13 @@
     [UIView transitionFromView:fromView
                         toView:toView
                       duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromRight
+                       options:UIViewAnimationOptionTransitionNone
                     completion:^(BOOL finished) {
                         if (finished) {
                             self.tabBarController.selectedIndex = 1;
                         }
                     }];
+     */
 }
 
 - (void)viewDidLoad
@@ -67,6 +70,7 @@
         [self.welcomeView setHidden:TRUE];
         [self handleChangedNimpleCode:nil];
     }
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
