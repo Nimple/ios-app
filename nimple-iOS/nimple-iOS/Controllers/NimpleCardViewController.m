@@ -140,6 +140,49 @@
     NSString *linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
     if(linkedin_URL.length != 0)
         [self.linkedinIcon setAlpha:1.0];
+    
+    // Blending based on property switches in 'edit nimple code'
+    if(![self.myNimpleCode boolForKey:@"phone_switch"])
+    {
+        [self.phoneLabel setAlpha:0.2];
+        [self.phoneIcon setAlpha:0.2];
+    }
+    else
+    {
+        [self.phoneLabel setAlpha:1.0];
+        [self.phoneIcon setAlpha:1.0];
+    }
+        
+    if(![self.myNimpleCode boolForKey:@"email_switch"])
+    {
+        [self.emailLabel setAlpha:0.2];
+        [self.emailIcon setAlpha:0.2];
+    }
+    else
+    {
+        [self.emailLabel setAlpha:1.0];
+        [self.emailIcon setAlpha:1.0];
+    }
+    if(![self.myNimpleCode boolForKey:@"company_switch"])
+    {
+        [self.companyLabel setAlpha:0.2];
+        [self.companyIcon setAlpha:0.2];
+    }
+    else
+    {
+        [self.companyLabel setAlpha:1.0];
+        [self.companyIcon setAlpha:1.0];
+    }
+    if(![self.myNimpleCode boolForKey:@"job_switch"])
+    {
+        [self.jobLabel setAlpha:0.2];
+        [self.jobIcon setAlpha:0.2];
+    }
+    else
+    {
+        [self.companyLabel setAlpha:1.0];
+        [self.companyIcon setAlpha:1.0];
+    }
 }
 
 - (void)didReceiveMemoryWarning

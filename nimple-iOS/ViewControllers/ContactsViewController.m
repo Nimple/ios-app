@@ -131,6 +131,38 @@
     NimpleContact *contact = [nimpleContacts objectAtIndex:indexPath.row];
     [cell setContact:contact];
     
+    NSLog(@"%@", [contact valueForKey:@"facebook_URL"]);
+    
+    // Set facebook icon state
+    NSString *facebook_URL = [contact valueForKey:@"facebook_URL"];
+    NSString *facebook_ID = [contact valueForKey:@"facebook_ID"];
+    if(facebook_ID.length == 0 || facebook_URL.length == 0)
+        [cell.facebookButton setAlpha:0.2];
+    else
+        [cell.facebookButton setAlpha:1.0];
+    
+    // Set twitter icon state
+    NSString *twitter_URL = [contact valueForKey:@"twitter_URL"];
+    NSString *twitter_ID = [contact valueForKey:@"twitter_ID"];
+    if(twitter_ID.length == 0 || twitter_URL.length == 0)
+        [cell.twitterButton setAlpha:0.2];
+    else
+        [cell.twitterButton setAlpha:1.0];
+    
+    // Set xing icon state
+    NSString *xing_URL = [contact valueForKey:@"xing_URL"];
+    if(xing_URL.length == 0)
+        [cell.xingButton setAlpha:0.2];
+    else
+        [cell.xingButton setAlpha:1.0];
+
+    // Set linkedin icon state
+    NSString *linkedin_URL = [contact valueForKey:@"linkedin_URL"];
+    if(linkedin_URL.length == 0)
+        [cell.linkedinButton setAlpha:0.2];
+    else
+        [cell.linkedinButton setAlpha:1.0];
+    
     return cell;
 }
 

@@ -26,6 +26,11 @@
     return self;
 }
 
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [self.myNimpleCode synchronize];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -326,9 +331,9 @@
     if(section == 0)
         sectionName = @"Personal";
     else if(section == 1)
-        sectionName = @"Social";
-    else if(section == 2)
         sectionName = @"Business";
+    else if(section == 2)
+        sectionName = @"Social";
     
     return sectionName;
 }

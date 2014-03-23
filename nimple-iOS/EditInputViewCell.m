@@ -47,6 +47,8 @@
             }
             break;
     }
+    
+    [self.myNimpleCode synchronize];
 }
 
 

@@ -216,32 +216,31 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         [filled appendString: name];
     }
     // phone
-    if([NSString stringWithString:p_data[2]].length != 0)
+    if([NSString stringWithString:p_data[2]].length != 0 && [self.myNimpleCode boolForKey:@"phone_switch"])
     {
-        NSLog(@"PDATA 2 : %@", p_data[2]);
         NSString *phone = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_phone"], p_data[2]];
         [filled appendString: phone];
     }
     // email
-    if([NSString stringWithString:p_data[3]].length != 0)
+    if([NSString stringWithString:p_data[3]].length != 0 && [self.myNimpleCode boolForKey:@"email_switch"])
     {
         NSString *email = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_email"], p_data[3]];
         [filled appendString: email];
     }
     // company
-    if([NSString stringWithString:p_data[4]].length != 0)
+    if([NSString stringWithString:p_data[4]].length != 0 && [self.myNimpleCode boolForKey:@"company_switch"])
     {
         NSString *company = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_organisation"], p_data[4]];
         [filled appendString: company];
     }
     // job
-    if([NSString stringWithString:p_data[5]].length != 0)
+    if([NSString stringWithString:p_data[5]].length != 0 && [self.myNimpleCode boolForKey:@"job_switch"])
     {
         NSString *job = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_role"], p_data[5]];
         [filled appendString: job];
     }
     // facebook
-    if([NSString stringWithString:p_data[6]].length != 0 && [NSString stringWithString:p_data[7]].length != 0)
+    if([NSString stringWithString:p_data[6]].length != 0 && [NSString stringWithString:p_data[7]].length != 0 && [self.myNimpleCode boolForKey:@"facebook_switch"])
     {
         NSString *facebook_URL = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[6]];
         NSString *facebook_ID = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_facebook_id"], p_data[7]];
@@ -249,7 +248,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         [filled appendString: facebook_ID];
     }
     // twitter
-    if([NSString stringWithString:p_data[8]].length != 0 && [NSString stringWithString:p_data[9]].length != 0)
+    if([NSString stringWithString:p_data[8]].length != 0 && [NSString stringWithString:p_data[9]].length != 0 && [self.myNimpleCode boolForKey:@"twitter_switch"])
     {
         NSString *twitter_URL = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[8]];
         NSString *twitter_ID = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_twitter_id"], p_data[9]];
@@ -257,13 +256,13 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         [filled appendString: twitter_ID];
     }
     // xing
-    if([NSString stringWithString:p_data[10]].length != 0)
+    if([NSString stringWithString:p_data[10]].length != 0 && [self.myNimpleCode boolForKey:@"xing_switch"])
     {
         NSString *xing_URL = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[10]];
         [filled appendString: xing_URL];
     }
     // linkedin
-    if([NSString stringWithString:p_data[11]].length != 0)
+    if([NSString stringWithString:p_data[11]].length != 0 && [self.myNimpleCode boolForKey:@"linkedin_switch"])
     {
         NSString *linkedin_URL = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[11]];
         [filled appendString: linkedin_URL];

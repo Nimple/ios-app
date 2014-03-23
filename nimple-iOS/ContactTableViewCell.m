@@ -15,9 +15,9 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    //if (self) {
-    //  // Initialization code
-    //}
+    if (self) {
+    // Initialization code
+    }
     return self;
 }
 
@@ -26,26 +26,32 @@
     [super setSelected:selected animated:animated];
 }
 
-- (IBAction)linkedinButtonClicked:(id)sender {
-    NSLog(@"linkedin clicked");
+// Opens the browser with the linkedin url
+- (IBAction)linkedinButtonClicked:(id)sender
+{
+    //NSLog(@"linkedin clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.linkedin_URL]];
 }
 
-- (IBAction)xingButtonClicked:(id)sender {
-    NSLog(@"xing clicked");
+// Opens the browser with the xing url
+- (IBAction)xingButtonClicked:(id)sender
+{
+    //NSLog(@"xing clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.xing_URL]];
 }
 
-- (IBAction)twitetrButtonClicked:(id)sender {
-    NSLog(@"twitter clicked %@", self.contact.twitter_URL);
+// Opens the browser with the twitter url
+- (IBAction)twitetrButtonClicked:(id)sender
+{
+    //NSLog(@"twitter clicked %@", self.contact.twitter_URL);
     NSURL *url = [NSURL URLWithString:self.contact.twitter_URL];
     [[UIApplication sharedApplication] openURL:url];
 }
 
-// Opens the browser with the facebook URL
+// Opens the browser with the facebook url
 - (IBAction)facebookButtonClicked:(id)sender
 {
-    NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
+    //NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
 }
 
