@@ -76,9 +76,23 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity  = [NSEntityDescription
                                     entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
+    
+    // sort nimpleContactsArray by created:NSDate (DESC)
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"created" ascending:NO];
+    
+    NSArray* sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
     [fetchRequest setEntity:entity];
+    
     NSError *error;
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (NimpleContact *c in self.nimpleContacts) {
+        NSLog(@"%@", c.toString);
+    }
+    
     [self.tableView reloadData];
 }
 

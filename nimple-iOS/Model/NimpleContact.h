@@ -24,8 +24,9 @@
 @property (nonatomic, retain) NSString * twitter_ID;
 @property (nonatomic, retain) NSString * xing_URL;
 @property (nonatomic, retain) NSString * linkedin_URL;
+@property (nonatomic, retain) NSDate * created;
 
 -(NSString*) toString;
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSNumber*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSNumber*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL;
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSNumber*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSNumber*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate*)p_created;
 
 @end
