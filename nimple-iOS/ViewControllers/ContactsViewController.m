@@ -89,19 +89,18 @@
     NSError *error;
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-<<<<<<< HEAD
     for (NimpleContact *c in self.nimpleContacts) {
         NSLog(@"%@", c.toString);
-=======
+    }
+    
     // Add default contact
     if([self.nimpleContacts count] == 0)
     {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"http://www.twitter.de/nimpleapp" TwitterID:nil XingURL:@"" LinkedInURL:@""];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"http://www.twitter.de/nimpleapp" TwitterID:nil XingURL:@"" LinkedInURL:@"" Created:[NSDate date]];
         NSError *error;
         [self.managedObjectContext save:&error];
         self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
->>>>>>> 309cd4f9e4722c453a65a7cb1cfae1d7674bb1cd
     }
     
     [self.tableView reloadData];
