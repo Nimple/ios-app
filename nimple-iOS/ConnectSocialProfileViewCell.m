@@ -107,11 +107,10 @@
 {
     if(buttonIndex == 0)
     {
-        NSLog(@"0");
+        
     }
     if(buttonIndex == 1)
     {
-        NSLog(@"1");
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"]];
     }
 }
@@ -119,7 +118,7 @@
 //
 - (IBAction)connectButtonClicked:(id)sender
 {
-    NSString *destructiveTitle = @"Log out"; //Action Sheet Button Titles
+    NSString *destructiveTitle = @"Log out";
     NSString *cancelTitle = @"Cancel";
     self.actionSheet = [[UIActionSheet alloc]
                         initWithTitle:@""
@@ -208,8 +207,6 @@
     // xing
     if(self.index == 2)
     {
-        NSLog(@"Xing connection status: %hhd", [self.networkManager isAuthorized]);
-        
         // Introduce table view cell to app delegate, which handles the URL-opening in the browser
         if(![NimpleAppDelegate sharedDelegate].xingTableViewCell)
             [NimpleAppDelegate sharedDelegate].xingTableViewCell = self;
@@ -243,7 +240,10 @@
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                          NSString *url = [profileRequest valueForKey:@"url"];
-                         NSLog(@"Profile url: %@", url);
+                         NSRange urlRange = [url rangeOfString:@"&authType"];
+                         NSString *permalink = [[url substringToIndex:urlRange.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                         
+                         //NSLog(@"Profile url: %@", permalink);
                          [viewController.myNimpleCode setValue:url forKey:@"linkedin_URL"];
                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error)
@@ -303,7 +303,8 @@
 {
     [self.networkManager deauthorize];
     
-    if (completion) {
+    if (completion)
+    {
         completion();
     }
 }
