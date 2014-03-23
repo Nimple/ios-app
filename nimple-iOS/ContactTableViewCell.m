@@ -8,7 +8,6 @@
 
 #import "ContactTableViewCell.h"
 
-
 @implementation ContactTableViewCell
 @synthesize contact = _contact;
 
@@ -56,7 +55,8 @@
 }
 
 // Delegates calling a phone number to the phone app
-- (IBAction)phoneButtonClicked:(id)sender {
+- (IBAction)phoneButtonClicked:(id)sender
+{
     NSLog(@"Phone calling...");
     
     UIDevice *device = [UIDevice currentDevice];
@@ -77,7 +77,8 @@
 // Delegates the sending of an email to the mail app
 - (IBAction)mailButtonClicked:(id)sender {
     // From within your active view controller
-    if([MFMailComposeViewController canSendMail]) {
+    if([MFMailComposeViewController canSendMail])
+{
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
         mailContent.mailComposeDelegate = self;
@@ -93,7 +94,8 @@
 }
 
 // Called when returning from mail app
-- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -106,7 +108,10 @@
         [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.prename, self.contact.surname]];
         [self.phoneButton setTitle:self.contact.phone forState:UIControlStateNormal];
         [self.emailButton setTitle:self.contact.email forState:UIControlStateNormal];
-        [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@ (%@)", contact.company, contact.job]];
+        if(contact.job.length != 0)
+            [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@ (%@)", contact.company, contact.job]];
+        else
+            [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@", contact.company]];
     }
 }
 
