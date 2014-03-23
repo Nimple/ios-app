@@ -207,8 +207,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 - (NSString*) fillVCardCardWithData:(NSArray*)p_data
 {
     NSMutableString *filled = [NSMutableString stringWithString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_header"]];
-    
-    //return [NSString stringWithFormat:VCARD_TEMPLATE, p_data[0], p_data[1], p_data[2], p_data[3], p_data[4], p_data[5], p_data[6], p_data[7], p_data[8], p_data[9], p_data[10], p_data[11]];
 
     if([NSString stringWithString:p_data[0]].length != 0 && [NSString stringWithString:p_data[1]].length != 0)
     {
@@ -275,6 +273,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 // Update the QR code data
 -(void) updateQRCodeData
 {
+    
     [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] FacebookURL:[self.myNimpleCode valueForKey:@"facebook_URL"] FacebookID:[self.myNimpleCode valueForKey:@"facebook_ID"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"] TwitterID:[self.myNimpleCode valueForKey:@"twitter_ID"] XingURL:[self.myNimpleCode valueForKey:@"xing_URL"] LinkedInURL:[self.myNimpleCode valueForKey:@"linkedin_URL"]];
 }
 

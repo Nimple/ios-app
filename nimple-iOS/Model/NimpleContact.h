@@ -27,6 +27,10 @@
 @property (nonatomic, retain) NSDate * created;
 
 -(NSString*) toString;
+<<<<<<< HEAD
 -(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSNumber*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSNumber*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate*)p_created;
+=======
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL;
+>>>>>>> 309cd4f9e4722c453a65a7cb1cfae1d7674bb1cd
 
 @end

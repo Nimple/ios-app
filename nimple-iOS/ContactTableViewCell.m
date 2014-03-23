@@ -8,7 +8,6 @@
 
 #import "ContactTableViewCell.h"
 
-
 @implementation ContactTableViewCell
 @synthesize contact = _contact;
 
@@ -29,21 +28,21 @@
 // Opens the browser with the linkedin url
 - (IBAction)linkedinButtonClicked:(id)sender
 {
-    //NSLog(@"linkedin clicked");
+    NSLog(@"linkedin clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.linkedin_URL]];
 }
 
 // Opens the browser with the xing url
 - (IBAction)xingButtonClicked:(id)sender
 {
-    //NSLog(@"xing clicked");
+    NSLog(@"xing clicked");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.xing_URL]];
 }
 
 // Opens the browser with the twitter url
 - (IBAction)twitetrButtonClicked:(id)sender
 {
-    //NSLog(@"twitter clicked %@", self.contact.twitter_URL);
+    NSLog(@"twitter clicked %@", self.contact.twitter_URL);
     NSURL *url = [NSURL URLWithString:self.contact.twitter_URL];
     [[UIApplication sharedApplication] openURL:url];
 }
@@ -51,12 +50,13 @@
 // Opens the browser with the facebook url
 - (IBAction)facebookButtonClicked:(id)sender
 {
-    //NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
+    NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
 }
 
 // Delegates calling a phone number to the phone app
-- (IBAction)phoneButtonClicked:(id)sender {
+- (IBAction)phoneButtonClicked:(id)sender
+{
     NSLog(@"Phone calling...");
     
     UIDevice *device = [UIDevice currentDevice];
@@ -77,7 +77,8 @@
 // Delegates the sending of an email to the mail app
 - (IBAction)mailButtonClicked:(id)sender {
     // From within your active view controller
-    if([MFMailComposeViewController canSendMail]) {
+    if([MFMailComposeViewController canSendMail])
+{
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
         mailContent.mailComposeDelegate = self;
@@ -93,7 +94,8 @@
 }
 
 // Called when returning from mail app
-- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -106,7 +108,10 @@
         [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.prename, self.contact.surname]];
         [self.phoneButton setTitle:self.contact.phone forState:UIControlStateNormal];
         [self.emailButton setTitle:self.contact.email forState:UIControlStateNormal];
-        self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ @ %@", contact.job, contact.company];
+        if(contact.job.length != 0)
+            [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@ (%@)", contact.company, contact.job]];
+        else
+            [self.jobCompanyLabel setText:[NSString stringWithFormat:@"%@", contact.company]];
     }
 }
 
