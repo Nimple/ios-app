@@ -49,7 +49,7 @@
     self.alertView = [[UIAlertView alloc] initWithTitle:@"Kontakt gefunden"
                                      message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
                                      delegate:self
-                                     cancelButtonTitle:@"Nice!"
+                                     cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
 }
 

@@ -36,8 +36,10 @@ static NimpleAppDelegate * _sharedDelegate = nil;
         NSURL *apiURL = [NSURL URLWithString:@"https://api.xing.com/"];
         NSString *consumerKey = @"3d8f3e9a93ca001ca5ea";
         NSString *consumerSecret = @"72a6adfc6298da70515f622ef4d29638be954aa2";
-        self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:apiURL consumerKey:consumerKey consumerSecret:consumerSecret];
-            
+        if(!self.networkManager)
+        {
+            self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:apiURL consumerKey:consumerKey consumerSecret:consumerSecret];
+        }
         _sharedDelegate = self;
     }
     return self;
@@ -168,11 +170,9 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                NSString *permalink = permalinkArray[0];
                                                                NSLog(@"Permalink %@", permalink);
                                                                
-                                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                                   [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
-                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
-                                                                });
-                                                    
+                                                               [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
+                                                               [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                               
                                                                 NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
                                                                [myNimpleCode setValue:permalink forKeyPath:@"xing_URL"];
                                                            }

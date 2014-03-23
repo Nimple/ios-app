@@ -36,7 +36,7 @@
                 [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
             }
             break;
-        case 2:
+        case 1:
             if(self.index == 0)
             {
                 [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
@@ -71,35 +71,24 @@
             }
             if(self.index == 2)
             {
-                if([self.propertySwitch isOn])
-                {
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
-                }
+
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+
             }
             if(self.index == 3)
             {
-                if([self.propertySwitch isOn])
-                {
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
-                }
+
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
             }
             break;
-        case 2:
+        case 1:
             if(self.index == 0)
             {
-                if([self.propertySwitch isOn])
-                {
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
-                    [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
-                }
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
             }
             if(self.index == 1)
             {
-                if([self.propertySwitch isOn])
-                {
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
-                    [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
-                }
+                [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
             }
     }
 }
