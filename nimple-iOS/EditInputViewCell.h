@@ -15,7 +15,6 @@
 @property (atomic) NSInteger                      section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) NSString             *value;
-@property NSUserDefaults                         *myNimpleCode;
 @property (weak, nonatomic) IBOutlet UISwitch    *propertySwitch;
 
 @end

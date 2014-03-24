@@ -125,6 +125,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger cellCount = 0;
+
     // 1. section (personal): 1. prename 2. surname 3. phone 4. mail
     if(section == 0)
         cellCount = 4;
@@ -138,8 +139,8 @@
     return cellCount;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if(indexPath.section == 2)
         return 60.0;
     else
@@ -327,7 +328,7 @@
 // Returns the title for a given section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString* sectionName = @"";
-    
+
     if(section == 0)
         sectionName = @"Personal";
     else if(section == 1)
