@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.myNimpleCode = [NSUserDefaults standardUserDefaults];
     NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
     if(surname.length == 0)
