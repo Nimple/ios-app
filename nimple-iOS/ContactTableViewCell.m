@@ -36,7 +36,10 @@
 - (IBAction)xingButtonClicked:(id)sender
 {
     NSLog(@"xing clicked");
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.xing_URL]];
+    NSString *newXingUrl = [self.contact.xing_URL substringFromIndex:29];
+    NSString *finalCallUrl = [NSString stringWithFormat:@"https://touch.xing.com/users/%@", newXingUrl];
+    NSLog(@"%@", finalCallUrl);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:finalCallUrl]];
 }
 
 // Opens the browser with the twitter url
