@@ -89,10 +89,6 @@
     NSError *error;
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    for (NimpleContact *c in self.nimpleContacts) {
-        NSLog(@"%@", c.toString);
-    }
-    
     // Add default contact
     BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
     if(!exampleUserDidExist)
