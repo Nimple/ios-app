@@ -89,10 +89,6 @@
     NSError *error;
     self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    for (NimpleContact *c in self.nimpleContacts) {
-        NSLog(@"%@", c.toString);
-    }
-    
     // Add default contact
     if([self.nimpleContacts count] == 0)
     {

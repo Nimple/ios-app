@@ -11,6 +11,10 @@
 
 @interface BarCodeReaderController ()
 
+{
+    BOOL isProcessing;
+}
+
 @property (nonatomic) BOOL isReading;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
@@ -57,7 +61,8 @@
 {
     if(buttonIndex == 0)
     {
-        
+        [self.tabBarController setSelectedIndex: 2];
+        [[self navigationController] popViewControllerAnimated:YES];
     }
 }
 
@@ -120,7 +125,7 @@
     [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
     
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-    _videoPreviewLayer.drawsAsynchronously = TRUE;
+    _videoPreviewLayer.drawsAsynchronously = FALSE;
     [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [_videoPreviewLayer setFrame:_codeReaderCameraView.layer.bounds];
     [_codeReaderCameraView.layer addSublayer:_videoPreviewLayer];
@@ -133,16 +138,23 @@
 // Get the QRcode output
 -(void) captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
+    // check for current processing
+    if(isProcessing) {
+        return;
+    }
+    
     // Valid bar code found
-    if (metadataObjects != nil && [metadataObjects count] > 0)
+    if (metadataObjects != nil && [metadataObjects count] == 1)
     {
+        isProcessing = TRUE;
+        
+        // Stop the bar code reader
+        [self stopReading];
+        
         // Valid QRCode found
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode])
         {
-            // Stop the bar code reader
-            [self stopReading];
-            
             // Get data from vcard string
             NSString *qrCodeData = metadataObj.stringValue;
             // Look for vcard defintion string
@@ -249,12 +261,12 @@
                 }
                 
                 NSLog(@"Contact found: %@", contactData);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.alertView show];
-                    [self.tabBarController setSelectedIndex: 2];
-                });
                 capturedContactData = contactData;
                 [self saveToDataBase];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.alertView show];
+                });
             }
         }
         // No valid QRCode found
@@ -283,8 +295,6 @@
     [_captureSession stopRunning];
     _captureSession = nil;
     [_videoPreviewLayer removeFromSuperlayer];
-    
-    //[[self navigationController] popViewControllerAnimated:YES];
 }
 
 @end
