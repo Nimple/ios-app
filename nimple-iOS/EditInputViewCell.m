@@ -40,15 +40,15 @@
     {
         if(self.index == 0)
         {
+            NSLog(@"COMPANY SIWTCH");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
         }
         if(self.index == 1)
         {
+            NSLog(@"JOB SIWTCH");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
         }
     }
-    
-    [viewController.myNimpleCode synchronize];
 }
 
 

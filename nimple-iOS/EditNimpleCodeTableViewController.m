@@ -209,7 +209,6 @@
                 [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
-                
         }
         if(indexPath.row == 1)
         {
@@ -229,9 +228,9 @@
 
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
-            [cell setSection:1];
+            [cell setSection:2];
             [cell setIndex:0];
+            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
             cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
@@ -255,7 +254,7 @@
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"twitter_switch"]];
-            [cell setSection:1];
+            [cell setSection:2];
             [cell setIndex:1];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
             
@@ -279,7 +278,7 @@
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
-            [cell setSection:1];
+            [cell setSection:2];
             [cell setIndex:2];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
             [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
@@ -303,7 +302,7 @@
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
-            [cell setSection:1];
+            [cell setSection:2];
             [cell setIndex:3];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
             [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];

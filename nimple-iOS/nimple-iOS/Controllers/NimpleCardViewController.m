@@ -58,7 +58,6 @@
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"
                                                object:nil];
-    
     if(self.checkOwnProperties)
     {
         [self.nimpleCardView setHidden:TRUE];
@@ -70,7 +69,6 @@
         [self.welcomeView setHidden:TRUE];
         [self handleChangedNimpleCode:nil];
     }
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -122,24 +120,33 @@
     [self.companyLabel setText:[self.myNimpleCode valueForKey:@"company"]];
     [self.phoneLabel setText:[self.myNimpleCode valueForKey:@"phone"]];
     [self.emailLabel setText:[self.myNimpleCode valueForKey:@"email"]];
+    
     // facebook
     NSString *facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
     NSString *facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
-    if(facebook_URL.length != 0 || facebook_ID.length != 0)
+    if((facebook_URL.length != 0 || facebook_ID.length != 0) && [self.myNimpleCode boolForKey:@"facebook_switch"])
         [self.facebookIcon setAlpha:1.0];
+    else
+        [self.facebookIcon setAlpha:0.2];
     // twitter
     NSString *twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
     NSString *twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
-    if(twitter_URL.length != 0 || twitter_ID.length != 0)
+    if((twitter_URL.length != 0 || twitter_ID.length != 0) && [self.myNimpleCode boolForKey:@"twitter_switch"])
         [self.twitterIcon setAlpha:1.0];
+    else
+        [self.twitterIcon setAlpha:0.2];
     // xing
     NSString *xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-    if(xing_URL.length != 0)
+    if(xing_URL.length != 0 && [self.myNimpleCode boolForKey:@"xing_switch"])
         [self.xingIcon setAlpha:1.0];
+    else
+        [self.xingIcon setAlpha:0.2];
     // linkedin
     NSString *linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-    if(linkedin_URL.length != 0)
+    if(linkedin_URL.length != 0 && [self.myNimpleCode boolForKey:@"linkedin_switch"])
         [self.linkedinIcon setAlpha:1.0];
+    else
+        [self.linkedinIcon setAlpha:0.2];
     
     // Blending based on property switches in 'edit nimple code'
     if(![self.myNimpleCode boolForKey:@"phone_switch"])
@@ -163,6 +170,7 @@
         [self.emailLabel setAlpha:1.0];
         [self.emailIcon setAlpha:1.0];
     }
+    // company
     if(![self.myNimpleCode boolForKey:@"company_switch"])
     {
         [self.companyLabel setAlpha:0.2];
@@ -173,6 +181,7 @@
         [self.companyLabel setAlpha:1.0];
         [self.companyIcon setAlpha:1.0];
     }
+    // job
     if(![self.myNimpleCode boolForKey:@"job_switch"])
     {
         [self.jobLabel setAlpha:0.2];
@@ -180,8 +189,8 @@
     }
     else
     {
-        [self.companyLabel setAlpha:1.0];
-        [self.companyIcon setAlpha:1.0];
+        [self.jobLabel setAlpha:1.0];
+        [self.jobIcon setAlpha:1.0];
     }
 }
 

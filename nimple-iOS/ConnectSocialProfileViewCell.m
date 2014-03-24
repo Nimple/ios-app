@@ -32,6 +32,8 @@
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
+    if(self.section == 2)
+    {
         // facebook
         if(self.index == 0)
         {
@@ -56,8 +58,7 @@
             NSLog(@"perperty LKNDN switched");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"linkedin_switch"];
         }
-    
-    [viewController.myNimpleCode synchronize];
+    }
 }
 
 //
@@ -65,6 +66,7 @@
 {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    
     // Twitter
     if(self.index == 1)
     {
@@ -74,7 +76,6 @@
             [self.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
-            [viewController.myNimpleCode synchronize];
         }
     }
     // Xing
@@ -86,7 +87,6 @@
                 [self.socialNetworkButton setAlpha:0.3];
                 [self.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
                 [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
-                [viewController.myNimpleCode synchronize];
             }];
         }
     }
@@ -210,7 +210,10 @@
         // Introduce table view cell to app delegate, which handles the URL-opening in the browser
         if(![NimpleAppDelegate sharedDelegate].xingTableViewCell)
             [NimpleAppDelegate sharedDelegate].xingTableViewCell = self;
+        if(!self.networkManager)
+            self.networkManager = [NimpleAppDelegate sharedDelegate].networkManager;
         
+        NSString *xingURL = [viewController.myNimpleCode valueForKey:@"xing_URL"];
         if([self.networkManager isAuthorized])
         {
             self.actionSheet.title = @"Loggd in using XING";
@@ -303,10 +306,8 @@
 {
     [self.networkManager deauthorize];
     
-    if (completion)
-    {
+    if(completion)
         completion();
-    }
 }
 
 //--- LINKEDIN -----------------------------------------------------------------

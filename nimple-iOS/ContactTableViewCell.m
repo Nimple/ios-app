@@ -50,8 +50,15 @@
 // Opens the browser with the facebook url
 - (IBAction)facebookButtonClicked:(id)sender
 {
-    NSLog(@"facebook clicked: %@", self.contact.facebook_URL);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
+    UIApplication *app = [UIApplication sharedApplication];
+    NSURL *facebookURL = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@",self.contact.facebook_ID]];
+    if ([app canOpenURL:facebookURL])
+    {
+        [app openURL:facebookURL];
+        return;
+    }
+    else
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.facebook_URL] ];
 }
 
 // Delegates calling a phone number to the phone app
