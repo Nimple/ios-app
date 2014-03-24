@@ -48,8 +48,8 @@
     [super viewDidLoad];
     _isReading = FALSE;
     _captureSession = nil;
-    
     [self startReading];
+    
     self.alertView = [[UIAlertView alloc] initWithTitle:@"Kontakt gefunden"
                                      message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
                                      delegate:self
@@ -64,16 +64,6 @@
         [self.tabBarController setSelectedIndex: 2];
         [[self navigationController] popViewControllerAnimated:YES];
     }
-}
-
-// Starts the capture session when the view is currently presented
-- (void) viewDidAppear:(BOOL)animated {
-    [self startReading];
-}
-
-// Stops the capture session when the view is not presented
-- (void) viewWillDisappear:(BOOL)animated {
-    [self stopReading];
 }
 
 // Stops the capture session when the view will be undloaded from memory
@@ -125,7 +115,7 @@
     [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
     
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-    _videoPreviewLayer.drawsAsynchronously = FALSE;
+    _videoPreviewLayer.drawsAsynchronously = TRUE;
     [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     [_videoPreviewLayer setFrame:_codeReaderCameraView.layer.bounds];
     [_codeReaderCameraView.layer addSublayer:_videoPreviewLayer];
