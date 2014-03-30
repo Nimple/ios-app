@@ -55,6 +55,13 @@
                                      delegate:self
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:nil];
+    
+    self.alertView2 = [[UIAlertView alloc] initWithTitle:@"Fehlerhafter Code"
+                                                message:@"Der nimple-code konnte nicht gescannt werden."
+                                               delegate:self
+                                      cancelButtonTitle:@"Zurück"
+                                      otherButtonTitles:nil];
+
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -228,6 +235,10 @@
                 
                 // check for at least name
                 if([contactData[0] length] == 0 || [contactData[1] length] == 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.alertView2 show];
+                    });
+                    
                     return;
                 }
                 
