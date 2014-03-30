@@ -159,7 +159,6 @@
                 NSLog(@"Valid vCard found!");
                 NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
                 NSArray        *lines       = [[NSArray alloc] init];
-                NSString       *url;
                 
                 NSLog(@"Tokenize VCARD:");
                 lines = [qrCodeData componentsSeparatedByString:@"\n"];
@@ -167,87 +166,69 @@
                 NSLog(@"%lu lines found in vCard", (unsigned long)[lines count]);
                 NSLog(@"Lines are %@", lines);
                 
-                for(NSString *line in lines)
-                {
-                    NSArray *keyValuePair = [line componentsSeparatedByString:@":"];
-                    // Skip first two vcard entires
-                    if([keyValuePair[0] isEqualToString:@"BEGIN"] |
-                       [keyValuePair[0] isEqualToString:@"VERSION"])
-                    {
+                for(NSString *line in lines) {
+                    // in order to have a clean db entry
+                    NSString *newLine = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    
+                    if(newLine.length < 3) {
                         continue;
                     }
-                    // End found
-                    NSRange endFound = [line rangeOfString:@"END:VCARD"];
-                    if(endFound.location != NSNotFound)
-                        break;
                     
-                    // Check if vcard entry is URL
-                    if([keyValuePair[0] isEqualToString:@"URL"])
-                    {
-                        NSString *cleanURL = [[keyValuePair[2]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        url = [NSString stringWithFormat:@"%@:%@", keyValuePair[1], cleanURL];
-                        // facebook URL
-                        if([url rangeOfString:@"facebook"].location != NSNotFound)
+                    if([newLine hasPrefix:@"N:"]) {
+                        newLine = [newLine substringFromIndex:2];
+                        NSArray *names = [newLine componentsSeparatedByString:@";"];
+                        contactData[0] = names[0];
+                        contactData[1] = names[1];
+                    } else if ([newLine hasPrefix:@"EMAIL"]) {
+                        NSString *email = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
+                        contactData[3] = email;
+                    } else if ([newLine hasPrefix:@"TEL"]) {
+                        NSString *telehone = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
+                        contactData[2] = telehone;
+                    } else if ([newLine hasPrefix:@"ORG:"]) {
+                        // handle organisation
+                        // take care of multiple units
+                        NSString *company = [newLine substringFromIndex:4];
+                        
+                        if ([newLine rangeOfString:@";"].location != NSNotFound) {
+                            NSArray *orgs = [company componentsSeparatedByString:@";"];
+                            
+                            for(NSString *org in orgs) {
+                                [contactData[5] appendString:[NSString stringWithFormat:@"%@%@", org, @"\n"]];
+                            }
+                        } else {
+                            contactData[5] = company;
+                        }
+                    } else if ([newLine hasPrefix:@"ROLE"]) {
+                        NSString *role = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
+                        contactData[4] = role;
+                    } else if ([newLine hasPrefix:@"URL"]) {
+                        NSString *url = [newLine substringFromIndex:4];
+                        
+                        // parse urls
+                        if([newLine rangeOfString:@"facebook"].location != NSNotFound) {
                             contactData[6] = url;
-                        // twitter URL
-                        if([url rangeOfString:@"twitter"].location != NSNotFound)
+                        } else if([newLine rangeOfString:@"twitter"].location != NSNotFound) {
                             contactData[8] = url;
-                        // xing URL
-                        if([url rangeOfString:@"xing"].location != NSNotFound)
+                        } else if([newLine rangeOfString:@"xing"].location != NSNotFound) {
                             contactData[10] = url;
-                        // linkedin URL
-                        if([url rangeOfString:@"linkedin"].location != NSNotFound)
+                        } else if([newLine rangeOfString:@"linkedin"].location != NSNotFound) {
                             contactData[11] = url;
+                        }
+                    } else if ([newLine hasPrefix:@"X-FACEBOOK-ID:"]) {
+                        contactData[7] = [newLine substringFromIndex:14];
+                    } else if ([newLine hasPrefix:@"X-TWITTER-ID:"]) {
+                        contactData[9] = [newLine substringFromIndex:13];
+                    } else if ([newLine hasPrefix:@"END:VCARD"]) {
+                        break;
+                    } else {
+                        // unrecognized line;
                     }
-                    
-                    // Name
-                    if([keyValuePair[0] isEqualToString:@"N"])
-                    {
-                        // Seperate sur- and prename and add them to contact data
-                        NSArray  *fullName = [keyValuePair[1] componentsSeparatedByString:@";"];
-                        NSString *cleanPrename = [[fullName[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        NSString *cleanSurname = [[fullName[0]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[0] = cleanSurname;
-                        contactData[1] = cleanPrename;
-                    }
-                    // Telephone
-                    NSRange telephoneFound = [keyValuePair[0] rangeOfString:@"TEL"];
-                    if(telephoneFound.location != NSNotFound)
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[2] = clean;
-                    }
-                    // Email
-                    if([keyValuePair[0] isEqualToString:@"EMAIL"])
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[3] = clean;
-                    }
-                    // Job Title
-                    if([keyValuePair[0] isEqualToString:@"ROLE"])
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[4] = clean;
-                    }
-                    // Company
-                    if([keyValuePair[0] isEqualToString:@"ORG"])
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        NSLog(@"CLEAN COMPANY: %@", clean);
-                        contactData[5] = clean;
-                    }
-                    // facebook
-                    if([keyValuePair[0] isEqualToString:@"X-FACEBOOK-ID"])
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[7] = clean;
-                    }
-                    // twitter
-                    if([keyValuePair[0] isEqualToString:@"X-TWITTER-ID"])
-                    {
-                        NSString *clean = [[keyValuePair[1]componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
-                        contactData[9] = clean;
-                    }
+                }
+                
+                // check for at least name
+                if([contactData[0] length] == 0 || [contactData[1] length] == 0) {
+                    return;
                 }
                 
                 NSLog(@"Contact found: %@", contactData);
@@ -258,10 +239,8 @@
                     [self.alertView show];
                 });
             }
-        }
-        // No valid QRCode found
-        else
-        {
+        } else {
+            // No valid QRCode found
             NSLog(@"ERROR! No valid QRCode found!");
         }
     }
