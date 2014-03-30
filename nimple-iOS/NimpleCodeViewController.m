@@ -103,7 +103,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"TEL;CELL:%@\n" forKey:@"vcard_phone"];
     [VCARD_TEMPLATE_DIC setObject:@"EMAIL:%@\n" forKey:@"vcard_email"];
     [VCARD_TEMPLATE_DIC setObject:@"ROLE:%@\n" forKey:@"vcard_role"];
-    [VCARD_TEMPLATE_DIC setObject:@"nORG:%@\n" forKey:@"vcard_organisation"];
+    [VCARD_TEMPLATE_DIC setObject:@"ORG:%@\n" forKey:@"vcard_organisation"];
     [VCARD_TEMPLATE_DIC setObject:@"X-FACEBOOK-ID:%@\n" forKey:@"vcard_facebook_id"];
     [VCARD_TEMPLATE_DIC setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];
     [VCARD_TEMPLATE_DIC setObject:@"URL:%@\n" forKey:@"vcard_url"];
