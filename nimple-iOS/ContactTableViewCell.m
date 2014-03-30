@@ -72,7 +72,9 @@
     UIDevice *device = [UIDevice currentDevice];
     NSString *cellNameStr = [NSString stringWithFormat:@"%@", self.phoneButton.currentTitle];
     
-    if ([[device model] isEqualToString:@"iPhone"])
+    if ([cellNameStr isEqualToString:@"http://www.nimple.de"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cellNameStr]];
+    } else if ([[device model] isEqualToString:@"iPhone"])
     {
         NSString *phoneNumber = [@"tel://" stringByAppendingString:cellNameStr];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
