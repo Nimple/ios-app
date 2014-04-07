@@ -68,12 +68,12 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     // Nimple card view controller
     UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
     NSLog(@"Controller 0  is %@", nimpleCardController.title);
-    NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
+    //NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
     
     // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 1 is %@", presentedController1.title);
-    NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
+    //NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
@@ -153,13 +153,13 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                        method:@"POST"
                                                  requestToken:[BDBOAuthToken tokenWithQueryString:url.query]
                                                       success:^(BDBOAuthToken *accessToken) {
-                                                          [self.networkManager GET:@"/v1/users/me" parameters:nil
+                                                          [self.networkManager GET:@"/v1/users/me/id_card" parameters:nil
                                                            success:^(NSURLSessionDataTask *task, id response)
                                                            {
                                                                NSLog(@"Response %@", response);
                                                                NSArray *permalinkArray = [response valueForKeyPath:@"users.permalink"];
                                                                NSString *permalink = permalinkArray[0];
-                                                               NSLog(@"Permalink %@", permalink);
+                                                               NSLog(@"XING Permalink %@", permalink);
                                                                
                                                                dispatch_async(dispatch_get_main_queue(), ^{
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];

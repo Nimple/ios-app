@@ -156,8 +156,7 @@
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     [cell.inputField setText:@""];
-    // @TODO load property switch state
-    [cell.propertySwitch setOn:FALSE];
+    [cell.propertySwitch setOn:TRUE];
     [cell.propertySwitch setHidden:FALSE];
     [cell setIndex: indexPath.item];
     [cell setSection: indexPath.section];
@@ -185,7 +184,7 @@
         }
         if(indexPath.row == 2)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"phone_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"phone_switch"];
             if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
                 [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
             else
@@ -193,7 +192,7 @@
         }
         if(indexPath.row == 3)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"email_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"email_switch"];
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
                 [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
             else
@@ -205,7 +204,7 @@
     {
         if(indexPath.row == 0)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"company_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"company_switch"];
             if([[self.myNimpleCode valueForKey:@"company"] length] == 0)
                 [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
             else
@@ -213,7 +212,7 @@
         }
         if(indexPath.row == 1)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"job_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"job_switch"];
             if([[self.myNimpleCode valueForKey:@"job"] length] == 0)
                 [cell.inputField setPlaceholder:@"Dein Job/Position"];
             else
@@ -231,7 +230,7 @@
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell setSection:2];
             [cell setIndex:0];
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"facebook_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"facebook_switch"];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
             cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
@@ -254,7 +253,7 @@
         {
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"twitter_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"twitter_switch"];
             [cell setSection:2];
             [cell setIndex:1];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
@@ -275,7 +274,7 @@
         // xing
         if(indexPath.row == 2)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"xing_switch"];
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"xing_switch"]];
@@ -299,7 +298,7 @@
         // linkedin
         if(indexPath.row == 3)
         {
-            [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
+            [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"linkedin_switch"];
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell.propertySwitch setOn:[self.myNimpleCode boolForKey:@"linkedin_switch"]];
