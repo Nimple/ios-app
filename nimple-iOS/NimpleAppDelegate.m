@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+#define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
+#define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
+
 #define MIXPANEL_TOKEN @"6e3eeca24e9b2372e8582b381295ca0c"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
@@ -33,14 +36,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     self = [super init];
     if (self)
     {
-        NSURL *apiURL = [NSURL URLWithString:@"https://api.xing.com/"];
-        NSString *consumerKey = @"3d8f3e9a93ca001ca5ea";
-        NSString *consumerSecret = @"72a6adfc6298da70515f622ef4d29638be954aa2";
-
-        if(!self.networkManager)
-        {
-            self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:apiURL consumerKey:consumerKey consumerSecret:consumerSecret];
-        }
+        // Set XING properties (conumser key, consumer secret, api-url)
         
         _sharedDelegate = self;
     }

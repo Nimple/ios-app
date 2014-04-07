@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+#define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
+#define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
+
 #import "ConnectSocialProfileViewCell.h"
 #import "NimpleAppDelegate.h"
 
@@ -208,12 +211,14 @@
     if(self.index == 2)
     {
         // Introduce table view cell to app delegate, which handles the URL-opening in the browser
+        self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.xing.com/"] consumerKey:XING_CONSUMER_KEY consumerSecret:XING_CONSUMER_SECRET];
+        
         if(![NimpleAppDelegate sharedDelegate].xingTableViewCell)
             [NimpleAppDelegate sharedDelegate].xingTableViewCell = self;
-        if(!self.networkManager)
-            self.networkManager = [NimpleAppDelegate sharedDelegate].networkManager;
         
-        NSString *xingURL = [viewController.myNimpleCode valueForKey:@"xing_URL"];
+        if(self.networkManager)
+            [NimpleAppDelegate sharedDelegate].networkManager = self.networkManager;
+        
         if([self.networkManager isAuthorized])
         {
             self.actionSheet.title = @"Loggd in using XING";
@@ -244,7 +249,7 @@
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                          NSString *url = [profileRequest valueForKey:@"url"];
                          NSRange urlRange = [url rangeOfString:@"&authType"];
-                         NSString *permalink = [[url substringToIndex:urlRange.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                         //NSString *permalink = [[url substringToIndex:urlRange.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                          
                          //NSLog(@"Profile url: %@", permalink);
                          [viewController.myNimpleCode setValue:url forKey:@"linkedin_URL"];
@@ -273,6 +278,8 @@
     [viewController.myNimpleCode synchronize];
 }
 
+# pragma mark XING Oauth calls
+
 //--- XING ---------------------------------------------------------------------
 // Authorizes the app calling the XING API
 - (void) authorize
@@ -292,6 +299,7 @@
          NSLog(@"Error: %@", error.localizedDescription);
             dispatch_async(dispatch_get_main_queue(), ^
             {
+                NSLog(@"ERRROR: %@", error);
                 [[[UIAlertView alloc] initWithTitle:@"Error"
                                             message:@"Could not acquire OAuth request token. Please try again later."
                                            delegate:self
@@ -304,7 +312,8 @@
 // Deauthorized nimple from the XING API
 - (void)deauthorizeWithCompletion:(void (^)(void))completion
 {
-    [self.networkManager deauthorize];
+    [[NimpleAppDelegate sharedDelegate].networkManager deauthorize];
+    [[NimpleAppDelegate sharedDelegate].networkManager.requestSerializer removeAccessToken];
     
     if(completion)
         completion();

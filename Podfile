@@ -1,4 +1,4 @@
-platform :ios, "7.1"
+platform :ios, "7.0"
 
 pod 'Mixpanel'
 pod 'BDBOAuth1Manager'
