@@ -248,7 +248,7 @@
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                          NSString *url = [profileRequest valueForKey:@"url"];
-                         NSRange urlRange = [url rangeOfString:@"&authType"];
+                         //NSRange urlRange = [url rangeOfString:@"&authType"];
                          //NSString *permalink = [[url substringToIndex:urlRange.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                          
                          //NSLog(@"Profile url: %@", permalink);

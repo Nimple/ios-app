@@ -161,8 +161,11 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                NSString *permalink = permalinkArray[0];
                                                                NSLog(@"Permalink %@", permalink);
                                                                
-                                                               [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
-                                                               [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                                   [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
+                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                               });
+                                                               
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
                                                                [myNimpleCode setValue:permalink forKeyPath:@"xing_URL"];
