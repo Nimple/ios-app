@@ -185,6 +185,7 @@
         if(indexPath.row == 2)
         {
             [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"phone_switch"];
+            [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
             if([[self.myNimpleCode valueForKey:@"phone"] length] == 0)
                 [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
             else
@@ -193,6 +194,7 @@
         if(indexPath.row == 3)
         {
             [self.myNimpleCode setBool:[cell.propertySwitch isOn] forKey:@"email_switch"];
+            [cell.inputField setKeyboardType:UIKeyboardTypeEmailAddress];
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0)
                 [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
             else

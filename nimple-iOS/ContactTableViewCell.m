@@ -227,9 +227,9 @@
         return NULL;
     }
     
-
-    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)p_prename, &error);
-    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)p_surname, &error);
+    // FirstNameProperty and LastNameProperty seem to be swapped!
+    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef)p_surname, &error);
+    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef)p_prename, &error);
     
     ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
     ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) p_phone, kABPersonPhoneMainLabel, nil);

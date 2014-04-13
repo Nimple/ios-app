@@ -96,6 +96,27 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     }
      */
     
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabbar = tabBarController.tabBar;
+    UITabBarItem *tabbar_card     = [tabbar.items objectAtIndex:0];
+    UITabBarItem *tabbar_code     = [tabbar.items objectAtIndex:1];
+    UITabBarItem *tabbar_contacts = [tabbar.items objectAtIndex:2];
+    UITabBarItem *tabbar_settings = [tabbar.items objectAtIndex:3];
+    
+    tabbar_card.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabbar_card.image = [[UIImage imageNamed:@"tabbar_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    tabbar_code.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabbar_code.image = [[UIImage imageNamed:@"tabbar_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    tabbar_contacts.selectedImage = [[UIImage imageNamed:@"tabbar_selected_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabbar_contacts.image = [[UIImage imageNamed:@"tabbar_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    tabbar_settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabbar_settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    [tabbar setTintColor:UIColorFromRGB(0x8D0835)];
+    
     NSLog(@"Nimple launched successfully!");
     return YES;
 }
@@ -157,15 +178,13 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                            success:^(NSURLSessionDataTask *task, id response)
                                                            {
                                                                NSLog(@"Response %@", response);
-                                                               NSArray *permalinkArray = [response valueForKeyPath:@"users.permalink"];
-                                                               NSString *permalink = permalinkArray[0];
+                                                               NSArray *permalink = [response valueForKeyPath:@"id_card.permalink"];
                                                                NSLog(@"XING Permalink %@", permalink);
                                                                
                                                                dispatch_async(dispatch_get_main_queue(), ^{
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
                                                                    [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
                                                                });
-                                                               
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
                                                                [myNimpleCode setValue:permalink forKeyPath:@"xing_URL"];
