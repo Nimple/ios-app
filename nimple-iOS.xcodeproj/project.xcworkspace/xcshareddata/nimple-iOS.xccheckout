@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6CBDBE3E-AF69-4F10-8D2C-9CE786C6ABFD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>nimple-iOS</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EC7EC3B6-6CD7-4F1A-847C-D870668DAE37</key>
+		<string>https://github.com/appstronauten/nimple-iOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>nimple-iOS.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EC7EC3B6-6CD7-4F1A-847C-D870668DAE37</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/appstronauten/nimple-iOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EC7EC3B6-6CD7-4F1A-847C-D870668DAE37</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EC7EC3B6-6CD7-4F1A-847C-D870668DAE37</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nimple-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
