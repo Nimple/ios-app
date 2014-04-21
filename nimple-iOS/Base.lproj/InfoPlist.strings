@@ -1,8 +1,0 @@
-/* Localized versions of Info.plist keys */
-// Tab Bar
-"TabBarCardKey"     = "Card";
-"TabBarCodeKey"     = "Code";
-"TabBarConatctsKey" = "Contacts";
-
-// Welcome Screens
-"WelcomeCardKey"    = "English Stuff";//"Gib deine Daten ein, um deine nimple card zu erstellen";

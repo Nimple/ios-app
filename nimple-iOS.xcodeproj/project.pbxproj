@@ -8,42 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
-		9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */; };
-		9E43A05B18DD0299001BE620 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E43A05A18DD0299001BE620 /* LoginWebViewController.m */; };
-		9E4E6FBA18C9FBBE00861D9C /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
-		9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
-		9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */; };
-		B585611F18DF63480064A8D7 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B585611E18DF63480064A8D7 /* SettingsTableViewController.m */; };
+		B55B89071904989A00561F17 /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88E11904989A00561F17 /* NimpleAppDelegate.m */; };
+		B55B89081904989A00561F17 /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88E41904989A00561F17 /* BarCodeReaderController.m */; };
+		B55B89091904989A00561F17 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88E61904989A00561F17 /* ContactsViewController.m */; };
+		B55B890A1904989A00561F17 /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88E81904989A00561F17 /* EditNimpleCodeTableViewController.m */; };
+		B55B890B1904989A00561F17 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88EA1904989A00561F17 /* LoginWebViewController.m */; };
+		B55B890C1904989A00561F17 /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88EC1904989A00561F17 /* NimpleCardViewController.m */; };
+		B55B890D1904989A00561F17 /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88EE1904989A00561F17 /* NimpleCodeViewController.m */; };
+		B55B890E1904989A00561F17 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88F01904989A00561F17 /* SettingsTableViewController.m */; };
+		B55B890F1904989A00561F17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88F21904989A00561F17 /* main.m */; };
+		B55B89101904989A00561F17 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B55B88F41904989A00561F17 /* DataModel.xcdatamodeld */; };
+		B55B89111904989A00561F17 /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88F71904989A00561F17 /* NimpleContact.m */; };
+		B55B89121904989A00561F17 /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88FA1904989A00561F17 /* ConnectSocialProfileViewCell.m */; };
+		B55B89131904989A00561F17 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88FC1904989A00561F17 /* ContactTableViewCell.m */; };
+		B55B89141904989A00561F17 /* EditInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B88FE1904989A00561F17 /* EditInputViewCell.m */; };
+		B55B89151904989A00561F17 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B55B88FF1904989A00561F17 /* Main_iPhone.storyboard */; };
+		B55B895419049A4800561F17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B55B894119049A4800561F17 /* Images.xcassets */; };
+		B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55B895619049AC400561F17 /* nimple-iOS-Info.plist */; };
+		B55B895D19049ADB00561F17 /* Main_iPhone.strings in Resources */ = {isa = PBXBuildFile; fileRef = B55B895A19049ADB00561F17 /* Main_iPhone.strings */; };
 		D10ADD4118D11961001450E8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10ADD4018D11961001450E8 /* Social.framework */; };
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
-		D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA7918B432F700C5850F /* InfoPlist.strings */; };
-		D151DA7D18B432F700C5850F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA7C18B432F700C5850F /* main.m */; };
-		D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA8018B432F700C5850F /* NimpleAppDelegate.m */; };
-		D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D151DA8218B432F700C5850F /* Main_iPhone.storyboard */; };
-		D151DA8C18B432F800C5850F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D151DA8B18B432F800C5850F /* Images.xcassets */; };
-		D151DA9318B432F800C5850F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA9218B432F800C5850F /* XCTest.framework */; };
-		D151DA9418B432F800C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
-		D151DA9518B432F800C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
-		D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D151DA9B18B432F800C5850F /* InfoPlist.strings */; };
-		D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D151DA9E18B432F800C5850F /* nimple_iOSTests.m */; };
 		D151DAA918B433F500C5850F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DAA818B433F500C5850F /* FacebookSDK.framework */; };
-		D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */ = {isa = PBXBuildFile; fileRef = D15B89D018C200A9001FFB2D /* QR-Code.png */; };
-		D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */; };
-		D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */; };
-		D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */; };
-		D1A0C03A18C3F72A00490E72 /* EditInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1B25C4B18D4B9890046A333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B25C4A18D4B9890046A333 /* Accounts.framework */; };
 		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; };
 		D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490618C500BD00414E5D /* AddressBookUI.framework */; };
 		D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490818C500C800414E5D /* AddressBook.framework */; };
-		D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
-		D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,35 +77,44 @@
 			remoteGlobalIDString = 79F7E2F5F38E4DF29C0C1C2A;
 			remoteInfo = "Pods-Mixpanel";
 		};
-		D151DA9618B432F800C5850F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D151DA6518B432F700C5850F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D151DA6C18B432F700C5850F;
-			remoteInfo = "nimple-iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		9E43A05918DD0299001BE620 /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginWebViewController.h; path = "nimple-iOS/Controllers/LoginWebViewController.h"; sourceTree = "<group>"; };
-		9E43A05A18DD0299001BE620 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginWebViewController.m; path = "nimple-iOS/Controllers/LoginWebViewController.m"; sourceTree = "<group>"; };
-		9E4E6FB818C9FBBE00861D9C /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleContact.h; path = Model/NimpleContact.h; sourceTree = "<group>"; };
-		9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleContact.m; path = Model/NimpleContact.m; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		9E9CAB1C18C1058200A4FE27 /* BarCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeReaderController.h; sourceTree = "<group>"; };
-		9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeReaderController.m; sourceTree = "<group>"; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
-		9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
-		9E9CF28918DF2BA60094E77D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9E9CF29418DF3E3C0094E77D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
-		9EA1D8C718DF23AF0019C715 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9EA1D8C818DF23AF0019C715 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B585611D18DF63480064A8D7 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
-		B585611E18DF63480064A8D7 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		B585612018DF6AE80064A8D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		B55B88E01904989A00561F17 /* NimpleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleAppDelegate.h; sourceTree = "<group>"; };
+		B55B88E11904989A00561F17 /* NimpleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleAppDelegate.m; sourceTree = "<group>"; };
+		B55B88E31904989A00561F17 /* BarCodeReaderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCodeReaderController.h; sourceTree = "<group>"; };
+		B55B88E41904989A00561F17 /* BarCodeReaderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCodeReaderController.m; sourceTree = "<group>"; };
+		B55B88E51904989A00561F17 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		B55B88E61904989A00561F17 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		B55B88E71904989A00561F17 /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
+		B55B88E81904989A00561F17 /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
+		B55B88E91904989A00561F17 /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		B55B88EA1904989A00561F17 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
+		B55B88EB1904989A00561F17 /* NimpleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCardViewController.h; sourceTree = "<group>"; };
+		B55B88EC1904989A00561F17 /* NimpleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCardViewController.m; sourceTree = "<group>"; };
+		B55B88ED1904989A00561F17 /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
+		B55B88EE1904989A00561F17 /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
+		B55B88EF1904989A00561F17 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		B55B88F01904989A00561F17 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		B55B88F21904989A00561F17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B55B88F51904989A00561F17 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		B55B88F61904989A00561F17 /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
+		B55B88F71904989A00561F17 /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
+		B55B88F91904989A00561F17 /* ConnectSocialProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectSocialProfileViewCell.h; sourceTree = "<group>"; };
+		B55B88FA1904989A00561F17 /* ConnectSocialProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectSocialProfileViewCell.m; sourceTree = "<group>"; };
+		B55B88FB1904989A00561F17 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		B55B88FC1904989A00561F17 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		B55B88FD1904989A00561F17 /* EditInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInputViewCell.h; sourceTree = "<group>"; };
+		B55B88FE1904989A00561F17 /* EditInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInputViewCell.m; sourceTree = "<group>"; };
+		B55B88FF1904989A00561F17 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B55B894119049A4800561F17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B55B895619049AC400561F17 /* nimple-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nimple-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nimple-iOS-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		B55B895B19049ADB00561F17 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		B55B895C19049ADB00561F17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D10ADD4018D11961001450E8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -118,39 +122,14 @@
 		D151DA7018B432F700C5850F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D151DA7218B432F700C5850F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D151DA7418B432F700C5850F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D151DA7818B432F700C5850F /* nimple-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nimple-iOS-Info.plist"; sourceTree = "<group>"; };
-		D151DA7A18B432F700C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D151DA7C18B432F700C5850F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D151DA7E18B432F700C5850F /* nimple-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nimple-iOS-Prefix.pch"; sourceTree = "<group>"; };
-		D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NimpleAppDelegate.h; sourceTree = "<group>"; };
-		D151DA8018B432F700C5850F /* NimpleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NimpleAppDelegate.m; sourceTree = "<group>"; };
-		D151DA8318B432F700C5850F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		D151DA8B18B432F800C5850F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D151DA9118B432F800C5850F /* nimple-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nimple-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D151DA9218B432F800C5850F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		D151DA9A18B432F800C5850F /* nimple-iOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nimple-iOSTests-Info.plist"; sourceTree = "<group>"; };
-		D151DA9C18B432F800C5850F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D151DA9E18B432F800C5850F /* nimple_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nimple_iOSTests.m; sourceTree = "<group>"; };
 		D151DAA818B433F500C5850F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		D15B89D018C200A9001FFB2D /* QR-Code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Code.png"; path = "images/QR-Code.png"; sourceTree = "<group>"; };
-		D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
-		D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
-		D19864CF18C4931700F9CB66 /* ConnectSocialProfileViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectSocialProfileViewCell.h; sourceTree = "<group>"; };
-		D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectSocialProfileViewCell.m; sourceTree = "<group>"; };
-		D19864D318C495DD00F9CB66 /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
-		D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
-		D1A0C03818C3F72A00490E72 /* EditInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInputViewCell.h; sourceTree = "<group>"; };
-		D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInputViewCell.m; sourceTree = "<group>"; };
 		D1ABE42D18C1F50F00154101 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1B25C4A18D4B9890046A333 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D1CB490118C4EE9700414E5D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D1CB490618C500BD00414E5D /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		D1CB490818C500C800414E5D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		D1E29FEE18C647ED00BE2A63 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = ViewControllers/ContactsViewController.h; sourceTree = "<group>"; };
-		D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsViewController.m; path = ViewControllers/ContactsViewController.m; sourceTree = "<group>"; };
 		D1E55F1618C1F1450035D828 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimpleCardViewController.h; path = "nimple-iOS/Controllers/NimpleCardViewController.h"; sourceTree = "<group>"; };
-		D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NimpleCardViewController.m; path = "nimple-iOS/Controllers/NimpleCardViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,19 +153,111 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D151DA8E18B432F800C5850F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D151DA9318B432F800C5850F /* XCTest.framework in Frameworks */,
-				D151DA9518B432F800C5850F /* UIKit.framework in Frameworks */,
-				D151DA9418B432F800C5850F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B55B88DD1904989A00561F17 /* nimple-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88DE1904989A00561F17 /* Classes */,
+				B55B893D19049A4800561F17 /* Resources */,
+				B55B8919190498FB00561F17 /* Supporting Files */,
+			);
+			path = "nimple-iOS";
+			sourceTree = "<group>";
+		};
+		B55B88DE1904989A00561F17 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88DF1904989A00561F17 /* AppDelegate */,
+				B55B88E21904989A00561F17 /* Controllers */,
+				B55B88F11904989A00561F17 /* Helpers */,
+				B55B88F31904989A00561F17 /* Models */,
+				B55B88F81904989A00561F17 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B55B88DF1904989A00561F17 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88E01904989A00561F17 /* NimpleAppDelegate.h */,
+				B55B88E11904989A00561F17 /* NimpleAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B55B88E21904989A00561F17 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88E31904989A00561F17 /* BarCodeReaderController.h */,
+				B55B88E41904989A00561F17 /* BarCodeReaderController.m */,
+				B55B88E51904989A00561F17 /* ContactsViewController.h */,
+				B55B88E61904989A00561F17 /* ContactsViewController.m */,
+				B55B88E71904989A00561F17 /* EditNimpleCodeTableViewController.h */,
+				B55B88E81904989A00561F17 /* EditNimpleCodeTableViewController.m */,
+				B55B88E91904989A00561F17 /* LoginWebViewController.h */,
+				B55B88EA1904989A00561F17 /* LoginWebViewController.m */,
+				B55B88EB1904989A00561F17 /* NimpleCardViewController.h */,
+				B55B88EC1904989A00561F17 /* NimpleCardViewController.m */,
+				B55B88ED1904989A00561F17 /* NimpleCodeViewController.h */,
+				B55B88EE1904989A00561F17 /* NimpleCodeViewController.m */,
+				B55B88EF1904989A00561F17 /* SettingsTableViewController.h */,
+				B55B88F01904989A00561F17 /* SettingsTableViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B55B88F11904989A00561F17 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88F21904989A00561F17 /* main.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B55B88F31904989A00561F17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88F41904989A00561F17 /* DataModel.xcdatamodeld */,
+				B55B88F61904989A00561F17 /* NimpleContact.h */,
+				B55B88F71904989A00561F17 /* NimpleContact.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B55B88F81904989A00561F17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B55B88F91904989A00561F17 /* ConnectSocialProfileViewCell.h */,
+				B55B88FA1904989A00561F17 /* ConnectSocialProfileViewCell.m */,
+				B55B88FB1904989A00561F17 /* ContactTableViewCell.h */,
+				B55B88FC1904989A00561F17 /* ContactTableViewCell.m */,
+				B55B88FD1904989A00561F17 /* EditInputViewCell.h */,
+				B55B88FE1904989A00561F17 /* EditInputViewCell.m */,
+				B55B88FF1904989A00561F17 /* Main_iPhone.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B55B8919190498FB00561F17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B55B895619049AC400561F17 /* nimple-iOS-Info.plist */,
+				B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B55B893D19049A4800561F17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B55B895A19049ADB00561F17 /* Main_iPhone.strings */,
+				B55B894119049A4800561F17 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B5B20A7A18D5CD5900356B50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,8 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				D1ABE42D18C1F50F00154101 /* Podfile */,
-				D151DA7618B432F700C5850F /* nimple-iOS */,
-				D151DA9818B432F800C5850F /* nimple-iOSTests */,
+				B55B88DD1904989A00561F17 /* nimple-iOS */,
 				D151DA6F18B432F700C5850F /* Frameworks */,
 				D151DA6E18B432F700C5850F /* Products */,
 				C11D1B32A73841EF9434D94B /* Pods.xcconfig */,
@@ -216,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				D151DA6D18B432F700C5850F /* nimple-iOS.app */,
-				D151DA9118B432F800C5850F /* nimple-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,127 +311,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D151DA7618B432F700C5850F /* nimple-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D1CB48FA18C4C91300414E5D /* DataModel */,
-				D1A0C03B18C3FB4600490E72 /* Views */,
-				D15B89CE18C1FCD4001FFB2D /* Storyboards */,
-				D1E55F1418C1F04A0035D828 /* ViewControllers */,
-				D1B4B42B18BC080300DBD097 /* Images */,
-				D151DA7F18B432F700C5850F /* NimpleAppDelegate.h */,
-				D151DA8018B432F700C5850F /* NimpleAppDelegate.m */,
-				D151DA8B18B432F800C5850F /* Images.xcassets */,
-				D151DA7718B432F700C5850F /* Supporting Files */,
-			);
-			path = "nimple-iOS";
-			sourceTree = "<group>";
-		};
-		D151DA7718B432F700C5850F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D151DA7818B432F700C5850F /* nimple-iOS-Info.plist */,
-				D151DA7918B432F700C5850F /* InfoPlist.strings */,
-				D151DA7C18B432F700C5850F /* main.m */,
-				D151DA7E18B432F700C5850F /* nimple-iOS-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D151DA9818B432F800C5850F /* nimple-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				D151DA9E18B432F800C5850F /* nimple_iOSTests.m */,
-				D151DA9918B432F800C5850F /* Supporting Files */,
-			);
-			path = "nimple-iOSTests";
-			sourceTree = "<group>";
-		};
-		D151DA9918B432F800C5850F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D151DA9A18B432F800C5850F /* nimple-iOSTests-Info.plist */,
-				D151DA9B18B432F800C5850F /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D15B89CE18C1FCD4001FFB2D /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				D151DA8218B432F700C5850F /* Main_iPhone.storyboard */,
-			);
-			name = Storyboards;
-			sourceTree = "<group>";
-		};
-		D19864D218C495B800F9CB66 /* Contacts */ = {
-			isa = PBXGroup;
-			children = (
-				D19864D318C495DD00F9CB66 /* ContactTableViewCell.h */,
-				D19864D418C495DD00F9CB66 /* ContactTableViewCell.m */,
-			);
-			name = Contacts;
-			sourceTree = "<group>";
-		};
-		D1A0C03B18C3FB4600490E72 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D19864D218C495B800F9CB66 /* Contacts */,
-				D1A0C03C18C3FB5000490E72 /* EditNimpleCode */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		D1A0C03C18C3FB5000490E72 /* EditNimpleCode */ = {
-			isa = PBXGroup;
-			children = (
-				D19864CF18C4931700F9CB66 /* ConnectSocialProfileViewCell.h */,
-				D19864D018C4931700F9CB66 /* ConnectSocialProfileViewCell.m */,
-				D1A0C03818C3F72A00490E72 /* EditInputViewCell.h */,
-				D1A0C03918C3F72A00490E72 /* EditInputViewCell.m */,
-			);
-			name = EditNimpleCode;
-			sourceTree = "<group>";
-		};
-		D1B4B42B18BC080300DBD097 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				D15B89D018C200A9001FFB2D /* QR-Code.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		D1CB48FA18C4C91300414E5D /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */,
-				9E4E6FB818C9FBBE00861D9C /* NimpleContact.h */,
-				9E4E6FB918C9FBBE00861D9C /* NimpleContact.m */,
-			);
-			name = DataModel;
-			sourceTree = "<group>";
-		};
-		D1E55F1418C1F04A0035D828 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				B585611D18DF63480064A8D7 /* SettingsTableViewController.h */,
-				B585611E18DF63480064A8D7 /* SettingsTableViewController.m */,
-				9E43A05918DD0299001BE620 /* LoginWebViewController.h */,
-				9E43A05A18DD0299001BE620 /* LoginWebViewController.m */,
-				D1EAA56018CA1A9A004166A6 /* NimpleCardViewController.h */,
-				D1EAA56118CA1A9A004166A6 /* NimpleCardViewController.m */,
-				D15B89D318C20508001FFB2D /* EditNimpleCodeTableViewController.h */,
-				D15B89D418C20508001FFB2D /* EditNimpleCodeTableViewController.m */,
-				9E9CAB2418C1291300A4FE27 /* NimpleCodeViewController.h */,
-				9E9CAB2518C1291300A4FE27 /* NimpleCodeViewController.m */,
-				9E9CAB1C18C1058200A4FE27 /* BarCodeReaderController.h */,
-				9E9CAB1D18C1058200A4FE27 /* BarCodeReaderController.m */,
-				D1E29FEE18C647ED00BE2A63 /* ContactsViewController.h */,
-				D1E29FEF18C647ED00BE2A63 /* ContactsViewController.m */,
-			);
-			name = ViewControllers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,24 +333,6 @@
 			productReference = D151DA6D18B432F700C5850F /* nimple-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D151DA9018B432F800C5850F /* nimple-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D151DAA518B432F800C5850F /* Build configuration list for PBXNativeTarget "nimple-iOSTests" */;
-			buildPhases = (
-				D151DA8D18B432F800C5850F /* Sources */,
-				D151DA8E18B432F800C5850F /* Frameworks */,
-				D151DA8F18B432F800C5850F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D151DA9718B432F800C5850F /* PBXTargetDependency */,
-			);
-			name = "nimple-iOSTests";
-			productName = "nimple-iOSTests";
-			productReference = D151DA9118B432F800C5850F /* nimple-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -410,14 +340,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Nimple;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = nimple;
 				TargetAttributes = {
 					D151DA6C18B432F700C5850F = {
 						DevelopmentTeam = BRCR8B3TM9;
-					};
-					D151DA9018B432F800C5850F = {
-						TestTargetID = D151DA6C18B432F700C5850F;
 					};
 				};
 			};
@@ -442,7 +369,6 @@
 			projectRoot = "";
 			targets = (
 				D151DA6C18B432F700C5850F /* nimple-iOS */,
-				D151DA9018B432F800C5850F /* nimple-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -490,19 +416,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D151DA8C18B432F800C5850F /* Images.xcassets in Resources */,
-				D151DA8418B432F700C5850F /* Main_iPhone.storyboard in Resources */,
+				B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */,
+				B55B895419049A4800561F17 /* Images.xcassets in Resources */,
+				B55B89151904989A00561F17 /* Main_iPhone.storyboard in Resources */,
+				B55B895D19049ADB00561F17 /* Main_iPhone.strings in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
-				D151DA7B18B432F700C5850F /* InfoPlist.strings in Resources */,
-				D15B89D218C200A9001FFB2D /* QR-Code.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D151DA8F18B432F800C5850F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D151DA9D18B432F800C5850F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,69 +464,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B585611F18DF63480064A8D7 /* SettingsTableViewController.m in Sources */,
-				D1E29FF018C647ED00BE2A63 /* ContactsViewController.m in Sources */,
-				D15B89D518C20508001FFB2D /* EditNimpleCodeTableViewController.m in Sources */,
-				D1EAA56218CA1A9A004166A6 /* NimpleCardViewController.m in Sources */,
-				D151DA7D18B432F700C5850F /* main.m in Sources */,
-				D19864D518C495DD00F9CB66 /* ContactTableViewCell.m in Sources */,
-				9E34065418BFF4BA00EEF0F4 /* DataModel.xcdatamodeld in Sources */,
-				9E4E6FBA18C9FBBE00861D9C /* NimpleContact.m in Sources */,
-				D151DA8118B432F700C5850F /* NimpleAppDelegate.m in Sources */,
-				9E43A05B18DD0299001BE620 /* LoginWebViewController.m in Sources */,
-				D19864D118C4931700F9CB66 /* ConnectSocialProfileViewCell.m in Sources */,
-				9E9CAB2618C1291300A4FE27 /* NimpleCodeViewController.m in Sources */,
-				9E9CAB1E18C1058200A4FE27 /* BarCodeReaderController.m in Sources */,
-				D1A0C03A18C3F72A00490E72 /* EditInputViewCell.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D151DA8D18B432F800C5850F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D151DA9F18B432F800C5850F /* nimple_iOSTests.m in Sources */,
+				B55B890E1904989A00561F17 /* SettingsTableViewController.m in Sources */,
+				B55B89101904989A00561F17 /* DataModel.xcdatamodeld in Sources */,
+				B55B890B1904989A00561F17 /* LoginWebViewController.m in Sources */,
+				B55B890C1904989A00561F17 /* NimpleCardViewController.m in Sources */,
+				B55B89071904989A00561F17 /* NimpleAppDelegate.m in Sources */,
+				B55B89091904989A00561F17 /* ContactsViewController.m in Sources */,
+				B55B890D1904989A00561F17 /* NimpleCodeViewController.m in Sources */,
+				B55B89081904989A00561F17 /* BarCodeReaderController.m in Sources */,
+				B55B890F1904989A00561F17 /* main.m in Sources */,
+				B55B89141904989A00561F17 /* EditInputViewCell.m in Sources */,
+				B55B890A1904989A00561F17 /* EditNimpleCodeTableViewController.m in Sources */,
+				B55B89121904989A00561F17 /* ConnectSocialProfileViewCell.m in Sources */,
+				B55B89111904989A00561F17 /* NimpleContact.m in Sources */,
+				B55B89131904989A00561F17 /* ContactTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		D151DA9718B432F800C5850F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D151DA6C18B432F700C5850F /* nimple-iOS */;
-			targetProxy = D151DA9618B432F800C5850F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		D151DA7918B432F700C5850F /* InfoPlist.strings */ = {
+		B55B895A19049ADB00561F17 /* Main_iPhone.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D151DA7A18B432F700C5850F /* en */,
-				9EA1D8C718DF23AF0019C715 /* de */,
-				9E9CF28918DF2BA60094E77D /* Base */,
+				B55B895B19049ADB00561F17 /* de */,
+				B55B895C19049ADB00561F17 /* en */,
 			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D151DA8218B432F700C5850F /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D151DA8318B432F700C5850F /* Base */,
-				9E9CF29418DF3E3C0094E77D /* de */,
-				B585612018DF6AE80064A8D7 /* en */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		D151DA9B18B432F800C5850F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D151DA9C18B432F800C5850F /* en */,
-				9EA1D8C818DF23AF0019C715 /* de */,
-			);
-			name = InfoPlist.strings;
+			name = Main_iPhone.strings;
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -618,7 +501,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -658,7 +540,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -692,7 +573,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -702,8 +582,8 @@
 					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
-				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -716,7 +596,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C11D1B32A73841EF9434D94B /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -726,55 +605,13 @@
 					.,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
-				INFOPLIST_FILE = "nimple-iOS/nimple-iOS-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D151DAA618B432F800C5850F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/nimple-iOS.app/nimple-iOS";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "nimple-iOSTests/nimple-iOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D151DAA718B432F800C5850F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/nimple-iOS.app/nimple-iOS";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "nimple-iOS/nimple-iOS-Prefix.pch";
-				INFOPLIST_FILE = "nimple-iOSTests/nimple-iOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -799,24 +636,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D151DAA518B432F800C5850F /* Build configuration list for PBXNativeTarget "nimple-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D151DAA618B432F800C5850F /* Debug */,
-				D151DAA718B432F800C5850F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9E34065218BFF4BA00EEF0F4 /* DataModel.xcdatamodeld */ = {
+		B55B88F41904989A00561F17 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */,
+				B55B88F51904989A00561F17 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 9E34065318BFF4BA00EEF0F4 /* DataModel.xcdatamodel */;
+			currentVersion = B55B88F51904989A00561F17 /* DataModel.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
