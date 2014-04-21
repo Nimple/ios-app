@@ -30,6 +30,7 @@
 		B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2A1904A2550033DF1A /* Images.xcassets */; };
 		B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2C1904A2550033DF1A /* Main_iPhone.strings */; };
 		B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55B895619049AC400561F17 /* nimple-iOS-Info.plist */; };
+		B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */; };
 		D10ADD4118D11961001450E8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10ADD4018D11961001450E8 /* Social.framework */; };
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
@@ -119,6 +120,8 @@
 		B55B895619049AC400561F17 /* nimple-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nimple-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nimple-iOS-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		B5BE972919053FD100F49DEC /* DisplayContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayContactViewController.h; sourceTree = "<group>"; };
+		B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayContactViewController.m; sourceTree = "<group>"; };
 		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D10ADD4018D11961001450E8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +197,8 @@
 				B5408B031904A1D60033DF1A /* NimpleCodeViewController.m */,
 				B5408B041904A1D60033DF1A /* SettingsTableViewController.h */,
 				B5408B051904A1D60033DF1A /* SettingsTableViewController.m */,
+				B5BE972919053FD100F49DEC /* DisplayContactViewController.h */,
+				B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */,
+				B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */,
 				B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */,
 				B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */,
 				B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */,

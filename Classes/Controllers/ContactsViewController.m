@@ -8,6 +8,7 @@
 
 #import "ContactsViewController.h"
 #import "ContactTableViewCell.h"
+#import "DisplayContactViewController.h"
 
 @interface ContactsViewController ()
 
@@ -113,15 +114,13 @@
     }
 }
 
-//
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
+// Default disallow editing of row
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
 
-//
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+// Deleting row (should be unused right now)
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remove the deleted object from your data source.
         //If your data source is an NSMutableArray, do this
@@ -142,6 +141,15 @@
 }
 
 #pragma mark - Table view data source
+
+// Clicked on row
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
+    DisplayContactViewController *contactViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DisplayContactViewController"];
+    [contactViewController commitNimpleContact:nimpleContact];
+    [self.navigationController pushViewController:contactViewController animated:YES];
+}
 
 // Sets the number of sections in the table view
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
