@@ -16,7 +16,6 @@
 		B5408B181904A1D60033DF1A /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF91904A1D60033DF1A /* BarCodeReaderController.m */; };
 		B5408B191904A1D60033DF1A /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AFB1904A1D60033DF1A /* ContactsViewController.m */; };
 		B5408B1A1904A1D60033DF1A /* EditNimpleCodeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AFD1904A1D60033DF1A /* EditNimpleCodeTableViewController.m */; };
-		B5408B1B1904A1D60033DF1A /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AFF1904A1D60033DF1A /* LoginWebViewController.m */; };
 		B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B011904A1D60033DF1A /* NimpleCardViewController.m */; };
 		B5408B1D1904A1D60033DF1A /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B031904A1D60033DF1A /* NimpleCodeViewController.m */; };
 		B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B051904A1D60033DF1A /* SettingsTableViewController.m */; };
@@ -96,8 +95,6 @@
 		B5408AFB1904A1D60033DF1A /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		B5408AFC1904A1D60033DF1A /* EditNimpleCodeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditNimpleCodeTableViewController.h; sourceTree = "<group>"; };
 		B5408AFD1904A1D60033DF1A /* EditNimpleCodeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditNimpleCodeTableViewController.m; sourceTree = "<group>"; };
-		B5408AFE1904A1D60033DF1A /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
-		B5408AFF1904A1D60033DF1A /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		B5408B001904A1D60033DF1A /* NimpleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCardViewController.h; sourceTree = "<group>"; };
 		B5408B011904A1D60033DF1A /* NimpleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCardViewController.m; sourceTree = "<group>"; };
 		B5408B021904A1D60033DF1A /* NimpleCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleCodeViewController.h; sourceTree = "<group>"; };
@@ -191,8 +188,6 @@
 				B5408AFB1904A1D60033DF1A /* ContactsViewController.m */,
 				B5408AFC1904A1D60033DF1A /* EditNimpleCodeTableViewController.h */,
 				B5408AFD1904A1D60033DF1A /* EditNimpleCodeTableViewController.m */,
-				B5408AFE1904A1D60033DF1A /* LoginWebViewController.h */,
-				B5408AFF1904A1D60033DF1A /* LoginWebViewController.m */,
 				B5408B001904A1D60033DF1A /* NimpleCardViewController.h */,
 				B5408B011904A1D60033DF1A /* NimpleCardViewController.m */,
 				B5408B021904A1D60033DF1A /* NimpleCodeViewController.h */,
@@ -476,7 +471,6 @@
 			files = (
 				B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */,
 				B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */,
-				B5408B1B1904A1D60033DF1A /* LoginWebViewController.m in Sources */,
 				B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */,
 				B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */,
 				B5408B191904A1D60033DF1A /* ContactsViewController.m in Sources */,
