@@ -8,6 +8,7 @@
 
 #import "BarCodeReaderController.h"
 #import "NimpleContact.h"
+#import "VCardParser.h"
 
 @interface BarCodeReaderController ()
 
@@ -141,8 +142,7 @@
     }
     
     // Valid bar code found
-    if (metadataObjects != nil && [metadataObjects count] == 1)
-    {
+    if (metadataObjects != nil && [metadataObjects count] == 1) {
         isProcessing = TRUE;
         
         // Stop the bar code reader
@@ -150,89 +150,19 @@
         
         // Valid QRCode found
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
-        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode])
-        {
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             // Get data from vcard string
             NSString *qrCodeData = metadataObj.stringValue;
+            
             // Look for vcard defintion string
             NSRange rangeValue = [qrCodeData rangeOfString:@"BEGIN:VCARD" options:NSCaseInsensitiveSearch];
-            if (rangeValue.location == NSNotFound)
-            {
+            if (rangeValue.location == NSNotFound) {
                 NSLog(@"ERROR! No valid vCard found!");
                 [NSException raise:@"No vcard found" format:@"No valid vcard defintion found in string %@ ", qrCodeData];
-            }
-            else
-            {
+            } else {
                 NSLog(@"Valid vCard found!");
-                NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
-                NSArray        *lines       = [[NSArray alloc] init];
-                
-                NSLog(@"Tokenize VCARD:");
-                lines = [qrCodeData componentsSeparatedByString:@"\n"];
-                
-                NSLog(@"%lu lines found in vCard", (unsigned long)[lines count]);
-                NSLog(@"Lines are %@", lines);
-                
-                for(NSString *line in lines) {
-                    // in order to have a clean db entry
-                    NSString *newLine = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                    
-                    if(newLine.length < 3) {
-                        continue;
-                    }
-                    
-                    if([newLine hasPrefix:@"N:"]) {
-                        newLine = [newLine substringFromIndex:2];
-                        NSArray *names = [newLine componentsSeparatedByString:@";"];
-                        contactData[0] = names[0];
-                        contactData[1] = names[1];
-                    } else if ([newLine hasPrefix:@"EMAIL"]) {
-                        NSString *email = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
-                        contactData[3] = email;
-                    } else if ([newLine hasPrefix:@"TEL"]) {
-                        NSString *telehone = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
-                        contactData[2] = telehone;
-                    } else if ([newLine hasPrefix:@"ORG:"]) {
-                        // handle organisation
-                        // take care of multiple units
-                        NSString *company = [newLine substringFromIndex:4];
-                        
-                        if ([newLine rangeOfString:@";"].location != NSNotFound) {
-                            NSArray *orgs = [company componentsSeparatedByString:@";"];
-                            
-                            for(NSString *org in orgs) {
-                                [contactData[5] appendString:[NSString stringWithFormat:@"%@%@", org, @"\n"]];
-                            }
-                        } else {
-                            contactData[5] = company;
-                        }
-                    } else if ([newLine hasPrefix:@"ROLE"]) {
-                        NSString *role = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
-                        contactData[4] = role;
-                    } else if ([newLine hasPrefix:@"URL"]) {
-                        NSString *url = [newLine substringFromIndex:4];
-                        
-                        // parse urls
-                        if([newLine rangeOfString:@"facebook"].location != NSNotFound) {
-                            contactData[6] = url;
-                        } else if([newLine rangeOfString:@"twitter"].location != NSNotFound) {
-                            contactData[8] = url;
-                        } else if([newLine rangeOfString:@"xing"].location != NSNotFound) {
-                            contactData[10] = url;
-                        } else if([newLine rangeOfString:@"linkedin"].location != NSNotFound) {
-                            contactData[11] = url;
-                        }
-                    } else if ([newLine hasPrefix:@"X-FACEBOOK-ID:"]) {
-                        contactData[7] = [newLine substringFromIndex:14];
-                    } else if ([newLine hasPrefix:@"X-TWITTER-ID:"]) {
-                        contactData[9] = [newLine substringFromIndex:13];
-                    } else if ([newLine hasPrefix:@"END:VCARD"]) {
-                        break;
-                    } else {
-                        // unrecognized line;
-                    }
-                }
-                
+                NSMutableArray *contactData = [VCardParser getContactFromCard:qrCodeData];
+                                
                 // check for at least name
                 if([contactData[0] length] == 0 || [contactData[1] length] == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -242,7 +172,6 @@
                     return;
                 }
                 
-                NSLog(@"Contact found: %@", contactData);
                 capturedContactData = contactData;
                 [self saveToDataBase];
                 
@@ -258,8 +187,7 @@
 }
 
 //
--(void) saveToDataBase
-{
+-(void) saveToDataBase {
      NSManagedObjectContext *context = [self managedObjectContext];
      NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
     

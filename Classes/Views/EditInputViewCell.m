@@ -11,8 +11,7 @@
 @implementation EditInputViewCell
 
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
@@ -20,31 +19,21 @@
     return self;
 }
 
-- (IBAction)propertySwitched:(id)sender
-{
+- (IBAction)propertySwitched:(id)sender {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
-    if(self.section == 0)
-    {
-        if(self.index == 2)
-        {
+    if(self.section == 0) {
+        if(self.index == 2) {
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"phone_switch"];
-        }
-        if(self.index == 3)
-        {
+        } else if(self.index == 3) {
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
         }
-    }
-    if(self.section == 1)
-    {
-        if(self.index == 0)
-        {
+    } else if(self.section == 1) {
+        if(self.index == 0) {
             NSLog(@"COMPANY SIWTCH");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
-        }
-        if(self.index == 1)
-        {
+        } else if(self.index == 1) {
             NSLog(@"JOB SIWTCH");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
         }
@@ -58,102 +47,73 @@
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     
-    if(self.section == 0)
-    {
-        if(self.index == 0)
-        {
-            // Prename is required, no need toc heck propertySwitch
+    if(self.section == 0) {
+        if(self.index == 0) {
+            // Prename is required, no need to check propertySwitch
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
-        }
-        if(self.index ==  1)
-        {
-            // Surname is required, no need toc heck propertySwitch
+        } else if(self.index ==  1) {
+            // Surname is required, no need to check propertySwitch
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
-        }
-        if(self.index == 2)
-        {
-            
+        } else if(self.index == 2) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
-            
-        }
-        if(self.index == 3)
-        {
-            
+        } else if(self.index == 3) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
         }
-    }
-    if(self.section == 1)
-    {
-        if(self.index == 0)
-        {
+    } else if(self.section == 1) {
+        if(self.index == 0) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
-        }
-        if(self.index == 1)
-        {
+        } else if(self.index == 1) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
         }
     }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
-// Save the user data
+// editing of a cell ended, saving input
 - (IBAction)EditingDidEnd:(id)sender {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    switch (self.section)
-    {
-        case 0:
-            switch (self.index)
-            {
-                case 0:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
-                    if(self.inputField.text.length == 0)
-                    {
-                        [self.inputField setPlaceholder:@"Dein Vorname"];
-                    }
-                    break;
-                case 1:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
-                    if(self.inputField.text.length == 0)
-                    {
-                        [self.inputField setPlaceholder:@"Dein Nachname"];
-                    }
-                    break;
-                case 2:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
-                    if(self.inputField.text.length == 0)
-                        [self.inputField setPlaceholder:@"Deine Telefonnummer"];
-                    break;
-                case 3:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
-                    if(self.inputField.text.length == 0)
-                        [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
-                    break;
+    
+    if(self.section == 0) {
+        if(self.index == 0) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Dein Vorname"];
             }
-            break;
-        case 2:
-            switch (self.index)
-            {
-                case 0:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
-                    if(self.inputField.text.length == 0)
-                        [self.inputField setPlaceholder:@"Deine Job Bezeichnung"];
-                    break;
-                case 1:
-                    [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
-                    if(self.inputField.text.length == 0)
-                        [self.inputField setPlaceholder:@"Deine Firma"];
-                    break;
+        } else if(self.index == 1) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Dein Nachname"];
             }
-            break;
+        } else if(self.index == 2) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Deine Telefonnummer"];
+            }
+        } else if(self.index == 3) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
+            }
+        }
+    } else if(self.section == 2) {
+        if(self.index == 0) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Deine Job Bezeichnung"];
+            }
+        } else if(self.index == 1) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Deine Firma"];
+            }
+        }
     }
 }
-
 
 @end

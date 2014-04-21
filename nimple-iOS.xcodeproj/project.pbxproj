@@ -10,6 +10,7 @@
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
+		B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CD2391904AAB200928B43 /* VCardParser.m */; };
 		B5408AF21904A1A70033DF1A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5408AF11904A1A70033DF1A /* FacebookSDK.framework */; };
 		B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF61904A1D60033DF1A /* NimpleAppDelegate.m */; };
 		B5408B181904A1D60033DF1A /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF91904A1D60033DF1A /* BarCodeReaderController.m */; };
@@ -84,6 +85,8 @@
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B53CD2381904AAB200928B43 /* VCardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardParser.h; sourceTree = "<group>"; };
+		B53CD2391904AAB200928B43 /* VCardParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardParser.m; sourceTree = "<group>"; };
 		B5408AF11904A1A70033DF1A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Externals/FacebookSDK.framework; sourceTree = "<group>"; };
 		B5408AF51904A1D60033DF1A /* NimpleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleAppDelegate.h; sourceTree = "<group>"; };
 		B5408AF61904A1D60033DF1A /* NimpleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleAppDelegate.m; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				B5408B071904A1D60033DF1A /* main.m */,
+				B53CD2381904AAB200928B43 /* VCardParser.h */,
+				B53CD2391904AAB200928B43 /* VCardParser.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				B5408B241904A1D60033DF1A /* EditInputViewCell.m in Sources */,
 				B5408B1A1904A1D60033DF1A /* EditNimpleCodeTableViewController.m in Sources */,
 				B5408B221904A1D60033DF1A /* ConnectSocialProfileViewCell.m in Sources */,
+				B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */,
 				B5408B211904A1D60033DF1A /* NimpleContact.m in Sources */,
 				B5408B231904A1D60033DF1A /* ContactTableViewCell.m in Sources */,
 			);
