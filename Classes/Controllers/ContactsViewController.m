@@ -112,6 +112,16 @@
         BarCodeReaderController *destViewController = segue.destinationViewController;
         destViewController.managedObjectContext = self.managedObjectContext;
     }
+    if ([segue.identifier isEqualToString:@"DetailView"])
+    {
+        DisplayContactViewController *destViewController = segue.destinationViewController;
+        destViewController.delegate = self;
+
+        // Get selected contact and pass it to the DisplayContactViewController
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
+        [destViewController setNimpleContact:nimpleContact];
+    }
 }
 
 // Default disallow editing of row
@@ -145,10 +155,13 @@
 // Clicked on row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    //! Delete and use delegate with segues
+    /*
     NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
     DisplayContactViewController *contactViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DisplayContactViewController"];
     [contactViewController commitNimpleContact:nimpleContact];
     [self.navigationController pushViewController:contactViewController animated:YES];
+     */
 }
 
 // Sets the number of sections in the table view

@@ -13,6 +13,7 @@
 @end
 
 @implementation DisplayContactViewController
+@synthesize nimpleContact;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,20 +24,27 @@
     return self;
 }
 
-- (void)commitNimpleContact:(NimpleContact *)contact {
-    self.nimpleContact = contact;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view
     NSLog(@"Display contact view loaded");
     NSLog(@"With contact %@", self.nimpleContact.objectID);
     
-    // set label
+    // Set nagigation bar title
     NSString* newTitle = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
-    [self.navigationItem setTitle:newTitle];
+    [self.navBar setTitle:newTitle];
+    
+    // Set labels
+    [self.nameLabel setText:newTitle];
+    [self.phoneLabel setText:self.nimpleContact.phone];
+    [self.emailLabel setText:self.nimpleContact.email];
+    [self.companyLabel setText:self.nimpleContact.company];
+    [self.jobLabel setText:self.nimpleContact.job];
+    [self.facebookURL setTitle:self.nimpleContact.facebook_URL forState:UIControlStateNormal];
+    [self.twitterURL setTitle:self.nimpleContact.twitter_URL forState:UIControlStateNormal];
+    [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
+    [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,15 +53,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//
+- (IBAction)cancel:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.delegate displayContactViewControllerDidCancel:self];
 }
-*/
+
+//
+- (IBAction)done:(id)sender
+{
+    [self.delegate displayContactViewControllerDidSave:self];
+}
+
+-(IBAction)delete:(id)sender
+{
+    [self.delegate displayContactViewControllerDidDelete:self];
+}
 
 @end

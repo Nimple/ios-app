@@ -11,8 +11,9 @@
 // Nimple imports
 #import "NimpleContact.h"
 #import "BarCodeReaderController.h"
+#import "DisplayContactViewController.h"
 
-@interface ContactsViewController : UITableViewController <UITabBarControllerDelegate>
+@interface ContactsViewController : UITableViewController <UITabBarControllerDelegate, DisplayContactViewControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSArray                *nimpleContacts;
