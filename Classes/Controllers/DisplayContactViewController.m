@@ -45,6 +45,21 @@
     [self.twitterURL setTitle:self.nimpleContact.twitter_URL forState:UIControlStateNormal];
     [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
     [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
+    
+    // Add Navigation Bar button
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Save"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(saveAction:)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+}
+
+-(void)saveAction:(UIBarButtonItem *)sender{
+    //perform your action
+    NSLog(@"Save button pressed");
+    
+    // should redirect so cancel
 }
 
 - (void)didReceiveMemoryWarning

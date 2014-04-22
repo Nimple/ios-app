@@ -35,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *xingURL;
 @property (weak, nonatomic) IBOutlet UIButton *linkedinURL;
 
+
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)delete:(id)sender;

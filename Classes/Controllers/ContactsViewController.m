@@ -19,6 +19,18 @@
 @synthesize nimpleContacts;
 @synthesize managedObjectContext;
 
+- (void) displayContactViewControllerDidCancel:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidCancel");
+}
+
+- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidSave");
+}
+
+- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidDelete");
+}
+
 -(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     NSLog(@"Tab Bar should select: %@", viewController.title);
