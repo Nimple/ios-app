@@ -72,23 +72,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 -(void)swipeHandlerLeft:(UISwipeGestureRecognizer *)recognizer {
     //NSLog(@"Swipe received.");
-    [self.tabBarController setSelectedIndex: 2];
-    
-    /*
-     UIView * fromView = self.tabBarController.selectedViewController.view;
-     UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:2] view];
-     
-     // Transition using a page curl.
-     [UIView transitionFromView:fromView
-     toView:toView
-     duration:0.5
-     options:UIViewAnimationOptionTransitionNone
-     completion:^(BOOL finished) {
-     if (finished) {
-     self.tabBarController.selectedIndex = 2;
-     }
-     }];
-     */
+    [self.tabBarController setSelectedIndex:2];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad

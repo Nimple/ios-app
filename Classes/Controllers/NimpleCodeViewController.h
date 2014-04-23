@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EditNimpleCodeTableViewController.h"
 
-@interface NimpleCodeViewController : UIViewController<EditNimpleCodeTableControllerDelegate>
+@interface NimpleCodeViewController : UIViewController
+    <EditNimpleCodeTableControllerDelegate,
+     UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem                     *editButton;
 @property (retain, nonatomic) IBOutlet UIImageView                       *nimpleQRCodeImage;
