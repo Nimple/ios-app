@@ -22,7 +22,7 @@
 
 @end
 
-@interface EditNimpleCodeTableViewController : UITableViewController
+@interface EditNimpleCodeTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
 @property (atomic, weak) NSUserDefaults                                *myNimpleCode;

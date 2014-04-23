@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
+#define NIMPLE_MAIN_COLOR 0x850032
+
 #define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
 #define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
 
@@ -36,8 +38,6 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     self = [super init];
     if (self)
     {
-        // Set XING properties (conumser key, consumer secret, api-url)
-        
         _sharedDelegate = self;
     }
     return self;
@@ -55,8 +55,8 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     [FBLoginView class];
     
     // Set nimple tint color for navigation bar
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x8D0835)];
-    [[UITabBar appearance] setTintColor:UIColorFromRGB(0x8D0835)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
+    [[UITabBar appearance] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -114,8 +114,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     
     tabbar_settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
     tabbar_settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    
-    [tabbar setTintColor:UIColorFromRGB(0x8D0835)];
+    [tabbar setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
     
     NSLog(@"Nimple launched successfully!");
     return YES;
@@ -183,7 +182,9 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                
                                                                dispatch_async(dispatch_get_main_queue(), ^{
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
-                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                                   [self.xingTableViewCell animatePropertySwitchVisibilityTo:1.0];
+                                                                   
+                                                                [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
                                                                });
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];

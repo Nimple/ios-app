@@ -29,6 +29,14 @@
     [super setSelected:selected animated:animated];
 }
 
+-(void) animatePropertySwitchVisibilityTo:(NSInteger)value {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    
+    [self.propertySwitch setAlpha:value];
+    
+    [UIView commitAnimations];
+}
 
 - (IBAction) propertySwitched:(id)sender
 {
@@ -40,25 +48,25 @@
         // facebook
         if(self.index == 0)
         {
-            NSLog(@"perperty FB switched");
+            NSLog(@"porperty FB switched");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"facebook_switch"];
         }
         // twitter
         if(self.index == 1)
         {
-            NSLog(@"perperty TWTTR switched");
+            NSLog(@"property TWTTR switched");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"twitter_switch"];
         }
         // xing
         if(self.index == 2)
         {
-            NSLog(@"perperty XNG switched");
+            NSLog(@"property XNG switched");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"xing_switch"];
         }
         // linkedin
         if(self.index == 3)
         {
-            NSLog(@"perperty LKNDN switched");
+            NSLog(@"property LKNDN switched");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"linkedin_switch"];
         }
     }
@@ -76,6 +84,7 @@
         if(buttonIndex == 0)
         {
             [self.socialNetworkButton setAlpha:0.3];
+            [self animatePropertySwitchVisibilityTo:0.0];
             [self.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
@@ -88,6 +97,7 @@
         {
             [self deauthorizeWithCompletion:^{
                 [self.socialNetworkButton setAlpha:0.3];
+                [self animatePropertySwitchVisibilityTo:0.0];
                 [self.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
                 [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
             }];
@@ -99,6 +109,7 @@
         if(buttonIndex == 0)
         {
             [self.socialNetworkButton setAlpha:0.3];
+            [self animatePropertySwitchVisibilityTo:0.0];
             [self.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
         }
@@ -177,12 +188,14 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self.socialNetworkButton setAlpha:1.0];
                             [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                            [self animatePropertySwitchVisibilityTo:1.0];
                         });
                         ACAccount *twitterAccount = [accountsArray lastObject];
                         NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
                         NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
                         [viewController.myNimpleCode setValue:twitter_URL forKey:@"twitter_URL"];
                         [viewController.myNimpleCode setValue:twitter_ID forKey:@"twitter_ID"];
+                        [self animatePropertySwitchVisibilityTo:1.0];
                     }
                     else
                     {
@@ -245,6 +258,7 @@
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [self.socialNetworkButton setAlpha:1.0];
                              [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                             [self animatePropertySwitchVisibilityTo:1.0];
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                          NSString *url = [profileRequest valueForKey:@"url"];
@@ -337,6 +351,7 @@
 // Logged-out user
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     [self.socialNetworkButton setAlpha:0.3];
+    [self animatePropertySwitchVisibilityTo:0.0];
     [self.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
@@ -355,6 +370,7 @@
     [viewController.myNimpleCode synchronize];
     [self.socialNetworkButton setAlpha:1.0];
     [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+    [self animatePropertySwitchVisibilityTo:1.0];
 }
 
 // Handle possible errors that can occur during login

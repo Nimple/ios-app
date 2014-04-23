@@ -31,8 +31,10 @@
 @property (weak, nonatomic) IBOutlet UISwitch *propertySwitch;
 @property (nonatomic) BDBOAuth1SessionManager *networkManager;
 
+-(void) animatePropertySwitchVisibilityTo:(NSInteger)value;
 - (LIALinkedInHttpClient *)linkedInClient;
 - (void) authorize;
 - (void) deauthorizeWithCompletion:(void (^)(void))completion;
+
 
 @end

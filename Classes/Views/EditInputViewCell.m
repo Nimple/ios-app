@@ -25,16 +25,18 @@
     
     if(self.section == 0) {
         if(self.index == 2) {
+            NSLog(@"PHONED SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"phone_switch"];
         } else if(self.index == 3) {
+            NSLog(@"EMAIL SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
         }
     } else if(self.section == 1) {
         if(self.index == 0) {
-            NSLog(@"COMPANY SIWTCH");
+            NSLog(@"COMPANY SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
         } else if(self.index == 1) {
-            NSLog(@"JOB SIWTCH");
+            NSLog(@"JOB SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
         }
     }
@@ -70,7 +72,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
@@ -78,6 +79,11 @@
 - (IBAction)EditingDidEnd:(id)sender {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
+    
+    if(self.inputField.text.length != 0)
+        [self animatePropertySwitchVisibilityTo: 1.0];
+    else
+        [self animatePropertySwitchVisibilityTo: 0.0];
     
     if(self.section == 0) {
         if(self.index == 0) {
@@ -95,25 +101,77 @@
             if(self.inputField.text.length == 0) {
                 [self.inputField setPlaceholder:@"Deine Telefonnummer"];
             }
+            [self.propertySwitch setHidden:FALSE];
         } else if(self.index == 3) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
             if(self.inputField.text.length == 0) {
                 [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
             }
         }
-    } else if(self.section == 2) {
+    } else if(self.section == 1) {
         if(self.index == 0) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Deine Job Bezeichnung"];
-            }
-        } else if(self.index == 1) {
             [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
             if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Deine Firma"];
+                [self.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
+            }
+        }
+        if(self.index == 1) {
+            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+            if(self.inputField.text.length == 0) {
+                [self.inputField setPlaceholder:@"Dein Job/Position"];
             }
         }
     }
+}
+
+-(void) animatePropertySwitchVisibilityTo:(NSInteger)value {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+
+    [self.propertySwitch setAlpha:value];
+
+    [UIView commitAnimations];
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.inputField) {
+        [textField resignFirstResponder];
+        
+        if(textField.text.length != 0)
+            [self animatePropertySwitchVisibilityTo: 1.0];
+        else
+            [self animatePropertySwitchVisibilityTo: 0.0];
+
+        if(textField.text.length == 0) {
+            if(self.section == 0) {
+                if(self.index == 0) {
+                    [self.inputField setPlaceholder:@"Dein Vorname"];
+                }
+                if(self.index == 1) {
+                    [self.inputField setPlaceholder:@"Dein Nachname"];
+                }
+                if(self.index == 2) {
+                    [self.inputField setPlaceholder:@"Deine Telefonnummer"];
+                }
+                if(self.index == 3) {
+                    [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
+                }
+            }
+            if(self.section == 1) {
+                if(self.index == 0) {
+                    [self.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
+                }
+                if(self.index == 1) {
+                    [self.inputField setPlaceholder:@"Dein Job/Position"];
+                }
+            }
+        }
+        
+        
+        return NO;
+    }
+    return YES;
 }
 
 @end

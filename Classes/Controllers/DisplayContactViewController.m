@@ -13,7 +13,9 @@
 @end
 
 @implementation DisplayContactViewController
+
 @synthesize nimpleContact;
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,16 +29,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Setup scroll view
+    [self.scrollView setDelegate:self];
+    [self.scrollView setScrollEnabled:TRUE];
+    self.scrollView.contentSize = CGSizeMake(320, 700);
+    self.scrollView.delegate = self;
+    self.scrollView.scrollEnabled = YES;
+    self.scrollView.frame = self.view.frame;
+    
     // Do any additional setup after loading the view
     NSLog(@"Display contact view loaded");
     NSLog(@"With contact %@", self.nimpleContact.objectID);
     
-    // Set nagigation bar title
-    NSString* newTitle = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
-    [self.navBar setTitle:newTitle];
-    
     // Set labels
-    [self.nameLabel setText:newTitle];
+    NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
+    [self.nameLabel setText:name];
     [self.phoneLabel setText:self.nimpleContact.phone];
     [self.emailLabel setText:self.nimpleContact.email];
     [self.companyLabel setText:self.nimpleContact.company];
@@ -46,13 +54,11 @@
     [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
     [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
     
-    // Add Navigation Bar button
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Save"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(saveAction:)];
-    self.navigationItem.rightBarButtonItem = saveButton;
+    // Set timestamp label
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy hh:ss"];
+    NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
+    [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
 }
 
 -(void)saveAction:(UIBarButtonItem *)sender{

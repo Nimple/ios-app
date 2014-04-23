@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "EditNimpleCodeTableViewController.h"
 
-@interface EditInputViewCell : UITableViewCell
+@interface EditInputViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (atomic) NSInteger                      index;
 @property (atomic) NSInteger                      section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) NSString             *value;
 @property (weak, nonatomic) IBOutlet UISwitch    *propertySwitch;
+
+-(void) animatePropertySwitchVisibilityTo:(NSInteger)value;
 
 @end

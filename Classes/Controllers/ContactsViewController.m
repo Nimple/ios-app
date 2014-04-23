@@ -19,18 +19,6 @@
 @synthesize nimpleContacts;
 @synthesize managedObjectContext;
 
-- (void) displayContactViewControllerDidCancel:(DisplayContactViewController*)controller {
-    NSLog(@"displayContactViewControllerDidCancel");
-}
-
-- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller {
-    NSLog(@"displayContactViewControllerDidSave");
-}
-
-- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
-    NSLog(@"displayContactViewControllerDidDelete");
-}
-
 -(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     NSLog(@"Tab Bar should select: %@", viewController.title);
@@ -60,6 +48,8 @@
 {
     [super viewDidLoad];
 
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
+    
     UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
     [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
     [self.view addGestureRecognizer:gestureRecognizerRight];
@@ -160,6 +150,20 @@
         // update view after delete
         [self updateData];
     }
+}
+
+# pragma mark DisplayContactViewDelegate
+
+- (void) displayContactViewControllerDidCancel:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidCancel");
+}
+
+- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidSave");
+}
+
+- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
+    NSLog(@"displayContactViewControllerDidDelete");
 }
 
 #pragma mark - Table view data source

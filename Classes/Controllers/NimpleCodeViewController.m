@@ -179,8 +179,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 // Handles the nimpleCodeChanged notifaction
 - (void)handleChangedNimpleCode:(NSNotification *)note {
     NSLog(@"Received changed Nimple Code @ Nimple CODE VIEW CONTROLLER");
-    
-    [self.myNimpleCode synchronize];
+    [self.nimpleQRCodeImage setAlpha:0.0];
+    [self updateQRCodeData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -273,7 +273,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 // Update the QR code data
 -(void) updateQRCodeData
 {
-    
     [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] FacebookURL:[self.myNimpleCode valueForKey:@"facebook_URL"] FacebookID:[self.myNimpleCode valueForKey:@"facebook_ID"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"] TwitterID:[self.myNimpleCode valueForKey:@"twitter_ID"] XingURL:[self.myNimpleCode valueForKey:@"xing_URL"] LinkedInURL:[self.myNimpleCode valueForKey:@"linkedin_URL"]];
 }
 
@@ -290,6 +289,13 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     CGImageRelease(result);
     
     self.nimpleQRCodeImage.image = resized;
+
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration: 1.3];
+    
+    [self.nimpleQRCodeImage setAlpha: 1.0];
+    
+    [UIView commitAnimations];
 }
 
 // Resizes image properly
@@ -341,8 +347,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 {
     if ([segue.identifier isEqualToString:@"Edit"]) {
         
-        UINavigationController *navigationController = segue.destinationViewController;
-        EditNimpleCodeTableViewController *editNimpleCodeController = [navigationController viewControllers][0];
+        EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
         editNimpleCodeController.delegate = self;
     }
 }

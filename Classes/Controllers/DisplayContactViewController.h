@@ -19,9 +19,10 @@
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller;
 @end
 
-@interface DisplayContactViewController : UIViewController
+@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id <DisplayContactViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NimpleContact *nimpleContact;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *jobLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UITextField *notesTextField;
 @property (weak, nonatomic) IBOutlet UIButton *facebookURL;
 @property (weak, nonatomic) IBOutlet UIButton *twitterURL;

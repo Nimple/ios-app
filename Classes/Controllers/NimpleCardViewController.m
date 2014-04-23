@@ -204,8 +204,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Edit"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        EditNimpleCodeTableViewController *editNimpleCodeController = [navigationController viewControllers][0];
+        EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
         editNimpleCodeController.delegate = self;
     }
 }
