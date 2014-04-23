@@ -29,25 +29,34 @@
 - (IBAction)linkedinButtonClicked:(id)sender
 {
     NSLog(@"linkedin clicked");
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.linkedin_URL]];
+    if(self.contact.linkedin_URL.length != 0)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.contact.linkedin_URL]];
+    }
 }
 
 // Opens the browser with the xing url
 - (IBAction)xingButtonClicked:(id)sender
 {
-    NSLog(@"xing clicked");
-    NSString *newXingUrl = [self.contact.xing_URL substringFromIndex:29];
-    NSString *finalCallUrl = [NSString stringWithFormat:@"https://touch.xing.com/users/%@", newXingUrl];
-    NSLog(@"%@", finalCallUrl);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:finalCallUrl]];
+    NSLog(@"xing clicked %@", self.contact.xing_URL);
+    if(self.contact.xing_URL.length != 0)
+    {
+        NSString *newXingUrl = [self.contact.xing_URL substringFromIndex:29];
+        NSString *finalCallUrl = [NSString stringWithFormat:@"https://touch.xing.com/users/%@", newXingUrl];
+        NSLog(@"%@", finalCallUrl);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:finalCallUrl]];
+    }
 }
 
 // Opens the browser with the twitter url
 - (IBAction)twitetrButtonClicked:(id)sender
 {
     NSLog(@"twitter clicked %@", self.contact.twitter_URL);
-    NSURL *url = [NSURL URLWithString:self.contact.twitter_URL];
-    [[UIApplication sharedApplication] openURL:url];
+    if(self.contact.twitter_URL.length != 0)
+    {
+        NSURL *url = [NSURL URLWithString:self.contact.twitter_URL];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 // Opens the browser with the facebook url
