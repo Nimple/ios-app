@@ -19,6 +19,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "NimpleAppDelegate.h"
+#import "Logging.h"
 
 @implementation NimpleAppDelegate
 
@@ -45,11 +46,9 @@ static NimpleAppDelegate * _sharedDelegate = nil;
 
 // Application launched
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    // Initialize mixpanel
-    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
-    // Later, you can get your instance with
-    //Mixpanel *mixpanel = [Mixpanel sharedInstance];
+{
+    // Init Logging/Mixpanel
+    [Logging initMixpanel];
     
     // Setup social network APIs
     [FBLoginView class];

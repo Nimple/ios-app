@@ -26,9 +26,11 @@
 @dynamic xing_URL;
 @dynamic linkedin_URL;
 @dynamic created;
+@dynamic contactHash;
+@dynamic note;
 
 // Sets all properties of a contact
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate *)p_created;
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate *)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note;
 {
     self.prename        = p_prename;
     self.surname        = p_surname;
@@ -43,12 +45,14 @@
     self.xing_URL       = p_xingURL;
     self.linkedin_URL   = p_linkedinURL;
     self.created        = p_created;
+    self.contactHash    = p_contactHash;
+    self.note           = p_note;
 }
 
 // Concatenates the properties of a contact to a printable string
 -(NSString*) toString
 {
-    NSString* string = [NSString stringWithFormat:@"Contact: %@ %@, %@ @ %@, %@ %@ %@", self.prename, self.surname, self.job, self.company, self.phone, self.email, self.created];
+    NSString* string = [NSString stringWithFormat:@"Contact: %@ %@, %@ @ %@, %@ %@ %@ %@", self.prename, self.surname, self.job, self.company, self.phone, self.email, self.created, self.contactHash];
     return string;
 }
 

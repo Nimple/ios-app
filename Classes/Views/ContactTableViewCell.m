@@ -7,6 +7,7 @@
 //
 
 #import "ContactTableViewCell.h"
+#import "Logging.h"
 
 @implementation ContactTableViewCell
 @synthesize contact = _contact;
@@ -15,7 +16,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-    // Initialization code
+        // Initialization code
     }
     return self;
 }
@@ -99,7 +100,7 @@
 - (IBAction)mailButtonClicked:(id)sender {
     // From within your active view controller
     if([MFMailComposeViewController canSendMail])
-{
+    {
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
         mailContent.mailComposeDelegate = self;
@@ -158,10 +159,10 @@
 - (void) displayActionSheet
 {
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to add the contact to your address book?"
-                        delegate:self
-                        cancelButtonTitle:nil
-                        destructiveButtonTitle:nil
-                        otherButtonTitles: nil];
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                     destructiveButtonTitle:nil
+                                          otherButtonTitles: nil];
     
     [self.actionSheet addButtonWithTitle:@"Add new contact"];
     // [self.actionSheet addButtonWithTitle:@"Merge with existing contact"];
@@ -198,6 +199,7 @@
             ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
                 if (granted) {
                     NSLog(@"Access was granted");
+                    [Logging sendContactTransferredEvent];
                     [self addAccountWithFirstName:self.nameLabel.text LastName:self.nameLabel.text PhoneNumber:self.phoneButton.currentTitle MailAddress:self.emailButton.currentTitle JobTitle:@"" CompanyName:@"" inAddressBook:addressBook];
                 }
                 else NSLog(@"Access was not granted");

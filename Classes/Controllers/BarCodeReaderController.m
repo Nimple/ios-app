@@ -9,6 +9,8 @@
 #import "BarCodeReaderController.h"
 #import "NimpleContact.h"
 #import "VCardParser.h"
+#import "Crypto.h"
+#import "Logging.h"
 
 @interface BarCodeReaderController ()
 
@@ -52,17 +54,17 @@
     [self startReading];
     
     self.alertView = [[UIAlertView alloc] initWithTitle:@"Kontakt gefunden"
-                                     message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
-                                     delegate:self
-                                     cancelButtonTitle:@"OK"
-                                     otherButtonTitles:nil];
+                                                message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
+                                               delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil];
     
     self.alertView2 = [[UIAlertView alloc] initWithTitle:@"Fehlerhafter Code"
-                                                message:@"Der nimple-code konnte nicht gescannt werden."
-                                               delegate:self
-                                      cancelButtonTitle:@"Zurück"
-                                      otherButtonTitles:nil];
-
+                                                 message:@"Der nimple-code konnte nicht gescannt werden."
+                                                delegate:self
+                                       cancelButtonTitle:@"Zurück"
+                                       otherButtonTitles:nil];
+    
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -89,13 +91,13 @@
 // Toggles the capture session
 - (IBAction)startStopReading:(id)sender {
     /*
-    if (!_isReading) {
-        [self startReading];
-    }
-    else{
-        [self stopReading];
-    }
-    _isReading = !_isReading;
+     if (!_isReading) {
+     [self startReading];
+     }
+     else{
+     [self stopReading];
+     }
+     _isReading = !_isReading;
      */
 }
 
@@ -162,7 +164,7 @@
             } else {
                 NSLog(@"Valid vCard found!");
                 NSMutableArray *contactData = [VCardParser getContactFromCard:qrCodeData];
-                                
+                
                 // check for at least name
                 if([contactData[0] length] == 0 || [contactData[1] length] == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -172,8 +174,10 @@
                     return;
                 }
                 
+                NSString* contactHash = [Crypto calculateMd5OfString:metadataObj.stringValue];
                 capturedContactData = contactData;
-                [self saveToDataBase];
+                
+                [self saveToDataBase:contactHash];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.alertView show];
@@ -187,11 +191,13 @@
 }
 
 //
--(void) saveToDataBase {
-     NSManagedObjectContext *context = [self managedObjectContext];
-     NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
+-(void) saveToDataBase:(NSString*)contactHash {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
     
-    [scannedContact setValueForPrename:capturedContactData[0] Surname:capturedContactData[1] PhoneNumber:capturedContactData[2] MailAddress:capturedContactData[3] JobTitle:capturedContactData[4] Company:capturedContactData[5] FacebookURL:capturedContactData[6] FacebookID:capturedContactData[7] TwitterURL:capturedContactData[8] TwitterID:capturedContactData[9] XingURL:capturedContactData[10] LinkedInURL:capturedContactData[11] Created:[NSDate date]];
+    [scannedContact setValueForPrename:capturedContactData[0] Surname:capturedContactData[1] PhoneNumber:capturedContactData[2] MailAddress:capturedContactData[3] JobTitle:capturedContactData[4] Company:capturedContactData[5] FacebookURL:capturedContactData[6] FacebookID:capturedContactData[7] TwitterURL:capturedContactData[8] TwitterID:capturedContactData[9] XingURL:capturedContactData[10] LinkedInURL:capturedContactData[11] Created:[NSDate date] ContactHash:contactHash Note: @""];
+    
+    [Logging sendContactAddedEvent:scannedContact];
     
     NSError *error;
     [context save:&error];

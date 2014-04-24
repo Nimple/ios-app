@@ -10,6 +10,7 @@
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
+		B526D76D1909AB1000055177 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = B526D76C1909AB1000055177 /* Logging.m */; };
 		B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CD2391904AAB200928B43 /* VCardParser.m */; };
 		B5408AF21904A1A70033DF1A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5408AF11904A1A70033DF1A /* FacebookSDK.framework */; };
 		B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF61904A1D60033DF1A /* NimpleAppDelegate.m */; };
@@ -31,6 +32,7 @@
 		B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2C1904A2550033DF1A /* Main_iPhone.strings */; };
 		B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55B895619049AC400561F17 /* nimple-iOS-Info.plist */; };
 		B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */; };
+		B5E1AE041909C3330051589D /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E1AE031909C3330051589D /* Crypto.m */; };
 		D10ADD4118D11961001450E8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10ADD4018D11961001450E8 /* Social.framework */; };
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
@@ -86,6 +88,8 @@
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		B526D76B1909AB1000055177 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		B526D76C1909AB1000055177 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
 		B53CD2381904AAB200928B43 /* VCardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardParser.h; sourceTree = "<group>"; };
 		B53CD2391904AAB200928B43 /* VCardParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardParser.m; sourceTree = "<group>"; };
 		B5408AF11904A1A70033DF1A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Externals/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		B5BE972919053FD100F49DEC /* DisplayContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayContactViewController.h; sourceTree = "<group>"; };
 		B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayContactViewController.m; sourceTree = "<group>"; };
+		B5E1AE021909C3330051589D /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
+		B5E1AE031909C3330051589D /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		C11D1B32A73841EF9434D94B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D10ADD4018D11961001450E8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D151DA6D18B432F700C5850F /* nimple-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nimple-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				B5408B071904A1D60033DF1A /* main.m */,
+				B5E1AE021909C3330051589D /* Crypto.h */,
+				B5E1AE031909C3330051589D /* Crypto.m */,
+				B526D76B1909AB1000055177 /* Logging.h */,
+				B526D76C1909AB1000055177 /* Logging.m */,
 				B53CD2381904AAB200928B43 /* VCardParser.h */,
 				B53CD2391904AAB200928B43 /* VCardParser.m */,
 			);
@@ -476,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */,
+				B5E1AE041909C3330051589D /* Crypto.m in Sources */,
 				B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */,
 				B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */,
 				B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */,
@@ -486,6 +497,7 @@
 				B5408B1F1904A1D60033DF1A /* main.m in Sources */,
 				B5408B241904A1D60033DF1A /* EditInputViewCell.m in Sources */,
 				B5408B1A1904A1D60033DF1A /* EditNimpleCodeTableViewController.m in Sources */,
+				B526D76D1909AB1000055177 /* Logging.m in Sources */,
 				B5408B221904A1D60033DF1A /* ConnectSocialProfileViewCell.m in Sources */,
 				B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */,
 				B5408B211904A1D60033DF1A /* NimpleContact.m in Sources */,

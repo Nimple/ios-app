@@ -97,7 +97,7 @@
     if(!exampleUserDidExist)
     {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"" TwitterID:nil XingURL:@"" LinkedInURL:@"" Created:[NSDate date]];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:@"Dein erster Kontakt" FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"" TwitterID:nil XingURL:@"" LinkedInURL:@"" Created:[NSDate date] ContactHash:@"" Note:@""];
         NSError *error;
         [self.managedObjectContext save:&error];
         self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];

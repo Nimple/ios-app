@@ -1,6 +1,6 @@
 //
 //  EditNimpleCodeTableViewController.m
-//  
+//
 //
 //  Created by Guido Schmidt on 01.03.14.
 //
@@ -8,6 +8,7 @@
 
 #import "EditNimpleCodeTableViewController.h"
 #import "NimpleAppDelegate.h"
+#import "Logging.h"
 
 @interface EditNimpleCodeTableViewController ()
 
@@ -124,7 +125,7 @@
 // Returns the number of cells in the given section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger cellCount = 0;
-
+    
     // 1. section (personal): 1. prename 2. surname 3. phone 4. mail
     if(section == 0)
         cellCount = 4;
@@ -245,19 +246,19 @@
         // facebook
         if(indexPath.row == 0)
         {
-
+            
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
             [cell setSection:2];
             [cell setIndex:0];
-
+            
             BOOL facebook_switch = [self.myNimpleCode boolForKey:@"facebook_switch"];
             [cell.propertySwitch setOn:facebook_switch];
             
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
             cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
-                
+            
             NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
             NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
             
@@ -307,7 +308,7 @@
         {
             static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
             ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-
+            
             BOOL xing_switch = [self.myNimpleCode boolForKey:@"xing_switch"];
             [cell.propertySwitch setOn:xing_switch];
             
@@ -315,7 +316,7 @@
             [cell setIndex:2];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
             [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
-                
+            
             NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
             if(xing_URL.length == 0)
             {
@@ -343,7 +344,7 @@
             [cell setIndex:3];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
             [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
-                
+            
             NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
             if(linkedin_URL.length == 0)
             {
@@ -366,7 +367,7 @@
 // Returns the title for a given section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString* sectionName = @"";
-
+    
     if(section == 0)
         sectionName = @"Persöhnlich";
     else if(section == 1)
@@ -386,10 +387,7 @@
 //
 - (IBAction)done:(id)sender
 {
-    if(
-       [[self.myNimpleCode valueForKey:@"prename"] length] == 0 ||
-       [[self.myNimpleCode valueForKey:@"surname"] length] == 0)
-    {
+    if([[self.myNimpleCode valueForKey:@"prename"] length] == 0 || [[self.myNimpleCode valueForKey:@"surname"] length] == 0) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Vor- & Nachnahme sind Pflichtfelder"
                                   message:@"Bitte fülle deinen Vor- & Nachnamen aus!"
@@ -399,10 +397,12 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [alertView show];
         });
-    }
-    else
-    {
+    } else {
         [self.myNimpleCode synchronize];
+        
+        // Log Mixpanel
+        [Logging sendNimpleCodeChangedEvent:[self.myNimpleCode dictionaryRepresentation]];
+        
         // Notification that the nimple code changed
         [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
         [self.delegate editNimpleCodeTableViewControllerDidSave:self];
