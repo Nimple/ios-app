@@ -89,6 +89,14 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
+- (IBAction)shareNimpleClicked:(id)sender {
+    NSString *shareText = NSLocalizedStringFromTable(@"settings.share-text", @"Main_iPhone", nil);
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+
+
 
 #pragma mark - Navigation
 
