@@ -1,5 +1,7 @@
 "settings.share-text" = "I'm networking simple with Nimple. Try it out and download it: www.nimple.de";
 
+"settings.feedback-text" = "Your app is awesome/crap, because";
+
 /* Class = "IBUIBarButtonItem"; title = "Bearbeiten"; ObjectID = "0yX-GC-7hd"; */
 "0yX-GC-7hd.title" = "Bearbeiten";
 

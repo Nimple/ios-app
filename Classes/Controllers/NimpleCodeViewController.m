@@ -318,7 +318,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
     [filter setValue:asciiData forKey:@"inputMessage"];
-    [filter setValue:@"M" forKey:@"inputCorrectionLevel"];
+    [filter setValue:@"L" forKey:@"inputCorrectionLevel"];
     
     // Get generated QRCode and convert to UIImage
     CIImage *output   = [filter valueForKey:kCIOutputImageKey];

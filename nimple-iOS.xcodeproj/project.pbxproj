@@ -39,7 +39,7 @@
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1B25C4B18D4B9890046A333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B25C4A18D4B9890046A333 /* Accounts.framework */; };
-		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; };
+		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490618C500BD00414E5D /* AddressBookUI.framework */; };
 		D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490818C500C800414E5D /* AddressBook.framework */; };
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
@@ -149,11 +149,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */,
 				D1B25C4B18D4B9890046A333 /* Accounts.framework in Frameworks */,
 				D10ADD4118D11961001450E8 /* Social.framework in Frameworks */,
 				D1CB490918C500C800414E5D /* AddressBook.framework in Frameworks */,
 				D1CB490718C500BD00414E5D /* AddressBookUI.framework in Frameworks */,
-				D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */,
 				D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */,
 				9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */,
 				9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */,

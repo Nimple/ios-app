@@ -7,6 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "MessageUI/MessageUI.h"
 
 @interface SettingsTableViewController ()
 
@@ -96,6 +97,25 @@
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
+- (IBAction)feedbackClicked:(id)sender {
+    NSString *recipient = @"feedback.iOS@nimple.de";
+    NSString *topic = @"[Feedback] Nimple iOS App";
+    NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Main_iPhone", nil);
+    
+    MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+    [mailVC setMailComposeDelegate:self];
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        [mailVC setToRecipients:[NSArray arrayWithObjects:recipient, nil]];
+        [mailVC setSubject:topic];
+        [mailVC setMessageBody:text isHTML:NO];
+        [self presentViewController:mailVC animated:YES completion:nil];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 #pragma mark - Navigation
