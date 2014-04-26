@@ -20,6 +20,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "NimpleAppDelegate.h"
 #import "Logging.h"
+#import "NimpleContactPersistenceManager.h"
 
 @implementation NimpleAppDelegate
 
@@ -60,19 +61,24 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSManagedObjectContext *context = [self managedObjectContext];
-     
+    
+    // Init Persistence Manager
+    [NimpleContactPersistenceManager getInstance:context];
+    
     // Find and setup view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
     // Nimple card view controller
     UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
     NSLog(@"Controller 0  is %@", nimpleCardController.title);
-    //NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
+    NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
+    nimpleCardViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     NSLog(@"Controller 1 is %@", presentedController1.title);
-    //NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
+    NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
+    nimpleCodeViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];

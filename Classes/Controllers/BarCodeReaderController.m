@@ -11,6 +11,7 @@
 #import "VCardParser.h"
 #import "Crypto.h"
 #import "Logging.h"
+#import "NimpleContactPersistenceManager.h"
 
 @interface BarCodeReaderController ()
 
@@ -192,16 +193,8 @@
 
 //
 -(void) saveToDataBase:(NSString*)contactHash {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:context];
-    
-    [scannedContact setValueForPrename:capturedContactData[0] Surname:capturedContactData[1] PhoneNumber:capturedContactData[2] MailAddress:capturedContactData[3] JobTitle:capturedContactData[4] Company:capturedContactData[5] FacebookURL:capturedContactData[6] FacebookID:capturedContactData[7] TwitterURL:capturedContactData[8] TwitterID:capturedContactData[9] XingURL:capturedContactData[10] LinkedInURL:capturedContactData[11] Created:[NSDate date] ContactHash:contactHash Note: @""];
-    
-    [Logging sendContactAddedEvent:scannedContact];
-    
-    NSError *error;
-    [context save:&error];
-    NSLog(@"Contact successfully saved to database!");
+    NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
+    [Logging sendContactAddedEvent:nimpleContact];
 }
 
 // Stops the capture session

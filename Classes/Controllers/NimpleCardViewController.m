@@ -7,7 +7,7 @@
 //
 
 #import "NimpleCardViewController.h"
-
+#import "BarCodeReaderController.h"
 
 @interface NimpleCardViewController ()
 
@@ -16,6 +16,7 @@
 @implementation NimpleCardViewController
 
 @synthesize myNimpleCode;
+@synthesize managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -203,6 +204,11 @@
 //
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"AddContact"])
+    {
+        BarCodeReaderController *destViewController = segue.destinationViewController;
+        destViewController.managedObjectContext = self.managedObjectContext;
+    }
     if ([segue.identifier isEqualToString:@"Edit"]) {
         EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
         editNimpleCodeController.delegate = self;

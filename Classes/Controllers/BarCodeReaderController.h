@@ -13,8 +13,7 @@
 #import <AddressBook/ABPerson.h>
 #import <AddressBook/ABRecord.h>
 
-@interface BarCodeReaderController : UIViewController
-    <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
+@interface BarCodeReaderController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIView          *codeReaderCameraView;

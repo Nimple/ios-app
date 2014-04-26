@@ -7,6 +7,7 @@
 //
 
 #import "NimpleCodeViewController.h"
+#import "BarCodeReaderController.h"
 
 // Static template for generating vCards
 static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:%@\nEMAIL:%@\nORG:%@\nROLE:%@\nURL:%@\nX-FACEBOOK-ID:%@\nURL:%@\nX-TWITTER-ID:%@\nURL:%@\nURL:%@\nEND:VCARD";
@@ -29,6 +30,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 @synthesize editButton;
 @synthesize editController;
 @synthesize myNimpleCode;
+@synthesize managedObjectContext;
 
 - (id)init
 {
@@ -330,8 +332,12 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 // Prepare the segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"AddContact"])
+    {
+        BarCodeReaderController *destViewController = segue.destinationViewController;
+        destViewController.managedObjectContext = self.managedObjectContext;
+    }
     if ([segue.identifier isEqualToString:@"Edit"]) {
-        
         EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
         editNimpleCodeController.delegate = self;
     }

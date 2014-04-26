@@ -11,6 +11,7 @@
 
 @interface NimpleCardViewController : UIViewController<EditNimpleCodeTableControllerDelegate>
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UILabel     *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *phoneLabel;
@@ -25,8 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *twitterIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *xingIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *linkedinIcon;
-@property (atomic, strong) NSUserDefaults        *myNimpleCode;
 @property (weak, nonatomic) IBOutlet UIView      *welcomeView;
 @property (weak, nonatomic) IBOutlet UIView      *nimpleCardView;
+@property (atomic, strong) NSUserDefaults        *myNimpleCode;
 
 @end
