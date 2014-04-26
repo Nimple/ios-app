@@ -262,10 +262,12 @@
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                          NSString *url = [profileRequest valueForKey:@"url"];
+                         
                          //NSRange urlRange = [url rangeOfString:@"&authType"];
                          //NSString *permalink = [[url substringToIndex:urlRange.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                          
-                         //NSLog(@"Profile url: %@", permalink);
+                         url = [url substringToIndex:[url rangeOfString:@"&"].location];
+                         NSLog(@"Profile url: %@", url);
                          [viewController.myNimpleCode setValue:url forKey:@"linkedin_URL"];
                      }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error)
