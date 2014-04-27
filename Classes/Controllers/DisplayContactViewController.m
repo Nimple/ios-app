@@ -59,6 +59,27 @@
     [dateFormatter setDateFormat:@"dd.MM.yyyy hh:ss"];
     NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
     [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
+    
+    // Initalize action sheets
+    NSString *destructiveTitle = @"Löschen";
+    NSString *cancelTitle = @"Abbrechen";
+    self.actionSheetDelete = [[UIActionSheet alloc]
+                        initWithTitle:@"Kontakt wirklich löschen?"
+                        delegate:self
+                        cancelButtonTitle:cancelTitle
+                        destructiveButtonTitle:destructiveTitle
+                        otherButtonTitles: nil];
+
+    NSString *addNewTitle = @"Neuer Kontakt";
+    NSString *contactFusionTitle = @"Bestehender Kontakt";
+    self.actionSheetAddressbook = [[UIActionSheet alloc]
+                              initWithTitle:@"Kontakt ins Adressbuch speichern"
+                              delegate:self
+                              cancelButtonTitle:cancelTitle
+                              destructiveButtonTitle:nil
+                              otherButtonTitles: addNewTitle, contactFusionTitle, nil
+                              ];
+    
 }
 
 -(void)saveAction:(UIBarButtonItem *)sender{
@@ -96,5 +117,24 @@
 {
     [self.delegate displayContactViewControllerDidDelete:self];
 }
+
+#pragma mark Button callbacks
+
+- (IBAction)saveToAddressBookButtonClicked:(id)sender {
+#pragma mark TODO@BEN
+    NSLog(@"Contact will be saved to address book");
+    [self.actionSheetAddressbook showInView:self.view];
+}
+
+- (IBAction)deleteContactButtonClicked:(id)sender {
+#pragma mark TODO@BEN
+    NSLog(@"Contact will be deleted");
+    [self.actionSheetDelete showInView:self.view];
+}
+
+#pragma mark ActionSheet callbacks
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+}
+
 
 @end

@@ -19,7 +19,7 @@
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller;
 @end
 
-@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate>
+@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) id <DisplayContactViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -36,7 +36,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *twitterURL;
 @property (weak, nonatomic) IBOutlet UIButton *xingURL;
 @property (weak, nonatomic) IBOutlet UIButton *linkedinURL;
-
+@property (weak, nonatomic) IBOutlet UIButton *saveToAddressBookButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteContactButton;
+@property (strong, atomic) UIActionSheet *actionSheetDelete;
+@property (strong, atomic) UIActionSheet *actionSheetAddressbook;
 
 
 - (IBAction)cancel:(id)sender;
