@@ -86,19 +86,19 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
     /*
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        
-        UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-        ContactsViewController *controller = (ContactsViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        ContactsViewController *controller = (ContactsViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    }
+     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+     UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;
+     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+     splitViewController.delegate = (id)navigationController.topViewController;
+     
+     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
+     ContactsViewController *controller = (ContactsViewController *)masterNavigationController.topViewController;
+     controller.managedObjectContext = self.managedObjectContext;
+     } else {
+     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+     ContactsViewController *controller = (ContactsViewController *)navigationController.topViewController;
+     controller.managedObjectContext = self.managedObjectContext;
+     }
      */
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
@@ -124,7 +124,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     NSLog(@"Nimple launched successfully!");
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -133,7 +133,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -179,7 +179,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                  requestToken:[BDBOAuthToken tokenWithQueryString:url.query]
                                                       success:^(BDBOAuthToken *accessToken) {
                                                           [self.networkManager GET:@"/v1/users/me/id_card" parameters:nil
-                                                           success:^(NSURLSessionDataTask *task, id response)
+                                                                           success:^(NSURLSessionDataTask *task, id response)
                                                            {
                                                                NSLog(@"Response %@", response);
                                                                NSArray *permalink = [response valueForKeyPath:@"id_card.permalink"];
@@ -189,13 +189,13 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
                                                                    [self.xingTableViewCell animatePropertySwitchVisibilityTo:1.0];
                                                                    
-                                                                [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
                                                                });
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
                                                                [myNimpleCode setValue:permalink forKeyPath:@"xing_URL"];
                                                            }
-                                                           failure:^(NSURLSessionDataTask *task, NSError * error)
+                                                                           failure:^(NSURLSessionDataTask *task, NSError * error)
                                                            {
                                                                NSLog(@"ERROR: %@", error);
                                                            }];
@@ -269,9 +269,9 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     
     // we use lightweight core-data migration, should fit in our case
     NSDictionary *options = @{
-        NSMigratePersistentStoresAutomaticallyOption : @YES,
-        NSInferMappingModelAutomaticallyOption : @YES
-    };
+                              NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES
+                              };
     
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);

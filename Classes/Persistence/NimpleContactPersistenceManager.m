@@ -23,7 +23,6 @@ static NimpleContactPersistenceManager *_sharedContext = nil;
 
 - (NimpleContact *)saveNimpleContactWith:(NSArray *)contactData andContactHash:(NSString *)contactHash {
     NimpleContact *scannedContact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:_managedObjectContext];
-    
     [scannedContact setValueForPrename:contactData[0] Surname:contactData[1] PhoneNumber:contactData[2] MailAddress:contactData[3] JobTitle:contactData[4] Company:contactData[5] FacebookURL:contactData[6] FacebookID:contactData[7] TwitterURL:contactData[8] TwitterID:contactData[9] XingURL:contactData[10] LinkedInURL:contactData[11] Created:[NSDate date] ContactHash:contactHash Note: @""];
     
     NSError *error = nil;
@@ -31,6 +30,7 @@ static NimpleContactPersistenceManager *_sharedContext = nil;
         NSLog(@"Contact successfully saved to database!");
     } else {
         NSLog(@"Contact could not be saved to database!");
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
     
     return scannedContact;
