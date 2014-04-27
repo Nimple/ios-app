@@ -133,7 +133,7 @@
 - (IBAction)connectButtonClicked:(id)sender
 {
     NSString *destructiveTitle = @"Log out";
-    NSString *cancelTitle = @"Cancel";
+    NSString *cancelTitle = @"Abbrechen";
     self.actionSheet = [[UIActionSheet alloc]
                         initWithTitle:@""
                         delegate:self
