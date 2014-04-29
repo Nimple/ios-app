@@ -50,34 +50,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     return self;
 }
 
--(void)swipeHandlerRight:(UISwipeGestureRecognizer *)recognizer {
-    //NSLog(@"Swipe received.");
-    [self.tabBarController setSelectedIndex: 0];
-    
-    /*
-     UIView * fromView = self.tabBarController.selectedViewController.view;
-     UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:0] view];
-     
-     // Transition using a page curl.
-     [UIView transitionFromView:fromView
-     toView:toView
-     duration:0.5
-     options:UIViewAnimationOptionTransitionNone
-     completion:^(BOOL finished) {
-     if (finished) {
-     self.tabBarController.selectedIndex = 0;
-     }
-     }];
-     */
-}
-
-
--(void)swipeHandlerLeft:(UISwipeGestureRecognizer *)recognizer {
-    //NSLog(@"Swipe received.");
-    [self.tabBarController setSelectedIndex:2];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -95,14 +67,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];
     [VCARD_TEMPLATE_DIC setObject:@"URL:%@\n" forKey:@"vcard_url"];
     [VCARD_TEMPLATE_DIC setObject:@"END:VCARD" forKey:@"vcard_end"];
-    
-    UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandlerRight:)];
-    [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
-    [self.view addGestureRecognizer:gestureRecognizerRight];
-    
-    UISwipeGestureRecognizer *gestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandlerLeft:)];
-    [gestureRecognizerLeft setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-    [self.view addGestureRecognizer:gestureRecognizerLeft];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)

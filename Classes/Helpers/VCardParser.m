@@ -12,11 +12,9 @@
 
 +(NSMutableArray*)getContactFromCard:(NSString*)card {
     NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
-    NSArray        *lines       = [[NSArray alloc] init];
+    NSArray *lines = [card componentsSeparatedByString:@"\n"];
     
-    NSLog(@"Tokenize VCARD:");
-    lines = [card componentsSeparatedByString:@"\n"];
-    
+    NSLog(@"Tokenize VCARD.");
     NSLog(@"%lu lines found in vCard", (unsigned long)[lines count]);
     NSLog(@"Lines are %@", lines);
     

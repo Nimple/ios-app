@@ -34,29 +34,12 @@
     return self;
 }
 
--(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
-    NSLog(@"Swipe received.");
-    
-    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
-        [self.tabBarController setSelectedIndex: 1];
-    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
-        [self.tabBarController setSelectedIndex: 3];
-}
-
 // Will be executed when the view is loaded to memory
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
-    
-    UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizerRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
-    [self.view addGestureRecognizer:gestureRecognizerRight];
-    
-    UISwipeGestureRecognizer *gestureRecognizerLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizerLeft setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-    [self.view addGestureRecognizer:gestureRecognizerLeft];
     
     [self updateData];
 }

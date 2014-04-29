@@ -27,33 +27,9 @@
     return self;
 }
 
--(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
-    //NSLog(@"Swipe received.");
-    [self.tabBarController setSelectedIndex: 1];
-    
-    /*
-    UIView * fromView = self.tabBarController.selectedViewController.view;
-    UIView * toView = [[self.tabBarController.viewControllers objectAtIndex:1] view];
-    
-    // Transition using a page curl.
-    [UIView transitionFromView:fromView
-                        toView:toView
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionNone
-                    completion:^(BOOL finished) {
-                        if (finished) {
-                            self.tabBarController.selectedIndex = 1;
-                        }
-                    }];
-     */
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UISwipeGestureRecognizer *gestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
-    [gestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-    [self.view addGestureRecognizer:gestureRecognizer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)

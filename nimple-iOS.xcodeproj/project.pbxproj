@@ -30,7 +30,6 @@
 		B5408B281904A2370033DF1A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5408B271904A2370033DF1A /* README.md */; };
 		B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2A1904A2550033DF1A /* Images.xcassets */; };
 		B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2C1904A2550033DF1A /* Main_iPhone.strings */; };
-		B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B55B895619049AC400561F17 /* nimple-iOS-Info.plist */; };
 		B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */; };
 		B5E1AE041909C3330051589D /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E1AE031909C3330051589D /* Crypto.m */; };
 		B5E953EC190C18950024AEC6 /* NimpleContactPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E953EB190C18950024AEC6 /* NimpleContactPersistenceManager.m */; };
@@ -449,7 +448,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55B895819049AC400561F17 /* nimple-iOS-Info.plist in Resources */,
 				B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */,
 				B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
