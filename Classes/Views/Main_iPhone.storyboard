@@ -117,7 +117,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mein Code" id="93b-pI-kqe">
-                        <barButtonItem key="leftBarButtonItem" title="Bearbeiten" id="0yX-GC-7hd">
+                        <barButtonItem key="leftBarButtonItem" image="edit-card" id="0yX-GC-7hd">
                             <connections>
                                 <segue destination="NPN-OI-Zij" kind="push" identifier="Edit" id="aVF-Tt-Z6G"/>
                             </connections>
@@ -142,13 +142,37 @@
         <scene sceneID="nTM-yL-h1n">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="NPN-OI-Zij" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zjZ-IZ-T2f">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zjZ-IZ-T2f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="QIW-ZU-DBK">
+                            <rect key="frame" x="0.0" y="64" width="320" height="65"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" id="sB9-zV-VmR">
+                                    <rect key="frame" x="14" y="24" width="280" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">Die Schalter regeln die Sichtbarkeit
+auf deiner Karte &amp; in deinem Code</string>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <switch opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="8CP-rF-Y18">
+                                    <rect key="frame" x="251" y="26" width="51" height="31"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </switch>
+                            </subviews>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditInputViewCell" id="bQT-iM-lrq" customClass="EditInputViewCell">
-                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="184" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQT-iM-lrq" id="Zkh-j9-886">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -186,7 +210,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConnectSocialProfileCell" rowHeight="60" id="wot-6T-nBg" customClass="ConnectSocialProfileViewCell">
-                                <rect key="frame" x="0.0" y="163" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="228" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wot-6T-nBg" id="XCc-uI-3Up">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -207,7 +231,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="2FA54D78-19B2-4EE2-8CFE-0F4216893718">
+                                            <state key="normal" title="Button" image="0C6B308D-15B7-4F93-9C0B-2E6E9E3E25DF">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -405,7 +429,7 @@
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meine Karte" id="2Td-P6-r5s">
-                        <barButtonItem key="leftBarButtonItem" title="Bearbeiten" id="Aay-Qv-MfA">
+                        <barButtonItem key="leftBarButtonItem" image="edit-card" id="Aay-Qv-MfA">
                             <connections>
                                 <segue destination="NPN-OI-Zij" kind="push" identifier="Edit" id="vl1-xC-OSz"/>
                             </connections>
@@ -1070,7 +1094,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2FA54D78-19B2-4EE2-8CFE-0F4216893718" width="119" height="119">
+        <image name="0C6B308D-15B7-4F93-9C0B-2E6E9E3E25DF" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2065,9 +2089,10 @@ eQCBAIMAhQCKAIwAjgCZAJ4AqQCrAK0ArwC0ALcAuQC7AL0AvwDEANsA3QDf5pXmmual5q7mwebF5tjm
 QgAAAAAAAAAAAAAAAAAA53U
 </mutableData>
         </image>
-        <image name="add-contact" width="22" height="22"/>
+        <image name="add-contact" width="25" height="25"/>
         <image name="arrow-up" width="85" height="284"/>
         <image name="company" width="24" height="24"/>
+        <image name="edit-card" width="25" height="25"/>
         <image name="email" width="26" height="16"/>
         <image name="ic_nimple" width="214" height="215"/>
         <image name="ic_round_facebook" width="59" height="59"/>
@@ -2084,14 +2109,14 @@ QgAAAAAAAAAAAAAAAAAA53U
         <image name="tabbar_settings" width="21" height="24"/>
         <image name="timestamp" width="14" height="14"/>
     </resources>
-    <color key="tintColor" red="0.99607843137254903" green="0.058823529411764705" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vJY-OD-AU4"/>
+        <segue reference="Rj6-jk-hGm"/>
         <segue reference="aVF-Tt-Z6G"/>
     </inferredMetricsTieBreakers>
 </document>
