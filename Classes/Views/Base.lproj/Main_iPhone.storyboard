@@ -220,7 +220,7 @@ auf deiner Karte &amp; in deinem Code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="7434ABF4-7CCA-42FC-A227-8CD9DFF0AE56">
+                                            <state key="normal" title="Button" image="41F245E0-0E8F-43B2-92E8-EDF1871282A8">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -1103,7 +1103,7 @@ auf deiner Karte &amp; in deinem Code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="7434ABF4-7CCA-42FC-A227-8CD9DFF0AE56" width="119" height="119">
+        <image name="41F245E0-0E8F-43B2-92E8-EDF1871282A8" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
