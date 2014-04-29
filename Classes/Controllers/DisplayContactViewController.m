@@ -96,27 +96,10 @@
 }
 
 //
-- (IBAction)save:(id)sender {
-    
-}
-
-
-//
-- (IBAction)cancel:(id)sender
-{
-    [self.delegate displayContactViewControllerDidCancel:self];
-}
-
-//
-- (IBAction)done:(id)sender
+/*- (IBAction)done:(id)sender
 {
     [self.delegate displayContactViewControllerDidSave:self];
-}
-
--(IBAction)delete:(id)sender
-{
-    [self.delegate displayContactViewControllerDidDelete:self];
-}
+}*/
 
 #pragma mark Button callbacks
 
@@ -127,13 +110,15 @@
 }
 
 - (IBAction)deleteContactButtonClicked:(id)sender {
-#pragma mark TODO@BEN
     NSLog(@"Contact will be deleted");
     [self.actionSheetDelete showInView:self.view];
 }
 
 #pragma mark ActionSheet callbacks
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(actionSheet == self.actionSheetDelete) {
+        [self.delegate displayContactViewControllerDidDelete:self];
+    }
 }
 
 

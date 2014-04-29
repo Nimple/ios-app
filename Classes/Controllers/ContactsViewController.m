@@ -36,7 +36,7 @@
 
 -(void)swipeHandler:(UISwipeGestureRecognizer *)recognizer {
     NSLog(@"Swipe received.");
-
+    
     if(recognizer.direction == UISwipeGestureRecognizerDirectionRight)
         [self.tabBarController setSelectedIndex: 1];
     if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
@@ -47,7 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
     
     UISwipeGestureRecognizer *gestureRecognizerRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeHandler:)];
@@ -118,7 +118,7 @@
     {
         DisplayContactViewController *destViewController = segue.destinationViewController;
         destViewController.delegate = self;
-
+        
         // Get selected contact and pass it to the DisplayContactViewController
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
@@ -131,39 +131,36 @@
     return NO;
 }
 
-// Deleting row (should be unused right now)
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //remove the deleted object from your data source.
-        //If your data source is an NSMutableArray, do this
-        
-        NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
-        [self.managedObjectContext deleteObject:nimpleContact];
-        
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Error at deleting row -> fix error pls.");
-        }
-        
-        NSLog(@"Deleted row.");
-        
-        // update view after delete
-        [self updateData];
-    }
-}
-
 # pragma mark DisplayContactViewDelegate
 
 - (void) displayContactViewControllerDidCancel:(DisplayContactViewController*)controller {
     NSLog(@"displayContactViewControllerDidCancel");
+    // Also save notes and segueBack
 }
 
 - (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller {
     NSLog(@"displayContactViewControllerDidSave");
+    // Save notes and segueBack
 }
 
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
     NSLog(@"displayContactViewControllerDidDelete");
+    
+    // Remove contact and segueBack
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
+    
+    [self.managedObjectContext deleteObject:controller.nimpleContact];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error at deleting row -> fix error pls.");
+    }
+    
+    NSLog(@"Deleted row.");
+    
+    // update view after delete
+    [self updateData];
 }
 
 #pragma mark - Table view data source
@@ -212,7 +209,7 @@
         [cell.xingButton setAlpha:0.2];
     else
         [cell.xingButton setAlpha:1.0];
-
+    
     // Set linkedin icon state
     NSString *linkedin_URL = [contact valueForKey:@"linkedin_URL"];
     if(linkedin_URL.length == 0)
@@ -224,54 +221,54 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
+ #pragma mark - Navigation
+ 
+ // In a story board-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ 
  */
 
 @end
