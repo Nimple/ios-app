@@ -54,6 +54,9 @@
     [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
     [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
     
+    // note
+    [self.notesTextField setText:self.nimpleContact.note];
+    
     // Set timestamp label
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy hh:ss"];
@@ -87,17 +90,17 @@
     [self saved];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Callbacks
+
 - (void) saved {
+    self.nimpleContact.note = self.notesTextField.text;
     [self.delegate displayContactViewControllerDidSave:self];
 }
-
-#pragma mark Callbacks
 
 - (IBAction)saveClicked:(id)sender {
     [self saved];
@@ -114,7 +117,7 @@
 }
 
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(actionSheet == self.actionSheetDelete) {
+    if(actionSheet == self.actionSheetDelete && buttonIndex == 0) {
         [self.delegate displayContactViewControllerDidDelete:self];
     }
 }
