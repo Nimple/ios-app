@@ -14,7 +14,6 @@
 @protocol DisplayContactViewControllerDelegate <NSObject>
 
 @required
-- (void) displayContactViewControllerDidCancel:(DisplayContactViewController*)controller;
 - (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller;
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller;
 @end
@@ -41,9 +40,6 @@
 @property (strong, atomic) UIActionSheet *actionSheetDelete;
 @property (strong, atomic) UIActionSheet *actionSheetAddressbook;
 
-
-- (IBAction)cancel:(id)sender;
-- (IBAction)save:(id)sender;
-- (IBAction)delete:(id)sender;
+- (void) saved;
 
 @end

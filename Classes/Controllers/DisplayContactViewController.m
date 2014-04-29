@@ -82,11 +82,9 @@
     
 }
 
--(void)saveAction:(UIBarButtonItem *)sender{
-    //perform your action
-    NSLog(@"Save button pressed");
-    
-    // should redirect so cancel
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"Save should be invoked!");
+    [self saved];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,16 +93,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-//
-/*- (IBAction)done:(id)sender
-{
+- (void) saved {
     [self.delegate displayContactViewControllerDidSave:self];
-}*/
+}
 
-#pragma mark Button callbacks
+#pragma mark Callbacks
+
+- (IBAction)saveClicked:(id)sender {
+    [self saved];
+}
 
 - (IBAction)saveToAddressBookButtonClicked:(id)sender {
-#pragma mark TODO@BEN
     NSLog(@"Contact will be saved to address book");
     [self.actionSheetAddressbook showInView:self.view];
 }
@@ -114,12 +113,10 @@
     [self.actionSheetDelete showInView:self.view];
 }
 
-#pragma mark ActionSheet callbacks
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(actionSheet == self.actionSheetDelete) {
         [self.delegate displayContactViewControllerDidDelete:self];
     }
 }
-
 
 @end
