@@ -56,10 +56,49 @@
     [self.jobLabel setText:self.nimpleContact.job];
     [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
     [self.notesTextField setText:self.nimpleContact.note];
-    [self.facebookURL setTitle:self.nimpleContact.facebook_URL forState:UIControlStateNormal];
-    [self.twitterURL setTitle:self.nimpleContact.twitter_URL forState:UIControlStateNormal];
-    [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
-    [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
+    
+    // Social icons
+    // facebook
+    NSString *facebook_URL = self.nimpleContact.facebook_URL;
+    NSString *facebook_ID  = self.nimpleContact.facebook_ID;
+    if((facebook_URL.length != 0 || facebook_ID.length != 0)) {
+        [self.facebookIcon setAlpha:1.0];
+        [self.facebookURL setTitle:facebook_URL forState:UIControlStateNormal];
+    } else {
+        [self.facebookIcon setAlpha:0.2];
+        [self.facebookURL setTitle:@"Kein Facebook-Profil" forState:UIControlStateNormal];
+    }
+    
+    // twitter
+    NSString *twitter_URL = self.nimpleContact.twitter_URL;
+    NSString *twitter_ID  = self.nimpleContact.twitter_ID;
+    if((twitter_URL.length != 0 || twitter_ID.length != 0)) {
+        [self.twitterIcon setAlpha:1.0];
+        [self.twitterURL setTitle:twitter_URL forState:UIControlStateNormal];
+    } else {
+        [self.twitterIcon setAlpha:0.2];
+        [self.twitterURL setTitle:@"Kein Twitter-Profil" forState:UIControlStateNormal];
+    }
+    
+    // xing
+    NSString *xing_URL = self.nimpleContact.xing_URL;
+    if(xing_URL.length != 0) {
+        [self.xingIcon setAlpha:1.0];
+        [self.xingURL setTitle:xing_URL forState:UIControlStateNormal];
+    } else {
+        [self.xingIcon setAlpha:0.2];
+        [self.xingURL setTitle:@"Kein XING-Profil" forState:UIControlStateNormal];
+    }
+    
+    // linkedin
+    NSString *linkedin_URL = self.nimpleContact.linkedin_URL;
+    if(linkedin_URL.length != 0) {
+        [self.linkedinIcon setAlpha:1.0];
+        [self.linkedinURL setTitle:linkedin_URL forState:UIControlStateNormal];
+    } else {
+        [self.linkedinIcon setAlpha:0.2];
+        [self.linkedinURL setTitle:@"Kein LinkedIn-Profil" forState:UIControlStateNormal];
+    }
     
     // Initalize action sheets
     NSString *destructiveTitle = @"Löschen";
@@ -165,6 +204,10 @@
 
 // Opens the browser with the facebook url
 - (IBAction)facebookButtonClicked:(id)sender {
+    if(self.nimpleContact.facebook_URL.length == 0) {
+        return;
+    }
+    
     UIApplication *app = [UIApplication sharedApplication];
     NSURL *facebookURL = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@",self.nimpleContact.facebook_ID]];
     if ([app canOpenURL:facebookURL]) {
@@ -177,14 +220,16 @@
 // Delegates calling a phone number to the phone app
 - (IBAction)phoneButtonClicked:(id)sender {
     NSLog(@"Phone calling...");
+    if(self.nimpleContact.phone.length == 0) {
+        return;
+    }
     
     UIDevice *device = [UIDevice currentDevice];
-    NSString *cellNameStr = [NSString stringWithFormat:@"%@", self.nimpleContact.phone];
     
-    if ([cellNameStr isEqualToString:@"http://www.nimple.de"]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:cellNameStr]];
+    if ([self.nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.nimpleContact.phone]];
     } else if ([[device model] isEqualToString:@"iPhone"]) {
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:cellNameStr];
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.nimpleContact.phone];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     } else {
         UIAlertView *warning =[[UIAlertView alloc] initWithTitle:@"Note" message:@"Error: Phone Calls does not work on an iPad" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -195,6 +240,10 @@
 // Delegates the sending of an email to the mail app
 - (IBAction)mailButtonClicked:(id)sender {
     // From within your active view controller
+    if(self.nimpleContact.email.length == 0) {
+        return;
+    }
+    
     if([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
@@ -204,7 +253,7 @@
         [mailContent setToRecipients:[NSArray arrayWithObject:self.nimpleContact.email]];
         [mailContent setMessageBody:@"" isHTML:NO];
         
-        [self.navigationController popToViewController:mailContent animated:YES];
+        [self.navigationController presentViewController:mailContent animated:YES completion:nil];
     } else
         NSLog(@"Error: Your Mail Account may not be set up.");
 }

@@ -220,7 +220,7 @@ auf deiner Karte &amp; in deinem Code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="161E7F56-2223-4CE4-A6C9-976BA1E14385">
+                                            <state key="normal" title="Button" image="7D232FD6-C25F-4E10-937D-98A5DCB19994">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -809,8 +809,10 @@ auf deiner Karte &amp; in deinem Code</string>
                         <outlet property="companyLabel" destination="gDO-kU-XDj" id="9Pm-kx-U8H"/>
                         <outlet property="deleteContactButton" destination="YOr-K1-tjp" id="cf8-rA-Zjt"/>
                         <outlet property="emailLabel" destination="06X-eh-ySV" id="AYv-Ja-S0Q"/>
+                        <outlet property="facebookIcon" destination="x0F-GC-0cH" id="xUN-mX-3QQ"/>
                         <outlet property="facebookURL" destination="VAB-6F-u9B" id="5z8-io-Bbn"/>
                         <outlet property="jobLabel" destination="7eu-XF-3a7" id="3gj-e8-U5v"/>
+                        <outlet property="linkedinIcon" destination="Q9D-nn-Qve" id="FAz-KT-xay"/>
                         <outlet property="linkedinURL" destination="LXC-KK-1Hy" id="ts9-yx-ofJ"/>
                         <outlet property="nameLabel" destination="AfJ-At-wgD" id="Fwh-91-ugF"/>
                         <outlet property="navBar" destination="fMY-bC-Mad" id="Ruf-w6-Gti"/>
@@ -819,7 +821,9 @@ auf deiner Karte &amp; in deinem Code</string>
                         <outlet property="saveToAddressBookButton" destination="CEW-8D-xvP" id="mmL-wC-ZdE"/>
                         <outlet property="scrollView" destination="gBN-dz-aRh" id="PbA-KY-Q6n"/>
                         <outlet property="timestampLabel" destination="eUw-Ie-4aV" id="Up1-sO-rZ5"/>
+                        <outlet property="twitterIcon" destination="dyP-GK-fHg" id="wNK-XM-Mkt"/>
                         <outlet property="twitterURL" destination="pKb-M4-TPz" id="ctC-Es-MYp"/>
+                        <outlet property="xingIcon" destination="obb-ZN-sOy" id="Upk-Uh-xHd"/>
                         <outlet property="xingURL" destination="yFi-Td-LbH" id="Jft-Pc-kT1"/>
                     </connections>
                 </viewController>
@@ -1099,7 +1103,7 @@ auf deiner Karte &amp; in deinem Code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="161E7F56-2223-4CE4-A6C9-976BA1E14385" width="119" height="119">
+        <image name="7D232FD6-C25F-4E10-937D-98A5DCB19994" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

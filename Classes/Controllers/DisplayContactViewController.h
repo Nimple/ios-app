@@ -46,6 +46,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *xingURL;
 @property (weak, nonatomic) IBOutlet UIButton *linkedinURL;
 
+// social icons
+@property (weak, nonatomic) IBOutlet UIButton *facebookIcon;
+@property (weak, nonatomic) IBOutlet UIButton *twitterIcon;
+@property (weak, nonatomic) IBOutlet UIButton *xingIcon;
+@property (weak, nonatomic) IBOutlet UIButton *linkedinIcon;
 
 // buttons
 @property (weak, nonatomic) IBOutlet UIButton *saveToAddressBookButton;
