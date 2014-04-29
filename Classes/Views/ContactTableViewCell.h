@@ -10,26 +10,20 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
-// Nimple imports
 #import "NimpleContact.h"
 
-@interface ContactTableViewCell : UITableViewCell <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
+@interface ContactTableViewCell : UITableViewCell <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, retain) NimpleContact* contact;
+
+// ui properties
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *jobCompanyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
-@property (weak, nonatomic) IBOutlet UIImageView *saveToContactsView;
 @property (weak, nonatomic) IBOutlet UIButton *facebookButton;
 @property (weak, nonatomic) IBOutlet UIButton *twitterButton;
 @property (weak, nonatomic) IBOutlet UIButton *xingButton;
 @property (weak, nonatomic) IBOutlet UIButton *linkedinButton;
-
-@property (strong, atomic) UIActionSheet *actionSheet;
-
-- (ABRecordRef)addAccountWithFirstName:(NSString*)p_prename LastName:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company inAddressBook:(ABAddressBookRef)addressBook;
 
 @end

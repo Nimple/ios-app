@@ -7,6 +7,8 @@
 //
 
 #import "DisplayContactViewController.h"
+#import "AddressBook/AddressBook.h"
+#import "AddressBookUI/ABUnknownPersonViewController.h"
 
 @interface DisplayContactViewController ()
 
@@ -73,16 +75,14 @@
                         destructiveButtonTitle:destructiveTitle
                         otherButtonTitles: nil];
 
-    NSString *addNewTitle = @"Neuer Kontakt";
-    NSString *contactFusionTitle = @"Bestehender Kontakt";
+    NSString *addNewTitle = @"Speichern";
     self.actionSheetAddressbook = [[UIActionSheet alloc]
                               initWithTitle:@"Kontakt ins Adressbuch speichern"
                               delegate:self
                               cancelButtonTitle:cancelTitle
-                              destructiveButtonTitle:nil
-                              otherButtonTitles: addNewTitle, contactFusionTitle, nil
+                              destructiveButtonTitle:addNewTitle
+                              otherButtonTitles: nil
                               ];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -104,6 +104,7 @@
 
 - (IBAction)saveClicked:(id)sender {
     [self saved];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveToAddressBookButtonClicked:(id)sender {
@@ -120,6 +121,97 @@
     if(actionSheet == self.actionSheetDelete && buttonIndex == 0) {
         [self.delegate displayContactViewControllerDidDelete:self];
     }
+    if(actionSheet == self.actionSheetAddressbook && buttonIndex == 0) {
+        [self checkForAccess];
+    }
 }
+
+#pragma mark AddressBook Handling
+
+- (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person {
+    NSLog(@"Invoked!");
+}
+
+-(void)addToAddressBook {
+    ABUnknownPersonViewController *addPersonView = [[ABUnknownPersonViewController alloc] init];
+    addPersonView.unknownPersonViewDelegate = self;
+    addPersonView.displayedPerson = [self prepareNimpleContactForAddressBook];
+    addPersonView.allowsAddingToAddressBook = YES;
+    addPersonView.allowsActions = YES;
+    [self.navigationController pushViewController:addPersonView animated:YES];
+}
+
+-(void)checkForAccess {
+    // Request authorization to Address Book
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+    
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                // First time access has been granted, add the contact
+                [self addToAddressBook];
+            } else {
+                // User denied access
+                // Display an alert telling user the contact could not be added
+                [self showAlertView];
+            }
+        });
+    }
+    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+        // The user has previously given access, add the contact
+        [self addToAddressBook];
+    }
+    else {
+        // The user has previously denied access
+        // Send an alert telling user to change privacy setting in settings app
+        [self showAlertView];
+    }
+}
+
+-(void)showAlertView {
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Kein Zugriff auf Kontakte"
+                                                      message:@"Nimple hat keinen Zugriff auf deine Kontakte. Bitte aktiviere den Zugang zu deinen Kontakten unter iPhone Einstellungen > Datenschutz > Kontakte > Nimple."
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    
+    [message show];
+}
+
+// Saves a contact to the address book of the phone
+- (ABRecordRef)prepareNimpleContactForAddressBook {
+    ABRecordRef result = NULL;
+    CFErrorRef error   = NULL;
+    
+    result = ABPersonCreate();
+    if (result == NULL) {
+        NSLog(@"Failed to create a new person.");
+        return NULL;
+    }
+    
+    // FirstNameProperty and LastNameProperty seem to be swapped!
+    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
+    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
+    
+    ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) nimpleContact.phone, kABPersonPhoneMainLabel, nil);
+    ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
+    
+    ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
+    ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    
+    ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
+    ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    
+    if (couldSetFirstName && couldSetLastName) {
+        NSLog(@"Successfully set the first name and the last name of the person.");
+    } else {
+        NSLog(@"Failed.");
+    }
+    
+    return result;
+}
+
 
 @end

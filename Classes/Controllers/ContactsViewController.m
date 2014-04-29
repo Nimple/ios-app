@@ -123,7 +123,6 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error saving nimple contact.");
     }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
@@ -131,7 +130,6 @@
     
     // Remove contact and segueBack
     //[self.navigationController popToRootViewControllerAnimated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
     
     [self.managedObjectContext deleteObject:controller.nimpleContact];
     
@@ -141,6 +139,10 @@
     }
     
     NSLog(@"Deleted row.");
+    
+    // reset view
+    controller.nimpleContact = nil;
+    [self.navigationController popViewControllerAnimated:YES];
     
     // update view after delete
     [self updateData];
