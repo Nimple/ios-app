@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NimpleContact.h"
 #import "AddressBookUI/ABUnknownPersonViewController.h"
+#import <MessageUI/MessageUI.h>
 
 @class DisplayContactViewController;
 
@@ -19,9 +20,10 @@
 - (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller;
 @end
 
-@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, ABUnknownPersonViewControllerDelegate>
+@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, ABUnknownPersonViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
-// delegage
+
+// delegate
 @property (nonatomic, weak) id <DisplayContactViewControllerDelegate> delegate;
 
 // iOS ui-related

@@ -8,11 +8,9 @@
 
 // Framework imports
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
-#import <MessageUI/MFMailComposeViewController.h>
 #import "NimpleContact.h"
 
-@interface ContactTableViewCell : UITableViewCell <MFMailComposeViewControllerDelegate>
+@interface ContactTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) NimpleContact* contact;
 
