@@ -141,7 +141,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark Callbacks
+#pragma mark - Callbacks
 
 - (void) saved {
     self.nimpleContact.note = self.notesTextField.text;
@@ -172,8 +172,7 @@
     }
 }
 
-#pragma mark Button Handling
-
+#pragma mark - Button Handling
 // Opens the browser with the linkedin url
 - (IBAction)linkedinButtonClicked:(id)sender {
     NSLog(@"linkedin clicked");
@@ -263,10 +262,9 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark AddressBook Handling
-
+#pragma mark - AddressBook Handling
 - (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person {
-    NSLog(@"Invoked!");
+    [unknownCardViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)addToAddressBook {
@@ -293,12 +291,10 @@
                 [self showAlertView];
             }
         });
-    }
-    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+    } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
         // The user has previously given access, add the contact
         [self addToAddressBook];
-    }
-    else {
+    } else {
         // The user has previously denied access
         // Send an alert telling user to change privacy setting in settings app
         [self showAlertView];
@@ -327,8 +323,8 @@
     }
     
     // FirstNameProperty and LastNameProperty seem to be swapped!
-    BOOL couldSetFirstName = ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
-    BOOL couldSetLastName = ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
+    ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
+    ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
     
     if (![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
@@ -342,12 +338,6 @@
     
     ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
     ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
-    
-    if (couldSetFirstName && couldSetLastName) {
-        NSLog(@"Successfully set the first name and the last name of the person.");
-    } else {
-        NSLog(@"Failed.");
-    }
     
     return result;
 }

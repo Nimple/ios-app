@@ -10,7 +10,6 @@
 
 @implementation EditInputViewCell
 
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -25,23 +24,18 @@
     
     if(self.section == 0) {
         if(self.index == 2) {
-            NSLog(@"PHONED SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"phone_switch"];
         } else if(self.index == 3) {
-            NSLog(@"EMAIL SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
         }
     } else if(self.section == 1) {
         if(self.index == 0) {
-            NSLog(@"COMPANY SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
         } else if(self.index == 1) {
-            NSLog(@"JOB SIWTCHED");
             [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
         }
     }
 }
-
 
 // Editing of the input cell has changed
 - (IBAction)editingChanged:(id)sender
@@ -127,9 +121,9 @@
 -(void) animatePropertySwitchVisibilityTo:(NSInteger)value {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-
+    
     [self.propertySwitch setAlpha:value];
-
+    
     [UIView commitAnimations];
 }
 
@@ -142,7 +136,7 @@
             [self animatePropertySwitchVisibilityTo: 1.0];
         else
             [self animatePropertySwitchVisibilityTo: 0.0];
-
+        
         if(textField.text.length == 0) {
             if(self.section == 0) {
                 if(self.index == 0) {
@@ -167,8 +161,6 @@
                 }
             }
         }
-        
-        
         return NO;
     }
     return YES;

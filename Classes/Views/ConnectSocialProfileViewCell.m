@@ -142,10 +142,10 @@
                         otherButtonTitles: nil];
     
     self.alertView = [[UIAlertView alloc] initWithTitle:@"Hello World!"
-                                          message:@"This is your first UIAlertview message."
-                                          delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
+                                                message:@"This is your first UIAlertview message."
+                                               delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles: nil];
     
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
@@ -313,16 +313,16 @@
      failure:^(NSError *error)
      {
          NSLog(@"Error: %@", error.localizedDescription);
-            dispatch_async(dispatch_get_main_queue(), ^
-            {
-                NSLog(@"ERRROR: %@", error);
-                [[[UIAlertView alloc] initWithTitle:@"Error"
-                                            message:@"Could not acquire OAuth request token. Please try again later."
-                                           delegate:self
-                                  cancelButtonTitle:@"Dismiss"
-                                  otherButtonTitles:nil] show];
-            });
-    }];
+         dispatch_async(dispatch_get_main_queue(), ^
+                        {
+                            NSLog(@"ERRROR: %@", error);
+                            [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Could not acquire OAuth request token. Please try again later."
+                                                       delegate:self
+                                              cancelButtonTitle:@"Dismiss"
+                                              otherButtonTitles:nil] show];
+                        });
+     }];
 }
 
 // Deauthorized nimple from the XING API
@@ -339,11 +339,11 @@
 // Creates the LinkedIn client
 - (LIALinkedInHttpClient *)linkedInClient {
     LIALinkedInApplication *application = [LIALinkedInApplication
-        applicationWithRedirectURL:@"http://www.nimple.de"
-        clientId:@"77pixj2vchhmrj"
-        clientSecret:@"XDzQSRgsL1BOO8nm"
-        state:@"DCEEFWF45453sdffef424"
-        grantedAccess:@[@"r_fullprofile"]];
+                                           applicationWithRedirectURL:@"http://www.nimple.de"
+                                           clientId:@"77pixj2vchhmrj"
+                                           clientSecret:@"XDzQSRgsL1BOO8nm"
+                                           state:@"DCEEFWF45453sdffef424"
+                                           grantedAccess:@[@"r_fullprofile"]];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     return [LIALinkedInHttpClient clientForApplication:application presentingViewController:viewController];

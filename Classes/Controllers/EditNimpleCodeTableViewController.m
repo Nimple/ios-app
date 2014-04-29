@@ -377,7 +377,7 @@
     NSString* sectionName = @"";
     
     if(section == 0)
-        sectionName = @"Persöhnlich";
+        sectionName = @"Persönlich";
     else if(section == 1)
         sectionName = @"Geschäftlich";
     else if(section == 2)

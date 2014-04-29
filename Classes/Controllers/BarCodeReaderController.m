@@ -22,6 +22,7 @@
 @property (nonatomic) BOOL isReading;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+
 -(BOOL)startReading;
 -(void)stopReading;
 
@@ -47,8 +48,7 @@
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     _isReading = FALSE;
     _captureSession = nil;
@@ -68,12 +68,10 @@
     
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0)
-    {
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 0) {
         [self.tabBarController setSelectedIndex: 2];
-        [[self navigationController] popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -83,23 +81,9 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-// Toggles the capture session
-- (IBAction)startStopReading:(id)sender {
-    /*
-     if (!_isReading) {
-     [self startReading];
-     }
-     else{
-     [self stopReading];
-     }
-     _isReading = !_isReading;
-     */
 }
 
 // Starts the capture session
@@ -191,7 +175,7 @@
     }
 }
 
-//
+// Save the scanned contact to database
 -(void) saveToDataBase:(NSString*)contactHash {
     NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
     [Logging sendContactAddedEvent:nimpleContact];
