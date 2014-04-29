@@ -190,6 +190,7 @@
             if([[self.myNimpleCode valueForKey:@"phone"] length] == 0) {
                 [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"phone_switch"];
             }
             else
@@ -204,6 +205,7 @@
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0) {
                 [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"email_switch"];
             }
             else
@@ -221,6 +223,7 @@
             if([[self.myNimpleCode valueForKey:@"company"] length] == 0) {
                 [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"company_switch"];
             }
             else
@@ -234,6 +237,7 @@
             if([[self.myNimpleCode valueForKey:@"job"] length] == 0) {
                 [cell.inputField setPlaceholder:@"Dein Job/Position"];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"job_switch"];
             }
             else
@@ -268,6 +272,7 @@
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
             }
             else
             {
@@ -296,6 +301,7 @@
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
             }
             else
             {
@@ -324,6 +330,7 @@
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
             }
             else
             {
@@ -352,6 +359,7 @@
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
             }
             else
             {
