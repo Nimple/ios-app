@@ -26,7 +26,6 @@
 		B5408B221904A1D60033DF1A /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B0F1904A1D60033DF1A /* ConnectSocialProfileViewCell.m */; };
 		B5408B231904A1D60033DF1A /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B111904A1D60033DF1A /* ContactTableViewCell.m */; };
 		B5408B241904A1D60033DF1A /* EditInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B131904A1D60033DF1A /* EditInputViewCell.m */; };
-		B5408B251904A1D60033DF1A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5408B141904A1D60033DF1A /* Main_iPhone.storyboard */; };
 		B5408B281904A2370033DF1A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B5408B271904A2370033DF1A /* README.md */; };
 		B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2A1904A2550033DF1A /* Images.xcassets */; };
 		B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5408B2C1904A2550033DF1A /* Main_iPhone.strings */; };
@@ -37,6 +36,7 @@
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
+		D18F7A2B191068C000EDCE32 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1B25C4B18D4B9890046A333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B25C4A18D4B9890046A333 /* Accounts.framework */; };
 		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -117,7 +117,6 @@
 		B5408B111904A1D60033DF1A /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
 		B5408B121904A1D60033DF1A /* EditInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInputViewCell.h; sourceTree = "<group>"; };
 		B5408B131904A1D60033DF1A /* EditInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInputViewCell.m; sourceTree = "<group>"; };
-		B5408B141904A1D60033DF1A /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B5408B271904A2370033DF1A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5408B2A1904A2550033DF1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5408B2D1904A2550033DF1A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
@@ -138,6 +137,8 @@
 		D151DA7218B432F700C5850F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D151DA7418B432F700C5850F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D151DA9218B432F800C5850F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D18F7A2C191068C000EDCE32 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		D18F7A34191068D600EDCE32 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		D1ABE42D18C1F50F00154101 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1B25C4A18D4B9890046A333 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		D1CB490118C4EE9700414E5D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -246,7 +247,7 @@
 				B5408B111904A1D60033DF1A /* ContactTableViewCell.m */,
 				B5408B121904A1D60033DF1A /* EditInputViewCell.h */,
 				B5408B131904A1D60033DF1A /* EditInputViewCell.m */,
-				B5408B141904A1D60033DF1A /* Main_iPhone.storyboard */,
+				D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,7 +453,7 @@
 				B5408B301904A2550033DF1A /* Main_iPhone.strings in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
 				B5408B281904A2370033DF1A /* README.md in Resources */,
-				B5408B251904A1D60033DF1A /* Main_iPhone.storyboard in Resources */,
+				D18F7A2B191068C000EDCE32 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +528,15 @@
 				B5408B2E1904A2550033DF1A /* en */,
 			);
 			name = Main_iPhone.strings;
+			sourceTree = "<group>";
+		};
+		D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D18F7A2C191068C000EDCE32 /* de */,
+				D18F7A34191068D600EDCE32 /* en */,
+			);
+			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
