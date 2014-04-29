@@ -29,8 +29,12 @@
         if([newLine hasPrefix:@"N:"]) {
             newLine = [newLine substringFromIndex:2];
             NSArray *names = [newLine componentsSeparatedByString:@";"];
-            contactData[0] = names[0];
-            contactData[1] = names[1];
+            if(names.count > 1) {
+                contactData[0] = names[0];
+                contactData[1] = names[1];
+            } else {
+                break;
+            }
         } else if ([newLine hasPrefix:@"EMAIL"]) {
             NSString *email = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
             contactData[3] = email;
