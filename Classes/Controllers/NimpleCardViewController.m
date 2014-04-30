@@ -193,13 +193,6 @@
 
 #pragma mark - EditNimpleCodeTableControllerDelegate
 
-// Edit nimple code canceled
-- (void)editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController *)controller
-{
-    //NSLog(@"Nimple Card Delegation");
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 // Edit nimple code saved
 - (void)editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController *)controller
 {

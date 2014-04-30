@@ -64,8 +64,7 @@
                                     entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
     
     // sort nimpleContactsArray by created:NSDate (DESC)
-    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"created" ascending:NO];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
     
     NSArray* sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
     

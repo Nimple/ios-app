@@ -202,6 +202,9 @@
             [cell.propertySwitch setOn:email_switch];
             
             [cell.inputField setKeyboardType:UIKeyboardTypeEmailAddress];
+            [cell.inputField setAutocorrectionType:UITextAutocorrectionTypeNo];
+            [cell.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+            
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0) {
                 [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
                 [cell.propertySwitch setAlpha:0.0];
@@ -384,12 +387,6 @@
         sectionName = @"Soziale Netzwerke";
     
     return sectionName;
-}
-
-//
-- (IBAction)cancel:(id)sender
-{
-    [self.delegate editNimpleCodeTableViewControllerDidCancel:self];
 }
 
 //

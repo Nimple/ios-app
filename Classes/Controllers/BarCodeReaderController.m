@@ -66,6 +66,12 @@
                                        cancelButtonTitle:@"Zurück"
                                        otherButtonTitles:nil];
     
+    self.alertView3 = [[UIAlertView alloc] initWithTitle:@"Kontakt schon vorhanden"
+                                                 message:@"Der Kontakt ist schon vorhanden."
+                                                delegate:self
+                                       cancelButtonTitle:@"Zurück"
+                                       otherButtonTitles:nil];
+    
 }
 
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -163,10 +169,6 @@
                 capturedContactData = contactData;
                 
                 [self saveToDataBase:contactHash];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.alertView show];
-                });
             }
         } else {
             // No valid QRCode found
@@ -177,8 +179,23 @@
 
 // Save the scanned contact to database
 -(void) saveToDataBase:(NSString*)contactHash {
-    NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
-    [Logging sendContactAddedEvent:nimpleContact];
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    fetch.entity = [NSEntityDescription entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
+    fetch.predicate = [NSPredicate predicateWithFormat:@"contactHash == %@", contactHash];
+    NSArray *array = [managedObjectContext executeFetchRequest:fetch error:nil];
+    
+    if(array.count == 0) {
+        NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
+        [Logging sendContactAddedEvent:nimpleContact];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.alertView show];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.alertView3 show];
+        });
+    }
 }
 
 // Stops the capture session

@@ -17,6 +17,8 @@
     NSLog(@"Tokenize VCARD.");
     NSLog(@"%lu lines found in vCard", (unsigned long)[lines count]);
     NSLog(@"Lines are %@", lines);
+
+    NSString *role = @"";
     
     for(NSString *line in lines) {
         // in order to have a clean db entry
@@ -56,9 +58,11 @@
                 contactData[5] = company;
             }
         } else if ([newLine hasPrefix:@"TITLE"]) {
-            // TODO we need also to manage old ROLE
             NSString *title = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
             contactData[4] = title;
+        } else if ([newLine hasPrefix:@"ROLE"]) {
+            NSString *title = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
+            role = title;
         } else if ([newLine hasPrefix:@"URL"]) {
             NSString *url = [newLine substringFromIndex:4];
             
@@ -81,6 +85,11 @@
         } else {
             // unrecognized line;
         }
+    }
+    
+    // check for ROLE instead of TITLE
+    if(role.length != 0 && contactData[4] == 0) {
+        contactData[4] = role;
     }
     
     NSLog(@"Contact parsed: %@", contactData);

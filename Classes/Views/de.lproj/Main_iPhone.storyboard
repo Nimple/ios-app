@@ -51,7 +51,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Add Contact" id="fWH-LC-fhZ"/>
+                    <navigationItem key="navigationItem" title="Kontakt hinzufügen" id="fWH-LC-fhZ"/>
                     <connections>
                         <outlet property="codeReaderCameraView" destination="rgd-LG-kyz" id="gki-yv-r0R"/>
                     </connections>
@@ -81,7 +81,7 @@
                                         <rect key="frame" x="20" y="74" width="19" height="67"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your data to create your nimple-card and -code" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MDw-2a-vt8">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MDw-2a-vt8">
                                         <rect key="frame" x="20" y="141" width="154" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -92,7 +92,7 @@
                                         <rect key="frame" x="281" y="73" width="19" height="42"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a new Contact" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8po-Mc-N33">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8po-Mc-N33">
                                         <rect key="frame" x="146" y="108" width="154" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -105,7 +105,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Code" id="93b-pI-kqe">
+                    <navigationItem key="navigationItem" title="Mein Code" id="93b-pI-kqe">
                         <barButtonItem key="leftBarButtonItem" image="edit-card" id="0yX-GC-7hd">
                             <connections>
                                 <segue destination="NPN-OI-Zij" kind="push" identifier="Edit" id="aVF-Tt-Z6G"/>
@@ -127,7 +127,7 @@
             </objects>
             <point key="canvasLocation" x="538" y="-190"/>
         </scene>
-        <!--Edit Nimple Code Table View Controller - Edit-->
+        <!--Edit Nimple Code Table View Controller - Bearbeiten-->
         <scene sceneID="nTM-yL-h1n">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="NPN-OI-Zij" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
@@ -143,8 +143,8 @@
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" id="sB9-zV-VmR">
                                     <rect key="frame" x="14" y="24" width="280" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <string key="text">The swipes change the visibility
-on your nimple-card and -code</string>
+                                    <string key="text">Die Schalter regeln die Sichtbarkeit
+auf deiner Karte und in deinem Code</string>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -209,7 +209,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="64" y="3" width="173" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                            <state key="normal" title="connect">
+                                            <state key="normal" title="verbinden">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" red="0.95108695649999997" green="0.95108695649999997" blue="0.95108695649999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -220,7 +220,7 @@ on your nimple-card and -code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="91767762-EBC7-47D2-9E96-E4DDFDED2AE4">
+                                            <state key="normal" title="Button" image="ED95AD87-9A68-4C50-8539-57C310E10769">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -249,8 +249,8 @@ on your nimple-card and -code</string>
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Edit" id="Rw9-zm-Sj4">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="u2d-9C-xQc">
+                    <navigationItem key="navigationItem" title="Bearbeiten" id="Rw9-zm-Sj4">
+                        <barButtonItem key="rightBarButtonItem" title="Speichern" id="u2d-9C-xQc">
                             <connections>
                                 <action selector="done:" destination="NPN-OI-Zij" id="fbL-Wy-ddY"/>
                             </connections>
@@ -287,7 +287,7 @@ on your nimple-card and -code</string>
         <scene sceneID="r79-0f-3OM">
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Card" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
+                    <tabBarItem key="tabBarItem" title="Karte" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Lh6-LU-zaX">
@@ -335,7 +335,7 @@ on your nimple-card and -code</string>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bvn-QE-TJ3">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bvn-QE-TJ3">
                                         <rect key="frame" x="61" y="134" width="189" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -392,7 +392,7 @@ on your nimple-card and -code</string>
                                         <rect key="frame" x="20" y="74" width="19" height="67"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your data to create your nimple-card and -code" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wii-dy-g7L">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wii-dy-g7L">
                                         <rect key="frame" x="20" y="141" width="154" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -403,7 +403,7 @@ on your nimple-card and -code</string>
                                         <rect key="frame" x="281" y="73" width="19" height="42"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a new Contact" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5rB-IY-lNI">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5rB-IY-lNI">
                                         <rect key="frame" x="146" y="108" width="154" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -417,7 +417,7 @@ on your nimple-card and -code</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Card" id="2Td-P6-r5s">
+                    <navigationItem key="navigationItem" title="Meine Karte" id="2Td-P6-r5s">
                         <barButtonItem key="leftBarButtonItem" image="edit-card" id="Aay-Qv-MfA">
                             <connections>
                                 <segue destination="NPN-OI-Zij" kind="push" identifier="Edit" id="vl1-xC-OSz"/>
@@ -455,7 +455,7 @@ on your nimple-card and -code</string>
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" image="tabbar_contacts" id="hFR-7f-QgP"/>
+                    <tabBarItem key="tabBarItem" title="Kontakte" image="tabbar_contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -472,7 +472,7 @@ on your nimple-card and -code</string>
             </objects>
             <point key="canvasLocation" x="20" y="515"/>
         </scene>
-        <!--Contacts View Controller - My Contacts-->
+        <!--Contacts View Controller - Meine Kontakte-->
         <scene sceneID="LLr-Di-jWV">
             <objects>
                 <tableViewController id="gqP-yl-IrF" customClass="ContactsViewController" sceneMemberID="viewController">
@@ -489,7 +489,7 @@ on your nimple-card and -code</string>
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZm-ic-gp5">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SZm-ic-gp5">
                                             <rect key="frame" x="20" y="15" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
@@ -499,7 +499,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="30" y="59" width="234" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Phone number">
+                                            <state key="normal" title="Telefonnummer">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -508,12 +508,12 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="30" y="80" width="234" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Email address">
+                                            <state key="normal" title="E-Mail Addresse">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company (JobTitle)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rei-w7-hxh">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unternehmen (JobBezeichnung)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rei-w7-hxh">
                                             <rect key="frame" x="30" y="38" width="234" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -568,7 +568,7 @@ on your nimple-card and -code</string>
                             <outlet property="delegate" destination="gqP-yl-IrF" id="wEL-vC-WTf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Contacts" id="bbO-qy-7D2">
+                    <navigationItem key="navigationItem" title="Meine Kontakte" id="bbO-qy-7D2">
                         <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
                                 <segue destination="o5E-Ml-Dot" kind="push" identifier="AddContact" id="vJY-OD-AU4"/>
@@ -592,7 +592,7 @@ on your nimple-card and -code</string>
             </objects>
             <point key="canvasLocation" x="538" y="515"/>
         </scene>
-        <!--Display Contact View Controller - Detail View-->
+        <!--Display Contact View Controller - Detailansicht-->
         <scene sceneID="NCG-87-JYQ">
             <objects>
                 <viewController storyboardIdentifier="DisplayContactViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="MgR-wC-OmR" customClass="DisplayContactViewController" sceneMemberID="viewController">
@@ -609,7 +609,7 @@ on your nimple-card and -code</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Delete contact">
+                                        <state key="normal" title="Kontakt löschen">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -621,7 +621,7 @@ on your nimple-card and -code</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Save contact to address book">
+                                        <state key="normal" title="Kontakt im Adressbuch speichern">
                                             <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -676,7 +676,7 @@ on your nimple-card and -code</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" minimumFontSize="17" id="zzH-p4-t7S">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notizen" minimumFontSize="17" id="zzH-p4-t7S">
                                                 <rect key="frame" x="31" y="217" width="262" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -775,13 +775,13 @@ on your nimple-card and -code</string>
                                                     <action selector="xingButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="oHC-tR-czp"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name last name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AfJ-At-wgD">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AfJ-At-wgD">
                                                 <rect key="frame" x="27" y="20" width="266" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gDO-kU-XDj">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gDO-kU-XDj">
                                                 <rect key="frame" x="72" y="115" width="221" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -796,8 +796,8 @@ on your nimple-card and -code</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail View" id="fMY-bC-Mad">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="5a9-ZP-pGV">
+                    <navigationItem key="navigationItem" title="Detailansicht" id="fMY-bC-Mad">
+                        <barButtonItem key="rightBarButtonItem" title="Speichern" id="5a9-ZP-pGV">
                             <connections>
                                 <action selector="saveClicked:" destination="MgR-wC-OmR" id="I7M-1H-Ofi"/>
                             </connections>
@@ -831,11 +831,11 @@ on your nimple-card and -code</string>
             </objects>
             <point key="canvasLocation" x="1232" y="655"/>
         </scene>
-        <!--Navigation Controller - Settings-->
+        <!--Navigation Controller - Einstellungen-->
         <scene sceneID="9cH-Zw-9Q5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ckZ-cg-UXh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="tabbar_settings" id="BB2-e2-id0"/>
+                    <tabBarItem key="tabBarItem" title="Einstellungen" image="tabbar_settings" id="BB2-e2-id0"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="fKZ-cu-f3R">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -849,7 +849,7 @@ on your nimple-card and -code</string>
             </objects>
             <point key="canvasLocation" x="20" y="1196"/>
         </scene>
-        <!--Settings Table View Controller - Settings-->
+        <!--Settings Table View Controller - Einstellungen-->
         <scene sceneID="HJI-kt-RXc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="qLV-mL-T8G" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -927,7 +927,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0DQ-Fk-D1R">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allg. Geschäftsbedingungen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0DQ-Fk-D1R">
                                                     <rect key="frame" x="20" y="11" width="174" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -948,7 +948,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Acu-UJ-gkX">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datenschutzerklärung" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Acu-UJ-gkX">
                                                     <rect key="frame" x="20" y="11" width="168" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
@@ -970,7 +970,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imprint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yIT-Ux-pgO">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impressum" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yIT-Ux-pgO">
                                                     <rect key="frame" x="20" y="11" width="86" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -995,7 +995,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nimple on Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ph4-30-IRp">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nimple auf Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ph4-30-IRp">
                                                     <rect key="frame" x="20" y="11" width="164" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -1016,7 +1016,7 @@ on your nimple-card and -code</string>
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Nimple" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8UU-9z-zGn">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teile Nimple" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8UU-9z-zGn">
                                                     <rect key="frame" x="20" y="11" width="164" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -1059,7 +1059,7 @@ on your nimple-card and -code</string>
                             <outlet property="delegate" destination="qLV-mL-T8G" id="Bll-2X-WhB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="udW-PA-7Pl"/>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="udW-PA-7Pl"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKN-Sl-cTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1103,7 +1103,7 @@ on your nimple-card and -code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="91767762-EBC7-47D2-9E96-E4DDFDED2AE4" width="119" height="119">
+        <image name="ED95AD87-9A68-4C50-8539-57C310E10769" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

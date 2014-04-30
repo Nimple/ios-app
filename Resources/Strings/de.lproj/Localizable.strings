@@ -1,7 +1,98 @@
-/* 
-  Localizable.strings
-  nimple-iOS
+/*
+ Localizable.strings
+ nimple-iOS
+ 
+ Created by Ben John on 30/04/14.
+ Copyright (c) 2014 nimple. All rights reserved.
+ */
 
-  Created by Ben John on 30/04/14.
-  Copyright (c) 2014 nimple. All rights reserved.
-*/
+"personal_label" = "PERSÖNLICH";
+
+"firstname_label" = "Vorname";
+
+"lastname_label" = "Nachname";
+
+"phonenumber_label" = "Telefonnummer";
+
+"mail_label" = "E-Mail Adresse";
+
+"business_label" = "GESCHÄFTLICH";
+
+"company_label" = "Unternehmen/Uni/Schule";
+
+"job_label" = "Job/Position";
+
+"social_label" = "SOZIALE NETZWERKE";
+
+"facebook_label" = "mit Facebook verbinden";
+
+"twitter_label" = "mit Twitter verbinden";
+
+"xing_label" = "mit XING verbinden";
+
+"linkedin_label" = "mit LinkedIn verbinden";
+
+"connected_label" = "verbunden";
+
+"fistname_first_contact_label" = "Nimple";
+
+"lastname_first_contact_label" = "App";
+
+"phone_first_contact_label" = "http://www.nimple.de";
+
+"mail_first_contact_label" = "feedback.ios@nimple.de";
+
+"company_first_contact_label" = "Dein erster Kontakt";
+
+"date_format" = "dd.MM.yyyy HH:mm";
+
+
+"detail_facebook_label" = "Kein Facebook-Profil";
+
+"detail_twitter_label" = "Kein Twitter-Profil";
+
+"detail_xing_label" = "Kein XING-Profil";
+
+"detail_linkedin_label" = "Kein LinkedIn-Profil";
+
+
+"settings.feedback-text" = "Eure App gefällt mir/gefällt mir nicht, weil";
+
+"settings.feedback-header" = "[Feedback] Nimple iOS App";
+
+"settings.share-text" = "Ich networke simple mit der Nimple-App. Probiere sie aus und lade sie dir direkt herunter: www.nimple.de";
+
+"settings.share-header" = "Nimple - Networking Simple App";
+
+
+"msg_box_wrong_code_header" = "Fehlerhafter Code";
+
+"msg_box_wrong_code_text" = "Der nimple-code konnte nicht gescannt werden.";
+
+"msg_box_wrong_code_activity" = "Zurück";
+
+
+"msg_box_right_code_header" = "Kontakt gefunden";
+
+"msg_box_right_code_text" = "Der Kontakt wurde deinen Kontakten hinzugefügt";
+
+"msg_box_right_code_activity" = "OK";
+
+
+"msg_box_delete_contact_title" = "Kontakt wirklich löschen?";
+
+"msg_box_delete_contact_activity1" = "Löschen";
+
+"msg_box_delete_contact_activity2" = "Abbrechen";
+
+
+"msg_box_duplicated_contact_title" = "Der Kontakt existiert bereits in deiner Kontaktliste.";
+
+"msg_box_duplicated_code_activity" = "OK";
+
+
+"msg_box_save_contact_title" = "Kontakt ins Adressbuch speichern?";
+
+"msg_box_save_contact_activity1" = "Speichern";
+
+"msg_box_save_contact_activity2" = "Abbrechen";

@@ -17,9 +17,7 @@
 @protocol EditNimpleCodeTableControllerDelegate <NSObject>
 
 @required
-- (void) editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController*)controller;
 - (void) editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController*)controller;
-
 @end
 
 @interface EditNimpleCodeTableViewController : UITableViewController <UITextFieldDelegate>
@@ -27,7 +25,6 @@
 @property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
 @property (atomic, weak) NSUserDefaults                                *myNimpleCode;
 
-- (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
 
 @end

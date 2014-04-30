@@ -20,5 +20,6 @@
 @property (weak, atomic) NSMutableArray              *capturedContactData;
 @property (strong, atomic) UIAlertView               *alertView;
 @property (strong, atomic) UIAlertView               *alertView2;
+@property (strong, atomic) UIAlertView               *alertView3;
 
 @end

@@ -158,7 +158,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 - (NSString*) fillVCardCardWithData:(NSArray*)p_data
 {
     NSMutableString *filled = [NSMutableString stringWithString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_header"]];
-
+    
     if([NSString stringWithString:p_data[0]].length != 0 && [NSString stringWithString:p_data[1]].length != 0)
     {
         NSString *name = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_name"], p_data[0], p_data[1]];
@@ -240,7 +240,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     CGImageRelease(result);
     
     self.nimpleQRCodeImage.image = resized;
-
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration: 1.3];
     
@@ -308,12 +308,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 }
 
 #pragma mark - EditNimpleCodeTableControllerDelegate
-
-// Edit nimple code canceled
-- (void)editNimpleCodeTableViewControllerDidCancel:(EditNimpleCodeTableViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 // Edit nimple code saved
 - (void)editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController *)controller

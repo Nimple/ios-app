@@ -71,7 +71,7 @@
 }
 
 - (IBAction)shareNimpleClicked:(id)sender {
-    NSString *shareText = NSLocalizedStringFromTable(@"settings.share-text", @"Main_iPhone", nil);
+    NSString *shareText = NSLocalizedStringFromTable(@"settings.share-text", @"Localizable", nil);
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityVC animated:YES completion:nil];
@@ -80,7 +80,7 @@
 - (IBAction)feedbackClicked:(id)sender {
     NSString *recipient = @"feedback.iOS@nimple.de";
     NSString *topic = @"[Feedback] Nimple iOS App";
-    NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Main_iPhone", nil);
+    NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Localizable", nil);
     
     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
     [mailVC setMailComposeDelegate:self];

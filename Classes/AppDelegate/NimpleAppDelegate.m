@@ -85,21 +85,6 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     NSLog(@"Controller 2 is %@", contactsController.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
-    /*
-     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-     UISplitViewController  *splitViewController = (UISplitViewController *)self.window.rootViewController;
-     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-     splitViewController.delegate = (id)navigationController.topViewController;
-     
-     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-     ContactsViewController *controller = (ContactsViewController *)masterNavigationController.topViewController;
-     controller.managedObjectContext = self.managedObjectContext;
-     } else {
-     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-     ContactsViewController *controller = (ContactsViewController *)navigationController.topViewController;
-     controller.managedObjectContext = self.managedObjectContext;
-     }
-     */
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabbar = tabBarController.tabBar;

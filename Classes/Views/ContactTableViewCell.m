@@ -23,7 +23,7 @@
 - (void)setContact:(NimpleContact *)contact; {
     if (contact != _contact) {
         _contact = contact;
-        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.surname, self.contact.prename]];
+        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", self.contact.prename, self.contact.surname]];
         [self.phoneButton setTitle:self.contact.phone forState:UIControlStateNormal];
         [self.emailButton setTitle:self.contact.email forState:UIControlStateNormal];
         if(contact.job.length != 0)

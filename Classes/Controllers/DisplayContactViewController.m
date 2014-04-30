@@ -9,6 +9,7 @@
 #import "DisplayContactViewController.h"
 #import "AddressBook/AddressBook.h"
 #import "AddressBookUI/ABUnknownPersonViewController.h"
+#import "Logging.h"
 
 @interface DisplayContactViewController ()
 
@@ -45,7 +46,7 @@
     // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy hh:ss"];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
     
     // Set labels
@@ -273,6 +274,7 @@
     addPersonView.displayedPerson = [self prepareNimpleContactForAddressBook];
     addPersonView.allowsAddingToAddressBook = YES;
     addPersonView.allowsActions = YES;
+    [Logging sendContactTransferredEvent];
     [self.navigationController pushViewController:addPersonView animated:YES];
 }
 
