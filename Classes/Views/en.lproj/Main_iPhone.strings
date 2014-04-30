@@ -113,8 +113,8 @@
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "eUw-Ie-4aV"; */
 "eUw-Ie-4aV.text" = "Label";
 
-/* Class = "IBUINavigationItem"; title = "Detail view"; ObjectID = "fMY-bC-Mad"; */
-"fMY-bC-Mad.title" = "Detail view";
+/* Class = "IBUINavigationItem"; title = "Detail View"; ObjectID = "fMY-bC-Mad"; */
+"fMY-bC-Mad.title" = "Detail View";
 
 /* Class = "IBUINavigationItem"; title = "Add Contact"; ObjectID = "fWH-LC-fhZ"; */
 "fWH-LC-fhZ.title" = "Add Contact";
