@@ -2,20 +2,20 @@
 /* Class = "IBUILabel"; text = "name@domain.de"; ObjectID = "06X-eh-ySV"; */
 "06X-eh-ySV.text" = "name@domain.de";
 
-/* Class = "IBUILabel"; text = "Nutzungsbedingungen"; ObjectID = "0DQ-Fk-D1R"; */
-"0DQ-Fk-D1R.text" = "Nutzungsbedingungen";
+/* Class = "IBUILabel"; text = "Terms and Conditions"; ObjectID = "0DQ-Fk-D1R"; */
+"0DQ-Fk-D1R.text" = "Terms and Conditions";
 
-/* Class = "IBUIButton"; normalTitle = "E-Mail Address"; ObjectID = "2EL-di-PP3"; */
-"2EL-di-PP3.normalTitle" = "E-Mail Address";
+/* Class = "IBUIButton"; normalTitle = "Email address"; ObjectID = "2EL-di-PP3"; */
+"2EL-di-PP3.normalTitle" = "Email address";
 
-/* Class = "IBUINavigationItem"; title = "Meine Karte"; ObjectID = "2Td-P6-r5s"; */
-"2Td-P6-r5s.title" = "Meine Karte";
+/* Class = "IBUINavigationItem"; title = "My Card"; ObjectID = "2Td-P6-r5s"; */
+"2Td-P6-r5s.title" = "My Card";
 
-/* Class = "IBUIBarButtonItem"; title = "Speichern"; ObjectID = "5a9-ZP-pGV"; */
-"5a9-ZP-pGV.title" = "Speichern";
+/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "5a9-ZP-pGV"; */
+"5a9-ZP-pGV.title" = "Save";
 
-/* Class = "IBUILabel"; text = "Scanne einen neuen Kontakt"; ObjectID = "5rB-IY-lNI"; */
-"5rB-IY-lNI.text" = "Scanne einen neuen Kontakt";
+/* Class = "IBUILabel"; text = "Scan a new Contact"; ObjectID = "5rB-IY-lNI"; */
+"5rB-IY-lNI.text" = "Scan a new Contact";
 
 /* Class = "IBUILabel"; text = "Nimple - Networking Simple"; ObjectID = "6cp-Ie-FVf"; */
 "6cp-Ie-FVf.text" = "Nimple - Networking Simple";
@@ -26,29 +26,29 @@
 /* Class = "IBUILabel"; text = "Share Nimple"; ObjectID = "8UU-9z-zGn"; */
 "8UU-9z-zGn.text" = "Share Nimple";
 
-/* Class = "IBUILabel"; text = "Scanne einen neuen Kontakt"; ObjectID = "8po-Mc-N33"; */
-"8po-Mc-N33.text" = "Scanne einen neuen Kontakt";
+/* Class = "IBUILabel"; text = "Scan a new Contact"; ObjectID = "8po-Mc-N33"; */
+"8po-Mc-N33.text" = "Scan a new Contact";
 
-/* Class = "IBUINavigationItem"; title = "Mein Code"; ObjectID = "93b-pI-kqe"; */
-"93b-pI-kqe.title" = "Mein Code";
+/* Class = "IBUINavigationItem"; title = "My Code"; ObjectID = "93b-pI-kqe"; */
+"93b-pI-kqe.title" = "My Code";
 
 /* Class = "IBUITabBarController"; title = "Tab Bar Controller"; ObjectID = "9vL-qg-3SR"; */
 "9vL-qg-3SR.title" = "Tab Bar Controller";
 
-/* Class = "IBUILabel"; text = "Datenschutzerklärung"; ObjectID = "Acu-UJ-gkX"; */
-"Acu-UJ-gkX.text" = "Datenschutzerklärung";
+/* Class = "IBUILabel"; text = "Privacy Policy"; ObjectID = "Acu-UJ-gkX"; */
+"Acu-UJ-gkX.text" = "Privacy Policy";
 
-/* Class = "IBUILabel"; text = "Vorname Nachname"; ObjectID = "AfJ-At-wgD"; */
-"AfJ-At-wgD.text" = "Vorname Nachname";
+/* Class = "IBUILabel"; text = "First name last name"; ObjectID = "AfJ-At-wgD"; */
+"AfJ-At-wgD.text" = "First name last name";
 
-/* Class = "IBUITabBarItem"; title = "Einstellungen"; ObjectID = "BB2-e2-id0"; */
-"BB2-e2-id0.title" = "Einstellungen";
+/* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "BB2-e2-id0"; */
+"BB2-e2-id0.title" = "Settings";
 
-/* Class = "IBUIButton"; normalTitle = "verbinden"; ObjectID = "BBC-6f-2xV"; */
-"BBC-6f-2xV.normalTitle" = "verbinden";
+/* Class = "IBUIButton"; normalTitle = "connect"; ObjectID = "BBC-6f-2xV"; */
+"BBC-6f-2xV.normalTitle" = "connect";
 
-/* Class = "IBUIButton"; normalTitle = "Kontakt im Adressbuch speichern"; ObjectID = "CEW-8D-xvP"; */
-"CEW-8D-xvP.normalTitle" = "Kontakt im Adressbuch speichern";
+/* Class = "IBUIButton"; normalTitle = "Save contact to address book"; ObjectID = "CEW-8D-xvP"; */
+"CEW-8D-xvP.normalTitle" = "Save contact to address book";
 
 /* Class = "IBUILabel"; text = "Feedback"; ObjectID = "GWw-ZE-psO"; */
 "GWw-ZE-psO.text" = "Feedback";
@@ -59,11 +59,11 @@
 /* Class = "IBUIButton"; normalTitle = "url"; ObjectID = "LXC-KK-1Hy"; */
 "LXC-KK-1Hy.normalTitle" = "url";
 
-/* Class = "IBUILabel"; text = "Gib deine Daten ein, um deine Karte zu erstellen"; ObjectID = "MDw-2a-vt8"; */
-"MDw-2a-vt8.text" = "Gib deine Daten ein, um deine Karte zu erstellen";
+/* Class = "IBUILabel"; text = "Enter your data to create your nimple-card and -code"; ObjectID = "MDw-2a-vt8"; */
+"MDw-2a-vt8.text" = "Enter your data to create your nimple-card and -code";
 
-/* Class = "IBUIButton"; normalTitle = "Phone Number"; ObjectID = "OKa-h7-Hc2"; */
-"OKa-h7-Hc2.normalTitle" = "Phone Number";
+/* Class = "IBUIButton"; normalTitle = "Phone number"; ObjectID = "OKa-h7-Hc2"; */
+"OKa-h7-Hc2.normalTitle" = "Phone number";
 
 /* Class = "IBUILabel"; text = "Job"; ObjectID = "PHS-O7-k9s"; */
 "PHS-O7-k9s.text" = "Job";
@@ -71,17 +71,17 @@
 /* Class = "IBUILabel"; text = "Company (JobTitle)"; ObjectID = "Rei-w7-hxh"; */
 "Rei-w7-hxh.text" = "Company (JobTitle)";
 
-/* Class = "IBUINavigationItem"; title = "Bearbeiten"; ObjectID = "Rw9-zm-Sj4"; */
-"Rw9-zm-Sj4.title" = "Bearbeiten";
+/* Class = "IBUINavigationItem"; title = "Edit"; ObjectID = "Rw9-zm-Sj4"; */
+"Rw9-zm-Sj4.title" = "Edit";
 
 /* Class = "IBUINavigationController"; title = "Contacts Navigation Controller"; ObjectID = "S1k-kA-kGZ"; */
 "S1k-kA-kGZ.title" = "Contacts Navigation Controller";
 
-/* Class = "IBUILabel"; text = "Vorname Nachname"; ObjectID = "SZm-ic-gp5"; */
-"SZm-ic-gp5.text" = "Vorname Nachname";
+/* Class = "IBUILabel"; text = "First name last name"; ObjectID = "SZm-ic-gp5"; */
+"SZm-ic-gp5.text" = "First name last name";
 
-/* Class = "IBUILabel"; text = "+49 173 3484138"; ObjectID = "UnW-ch-ZzA"; */
-"UnW-ch-ZzA.text" = "+49 173 3484138";
+/* Class = "IBUILabel"; text = "+49 176 1234"; ObjectID = "UnW-ch-ZzA"; */
+"UnW-ch-ZzA.text" = "+49 176 1234";
 
 /* Class = "IBUIButton"; normalTitle = "url"; ObjectID = "VAB-6F-u9B"; */
 "VAB-6F-u9B.normalTitle" = "url";
@@ -89,23 +89,23 @@
 /* Class = "IBUINavigationController"; title = "Nimple Code Navigation Controller"; ObjectID = "Wfz-29-qjb"; */
 "Wfz-29-qjb.title" = "Nimple Code Navigation Controller";
 
-/* Class = "IBUILabel"; text = "Gib deine Daten ein, um deine Karte zu erstellen"; ObjectID = "Wii-dy-g7L"; */
-"Wii-dy-g7L.text" = "Gib deine Daten ein, um deine Karte zu erstellen";
+/* Class = "IBUILabel"; text = "Enter your data to create your nimple-card and -code"; ObjectID = "Wii-dy-g7L"; */
+"Wii-dy-g7L.text" = "Enter your data to create your nimple-card and -code";
 
-/* Class = "IBUIButton"; normalTitle = "Kontakt löschen"; ObjectID = "YOr-K1-tjp"; */
-"YOr-K1-tjp.normalTitle" = "Kontakt löschen";
+/* Class = "IBUIButton"; normalTitle = "Delete contact"; ObjectID = "YOr-K1-tjp"; */
+"YOr-K1-tjp.normalTitle" = "Delete contact";
 
 /* Class = "IBUILabel"; text = "Max Mustermann"; ObjectID = "Yn7-yf-iBD"; */
 "Yn7-yf-iBD.text" = "Max Mustermann";
 
-/* Class = "IBUINavigationItem"; title = "Meine Kontakte"; ObjectID = "bbO-qy-7D2"; */
-"bbO-qy-7D2.title" = "Meine Kontakte";
+/* Class = "IBUINavigationItem"; title = "My Contacts"; ObjectID = "bbO-qy-7D2"; */
+"bbO-qy-7D2.title" = "My Contacts";
 
-/* Class = "IBUILabel"; text = "Unternehmen"; ObjectID = "bvn-QE-TJ3"; */
-"bvn-QE-TJ3.text" = "Unternehmen";
+/* Class = "IBUILabel"; text = "Company"; ObjectID = "bvn-QE-TJ3"; */
+"bvn-QE-TJ3.text" = "Company";
 
-/* Class = "IBUITabBarItem"; title = "Karte"; ObjectID = "ckg-b2-euJ"; */
-"ckg-b2-euJ.title" = "Karte";
+/* Class = "IBUITabBarItem"; title = "Card"; ObjectID = "ckg-b2-euJ"; */
+"ckg-b2-euJ.title" = "Card";
 
 /* Class = "IBUILabel"; text = "+00 00 00 00 00 00"; ObjectID = "dfI-T6-oOt"; */
 "dfI-T6-oOt.text" = "+00 00 00 00 00 00";
@@ -113,20 +113,20 @@
 /* Class = "IBUILabel"; text = "Label"; ObjectID = "eUw-Ie-4aV"; */
 "eUw-Ie-4aV.text" = "Label";
 
-/* Class = "IBUINavigationItem"; title = "Detailansicht"; ObjectID = "fMY-bC-Mad"; */
-"fMY-bC-Mad.title" = "Detailansicht";
+/* Class = "IBUINavigationItem"; title = "Detail view"; ObjectID = "fMY-bC-Mad"; */
+"fMY-bC-Mad.title" = "Detail view";
 
-/* Class = "IBUINavigationItem"; title = "Kontakt hinzufügen"; ObjectID = "fWH-LC-fhZ"; */
-"fWH-LC-fhZ.title" = "Kontakt hinzufügen";
+/* Class = "IBUINavigationItem"; title = "Add Contact"; ObjectID = "fWH-LC-fhZ"; */
+"fWH-LC-fhZ.title" = "Add Contact";
 
 /* Class = "IBUILabel"; text = "max@mustermann.de"; ObjectID = "fjM-m1-SNy"; */
 "fjM-m1-SNy.text" = "max@mustermann.de";
 
-/* Class = "IBUILabel"; text = "Unternehmen"; ObjectID = "gDO-kU-XDj"; */
-"gDO-kU-XDj.text" = "Unternehmen";
+/* Class = "IBUILabel"; text = "Company"; ObjectID = "gDO-kU-XDj"; */
+"gDO-kU-XDj.text" = "Company";
 
-/* Class = "IBUITabBarItem"; title = "Kontakte"; ObjectID = "hFR-7f-QgP"; */
-"hFR-7f-QgP.title" = "Kontakte";
+/* Class = "IBUITabBarItem"; title = "Contacts"; ObjectID = "hFR-7f-QgP"; */
+"hFR-7f-QgP.title" = "Contacts";
 
 /* Class = "IBUINavigationController"; title = "Nimple Card Navigation Controller"; ObjectID = "iLO-4G-LNe"; */
 "iLO-4G-LNe.title" = "Nimple Card Navigation Controller";
@@ -137,8 +137,8 @@
 /* Class = "IBUIButton"; normalTitle = "url"; ObjectID = "pKb-M4-TPz"; */
 "pKb-M4-TPz.normalTitle" = "url";
 
-/* Class = "IBUILabel"; text = "Nimple auf Facebook"; ObjectID = "ph4-30-IRp"; */
-"ph4-30-IRp.text" = "Nimple auf Facebook";
+/* Class = "IBUILabel"; text = "Nimple on Facebook"; ObjectID = "ph4-30-IRp"; */
+"ph4-30-IRp.text" = "Nimple on Facebook";
 
 /* Class = "IBUILabel"; text = "Version 1.1.0"; ObjectID = "rJn-dh-QoH"; */
 "rJn-dh-QoH.text" = "Version 1.1.0";
@@ -146,17 +146,17 @@
 /* Class = "IBUILabel"; text = "FAQ"; ObjectID = "ryK-km-Fx0"; */
 "ryK-km-Fx0.text" = "FAQ";
 
-/* Class = "IBUILabel"; text = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte & in deinem Code"; ObjectID = "sB9-zV-VmR"; */
-"sB9-zV-VmR.text" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte & in deinem Code";
+/* Class = "IBUILabel"; text = "The swipes change the visibility\non your card and -code"; ObjectID = "sB9-zV-VmR"; */
+"sB9-zV-VmR.text" = "The swipes change the visibility\non your nimple-card and -code";
 
-/* Class = "IBUIViewController"; title = "Nimple Card"; ObjectID = "taH-pF-UcH"; */
-"taH-pF-UcH.title" = "Nimple Card";
+/* Class = "IBUIViewController"; title = "Nimple-Card"; ObjectID = "taH-pF-UcH"; */
+"taH-pF-UcH.title" = "Nimple-Card";
 
-/* Class = "IBUIBarButtonItem"; title = "Speichern"; ObjectID = "u2d-9C-xQc"; */
-"u2d-9C-xQc.title" = "Speichern";
+/* Class = "IBUIBarButtonItem"; title = "Save"; ObjectID = "u2d-9C-xQc"; */
+"u2d-9C-xQc.title" = "Save";
 
-/* Class = "IBUINavigationItem"; title = "Einstellungen"; ObjectID = "udW-PA-7Pl"; */
-"udW-PA-7Pl.title" = "Einstellungen";
+/* Class = "IBUINavigationItem"; title = "Settings"; ObjectID = "udW-PA-7Pl"; */
+"udW-PA-7Pl.title" = "Settings";
 
 /* Class = "IBUIViewController"; title = "Nimple Code View Controller"; ObjectID = "wdH-3I-tgZ"; */
 "wdH-3I-tgZ.title" = "Nimple Code View Controller";
@@ -170,11 +170,11 @@
 /* Class = "IBUIButton"; normalTitle = "url"; ObjectID = "yFi-Td-LbH"; */
 "yFi-Td-LbH.normalTitle" = "url";
 
-/* Class = "IBUILabel"; text = "Impressum"; ObjectID = "yIT-Ux-pgO"; */
-"yIT-Ux-pgO.text" = "Impressum";
+/* Class = "IBUILabel"; text = "Imprint"; ObjectID = "yIT-Ux-pgO"; */
+"yIT-Ux-pgO.text" = "Imprint";
 
 /* Class = "IBUILabel"; text = "Appstronauten GbR"; ObjectID = "zo9-36-P19"; */
 "zo9-36-P19.text" = "Appstronauten GbR";
 
-/* Class = "IBUITextField"; placeholder = "Notizen"; ObjectID = "zzH-p4-t7S"; */
-"zzH-p4-t7S.placeholder" = "Notizen";
+/* Class = "IBUITextField"; placeholder = "Notes"; ObjectID = "zzH-p4-t7S"; */
+"zzH-p4-t7S.placeholder" = "Notes";
