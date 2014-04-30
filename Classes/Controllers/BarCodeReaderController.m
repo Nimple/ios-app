@@ -54,22 +54,22 @@
     _captureSession = nil;
     [self startReading];
     
-    self.alertView = [[UIAlertView alloc] initWithTitle:@"Kontakt gefunden"
-                                                message:@"Der Kontakt wurde deinen Kontakten hinzugefügt"
+    self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"msg_box_right_code_header", @"Localizable", nil)
+                                                message:NSLocalizedStringFromTable(@"msg_box_right_code_text", @"Localizable", nil)
                                                delegate:self
-                                      cancelButtonTitle:@"OK"
+                                      cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_right_code_activity", @"Localizable", nil)
                                       otherButtonTitles:nil];
     
-    self.alertView2 = [[UIAlertView alloc] initWithTitle:@"Fehlerhafter Code"
-                                                 message:@"Der nimple-code konnte nicht gescannt werden."
+    self.alertView2 = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"msg_box_wrong_code_header", @"Localizable", nil)
+                                                 message:NSLocalizedStringFromTable(@"msg_box_wrong_code_header", @"Localizable", nil)
                                                 delegate:self
-                                       cancelButtonTitle:@"Zurück"
+                                       cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_wrong_code_activity", @"Localizable", nil)
                                        otherButtonTitles:nil];
     
-    self.alertView3 = [[UIAlertView alloc] initWithTitle:@"Kontakt schon vorhanden"
-                                                 message:@"Der Kontakt ist schon vorhanden."
+    self.alertView3 = [[UIAlertView alloc] initWithTitle:nil
+                                                 message:NSLocalizedStringFromTable(@"msg_box_duplicated_contact_title", @"Localizable", nil)
                                                 delegate:self
-                                       cancelButtonTitle:@"Zurück"
+                                       cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_duplicated_code_activity", @"Localizable", nil)
                                        otherButtonTitles:nil];
     
 }
@@ -151,7 +151,7 @@
             NSRange rangeValue = [qrCodeData rangeOfString:@"BEGIN:VCARD" options:NSCaseInsensitiveSearch];
             if (rangeValue.location == NSNotFound) {
                 NSLog(@"ERROR! No valid vCard found!");
-                [NSException raise:@"No vcard found" format:@"No valid vcard defintion found in string %@ ", qrCodeData];
+                [NSException raise:@"No vcard found" format:@"No valid vcard definition found in string %@ ", qrCodeData];
             } else {
                 NSLog(@"Valid vCard found!");
                 NSMutableArray *contactData = [VCardParser getContactFromCard:qrCodeData];

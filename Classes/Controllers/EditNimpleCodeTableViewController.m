@@ -168,7 +168,7 @@
             // No propertySwitch, prename is required field
             [cell.propertySwitch setHidden:TRUE];
             if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
-                [cell.inputField setPlaceholder:@"Dein Vorname"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"firstname_label", @"Localizable", nil)];
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
         }
@@ -177,7 +177,7 @@
             // No propertySwitch, surname is required field
             [cell.propertySwitch setHidden:TRUE];
             if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
-                [cell.inputField setPlaceholder:@"Dein Nachname"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"lastname_label", @"Localizable", nil)];
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
         }
@@ -188,7 +188,7 @@
             
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
             if([[self.myNimpleCode valueForKey:@"phone"] length] == 0) {
-                [cell.inputField setPlaceholder:@"Deine Telefonnummer"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"phonenumber_label", @"Localizable", nil)];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"phone_switch"];
@@ -206,7 +206,7 @@
             [cell.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
             
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0) {
-                [cell.inputField setPlaceholder:@"Deine E-Mail Adresse"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"mail_label", @"Localizable", nil)];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"email_switch"];
@@ -224,7 +224,7 @@
             [cell.propertySwitch setOn:company_switch];
             
             if([[self.myNimpleCode valueForKey:@"company"] length] == 0) {
-                [cell.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"company_label", @"Localizable", nil)];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"company_switch"];
@@ -238,7 +238,7 @@
             [cell.propertySwitch setOn:job_switch];
             
             if([[self.myNimpleCode valueForKey:@"job"] length] == 0) {
-                [cell.inputField setPlaceholder:@"Dein Job/Position"];
+                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"job_label", @"Localizable", nil)];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"job_switch"];
@@ -273,14 +273,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"facebook_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // twitter
@@ -302,14 +302,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"twitter_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // xing
@@ -331,14 +331,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"xing_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"xing_label", @"Localizable", nil) forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // linkedin
@@ -360,14 +360,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"linkedin_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
     }
@@ -380,11 +380,11 @@
     NSString* sectionName = @"";
     
     if(section == 0)
-        sectionName = @"Persönlich";
+        sectionName = NSLocalizedStringFromTable(@"personal_label", @"Localizable", nil);
     else if(section == 1)
-        sectionName = @"Geschäftlich";
+        sectionName = NSLocalizedStringFromTable(@"business_label", @"Localizable", nil);
     else if(section == 2)
-        sectionName = @"Soziale Netzwerke";
+        sectionName = NSLocalizedStringFromTable(@"social_label", @"Localizable", nil);
     
     return sectionName;
 }
@@ -394,8 +394,8 @@
 {
     if([[self.myNimpleCode valueForKey:@"prename"] length] == 0 || [[self.myNimpleCode valueForKey:@"surname"] length] == 0) {
         UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Vor- & Nachnahme sind Pflichtfelder"
-                                  message:@"Bitte fülle deinen Vor- & Nachnamen aus!"
+                                  initWithTitle:nil
+                                  message:NSLocalizedStringFromTable(@"error_names", @"Localizable", nil)
                                   delegate:self
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];

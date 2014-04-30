@@ -46,7 +46,7 @@
     // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+    [dateFormatter setDateFormat:NSLocalizedStringFromTable(@"date_format", @"Localizable", nil)];
     NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
     
     // Set labels
@@ -55,7 +55,13 @@
     [self.emailLabel setText:self.nimpleContact.email];
     [self.companyLabel setText:self.nimpleContact.company];
     [self.jobLabel setText:self.nimpleContact.job];
-    [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
+    
+    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if([language isEqualToString:@"de"]) {
+        [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
+    } else {
+        [self.timestampLabel setText:[NSString stringWithFormat:@"%@", formattedDate]];
+    }
     [self.notesTextField setText:self.nimpleContact.note];
     
     // Social icons
@@ -67,7 +73,7 @@
         [self.facebookURL setTitle:facebook_URL forState:UIControlStateNormal];
     } else {
         [self.facebookIcon setAlpha:0.2];
-        [self.facebookURL setTitle:@"Kein Facebook-Profil" forState:UIControlStateNormal];
+        [self.facebookURL setTitle:NSLocalizedStringFromTable(@"detail_facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
     }
     
     // twitter
@@ -78,7 +84,7 @@
         [self.twitterURL setTitle:twitter_URL forState:UIControlStateNormal];
     } else {
         [self.twitterIcon setAlpha:0.2];
-        [self.twitterURL setTitle:@"Kein Twitter-Profil" forState:UIControlStateNormal];
+        [self.twitterURL setTitle:NSLocalizedStringFromTable(@"detail_twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
     }
     
     // xing
@@ -88,7 +94,7 @@
         [self.xingURL setTitle:xing_URL forState:UIControlStateNormal];
     } else {
         [self.xingIcon setAlpha:0.2];
-        [self.xingURL setTitle:@"Kein XING-Profil" forState:UIControlStateNormal];
+        [self.xingURL setTitle:NSLocalizedStringFromTable(@"detail_xing_label", @"Localizable", nil) forState:UIControlStateNormal];
     }
     
     // linkedin
@@ -98,27 +104,23 @@
         [self.linkedinURL setTitle:linkedin_URL forState:UIControlStateNormal];
     } else {
         [self.linkedinIcon setAlpha:0.2];
-        [self.linkedinURL setTitle:@"Kein LinkedIn-Profil" forState:UIControlStateNormal];
+        [self.linkedinURL setTitle:NSLocalizedStringFromTable(@"detail_linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
     }
     
     // Initalize action sheets
-    NSString *destructiveTitle = @"Löschen";
-    NSString *cancelTitle = @"Abbrechen";
     self.actionSheetDelete = [[UIActionSheet alloc]
-                              initWithTitle:@"Kontakt wirklich löschen?"
+                              initWithTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_title", @"Localizable", nil)
                               delegate:self
-                              cancelButtonTitle:cancelTitle
-                              destructiveButtonTitle:destructiveTitle
+                              cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity1", @"Localizable", nil)
+                              destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity2", @"Localizable", nil)
                               otherButtonTitles: nil];
     
-    NSString *addNewTitle = @"Speichern";
     self.actionSheetAddressbook = [[UIActionSheet alloc]
-                                   initWithTitle:@"Kontakt ins Adressbuch speichern"
+                                   initWithTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_title", @"Localizable", nil)
                                    delegate:self
-                                   cancelButtonTitle:cancelTitle
-                                   destructiveButtonTitle:addNewTitle
-                                   otherButtonTitles: nil
-                                   ];
+                                   cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity1", @"Localizable", nil)
+                                   destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity2", @"Localizable", nil)
+                                   otherButtonTitles: nil];
     
     // Initialize on tap recognizer for mail and phone labels
     UITapGestureRecognizer *phoneTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneButtonClicked:)];
@@ -304,8 +306,8 @@
 }
 
 -(void)showAlertView {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Kein Zugriff auf Kontakte"
-                                                      message:@"Nimple hat keinen Zugriff auf deine Kontakte. Bitte aktiviere den Zugang zu deinen Kontakten unter iPhone Einstellungen > Datenschutz > Kontakte > Nimple."
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"contacts_no_access_title", @"Localizable", nil)
+                                                      message:NSLocalizedStringFromTable(@"contacts_no_access_text", @"Localizable", nil)
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];

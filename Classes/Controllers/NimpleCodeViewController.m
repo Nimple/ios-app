@@ -10,7 +10,7 @@
 #import "BarCodeReaderController.h"
 
 // Static template for generating vCards
-static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:%@\nEMAIL:%@\nORG:%@\nROLE:%@\nURL:%@\nX-FACEBOOK-ID:%@\nURL:%@\nX-TWITTER-ID:%@\nURL:%@\nURL:%@\nEND:VCARD";
+static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:%@\nEMAIL:%@\nORG:%@\nTITLE:%@\nURL:%@\nX-FACEBOOK-ID:%@\nURL:%@\nX-TWITTER-ID:%@\nURL:%@\nURL:%@\nEND:VCARD";
 
 static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
@@ -61,7 +61,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"N:%@;%@\n" forKey:@"vcard_name"];
     [VCARD_TEMPLATE_DIC setObject:@"TEL;CELL:%@\n" forKey:@"vcard_phone"];
     [VCARD_TEMPLATE_DIC setObject:@"EMAIL:%@\n" forKey:@"vcard_email"];
-    [VCARD_TEMPLATE_DIC setObject:@"ROLE:%@\n" forKey:@"vcard_role"];
+    [VCARD_TEMPLATE_DIC setObject:@"TITLE:%@\n" forKey:@"vcard_role"];
     [VCARD_TEMPLATE_DIC setObject:@"ORG:%@\n" forKey:@"vcard_organisation"];
     [VCARD_TEMPLATE_DIC setObject:@"X-FACEBOOK-ID:%@\n" forKey:@"vcard_facebook_id"];
     [VCARD_TEMPLATE_DIC setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];

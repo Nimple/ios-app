@@ -78,8 +78,8 @@
 }
 
 - (IBAction)feedbackClicked:(id)sender {
-    NSString *recipient = @"feedback.iOS@nimple.de";
-    NSString *topic = @"[Feedback] Nimple iOS App";
+    NSString *recipient = NSLocalizedStringFromTable(@"mail_first_contact_label", @"Localizable", nil);
+    NSString *topic = NSLocalizedStringFromTable(@"settings.feedback-header", @"Localizable", nil);
     NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Localizable", nil);
     
     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];

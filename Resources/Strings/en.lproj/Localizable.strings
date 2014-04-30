@@ -96,3 +96,11 @@
 "msg_box_save_contact_activity1" = "Save";
 
 "msg_box_save_contact_activity2" = "Cancel";
+
+
+"contacts_no_access_title" = "No access to contacts";
+
+"contacts_no_access_text" = "The Nimple app does not have access to your contacts. Please enable access to your contacts in iPhone Settings > Privacy > Contacts > Nimple.";
+
+
+"error_names" = "Please fill in first name and last name.";
