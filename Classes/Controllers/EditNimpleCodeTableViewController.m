@@ -280,7 +280,7 @@
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // twitter
@@ -309,7 +309,7 @@
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // xing
@@ -338,7 +338,7 @@
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
         // linkedin
@@ -353,7 +353,6 @@
             [cell setSection:2];
             [cell setIndex:3];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
-            [cell.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
             
             NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
             if(linkedin_URL.length == 0)
@@ -367,7 +366,7 @@
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
             }
         }
     }

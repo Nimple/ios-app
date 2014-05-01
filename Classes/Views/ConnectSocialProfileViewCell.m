@@ -85,7 +85,7 @@
         {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
-            [self.connectStatusButton setTitle:@"mit twitter verbinden" forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
         }
@@ -98,7 +98,7 @@
             [self deauthorizeWithCompletion:^{
                 [self.socialNetworkButton setAlpha:0.3];
                 [self animatePropertySwitchVisibilityTo:0.0];
-                [self.connectStatusButton setTitle:@"mit XING verbinden" forState:UIControlStateNormal];
+                [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"xing_label", @"Localizable", nil) forState:UIControlStateNormal];
                 [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
             }];
         }
@@ -110,7 +110,7 @@
         {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
-            [self.connectStatusButton setTitle:@"mit LinkedIn verbinden" forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
         }
     }
@@ -187,7 +187,7 @@
                     {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self.socialNetworkButton setAlpha:1.0];
-                            [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
                             [self animatePropertySwitchVisibilityTo:1.0];
                         });
                         ACAccount *twitterAccount = [accountsArray lastObject];
@@ -216,7 +216,7 @@
         // Handling log out
         else
         {
-            self.actionSheet.title = @"Loggd in using twitter";
+            self.actionSheet.title = @"Logged in using twitter";
             [self.actionSheet showInView:self.superview.superview];
         }
     }
@@ -234,7 +234,7 @@
         
         if([self.networkManager isAuthorized])
         {
-            self.actionSheet.title = @"Loggd in using XING";
+            self.actionSheet.title = @"Logged in using XING";
             [self.actionSheet showInView:self.superview.superview];
         }
         else
@@ -257,7 +257,7 @@
                      {
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [self.socialNetworkButton setAlpha:1.0];
-                             [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                             [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
                              [self animatePropertySwitchVisibilityTo:1.0];
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
@@ -286,7 +286,7 @@
         // Handling log out
         else
         {
-            self.actionSheet.title = @"Loggd in using LinkedIn";
+            self.actionSheet.title = @"Logged in using LinkedIn";
             [self.actionSheet showInView:self.superview.superview];
         }
     }
@@ -354,7 +354,7 @@
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     [self.socialNetworkButton setAlpha:0.3];
     [self animatePropertySwitchVisibilityTo:0.0];
-    [self.connectStatusButton setTitle:@"mit facebook verbinden" forState:UIControlStateNormal];
+    [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     [viewController.myNimpleCode setValue:@"" forKey:@"facebook_ID"];
@@ -371,7 +371,7 @@
     [viewController.myNimpleCode setValue:user.link forKey:@"facebook_URL"];
     [viewController.myNimpleCode synchronize];
     [self.socialNetworkButton setAlpha:1.0];
-    [self.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+    [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
     [self animatePropertySwitchVisibilityTo:1.0];
 }
 
