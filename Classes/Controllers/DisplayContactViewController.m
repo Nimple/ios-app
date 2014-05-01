@@ -111,15 +111,15 @@
     self.actionSheetDelete = [[UIActionSheet alloc]
                               initWithTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_title", @"Localizable", nil)
                               delegate:self
-                              cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity1", @"Localizable", nil)
-                              destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity2", @"Localizable", nil)
+                              cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity2", @"Localizable", nil)
+                              destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity1", @"Localizable", nil)
                               otherButtonTitles: nil];
     
     self.actionSheetAddressbook = [[UIActionSheet alloc]
                                    initWithTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_title", @"Localizable", nil)
                                    delegate:self
-                                   cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity1", @"Localizable", nil)
-                                   destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity2", @"Localizable", nil)
+                                   cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity2", @"Localizable", nil)
+                                   destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity1", @"Localizable", nil)
                                    otherButtonTitles: nil];
     
     // Initialize on tap recognizer for mail and phone labels
