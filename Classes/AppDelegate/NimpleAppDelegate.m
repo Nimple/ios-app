@@ -174,7 +174,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
                                                                    [self.xingTableViewCell animatePropertySwitchVisibilityTo:1.0];
                                                                    
-                                                                   [self.xingTableViewCell.connectStatusButton setTitle:@"verbunden" forState:UIControlStateNormal];
+                                                                   [self.xingTableViewCell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
                                                                });
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];
