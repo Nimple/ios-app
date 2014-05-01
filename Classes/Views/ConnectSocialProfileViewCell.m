@@ -367,7 +367,7 @@
 {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    [viewController.myNimpleCode setValue:user.id forKey:@"facebook_ID"];
+    [viewController.myNimpleCode setValue:[user objectForKey:@"id"] forKey:@"facebook_ID"];
     [viewController.myNimpleCode setValue:user.link forKey:@"facebook_URL"];
     [viewController.myNimpleCode synchronize];
     [self.socialNetworkButton setAlpha:1.0];
