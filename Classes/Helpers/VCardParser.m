@@ -19,6 +19,7 @@
     NSLog(@"Lines are %@", lines);
 
     NSString *role = @"";
+    NSString *title = @"";
     
     for(NSString *line in lines) {
         // in order to have a clean db entry
@@ -58,11 +59,9 @@
                 contactData[5] = company;
             }
         } else if ([newLine hasPrefix:@"TITLE"]) {
-            NSString *title = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
-            contactData[4] = title;
+            title = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
         } else if ([newLine hasPrefix:@"ROLE"]) {
-            NSString *title = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
-            role = title;
+            role = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
         } else if ([newLine hasPrefix:@"URL"]) {
             NSString *url = [newLine substringFromIndex:4];
             
@@ -88,8 +87,10 @@
     }
     
     // check for ROLE instead of TITLE
-    if(role.length != 0 && contactData[4] == 0) {
+    if(role.length != 0 && title.length == 0) {
         contactData[4] = role;
+    } else {
+        contactData[4] = title;
     }
     
     NSLog(@"Contact parsed: %@", contactData);
