@@ -286,14 +286,16 @@
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
         ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
-            if (granted) {
-                // First time access has been granted, add the contact
-                [self addToAddressBook];
-            } else {
-                // User denied access
-                // Display an alert telling user the contact could not be added
-                [self showAlertView];
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (granted) {
+                    // First time access has been granted, add the contact
+                    [self addToAddressBook];
+                } else {
+                    // User denied access
+                    // Display an alert telling user the contact could not be added
+                    [self showAlertView];
+                }
+            });
         });
     } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
         // The user has previously given access, add the contact
