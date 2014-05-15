@@ -329,8 +329,8 @@
     }
     
     // FirstNameProperty and LastNameProperty seem to be swapped!
-    ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
-    ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
+    ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
+    ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
     
     if (![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
