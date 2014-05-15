@@ -244,9 +244,9 @@
 				B5408B0E1904A1D60033DF1A /* ConnectSocialProfileViewCell.h */,
 				B5408B0F1904A1D60033DF1A /* ConnectSocialProfileViewCell.m */,
 				B5408B101904A1D60033DF1A /* ContactTableViewCell.h */,
-				B5408B111904A1D60033DF1A /* ContactTableViewCell.m */,
 				B5408B121904A1D60033DF1A /* EditInputViewCell.h */,
 				B5408B131904A1D60033DF1A /* EditInputViewCell.m */,
+				B5408B111904A1D60033DF1A /* ContactTableViewCell.m */,
 				D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */,
 			);
 			path = Views;

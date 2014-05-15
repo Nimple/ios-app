@@ -65,6 +65,17 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     // Init Persistence Manager
     [NimpleContactPersistenceManager getInstance:context];
     
+    // bootstrap -> create initial contact
+    // Add default contact
+    BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
+    if(!exampleUserDidExist) {
+        NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NSLocalizedStringFromTable(@"company_first_contact_label", @"Localizable", nil) FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"" TwitterID:nil XingURL:@"" LinkedInURL:@"" Created:[NSDate date] ContactHash:@"" Note:@""];
+        NSError *error;
+        [self.managedObjectContext save:&error];
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];
+    }
+    
     // Find and setup view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
