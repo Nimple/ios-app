@@ -10,10 +10,10 @@
 #import "NimpleAppDelegate.h"
 
 // dev token
-#define MIXPANEL_TOKEN @"6e3eeca24e9b2372e8582b381295ca0c"
+//#define MIXPANEL_TOKEN @"6e3eeca24e9b2372e8582b381295ca0c"
 
 // prod token
-//#define MIXPANEL_TOKEN @"c0d8c866df9c197644c6087495151c7e"
+#define MIXPANEL_TOKEN @"c0d8c866df9c197644c6087495151c7e"
 
 // hash of flyer contact
 #define FLYER_CONTACT_HASH @"9d2b064c3d89c867916c5329f079fa66"
@@ -70,14 +70,14 @@
     //    }
     
     NSDictionary *properties = @{
-                                 @"has phone number": ownNimpleCode[@"phone"],
-                                 @"has mail address": ownNimpleCode[@"email"],
-                                 @"has company": ownNimpleCode[@"company"],
-                                 @"has job title": ownNimpleCode[@"job"],
-                                 @"has facebook": ownNimpleCode[@"facebook_URL"],
-                                 @"has twitter": ownNimpleCode[@"twitter_URL"],
-                                 @"has xing": ownNimpleCode[@"xing_URL"],
-                                 @"has linkedin": ownNimpleCode[@"linkedin_URL"]
+                                 @"has phone number": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"phone"]],
+                                 @"has mail address": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"email"]],
+                                 @"has company": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"company"]],
+                                 @"has job title": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"job"]],
+                                 @"has facebook": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"facebook_URL"]],
+                                 @"has twitter": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"twitter_URL"]],
+                                 @"has xing": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"xing_URL"]],
+                                 @"has linkedin": [self checkForEmptyStringAndFormatOutput:ownNimpleCode[@"linkedin_URL"]]
                                  };
     [mixpanel track:@"nimple code edited" properties:properties];
 }
