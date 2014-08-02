@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B22E34E198D251B0010C87A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */; };
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
@@ -36,7 +37,6 @@
 		D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7018B432F700C5850F /* Foundation.framework */; };
 		D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7218B432F700C5850F /* CoreGraphics.framework */; };
 		D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D151DA7418B432F700C5850F /* UIKit.framework */; };
-		D18F7A2B191068C000EDCE32 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */; };
 		D1ABE42E18C1F50F00154101 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D1ABE42D18C1F50F00154101 /* Podfile */; };
 		D1B25C4B18D4B9890046A333 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B25C4A18D4B9890046A333 /* Accounts.framework */; };
 		D1CB490218C4EE9700414E5D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1CB490118C4EE9700414E5D /* MessageUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -46,12 +46,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
-		B5120AB11911A6F8001149E7 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B526D76B1909AB1000055177 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		B526D76C1909AB1000055177 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
 		B53CD2381904AAB200928B43 /* VCardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardParser.h; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				B5408B121904A1D60033DF1A /* EditInputViewCell.h */,
 				B5408B131904A1D60033DF1A /* EditInputViewCell.m */,
 				B5408B111904A1D60033DF1A /* ContactTableViewCell.m */,
-				D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */,
+				4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,9 +355,9 @@
 			files = (
 				B56489991910705400210198 /* Localizable.strings in Resources */,
 				B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */,
+				4B22E34E198D251B0010C87A /* Main_iPhone.storyboard in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
 				B5408B281904A2370033DF1A /* README.md in Resources */,
-				D18F7A2B191068C000EDCE32 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,14 +432,6 @@
 				D14A36A119118B750069A063 /* de */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		D18F7A2D191068C000EDCE32 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5120AB11911A6F8001149E7 /* de */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
