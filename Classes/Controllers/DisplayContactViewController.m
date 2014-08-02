@@ -34,7 +34,7 @@
     // Setup scroll view
     [self.scrollView setDelegate:self];
     [self.scrollView setScrollEnabled:TRUE];
-    self.scrollView.contentSize = CGSizeMake(320, 700);
+    self.scrollView.contentSize = CGSizeMake(320, 753);
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
     self.scrollView.frame = self.view.frame;

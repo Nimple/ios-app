@@ -15,6 +15,9 @@
     #import <Foundation/Foundation.h>
 #endif
 
+// NSLocalizedStringFromTable(@"twitter_label", @"Localizable", nil)
+#define NimpleLocalizedString(key) NSLocalizedString(key, @"")
+
 #ifndef DEBUG
     #define NSLog(...) /* suppress NSLog when in release mode */
 #endif

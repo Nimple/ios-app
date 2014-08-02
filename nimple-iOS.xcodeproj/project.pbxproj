@@ -45,51 +45,13 @@
 		D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E55F1618C1F1450035D828 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9E43A06318DD0299001BE620 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 21926546482C42A6822E195B;
-			remoteInfo = "Pods-IOSLinkedInAPI";
-		};
-		9EDAEC9718DDBE0700FF164F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F1FA0DB1863146A7B4408119;
-			remoteInfo = "Pods-BDBOAuth1Manager";
-		};
-		B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A1BB4A0476F84F4EB34F430C;
-			remoteInfo = Pods;
-		};
-		B5B20A8218D5CD5900356B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3FD8D73BC84C41B09110BD4E;
-			remoteInfo = "Pods-AFNetworking";
-		};
-		B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79F7E2F5F38E4DF29C0C1C2A;
-			remoteInfo = "Pods-Mixpanel";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		B5120AB11911A6F8001149E7 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		B5120AB21911A6F8001149E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B526D76B1909AB1000055177 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		B526D76C1909AB1000055177 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
 		B53CD2381904AAB200928B43 /* VCardParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardParser.h; sourceTree = "<group>"; };
@@ -124,7 +86,6 @@
 		B55B895619049AC400561F17 /* nimple-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nimple-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nimple-iOS-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B564899C1910706D00210198 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		B5BE972919053FD100F49DEC /* DisplayContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayContactViewController.h; sourceTree = "<group>"; };
 		B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayContactViewController.m; sourceTree = "<group>"; };
 		B5E1AE021909C3330051589D /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
@@ -279,18 +240,6 @@
 			path = "nimple-iOS";
 			sourceTree = "<group>";
 		};
-		B5B20A7A18D5CD5900356B50 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B5B20A8118D5CD5900356B50 /* libPods.a */,
-				B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */,
-				9EDAEC9818DDBE0700FF164F /* libPods-BDBOAuth1Manager.a */,
-				9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */,
-				B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B5E953E4190C18670024AEC6 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,7 +260,6 @@
 				B5408B271904A2370033DF1A /* README.md */,
 				D1ABE42D18C1F50F00154101 /* Podfile */,
 				C11D1B32A73841EF9434D94B /* Pods.xcconfig */,
-				B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,56 +341,12 @@
 			mainGroup = D151DA6418B432F700C5850F;
 			productRefGroup = D151DA6E18B432F700C5850F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B5B20A7A18D5CD5900356B50 /* Products */;
-					ProjectRef = B5B20A7918D5CD5900356B50 /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D151DA6C18B432F700C5850F /* nimple-iOS */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9E43A06418DD0299001BE620 /* libPods-IOSLinkedInAPI.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-IOSLinkedInAPI.a";
-			remoteRef = 9E43A06318DD0299001BE620 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9EDAEC9818DDBE0700FF164F /* libPods-BDBOAuth1Manager.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-BDBOAuth1Manager.a";
-			remoteRef = 9EDAEC9718DDBE0700FF164F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B5B20A8118D5CD5900356B50 /* libPods.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPods.a;
-			remoteRef = B5B20A8018D5CD5900356B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B5B20A8318D5CD5900356B50 /* libPods-AFNetworking.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-AFNetworking.a";
-			remoteRef = B5B20A8218D5CD5900356B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B5B20A8718D5CD5900356B50 /* libPods-Mixpanel.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-Mixpanel.a";
-			remoteRef = B5B20A8618D5CD5900356B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D151DA6B18B432F700C5850F /* Resources */ = {
@@ -534,7 +438,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				B5120AB11911A6F8001149E7 /* de */,
-				B5120AB21911A6F8001149E7 /* en */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -690,9 +593,10 @@
 			isa = XCVersionGroup;
 			children = (
 				B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */,
+				4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */,
 				B5408B0A1904A1D60033DF1A /* DataModel.xcdatamodel */,
 			);
-			currentVersion = B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */;
+			currentVersion = 4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

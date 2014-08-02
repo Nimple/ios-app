@@ -162,10 +162,8 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     }
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
     if ([url.scheme isEqualToString:@"oauth"]) {
         if ([url.host isEqualToString:@"xing"]) {
             NSDictionary *parameters = [NSDictionary dictionaryFromQueryString:url.query];
