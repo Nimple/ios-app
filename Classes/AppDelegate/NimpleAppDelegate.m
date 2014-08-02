@@ -70,7 +70,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
     if(!exampleUserDidExist) {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NSLocalizedStringFromTable(@"company_first_contact_label", @"Localizable", nil) FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"https://twitter.com/Nimpleapp" TwitterID:@"2444364654" XingURL:@"https://www.xing.com/companies/appstronautengbr" LinkedInURL:@"https://www.linkedin.com/company/appstronauten-gbr" Created:[NSDate date] ContactHash:@"" Note:@""];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NimpleLocalizedString(@"company_first_contact_label") FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"https://twitter.com/Nimpleapp" TwitterID:@"2444364654" XingURL:@"https://www.xing.com/companies/appstronautengbr" LinkedInURL:@"https://www.linkedin.com/company/appstronauten-gbr" Created:[NSDate date] ContactHash:@"" Note:@""];
         NSError *error;
         [self.managedObjectContext save:&error];
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];
@@ -183,7 +183,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
                                                                    [self.xingTableViewCell.socialNetworkButton setAlpha:1.0];
                                                                    [self.xingTableViewCell animatePropertySwitchVisibilityTo:1.0];
                                                                    
-                                                                   [self.xingTableViewCell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                                                                   [self.xingTableViewCell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
                                                                });
                                                                
                                                                NSUserDefaults *myNimpleCode = [NSUserDefaults standardUserDefaults];

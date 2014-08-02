@@ -46,7 +46,7 @@
     // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:NSLocalizedStringFromTable(@"date_format", @"Localizable", nil)];
+    [dateFormatter setDateFormat:NimpleLocalizedString(@"date_format")];
     NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
     
     // Set labels
@@ -73,7 +73,7 @@
         [self.facebookURL setTitle:facebook_URL forState:UIControlStateNormal];
     } else {
         [self.facebookIcon setAlpha:0.2];
-        [self.facebookURL setTitle:NSLocalizedStringFromTable(@"detail_facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.facebookURL setTitle:NimpleLocalizedString(@"detail_facebook_label") forState:UIControlStateNormal];
     }
     
     // twitter
@@ -84,7 +84,7 @@
         [self.twitterURL setTitle:twitter_URL forState:UIControlStateNormal];
     } else {
         [self.twitterIcon setAlpha:0.2];
-        [self.twitterURL setTitle:NSLocalizedStringFromTable(@"detail_twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.twitterURL setTitle:NimpleLocalizedString(@"detail_twitter_label") forState:UIControlStateNormal];
     }
     
     // xing
@@ -94,7 +94,7 @@
         [self.xingURL setTitle:xing_URL forState:UIControlStateNormal];
     } else {
         [self.xingIcon setAlpha:0.2];
-        [self.xingURL setTitle:NSLocalizedStringFromTable(@"detail_xing_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.xingURL setTitle:NimpleLocalizedString(@"detail_xing_label") forState:UIControlStateNormal];
     }
     
     // linkedin
@@ -104,22 +104,22 @@
         [self.linkedinURL setTitle:linkedin_URL forState:UIControlStateNormal];
     } else {
         [self.linkedinIcon setAlpha:0.2];
-        [self.linkedinURL setTitle:NSLocalizedStringFromTable(@"detail_linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.linkedinURL setTitle:NimpleLocalizedString(@"detail_linkedin_label") forState:UIControlStateNormal];
     }
     
     // Initalize action sheets
     self.actionSheetDelete = [[UIActionSheet alloc]
-                              initWithTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_title", @"Localizable", nil)
+                              initWithTitle:NimpleLocalizedString(@"msg_box_delete_contact_title")
                               delegate:self
-                              cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity2", @"Localizable", nil)
-                              destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity1", @"Localizable", nil)
+                              cancelButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity2")
+                              destructiveButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity1")
                               otherButtonTitles: nil];
     
     self.actionSheetAddressbook = [[UIActionSheet alloc]
-                                   initWithTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_title", @"Localizable", nil)
+                                   initWithTitle:NimpleLocalizedString(@"msg_box_save_contact_title")
                                    delegate:self
-                                   cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity2", @"Localizable", nil)
-                                   destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity1", @"Localizable", nil)
+                                   cancelButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity2")
+                                   destructiveButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity1")
                                    otherButtonTitles: nil];
     
     // Initialize on tap recognizer for mail and phone labels
@@ -308,8 +308,8 @@
 }
 
 -(void)showAlertView {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"contacts_no_access_title", @"Localizable", nil)
-                                                      message:NSLocalizedStringFromTable(@"contacts_no_access_text", @"Localizable", nil)
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"contacts_no_access_title")
+                                                      message:NimpleLocalizedString(@"contacts_no_access_text")
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];

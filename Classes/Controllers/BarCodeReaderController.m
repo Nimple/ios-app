@@ -54,22 +54,22 @@
     _captureSession = nil;
     [self startReading];
     
-    self.alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"msg_box_right_code_header", @"Localizable", nil)
-                                                message:NSLocalizedStringFromTable(@"msg_box_right_code_text", @"Localizable", nil)
+    self.alertView = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header")
+                                                message:NimpleLocalizedString(@"msg_box_right_code_text")
                                                delegate:self
-                                      cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_right_code_activity", @"Localizable", nil)
+                                      cancelButtonTitle:NimpleLocalizedString(@"msg_box_right_code_activity")
                                       otherButtonTitles:nil];
     
-    self.alertView2 = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"msg_box_wrong_code_header", @"Localizable", nil)
-                                                 message:NSLocalizedStringFromTable(@"msg_box_wrong_code_header", @"Localizable", nil)
+    self.alertView2 = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_wrong_code_header")
+                                                 message:NimpleLocalizedString(@"msg_box_wrong_code_header")
                                                 delegate:self
-                                       cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_wrong_code_activity", @"Localizable", nil)
+                                       cancelButtonTitle:NimpleLocalizedString(@"msg_box_wrong_code_activity")
                                        otherButtonTitles:nil];
     
     self.alertView3 = [[UIAlertView alloc] initWithTitle:nil
-                                                 message:NSLocalizedStringFromTable(@"msg_box_duplicated_contact_title", @"Localizable", nil)
+                                                 message:NimpleLocalizedString(@"msg_box_duplicated_contact_title")
                                                 delegate:self
-                                       cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_duplicated_code_activity", @"Localizable", nil)
+                                       cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity")
                                        otherButtonTitles:nil];
     
 }

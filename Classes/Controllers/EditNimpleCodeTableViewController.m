@@ -168,7 +168,7 @@
             // No propertySwitch, prename is required field
             [cell.propertySwitch setHidden:TRUE];
             if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"firstname_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"firstname_label")];
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
         }
@@ -177,7 +177,7 @@
             // No propertySwitch, surname is required field
             [cell.propertySwitch setHidden:TRUE];
             if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"lastname_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
         }
@@ -188,7 +188,7 @@
             
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
             if([[self.myNimpleCode valueForKey:@"phone"] length] == 0) {
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"phonenumber_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"phone_switch"];
@@ -206,7 +206,7 @@
             [cell.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
             
             if([[self.myNimpleCode valueForKey:@"email"] length] == 0) {
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"mail_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"mail_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"email_switch"];
@@ -224,7 +224,7 @@
             [cell.propertySwitch setOn:company_switch];
             
             if([[self.myNimpleCode valueForKey:@"company"] length] == 0) {
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"company_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"company_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"company_switch"];
@@ -238,7 +238,7 @@
             [cell.propertySwitch setOn:job_switch];
             
             if([[self.myNimpleCode valueForKey:@"job"] length] == 0) {
-                [cell.inputField setPlaceholder:NSLocalizedStringFromTable(@"job_label", @"Localizable", nil)];
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"job_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
                 [self.myNimpleCode setBool:TRUE forKey:@"job_switch"];
@@ -273,14 +273,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"facebook_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"facebook_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
         // twitter
@@ -302,14 +302,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"twitter_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"twitter_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
         // xing
@@ -331,14 +331,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"xing_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"xing_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"xing_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
         // linkedin
@@ -359,14 +359,14 @@
             {
                 [self.myNimpleCode setBool:TRUE forKey:@"linkedin_switch"];
                 [cell.socialNetworkButton setAlpha:0.3];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"linkedin_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
             }
             else
             {
                 [cell.socialNetworkButton setAlpha:1.0];
-                [cell.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
     }
@@ -379,11 +379,11 @@
     NSString* sectionName = @"";
     
     if(section == 0)
-        sectionName = NSLocalizedStringFromTable(@"personal_label", @"Localizable", nil);
+        sectionName = NimpleLocalizedString(@"personal_label");
     else if(section == 1)
-        sectionName = NSLocalizedStringFromTable(@"business_label", @"Localizable", nil);
+        sectionName = NimpleLocalizedString(@"business_label");
     else if(section == 2)
-        sectionName = NSLocalizedStringFromTable(@"social_label", @"Localizable", nil);
+        sectionName = NimpleLocalizedString(@"social_label");
     
     return sectionName;
 }
@@ -394,7 +394,7 @@
     if([[self.myNimpleCode valueForKey:@"prename"] length] == 0 || [[self.myNimpleCode valueForKey:@"surname"] length] == 0) {
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:nil
-                                  message:NSLocalizedStringFromTable(@"error_names", @"Localizable", nil)
+                                  message:NimpleLocalizedString(@"error_names")
                                   delegate:self
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];

@@ -85,7 +85,7 @@
         {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
-            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:NimpleLocalizedString(@"twitter_label") forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
             [viewController.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
         }
@@ -98,7 +98,7 @@
             [self deauthorizeWithCompletion:^{
                 [self.socialNetworkButton setAlpha:0.3];
                 [self animatePropertySwitchVisibilityTo:0.0];
-                [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"xing_label", @"Localizable", nil) forState:UIControlStateNormal];
+                [self.connectStatusButton setTitle:NimpleLocalizedString(@"xing_label") forState:UIControlStateNormal];
                 [viewController.myNimpleCode setValue:@"" forKey:@"xing_URL"];
             }];
         }
@@ -110,7 +110,7 @@
         {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
-            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
+            [self.connectStatusButton setTitle:NimpleLocalizedString(@"linkedin_label") forState:UIControlStateNormal];
             [viewController.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
         }
     }
@@ -187,7 +187,7 @@
                     {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self.socialNetworkButton setAlpha:1.0];
-                            [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                            [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
                             [self animatePropertySwitchVisibilityTo:1.0];
                         });
                         ACAccount *twitterAccount = [accountsArray lastObject];
@@ -257,7 +257,7 @@
                      {
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [self.socialNetworkButton setAlpha:1.0];
-                             [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+                             [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
                              [self animatePropertySwitchVisibilityTo:1.0];
                          });
                          NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
@@ -354,7 +354,7 @@
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
     [self.socialNetworkButton setAlpha:0.3];
     [self animatePropertySwitchVisibilityTo:0.0];
-    [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
+    [self.connectStatusButton setTitle:NimpleLocalizedString(@"facebook_label") forState:UIControlStateNormal];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     [viewController.myNimpleCode setValue:@"" forKey:@"facebook_ID"];
@@ -371,7 +371,7 @@
     [viewController.myNimpleCode setValue:user.link forKey:@"facebook_URL"];
     [viewController.myNimpleCode synchronize];
     [self.socialNetworkButton setAlpha:1.0];
-    [self.connectStatusButton setTitle:NSLocalizedStringFromTable(@"connected_label", @"Localizable", nil) forState:UIControlStateNormal];
+    [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
     [self animatePropertySwitchVisibilityTo:1.0];
 }
 

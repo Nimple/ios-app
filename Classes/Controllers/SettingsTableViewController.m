@@ -71,16 +71,16 @@
 }
 
 - (IBAction)shareNimpleClicked:(id)sender {
-    NSString *shareText = NSLocalizedStringFromTable(@"settings.share-text", @"Localizable", nil);
+    NSString *shareText = NimpleLocalizedString(@"settings.share-text");
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (IBAction)feedbackClicked:(id)sender {
-    NSString *recipient = NSLocalizedStringFromTable(@"mail_first_contact_label", @"Localizable", nil);
-    NSString *topic = NSLocalizedStringFromTable(@"settings.feedback-header", @"Localizable", nil);
-    NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Localizable", nil);
+    NSString *recipient = NimpleLocalizedString(@"mail_first_contact_label");
+    NSString *topic = NimpleLocalizedString(@"settings.feedback-header");
+    NSString *text = NimpleLocalizedString(@"settings.feedback-text");
     
     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
     [mailVC setMailComposeDelegate:self];
