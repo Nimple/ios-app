@@ -14,13 +14,13 @@
 
 "phonenumber_label" = "Número de teléfono";
 
-"mail_label" = "Dirección electronica";
+"mail_label" = "Correo";
 
 "business_label" = "COMERCIAL";
 
-"company_label" = "Entidad/Universidad/Escuela";
+"company_label" = "Empresa/Universidad/Escuela";
 
-"job_label" = "Empleo/Posición";
+"job_label" = "Cargo/Posición";
 
 "social_label" = "SOCIAL NETWORKS";
 
@@ -86,7 +86,7 @@
 "msg_box_delete_contact_activity2" = "Cancelar";
 
 
-"msg_box_duplicated_contact_title" = "Ya existe un contacto en su lista de contactos.";
+"msg_box_duplicated_contact_title" = "Ya existe un contacto en su contactos.";
 
 "msg_box_duplicated_code_activity" = "OK";
 
@@ -100,7 +100,7 @@
 
 "contacts_no_access_title" = "No hay acceso a los contactos";
 
-"contacts_no_access_text" = "La aplicación Nimple no tiene acceso a sus contactos. Por favor, activa el acceso a sus contactos en Configuración de iPhone > Privacidad > Contactos > Nimple.";
+"contacts_no_access_text" = "Esta aplicación no tiene acceso a sus contactos. Por favor active el acceso a sus contactos en Ajustes iPhone > Privacidad > Contactos > Nimple.";
 
 
 "error_names" = "Por favor, rellene el nombre y apellido.";
