@@ -1,0 +1,106 @@
+/*
+ Localizable.strings
+ nimple-iOS
+ 
+ Created by Sebastian Lang on 09/08/14.
+ Copyright (c) 2014 nimple. All rights reserved.
+ */
+
+"personal_label" = "PERSONAL";
+
+"firstname_label" = "Nombre";
+
+"lastname_label" = "Apellido";
+
+"phonenumber_label" = "Número de teléfono";
+
+"mail_label" = "Dirección electronica";
+
+"business_label" = "COMERCIAL";
+
+"company_label" = "Entidad/Universidad/Escuela";
+
+"job_label" = "Empleo/Posición";
+
+"social_label" = "SOCIAL NETWORKS";
+
+"facebook_label" = "conectar con Facebook";
+
+"twitter_label" = "conectar con Twitter";
+
+"xing_label" = "conectar con XING";
+
+"linkedin_label" = "conectar con LinkedIn";
+
+"connected_label" = "conectado";
+
+"fistname_first_contact_label" = "Nimple";
+
+"lastname_first_contact_label" = "App";
+
+"phone_first_contact_label" = "http://www.nimple.de";
+
+"mail_first_contact_label" = "feedback.ios@nimple.de";
+
+"company_first_contact_label" = "Su primer contacto";
+
+"date_format" = "dd/mm/yyyy hh:mm a";
+
+
+"detail_facebook_label" = "Sin perfil de Facebook";
+
+"detail_twitter_label" = "Sin perfil de Twitter";
+
+"detail_xing_label" = "Sin perfil de XING";
+
+"detail_linkedin_label" = "Sin perfil de LinkedIn";
+
+
+"settings.feedback-text" = "Me gusta su aplicación, porque";
+
+"settings.feedback-header" = "[Retroalimentación] Nimple iOS App";
+
+"settings.share-text" = "Yo uso la aplicación Nimple - Networking Simple. Descarga: www.nimpleapp.com";
+
+"settings.share-header" = "Nimple - Networking Simple App";
+
+
+"msg_box_wrong_code_header" = "Código incorrecto";
+
+"msg_box_wrong_code_text" = "Nimple no puede leer este código.";
+
+"msg_box_wrong_code_activity" = "Espalda";
+
+
+"msg_box_right_code_header" = "Contacto agrega";
+
+"msg_box_right_code_text" = "El contacto se agrega a sus contactos";
+
+"msg_box_right_code_activity" = "OK";
+
+
+"msg_box_delete_contact_title" = "Borrar este contacto?";
+
+"msg_box_delete_contact_activity1" = "Borrar";
+
+"msg_box_delete_contact_activity2" = "Cancelar";
+
+
+"msg_box_duplicated_contact_title" = "Ya existe un contacto en su lista de contactos.";
+
+"msg_box_duplicated_code_activity" = "OK";
+
+
+"msg_box_save_contact_title" = "Guardar contacto en la libreta de direcciones?";
+
+"msg_box_save_contact_activity1" = "Guardar";
+
+"msg_box_save_contact_activity2" = "Cancelar";
+
+
+"contacts_no_access_title" = "No hay acceso a los contactos";
+
+"contacts_no_access_text" = "La aplicación Nimple no tiene acceso a sus contactos. Por favor, activa el acceso a sus contactos en Configuración de iPhone > Privacidad > Contactos > Nimple.";
+
+
+"error_names" = "Por favor, rellene el nombre y apellido.";
