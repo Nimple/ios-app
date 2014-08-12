@@ -73,8 +73,8 @@
 "settings_share" = "Teile Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Scanne einen neuen Kontakt";
-"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
+"tutorial_add_text" = "Scanne einen neuen\nKontakt";
+"tutorial_edit_text" = "Gib deine Daten ein, um deine\nKarte und deinen Code zu erstellen";
 
 "display_contact_title" = "Detailansicht";
 "nimple_card_label" = "Meine Karte";

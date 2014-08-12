@@ -61,32 +61,32 @@
 
 "error_names" = "Please fill in first name and last name.";
 
-"display_contact_notes_label" = "Notizen";
-"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
-"delete_contact_button" = "Kontakt löschen";
+"display_contact_notes_label" = "Notes";
+"add_to_addressbook_button" = "Save contact to address book";
+"delete_contact_button" = "Delete contact";
 
 "settings_faq" = "FAQ";
-"settings_legal" = "Legal";
-"settings_disclaimer" = "Datenschutz";
-"settings_imprint" = "Impressum";
-"settings_facebook" = "Nimple auf Facebook";
-"settings_share" = "Teile Nimple";
+"settings_legal" = "Terms and Conditions";
+"settings_disclaimer" = "Privacy Policy";
+"settings_imprint" = "Imprint";
+"settings_facebook" = "Nimple on Facebook";
+"settings_share" = "Share Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Scanne einen neuen Kontakt";
-"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
+"tutorial_add_text" = "Scan a new Contact";
+"tutorial_edit_text" = "Enter your data to create\nyour nimple-card and -code";
 
 "display_contact_title" = "Detailansicht";
-"nimple_card_label" = "Meine Karte";
-"nimple_code_title" = "Mein Code";
-"settings_title" = "Einstellungen";
-"contacts_title" = "Meine Kontakte";
-"scanner_label" = "Kontakt hinzufügen";
-"edit_nimple_code_title" = "Bearbeiten";
+"nimple_card_label" = "My Card";
+"nimple_code_title" = "My Code";
+"settings_title" = "Settings";
+"contacts_title" = "My Contacts";
+"scanner_label" = "Add Contact";
+"edit_nimple_code_title" = "Edit";
 
-"nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
+"nimple_code_description" = "The swipes change the visibility\non your nimple-card and -code";
 
-"tab_nimple_card_title" = "Karte";
+"tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";
-"tab_contacts_title" = "Kontakte";
-"tab_settings_title" = "Einstellungen";
+"tab_contacts_title" = "Contacts";
+"tab_settings_title" = "Settings";
