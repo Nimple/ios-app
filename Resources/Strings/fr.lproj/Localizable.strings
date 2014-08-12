@@ -22,7 +22,7 @@
 "connected_label" = "être connecté";
 "fistname_first_contact_label" = "Nimple";
 "lastname_first_contact_label" = "App";
-"phone_first_contact_label" = "http://www.nimpleapp.com;
+"phone_first_contact_label" = "http://www.nimpleapp.com";
 "mail_first_contact_label" = "feedback.ios@nimple.de";
 "company_first_contact_label" = "Votre premier contact";
 "date_format" = "dd/mm/yyyy hh:mm a";
