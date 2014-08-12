@@ -7,131 +7,86 @@
  */
 
 "personal_label" = "PERSÖNLICH";
-
 "firstname_label" = "Vorname";
-
 "lastname_label" = "Nachname";
-
 "phonenumber_label" = "Telefonnummer";
-
 "mail_label" = "E-Mail Adresse";
-
 "business_label" = "GESCHÄFTLICH";
-
 "company_label" = "Unternehmen/Uni/Schule";
-
 "job_label" = "Job/Position";
-
 "social_label" = "SOZIALE NETZWERKE";
-
 "facebook_label" = "mit Facebook verbinden";
-
 "twitter_label" = "mit Twitter verbinden";
-
 "xing_label" = "mit XING verbinden";
-
 "linkedin_label" = "mit LinkedIn verbinden";
-
 "connected_label" = "verbunden";
-
 "fistname_first_contact_label" = "Nimple";
-
 "lastname_first_contact_label" = "App";
-
 "phone_first_contact_label" = "http://www.nimple.de";
-
 "mail_first_contact_label" = "feedback.ios@nimple.de";
-
 "company_first_contact_label" = "Dein erster Kontakt";
-
 "date_format" = "dd.MM.yyyy HH:mm";
 
-
 "detail_facebook_label" = "Kein Facebook-Profil";
-
 "detail_twitter_label" = "Kein Twitter-Profil";
-
 "detail_xing_label" = "Kein XING-Profil";
-
 "detail_linkedin_label" = "Kein LinkedIn-Profil";
 
-
 "settings.feedback-text" = "Eure App gefällt mir/gefällt mir nicht, weil";
-
 "settings.feedback-header" = "[Feedback] Nimple iOS App";
-
 "settings.share-text" = "Ich networke simple mit der Nimple-App. Probiere sie aus und lade sie dir direkt herunter: www.nimple.de";
-
 "settings.share-header" = "Nimple - Networking Simple App";
 
-
 "msg_box_wrong_code_header" = "Fehlerhafter Code";
-
 "msg_box_wrong_code_text" = "Der nimple-code konnte nicht gescannt werden.";
-
 "msg_box_wrong_code_activity" = "Zurück";
 
-
 "msg_box_right_code_header" = "Kontakt gefunden";
-
 "msg_box_right_code_text" = "Der Kontakt wurde deinen Kontakten hinzugefügt";
-
 "msg_box_right_code_activity" = "OK";
 
-
 "msg_box_delete_contact_title" = "Kontakt wirklich löschen?";
-
 "msg_box_delete_contact_activity1" = "Löschen";
-
 "msg_box_delete_contact_activity2" = "Abbrechen";
 
-
 "msg_box_duplicated_contact_title" = "Der Kontakt existiert bereits in deiner Kontaktliste.";
-
 "msg_box_duplicated_code_activity" = "OK";
 
-
 "msg_box_save_contact_title" = "Kontakt ins Adressbuch speichern?";
-
 "msg_box_save_contact_activity1" = "Speichern";
-
 "msg_box_save_contact_activity2" = "Abbrechen";
 
-
 "contacts_no_access_title" = "Kein Zugriff auf Kontakte";
-
 "contacts_no_access_text" = "Nimple hat keinen Zugriff auf deine Kontakte. Bitte aktiviere den Zugang zu deinen Kontakten unter iPhone Einstellungen > Datenschutz > Kontakte > Nimple.";
-
 
 "error_names" = "Bitte fülle Vorname und Nachname aus.";
 
-"display_contact_notes_label = "";
-"add_to_addressbook_button = "";
-"delete_contact_button = "";
+"display_contact_notes_label" = "Notizen";
+"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
+"delete_contact_button" = "Kontakt löschen";
 
+"settings_faq" = "FAQ";
+"settings_legal" = "Legal";
+"settings_disclaimer" = "Datenschutz";
+"settings_imprint" = "Impressum";
+"settings_facebook" = "Nimple auf Facebook";
+"settings_share" = "Teile Nimple";
+"settings_feedback" = "Feedback";
 
-"settings_faq = "";
-"settings_legal = "";
-"settings_disclaimer = "";
-"settings_imprint = "";
-"settings_facebook = "";
-"settings_share" = "";
-"settings_feedback" = "";
+"tutorial_add_text" = "Scanne einen neuen Kontakt";
+"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
 
-"tutorial_add_text" = "";
-"tutorial_edit_text" = "";
+"display_contact_title" = "Detailansicht";
+"nimple_card_label" = "Meine Karte";
+"nimple_code_title" = "Mein Code";
+"settings_title" = "Einstellungen";
+"contacts_title" = "Meine Kontakte";
+"scanner_label" = "Kontakt hinzufügen";
+"edit_nimple_code_title" = "Bearbeiten";
 
-"display_contact_title" = "";
-"nimple_card_label" = "";
-"nimple_code_title" = "";
-"settings_title" = "";
-"contacts_title" = "";
-"scanner_label" = "";
-"edit_nimple_code_title" = "";
+"nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
 
-"nimple_code_description" = "";
-
-"tab_nimple_card_title" = "";
-"tab_nimple_code_title" = "";
-"tab_contacts_title" = "";
-"tab_settings_title" = "";
+"tab_nimple_card_title" = "Karte";
+"tab_nimple_code_title" = "Code";
+"tab_contacts_title" = "Kontakte";
+"tab_settings_title" = "Einstellungen";

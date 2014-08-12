@@ -7,100 +7,86 @@
  */
 
 "personal_label" = "PERSONAL";
-
 "firstname_label" = "Nombre";
-
 "lastname_label" = "Apellido";
-
 "phonenumber_label" = "Número de teléfono";
-
 "mail_label" = "Correo";
-
 "business_label" = "COMERCIAL";
-
 "company_label" = "Empresa/Universidad/Escuela";
-
 "job_label" = "Cargo/Posición";
-
 "social_label" = "SOCIAL NETWORKS";
-
 "facebook_label" = "conectar con Facebook";
-
 "twitter_label" = "conectar con Twitter";
-
 "xing_label" = "conectar con XING";
-
 "linkedin_label" = "conectar con LinkedIn";
-
 "connected_label" = "conectado";
-
 "fistname_first_contact_label" = "Nimple";
-
 "lastname_first_contact_label" = "App";
-
 "phone_first_contact_label" = "http://www.nimple.de";
-
 "mail_first_contact_label" = "feedback.ios@nimple.de";
-
 "company_first_contact_label" = "Su primer contacto";
-
 "date_format" = "dd/mm/yyyy hh:mm a";
 
-
 "detail_facebook_label" = "Sin perfil de Facebook";
-
 "detail_twitter_label" = "Sin perfil de Twitter";
-
 "detail_xing_label" = "Sin perfil de XING";
-
 "detail_linkedin_label" = "Sin perfil de LinkedIn";
 
-
 "settings.feedback-text" = "Me gusta su aplicación, porque";
-
 "settings.feedback-header" = "[Retroalimentación] Nimple iOS App";
-
 "settings.share-text" = "Yo uso la aplicación Nimple - Networking Simple. Descarga: www.nimpleapp.com";
-
 "settings.share-header" = "Nimple - Networking Simple App";
 
-
 "msg_box_wrong_code_header" = "Código incorrecto";
-
 "msg_box_wrong_code_text" = "Nimple no puede leer este código.";
-
 "msg_box_wrong_code_activity" = "Espalda";
 
-
 "msg_box_right_code_header" = "Contacto agrega";
-
 "msg_box_right_code_text" = "El contacto se agrega a sus contactos";
-
 "msg_box_right_code_activity" = "OK";
 
-
 "msg_box_delete_contact_title" = "Borrar este contacto?";
-
 "msg_box_delete_contact_activity1" = "Borrar";
-
 "msg_box_delete_contact_activity2" = "Cancelar";
 
-
 "msg_box_duplicated_contact_title" = "Ya existe un contacto en su contactos.";
-
 "msg_box_duplicated_code_activity" = "OK";
 
-
 "msg_box_save_contact_title" = "Guardar contacto en la libreta de direcciones?";
-
 "msg_box_save_contact_activity1" = "Guardar";
-
 "msg_box_save_contact_activity2" = "Cancelar";
 
-
 "contacts_no_access_title" = "No hay acceso a los contactos";
-
 "contacts_no_access_text" = "Esta aplicación no tiene acceso a sus contactos. Por favor active el acceso a sus contactos en Ajustes iPhone > Privacidad > Contactos > Nimple.";
 
-
 "error_names" = "Por favor, rellene el nombre y apellido.";
+
+"display_contact_notes_label" = "Notizen";
+"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
+"delete_contact_button" = "Kontakt löschen";
+
+"settings_faq" = "FAQ";
+"settings_legal" = "Legal";
+"settings_disclaimer" = "Datenschutz";
+"settings_imprint" = "Impressum";
+"settings_facebook" = "Nimple auf Facebook";
+"settings_share" = "Teile Nimple";
+"settings_feedback" = "Feedback";
+
+"tutorial_add_text" = "Scanne einen neuen Kontakt";
+"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
+
+"display_contact_title" = "Detailansicht";
+"nimple_card_label" = "Meine Karte";
+"nimple_code_title" = "Mein Code";
+"settings_title" = "Einstellungen";
+"contacts_title" = "Meine Kontakte";
+"scanner_label" = "Kontakt hinzufügen";
+"edit_nimple_code_title" = "Bearbeiten";
+
+"nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
+
+"tab_nimple_card_title" = "Karte";
+"tab_nimple_code_title" = "Code";
+"tab_contacts_title" = "Kontakte";
+"tab_settings_title" = "Einstellungen";
