@@ -11,8 +11,6 @@
 #define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
 #define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
 
-#define MIXPANEL_TOKEN @"6e3eeca24e9b2372e8582b381295ca0c"
-
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \

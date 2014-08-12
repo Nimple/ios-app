@@ -10,7 +10,6 @@
 
 // Framework imports
 #import <CoreImage/CoreImage.h>
-#import <Mixpanel/Mixpanel.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <NSDictionary+BDBOAuth1Manager.h>
 
