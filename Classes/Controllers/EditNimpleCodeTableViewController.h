@@ -1,15 +1,14 @@
 //
 //  EditNimpleCodeTableViewController.h
-//  
+//  nimple-iOS
 //
-//  Created by Guido Schmidt on 01.03.14.
-//
+//  Created by Ben John on 12/08/14.
+//  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-// Framework imports
 #import <UIKit/UIKit.h>
-// Nimple imports
 #import "EditInputViewCell.h"
+#import "EditAddressInputViewCell.h"
 #import "ConnectSocialProfileViewCell.h"
 
 @class EditNimpleCodeTableViewController;

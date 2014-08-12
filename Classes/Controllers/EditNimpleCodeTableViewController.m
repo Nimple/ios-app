@@ -1,9 +1,9 @@
 //
 //  EditNimpleCodeTableViewController.m
+//  nimple-iOS
 //
-//
-//  Created by Guido Schmidt on 01.03.14.
-//
+//  Created by Ben John on 12/08/14.
+//  Copyright (c) 2014 nimple. All rights reserved.
 //
 
 #import "EditNimpleCodeTableViewController.h"
@@ -28,11 +28,6 @@
         
     }
     return self;
-}
-
--(void) viewDidDisappear:(BOOL)animated
-{
-    [self.myNimpleCode synchronize];
 }
 
 - (void)viewDidLoad
@@ -116,29 +111,25 @@
     [self.myNimpleCode synchronize];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 // Returns the number of sections used in this table view
 // 1. personal section
 // 2. social section
 // 3. business section
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 3;
 }
 
 // Returns the number of cells in the given section
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     NSInteger cellCount = 0;
     
-    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail
+    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail 5. street no 6. postal city
     if(section == 0)
-        cellCount = 4;
+        cellCount = 6;
     // 2. section (business): 1. job title 2. company
     else if (section == 1)
         cellCount = 2;
@@ -223,6 +214,14 @@
             }
             else
                 [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
+        }
+        
+        if(indexPath.row == 4) {
+            cell.inputField.placeholder = @"Street / Houseno.";
+        }
+        
+        if(indexPath.row == 5) {
+            cell.inputField.placeholder = @"Postal / City";
         }
     }
     // Section: business
@@ -384,30 +383,25 @@
     return cell;
 }
 
-// Returns the title for a given section
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString* sectionName = @"";
-    
-    if(section == 0)
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName = @"";
+    if (section == 0) {
         sectionName = NimpleLocalizedString(@"personal_label");
-    else if(section == 1)
+    } else if (section == 1) {
         sectionName = NimpleLocalizedString(@"business_label");
-    else if(section == 2)
+    } else if (section == 2) {
         sectionName = NimpleLocalizedString(@"social_label");
-    
+    }
     return sectionName;
 }
 
-//
+#pragma mark - Callbacks
+
 - (IBAction)done:(id)sender
 {
     if([[self.myNimpleCode valueForKey:@"prename"] length] == 0 || [[self.myNimpleCode valueForKey:@"surname"] length] == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:nil
-                                  message:NimpleLocalizedString(@"error_names")
-                                  delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:NimpleLocalizedString(@"error_names") delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [alertView show];
         });
