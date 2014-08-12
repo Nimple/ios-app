@@ -14,6 +14,11 @@
 "business_label" = "BUSINESS";
 "company_label" = "Company/University/School";
 "job_label" = "Job/Position";
+"website_label" = "Website";
+"street_label" = "Street";
+"postal_label" = "Postal";
+"city_label" = "City";
+"address_label" = "Address";
 "social_label" = "SOCIAL NETWORKS";
 "facebook_label" = "connect to Facebook";
 "twitter_label" = "connect to Twitter";
@@ -74,7 +79,7 @@
 "settings_share" = "Share Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Scan a new Contact";
+"tutorial_add_text" = "Scan a new contact";
 "tutorial_edit_text" = "Enter your data to create\nyour nimple-card and -code";
 
 "display_contact_title" = "Detailansicht";
@@ -87,7 +92,7 @@
 
 "nimple_code_description" = "The swipes change the visibility\non your nimple-card and -code";
 
-"nimple_code_footer" = "Your code can be scanned with a barcode reader or Nimple";
+"nimple_code_footer" = "Your code can be scanned with\na barcode reader or Nimple";
 
 "tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";

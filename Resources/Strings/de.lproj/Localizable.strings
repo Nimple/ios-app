@@ -14,6 +14,11 @@
 "business_label" = "GESCHÄFTLICH";
 "company_label" = "Unternehmen/Uni/Schule";
 "job_label" = "Job/Position";
+"website_label" = "Webseite";
+"street_label" = "Straße";
+"postal_label" = "PLZ";
+"city_label" = "Ort";
+"address_label" = "Adresse";
 "social_label" = "SOZIALE NETZWERKE";
 "facebook_label" = "mit Facebook verbinden";
 "twitter_label" = "mit Twitter verbinden";
@@ -87,7 +92,7 @@
 
 "nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
 
-"nimple_code_footer" = "Dein Code kann mit einem Barcode-Reader oder Nimple eingescannt werden";
+"nimple_code_footer" = "Dein Code kann mit einem Barcode-Reader\noder Nimple eingescannt werden";
 
 "tab_nimple_card_title" = "Karte";
 "tab_nimple_code_title" = "Code";

@@ -14,6 +14,11 @@
 "business_label" = "COMERCIAL";
 "company_label" = "Empresa/Universidad/Escuela";
 "job_label" = "Cargo/Posición";
+"website_label" = "Página web";
+"street_label" = "Calle";
+"postal_label" = "CP";
+"city_label" = "Ciudad";
+"address_label" = "Dirección";
 "social_label" = "SOCIAL NETWORKS";
 "facebook_label" = "conectar con Facebook";
 "twitter_label" = "conectar con Twitter";
@@ -25,7 +30,7 @@
 "phone_first_contact_label" = "http://www.nimple.de";
 "mail_first_contact_label" = "feedback.ios@nimple.de";
 "company_first_contact_label" = "Su primer contacto";
-"date_format" = "dd/mm/yyyy hh:mm a";
+"date_format" = "dd.MM.yyyy HH:mm";
 
 "detail_facebook_label" = "Sin perfil de Facebook";
 "detail_twitter_label" = "Sin perfil de Twitter";
@@ -74,8 +79,8 @@
 "settings_share" = "Recommendar Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Escanear un nuevo contacto";
-"tutorial_edit_text" = "Introduce sus datos para crear su tarjeta y su código";
+"tutorial_add_text" = "Escanear un nuevo\ncontacto";
+"tutorial_edit_text" = "Introduce sus datos para\ncrear su tarjeta y su código";
 
 "display_contact_title" = "Detalles";
 "nimple_card_label" = "Mi tarjeta";
@@ -87,7 +92,7 @@
 
 "nimple_code_description" = "Los interruptores controlan la visibilidad\nen el mapa y en su código";
 
-"nimple_code_footer" = "Su código se puede escanear con un lector de código de barras o Nimple";
+"nimple_code_footer" = "Su código se puede escanear con un\nlector de código de barras o Nimple";
 
 "tab_nimple_card_title" = "Tarjeta";
 "tab_nimple_code_title" = "Código";
