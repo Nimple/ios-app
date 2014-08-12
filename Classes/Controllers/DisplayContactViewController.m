@@ -30,7 +30,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self localizeViewAttributes];
+    [self configureScrollView];
+    [self updateView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self saved];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)localizeViewAttributes
+{
+    self.notesTextField.placeholder = NimpleLocalizedString(@"display_contact_notes_label");
+    [self.saveToAddressBookButton setTitle:NimpleLocalizedString(@"add_to_addressbook_button") forState:UIControlStateNormal];
+    [self.deleteContactButton setTitle:NimpleLocalizedString(@"delete_contact_button") forState:UIControlStateNormal];
+    self.navBar.title = NimpleLocalizedString(@"display_contact_title");
+}
+
+- (void)configureScrollView
+{
     // Setup scroll view
     [self.scrollView setDelegate:self];
     [self.scrollView setScrollEnabled:TRUE];
@@ -38,7 +61,10 @@
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
     self.scrollView.frame = self.view.frame;
-    
+}
+
+- (void)updateView
+{
     // Do any additional setup after loading the view
     NSLog(@"Display contact view loaded");
     NSLog(@"With contact %@", self.nimpleContact.objectID);
@@ -132,16 +158,6 @@
     mailTapGestureRecognizer.numberOfTapsRequired = 1;
     [self.emailLabel addGestureRecognizer:mailTapGestureRecognizer];
     self.emailLabel.userInteractionEnabled = YES;
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"Save should be invoked!");
-    [self saved];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Callbacks

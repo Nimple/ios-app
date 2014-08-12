@@ -10,7 +10,10 @@
 #import "NimpleAppDelegate.h"
 #import "Logging.h"
 
-@interface EditNimpleCodeTableViewController ()
+@interface EditNimpleCodeTableViewController () {
+    __weak IBOutlet UINavigationItem *_editNimpleCode;
+    __weak IBOutlet UILabel *_descriptionLabel;
+}
 
 @end
 
@@ -35,7 +38,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self localizeViewAttributes];
+    [self updateView];
+}
+
+- (void)localizeViewAttributes
+{
+    _editNimpleCode.title = NimpleLocalizedString(@"edit_nimple_code_title");
+    _descriptionLabel.text = NimpleLocalizedString(@"nimple_code_description");
+}
+
+- (void)updateView
+{
     self.myNimpleCode = [NSUserDefaults standardUserDefaults];
     NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
     if(surname.length == 0)
@@ -106,10 +120,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void) viewDidAppear:(BOOL)animated
-{
 }
 
 #pragma mark - Table view data source

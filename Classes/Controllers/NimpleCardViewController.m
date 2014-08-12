@@ -9,8 +9,11 @@
 #import "NimpleCardViewController.h"
 #import "BarCodeReaderController.h"
 
-@interface NimpleCardViewController ()
-
+@interface NimpleCardViewController () {
+    __weak IBOutlet UILabel *_tutorialAddLabel;
+    __weak IBOutlet UILabel *_tutorialEditLabel;
+    __weak IBOutlet UINavigationItem *_navigationLabel;
+}
 @end
 
 @implementation NimpleCardViewController
@@ -30,7 +33,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self localizeViewAttributes];
+    [self updateView];
+}
+
+-(void)localizeViewAttributes
+{
+    _tutorialAddLabel.text = NimpleLocalizedString(@"tutorial_add_text");
+    _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
+    _navigationLabel.title = NimpleLocalizedString(@"nimple_card_label");
+}
+
+-(void)updateView
+{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleChangedNimpleCode:)
                                                  name:@"nimpleCodeChanged"

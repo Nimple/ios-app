@@ -10,7 +10,9 @@
 #import "ContactTableViewCell.h"
 #import "DisplayContactViewController.h"
 
-@interface ContactsViewController ()
+@interface ContactsViewController () {
+    __weak IBOutlet UINavigationItem *_navigationLabel;
+}
 
 @end
 
@@ -38,10 +40,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
-    
+    [self localizeViewAttributes];
+    [self configureTableView];
     [self updateData];
+}
+
+- (void)localizeViewAttributes
+{
+    _navigationLabel.title = NimpleLocalizedString(@"contacts_title");
+}
+
+- (void)configureTableView
+{
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
 }
 
 - (void)didReceiveMemoryWarning

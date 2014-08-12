@@ -17,6 +17,8 @@
 
 {
     BOOL isProcessing;
+    
+    __weak IBOutlet UINavigationItem *_scannerLabel;
 }
 
 @property (nonatomic) BOOL isReading;
@@ -50,10 +52,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self localizeViewAttributes];
+    
     _isReading = FALSE;
     _captureSession = nil;
     [self startReading];
     
+    [self initializeAlertViews];
+}
+
+-(void)localizeViewAttributes
+{
+    _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 0) {
+        [self.tabBarController setSelectedIndex: 2];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void)initializeAlertViews
+{
     self.alertView = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header")
                                                 message:NimpleLocalizedString(@"msg_box_right_code_text")
                                                delegate:self
@@ -71,14 +92,6 @@
                                                 delegate:self
                                        cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity")
                                        otherButtonTitles:nil];
-    
-}
-
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(buttonIndex == 0) {
-        [self.tabBarController setSelectedIndex: 2];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
 }
 
 // Stops the capture session when the view will be undloaded from memory

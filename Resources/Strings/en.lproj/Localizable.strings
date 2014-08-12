@@ -104,3 +104,29 @@
 
 
 "error_names" = "Please fill in first name and last name.";
+
+"settings_faq = "";
+"settings_legal = "";
+"settings_disclaimer = "";
+"settings_imprint = "";
+"settings_facebook = "";
+"settings_share" = "";
+"settings_feedback" = "";
+
+"tutorial_add_text" = "";
+"tutorial_edit_text" = "";
+
+"display_contact_title" = "";
+"nimple_card_label" = "";
+"nimple_code_title" = "";
+"settings_title" = "";
+"contacts_title" = "";
+"scanner_label" = "";
+"edit_nimple_code_title" = "";
+
+"nimple_code_description" = "";
+
+"tab_nimple_card_title" = "";
+"tab_nimple_code_title" = "";
+"tab_contacts_title" = "";
+"tab_settings_title" = "";

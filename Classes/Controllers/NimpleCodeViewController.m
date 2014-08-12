@@ -14,8 +14,11 @@ static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:
 
 static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
-@interface NimpleCodeViewController ()
-
+@interface NimpleCodeViewController () {
+    __weak IBOutlet UILabel *_tutorialAddLabel;
+    __weak IBOutlet UILabel *_tutorialEditLabel;
+    __weak IBOutlet UINavigationItem *_navigationLabel;
+}
 @end
 
 @implementation NimpleCodeViewController
@@ -53,6 +56,19 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self localizeViewAttributes];
+    [self updateView];
+}
+
+-(void)localizeViewAttributes
+{
+    _tutorialAddLabel.text = NimpleLocalizedString(@"tutorial_add_text");
+    _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
+    _navigationLabel.title = NimpleLocalizedString(@"nimple_code_title");
+}
+
+- (void)updateView
+{
     [myNimpleCode synchronize];
     self.myNimpleCode = [NSUserDefaults standardUserDefaults];
     

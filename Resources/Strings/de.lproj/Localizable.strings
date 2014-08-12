@@ -104,3 +104,34 @@
 
 
 "error_names" = "Bitte fülle Vorname und Nachname aus.";
+
+"display_contact_notes_label = "";
+"add_to_addressbook_button = "";
+"delete_contact_button = "";
+
+
+"settings_faq = "";
+"settings_legal = "";
+"settings_disclaimer = "";
+"settings_imprint = "";
+"settings_facebook = "";
+"settings_share" = "";
+"settings_feedback" = "";
+
+"tutorial_add_text" = "";
+"tutorial_edit_text" = "";
+
+"display_contact_title" = "";
+"nimple_card_label" = "";
+"nimple_code_title" = "";
+"settings_title" = "";
+"contacts_title" = "";
+"scanner_label" = "";
+"edit_nimple_code_title" = "";
+
+"nimple_code_description" = "";
+
+"tab_nimple_card_title" = "";
+"tab_nimple_code_title" = "";
+"tab_contacts_title" = "";
+"tab_settings_title" = "";

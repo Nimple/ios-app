@@ -9,8 +9,18 @@
 #import "SettingsTableViewController.h"
 #import "MessageUI/MessageUI.h"
 
-@interface SettingsTableViewController ()
-
+@interface SettingsTableViewController () {
+    __weak IBOutlet UILabel *_faqLabel;
+    __weak IBOutlet UILabel *_legalLabel;
+    __weak IBOutlet UILabel *_disclaimerLabel;
+    __weak IBOutlet UILabel *_imprintLabel;
+    
+    __weak IBOutlet UILabel *_facebookLabel;
+    __weak IBOutlet UILabel *_shareLabel;
+    __weak IBOutlet UILabel *_feedbackLabel;
+    
+    __weak IBOutlet UINavigationItem *_settingsLabel;
+}
 @end
 
 @implementation SettingsTableViewController
@@ -23,15 +33,24 @@
     return self;
 }
 
-// Will be executed when the view is loaded to memory
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    [self localizeViewAttributes];
+}
+
+- (void)localizeViewAttributes
+{
+    _faqLabel.text = NimpleLocalizedString(@"settings_faq");
+    _legalLabel.text = NimpleLocalizedString(@"settings_legal");
+    _disclaimerLabel.text = NimpleLocalizedString(@"settings_disclaimer");
+    _imprintLabel.text = NimpleLocalizedString(@"settings_imprint");
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _facebookLabel.text = NimpleLocalizedString(@"settings_facebook");
+    _shareLabel.text = NimpleLocalizedString(@"settings_share");
+    _feedbackLabel.text = NimpleLocalizedString(@"settings_feedback");
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _settingsLabel.title = NimpleLocalizedString(@"settings_title");
 }
 
 - (void)didReceiveMemoryWarning {

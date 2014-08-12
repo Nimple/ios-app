@@ -81,21 +81,28 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     
     // Nimple card view controller
     UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
+    nimpleCardController.title = NimpleLocalizedString(@"tab_nimple_card_title");
     NSLog(@"Controller 0  is %@", nimpleCardController.title);
     NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
     nimpleCardViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
+    presentedController1.title = NimpleLocalizedString(@"tab_nimple_code_title");
     NSLog(@"Controller 1 is %@", presentedController1.title);
     NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
     nimpleCodeViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
+    contactsController.title = NimpleLocalizedString(@"tab_contacts_title");
     NSLog(@"Controller 2 is %@", contactsController.title);
     ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
     contactsViewController.managedObjectContext = context;
+    
+    // Settings controller
+    UINavigationController *settingsController = (UINavigationController*) navigationController.childViewControllers[3];
+    settingsController.title = NimpleLocalizedString(@"tab_settings_title");
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabbar = tabBarController.tabBar;
