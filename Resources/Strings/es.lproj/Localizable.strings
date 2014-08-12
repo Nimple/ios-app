@@ -61,32 +61,35 @@
 
 "error_names" = "Por favor, rellene el nombre y apellido.";
 
-"display_contact_notes_label" = "Notizen";
-"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
-"delete_contact_button" = "Kontakt löschen";
+"display_contact_notes_label" = "Notas";
+"add_to_addressbook_button" = "Guardar contacto en la libreta de direcciones";
+"delete_contact_button" = "Borrar contacto";
 
-"settings_faq" = "FAQ";
-"settings_legal" = "Legal";
-"settings_disclaimer" = "Datenschutz";
-"settings_imprint" = "Impressum";
-"settings_facebook" = "Nimple auf Facebook";
-"settings_share" = "Teile Nimple";
+"settings_faq" = "Preguntas frecuentes";
+"settings_legal" = "Codiciones";
+"settings_disclaimer" = "Privacidad";
+"settings_imprint" = "Información legal";
+"settings_facebook" = "Nimple en Facebook";
+"settings_twitter" = "Nimple en Twitter";
+"settings_share" = "Recommendar Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Scanne einen neuen Kontakt";
-"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
+"tutorial_add_text" = "Escanear un nuevo contacto";
+"tutorial_edit_text" = "Introduce sus datos para crear su tarjeta y su código";
 
-"display_contact_title" = "Detailansicht";
-"nimple_card_label" = "Meine Karte";
-"nimple_code_title" = "Mein Code";
-"settings_title" = "Einstellungen";
-"contacts_title" = "Meine Kontakte";
-"scanner_label" = "Kontakt hinzufügen";
-"edit_nimple_code_title" = "Bearbeiten";
+"display_contact_title" = "Detalles";
+"nimple_card_label" = "Mi tarjeta";
+"nimple_code_title" = "Mi código";
+"settings_title" = "Ajustes";
+"contacts_title" = "Mis contactos";
+"scanner_label" = "Añadir contacto";
+"edit_nimple_code_title" = "Editar";
 
-"nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
+"nimple_code_description" = "Los interruptores controlan la visibilidad\nen el mapa y en su código";
 
-"tab_nimple_card_title" = "Karte";
-"tab_nimple_code_title" = "Code";
-"tab_contacts_title" = "Kontakte";
-"tab_settings_title" = "Einstellungen";
+"nimple_code_footer" = "Su código se puede escanear con un lector de código de barras o Nimple";
+
+"tab_nimple_card_title" = "Tarjeta";
+"tab_nimple_code_title" = "Código";
+"tab_contacts_title" = "Contactos";
+"tab_settings_title" = "Ajustes";

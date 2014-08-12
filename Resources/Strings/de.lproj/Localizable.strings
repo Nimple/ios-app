@@ -66,10 +66,11 @@
 "delete_contact_button" = "Kontakt löschen";
 
 "settings_faq" = "FAQ";
-"settings_legal" = "Legal";
+"settings_legal" = "AGB";
 "settings_disclaimer" = "Datenschutz";
 "settings_imprint" = "Impressum";
 "settings_facebook" = "Nimple auf Facebook";
+"settings_twitter" = "Nimple auf Twitter";
 "settings_share" = "Teile Nimple";
 "settings_feedback" = "Feedback";
 
@@ -85,6 +86,8 @@
 "edit_nimple_code_title" = "Bearbeiten";
 
 "nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
+
+"nimple_code_footer" = "Dein Code kann mit einem Barcode-Reader oder Nimple eingescannt werden";
 
 "tab_nimple_card_title" = "Karte";
 "tab_nimple_code_title" = "Code";

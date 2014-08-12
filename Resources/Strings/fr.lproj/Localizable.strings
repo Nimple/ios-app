@@ -33,7 +33,7 @@
 "detail_linkedin_label" = "Aucun profil LinkedIn";
 
 "settings.feedback-text" = "J'aime votre application...";
-"settings.feedback-header" = "[Réaction] Nimple iOS App";
+"settings.feedback-header" = "[Feedback] Nimple iOS App";
 "settings.share-text" = "J'utilise l'application Nimple - Networking Simple. Téléchargement: www.nimpleapp.com";
 "settings.share-header" = "Nimple - Networking Simple application";
 
@@ -61,32 +61,35 @@
 
 "error_names" = "Entrez votre prénom et nom.";
 
-"display_contact_notes_label" = "Notizen";
-"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
-"delete_contact_button" = "Kontakt löschen";
+"display_contact_notes_label" = "Notes";
+"add_to_addressbook_button" = "Enregistrer le contact dans le carnet d'adresses";
+"delete_contact_button" = "Rayer le contact";
 
 "settings_faq" = "FAQ";
-"settings_legal" = "Legal";
-"settings_disclaimer" = "Datenschutz";
-"settings_imprint" = "Impressum";
-"settings_facebook" = "Nimple auf Facebook";
-"settings_share" = "Teile Nimple";
+"settings_legal" = "Conditions générales";
+"settings_disclaimer" = "Protection des données";
+"settings_imprint" = "Mentions légales";
+"settings_facebook" = "Nimple sur Facebook";
+"settings_twitter" = "Nimple sur Twitter";
+"settings_share" = "Recommander Nimple";
 "settings_feedback" = "Feedback";
 
-"tutorial_add_text" = "Scanne einen neuen Kontakt";
-"tutorial_edit_text" = "Gib deine Daten ein, um deine Karte und deinen Code zu erstellen";
+"tutorial_add_text" = "Scanner un nouveau contact";
+"tutorial_edit_text" = "Saisissez vos dates pour créer votre carte et votre code";
 
-"display_contact_title" = "Detailansicht";
-"nimple_card_label" = "Meine Karte";
-"nimple_code_title" = "Mein Code";
-"settings_title" = "Einstellungen";
-"contacts_title" = "Meine Kontakte";
-"scanner_label" = "Kontakt hinzufügen";
-"edit_nimple_code_title" = "Bearbeiten";
+"display_contact_title" = "Détails";
+"nimple_card_label" = "Ma carte";
+"nimple_code_title" = "Mon code";
+"settings_title" = "Réglages";
+"contacts_title" = "Mes contacts";
+"scanner_label" = "Ajouter un contact";
+"edit_nimple_code_title" = "Modifier";
 
-"nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
+"nimple_code_description" = "Les interrupteurs contrôlent la visibilité\nde votre carte et votre code";
 
-"tab_nimple_card_title" = "Karte";
+"nimple_code_footer" = "Votre code peut scanner par un lecteur de code à barres ou Nimple";
+
+"tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";
-"tab_contacts_title" = "Kontakte";
-"tab_settings_title" = "Einstellungen";
+"tab_contacts_title" = "Contacts";
+"tab_settings_title" = "Réglages";

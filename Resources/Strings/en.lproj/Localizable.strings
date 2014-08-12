@@ -70,6 +70,7 @@
 "settings_disclaimer" = "Privacy Policy";
 "settings_imprint" = "Imprint";
 "settings_facebook" = "Nimple on Facebook";
+"settings_twitter" = "Nimple on Twitter";
 "settings_share" = "Share Nimple";
 "settings_feedback" = "Feedback";
 
@@ -85,6 +86,8 @@
 "edit_nimple_code_title" = "Edit";
 
 "nimple_code_description" = "The swipes change the visibility\non your nimple-card and -code";
+
+"nimple_code_footer" = "Your code can be scanned with a barcode reader or Nimple";
 
 "tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";
