@@ -10,7 +10,6 @@
 
 #import "NimpleContact.h"
 
-
 @implementation NimpleContact
 
 @dynamic company;
@@ -28,9 +27,14 @@
 @dynamic created;
 @dynamic contactHash;
 @dynamic note;
+@dynamic street;
+@dynamic postal;
+@dynamic city;
+@dynamic website;
 
 // Sets all properties of a contact
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate *)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note {
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate *)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note withStreet:(NSString*)p_street andPostal:(NSString*)p_postal andCity:(NSString*)p_city andWebsite:(NSString*)p_website
+{
     self.prename        = p_prename;
     self.surname        = p_surname;
     self.phone          = p_phone;
@@ -46,11 +50,14 @@
     self.created        = p_created;
     self.contactHash    = p_contactHash;
     self.note           = p_note;
+    self.street         = p_street;
+    self.postal         = p_postal;
+    self.city           = p_city;
+    self.website        = p_website;
 }
 
-// Concatenates the properties of a contact to a printable string
 -(NSString*) toString {
-    NSString* string = [NSString stringWithFormat:@"Contact: %@ %@, %@ @ %@, %@ %@ %@ %@", self.prename, self.surname, self.job, self.company, self.phone, self.email, self.created, self.contactHash];
+    NSString* string = [NSString stringWithFormat:@"Contact: %@ %@, %@ @ %@, %@ %@ %@ %@, %@, %@ %@ %@, %@", self.prename, self.surname, self.job, self.company, self.phone, self.email, self.created, self.contactHash, self.note, self.street, self.postal, self.city, self.website];
     return string;
 }
 

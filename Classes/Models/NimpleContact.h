@@ -31,8 +31,14 @@
 @property (nonatomic, retain) NSString * contactHash;
 @property (nonatomic, retain) NSString * note;
 
+// schema version 3.0
+@property (nonatomic, retain) NSString * street;
+@property (nonatomic, retain) NSString * postal;
+@property (nonatomic, retain) NSString * city;
+@property (nonatomic, retain) NSString * website;
+
 
 -(NSString*) toString;
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate*)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note;
+-(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate*)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note withStreet:(NSString*)p_street andPostal:(NSString*)p_postal andCity:(NSString*)p_city andWebsite:(NSString*)p_website;
 
 @end

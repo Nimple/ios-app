@@ -11,7 +11,7 @@
 @implementation VCardParser
 
 +(NSMutableArray*)getContactFromCard:(NSString*)card {
-    NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+    NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
     NSArray *lines = [card componentsSeparatedByString:@"\n"];
     
     NSLog(@"Tokenize VCARD.");
@@ -74,6 +74,9 @@
                 contactData[10] = url;
             } else if([newLine rangeOfString:@"linkedin"].location != NSNotFound) {
                 contactData[11] = url;
+            } else {
+                // assuming private website
+                contactData[15] = url;
             }
         } else if ([newLine hasPrefix:@"X-FACEBOOK-ID:"]) {
             contactData[7] = [newLine substringFromIndex:14];
@@ -96,8 +99,6 @@
             contactData[12] = street;
             contactData[13] = postal;
             contactData[14] = city;
-            NSLog(@"%@, %@ %@", street, postal, city);
-            // TODO implement me
         } else if ([newLine hasPrefix:@"END:VCARD"]) {
             break;
         } else {
