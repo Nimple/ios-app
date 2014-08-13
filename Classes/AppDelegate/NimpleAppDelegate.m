@@ -68,7 +68,7 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
     if(!exampleUserDidExist) {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"http://www.nimple.de" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NimpleLocalizedString(@"company_first_contact_label") FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"https://twitter.com/Nimpleapp" TwitterID:@"2444364654" XingURL:@"https://www.xing.com/companies/appstronautengbr" LinkedInURL:@"https://www.linkedin.com/company/appstronauten-gbr" Created:[NSDate date] ContactHash:@"" Note:@""];
+        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NimpleLocalizedString(@"company_first_contact_label") FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"https://twitter.com/Nimpleapp" TwitterID:@"2444364654" XingURL:@"https://www.xing.com/companies/appstronautengbr" LinkedInURL:@"https://www.linkedin.com/company/appstronauten-gbr" Created:[NSDate date] ContactHash:@"" Note:@"" withStreet:@"" andPostal:@"" andCity:@"" andWebsite:@"http://www.nimple.de"];
         NSError *error;
         [self.managedObjectContext save:&error];
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];
