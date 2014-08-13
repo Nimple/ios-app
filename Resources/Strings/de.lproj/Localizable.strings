@@ -43,7 +43,7 @@
 "settings.share-header" = "Nimple - Networking Simple App";
 
 "msg_box_wrong_code_header" = "Fehlerhafter Code";
-"msg_box_wrong_code_text" = "Der nimple-code konnte nicht gescannt werden.";
+"msg_box_wrong_code_text" = "Der Nimple-Code konnte nicht gescannt werden.";
 "msg_box_wrong_code_activity" = "Zurück";
 
 "msg_box_right_code_header" = "Kontakt gefunden";
@@ -64,10 +64,10 @@
 "contacts_no_access_title" = "Kein Zugriff auf Kontakte";
 "contacts_no_access_text" = "Nimple hat keinen Zugriff auf deine Kontakte. Bitte aktiviere den Zugang zu deinen Kontakten unter iPhone Einstellungen > Datenschutz > Kontakte > Nimple.";
 
-"error_names" = "Bitte fülle Vorname und Nachname aus.";
+"error_names" = "Bitte fülle Vor- und Nachname aus.";
 
 "display_contact_notes_label" = "Notizen";
-"add_to_addressbook_button" = "Kontakt im Adressbuch speichern";
+"add_to_addressbook_button" = "Kontakt ins Adressbuch speichern";
 "delete_contact_button" = "Kontakt löschen";
 
 "settings_faq" = "FAQ";
