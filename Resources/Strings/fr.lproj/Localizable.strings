@@ -19,7 +19,7 @@
 "postal_label" = "CP";
 "city_label" = "Ville";
 "address_label" = "Adresse";
-"social_label" = "SOCIAL NETWORKS";
+"social_label" = "RÉSEAUX SOCIAUX";
 "facebook_label" = "connectez-vous avec Facebook";
 "twitter_label" = "connectez-vous avec Twitter";
 "xing_label" = "connectez-vous avec XING";
@@ -42,33 +42,33 @@
 "settings.share-text" = "J'utilise l'application Nimple - Networking Simple. Téléchargement: www.nimpleapp.com";
 "settings.share-header" = "Nimple - Networking Simple application";
 
-"msg_box_wrong_code_header" = "Mauvais code";
+"msg_box_wrong_code_header" = "Faut code";
 "msg_box_wrong_code_text" = "Nimple ne peut pas lire le code.";
 "msg_box_wrong_code_activity" = "Retour";
 
 "msg_box_right_code_header" = "Contact ajoutée";
-"msg_box_right_code_text" = "Le contact est ajouté à votre contacts";
+"msg_box_right_code_text" = "Le contact est ajouté à vos contacts";
 "msg_box_right_code_activity" = "OK";
 
-"msg_box_delete_contact_title" = "Rayer ce contact?";
-"msg_box_delete_contact_activity1" = "Rayer";
+"msg_box_delete_contact_title" = "supprimer ce contact?";
+"msg_box_delete_contact_activity1" = "Supprimer";
 "msg_box_delete_contact_activity2" = "Annuler";
 
-"msg_box_duplicated_contact_title" = "Ce contact existe déjà dans votre contacts.";
+"msg_box_duplicated_contact_title" = "Ce contact existe déjà dans vos contacts.";
 "msg_box_duplicated_code_activity" = "OK";
 
-"msg_box_save_contact_title" = "Enregistrer ce contact dans votre contacts?";
+"msg_box_save_contact_title" = "Enregistrer ce contact dans vos contacts?";
 "msg_box_save_contact_activity1" = "Enregistrer";
 "msg_box_save_contact_activity2" = "Annuler";
 
 "contacts_no_access_title" = "Pas d'accès à vos contacts";
-"contacts_no_access_text" = "Cette application n'a pas accès à vos contacts. Veuillez activer l'accès à vos contacts dan Réglages iPhone > Confidentialité > Contacts > Nimple.";
+"contacts_no_access_text" = "Cette application n'a pas accès à vos contacts. Veuillez activer l'accès à vos contacts dans réglages iPhone > Confidentialité > Contacts > Nimple.";
 
-"error_names" = "Entrez votre prénom et nom.";
+"error_names" = "Entrer votre prénom et nom.";
 
 "display_contact_notes_label" = "Notes";
 "add_to_addressbook_button" = "Enregistrer le contact dans le carnet d'adresses";
-"delete_contact_button" = "Rayer le contact";
+"delete_contact_button" = "Supprimer ce contact";
 
 "settings_faq" = "FAQ";
 "settings_legal" = "Conditions générales";
@@ -80,7 +80,7 @@
 "settings_feedback" = "Feedback";
 
 "tutorial_add_text" = "Scanner un nouveau\ncontact";
-"tutorial_edit_text" = "Saisissez vos dates pour créer\nvotre carte et votre code";
+"tutorial_edit_text" = "Saisisser vos dates pour créer\nvotre carte et votre code";
 
 "display_contact_title" = "Détails";
 "nimple_card_label" = "Ma carte";
@@ -92,9 +92,9 @@
 
 "nimple_code_description" = "Les interrupteurs contrôlent la visibilité\nde votre carte et votre code";
 
-"nimple_code_footer" = "Votre code peut scanner par un\nlecteur de code à barres ou Nimple";
+"nimple_code_footer" = "Votre code peut être scanner par un\nlecteur de code à barres ou Nimple";
 
-"tab_nimple_card_title" = "Card";
+"tab_nimple_card_title" = "Carte";
 "tab_nimple_code_title" = "Code";
 "tab_contacts_title" = "Contacts";
 "tab_settings_title" = "Réglages";
