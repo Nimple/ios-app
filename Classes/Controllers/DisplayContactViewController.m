@@ -82,6 +82,9 @@
     [self.companyLabel setText:self.nimpleContact.company];
     [self.jobLabel setText:self.nimpleContact.job];
     
+    // new labels
+    
+    
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if([language isEqualToString:@"de"]) {
         [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];

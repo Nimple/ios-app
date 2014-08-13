@@ -37,6 +37,8 @@
     return self;
 }
 
+#pragma mark - Core Data initialization
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     NSManagedObjectContext *context;
@@ -71,6 +73,50 @@
 {
     NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
     return [[appDelegate applicationDocumentsDirectory] URLByAppendingPathComponent:@"NimpleContact.sqlite"];
+}
+
+#pragma mark - Core Data operations
+
+- (NSManagedObject *)objectWithID:(NSManagedObjectID *)objectID
+{
+    return [_mainContext objectWithID:objectID];
+}
+
+- (id)addObjectWithEntityName:(NSString *)entityName
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:_mainContext];
+}
+
+- (void)removeObjectWithID:(NSManagedObjectID *)objectID
+{
+    NSManagedObject *object = [self objectWithID:objectID];
+    [_mainContext deleteObject:object];
+}
+
+- (void)save
+{
+    NSError *error;
+    if (![_mainContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
+
+#pragma mark - Contacts
+
+- (NSArray *)contacts
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"NimpleContact" inManagedObjectContext:_mainContext];
+    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+    fetchRequest.sortDescriptors = @[sortDescriptor];
+    NSError *error = nil;
+    NSArray* contacts = [_mainContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Contacts fetch error %@", error);
+        return nil;
+    }
+    return contacts;
 }
 
 @end
