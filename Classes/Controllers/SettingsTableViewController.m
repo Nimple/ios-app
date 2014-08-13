@@ -16,6 +16,7 @@
     __weak IBOutlet UILabel *_imprintLabel;
     
     __weak IBOutlet UILabel *_facebookLabel;
+    __weak IBOutlet UILabel *_twitterLabel;
     __weak IBOutlet UILabel *_shareLabel;
     __weak IBOutlet UILabel *_feedbackLabel;
     
@@ -47,6 +48,7 @@
     _imprintLabel.text = NimpleLocalizedString(@"settings_imprint");
     
     _facebookLabel.text = NimpleLocalizedString(@"settings_facebook");
+    _twitterLabel.text = NimpleLocalizedString(@"settings_twitter");
     _shareLabel.text = NimpleLocalizedString(@"settings_share");
     _feedbackLabel.text = NimpleLocalizedString(@"settings_feedback");
     
@@ -62,6 +64,13 @@
 #pragma mark - Tap Gesture Action
 - (IBAction)faqClicked:(id)sender {
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+
+- (IBAction)twitterClicked:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:@"https://twitter.com/Nimpleapp"];
     [[UIApplication sharedApplication] openURL:url];
 }
 

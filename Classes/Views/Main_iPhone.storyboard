@@ -100,6 +100,13 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
+                                        <rect key="frame" x="20" y="392" width="280" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -119,6 +126,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="_barcodeNoteLabel" destination="als-zh-r6e" id="zbL-BO-TWg"/>
                         <outlet property="_navigationLabel" destination="93b-pI-kqe" id="p3I-TB-adR"/>
                         <outlet property="_tutorialAddLabel" destination="8po-Mc-N33" id="Fko-kJ-2Xw"/>
                         <outlet property="_tutorialEditLabel" destination="MDw-2a-vt8" id="QnD-yf-vsY"/>
@@ -224,7 +232,7 @@ auf deiner Karte und in deinem Code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="253A6129-EAE7-4C02-BBE3-B20625C90A51">
+                                            <state key="normal" title="Button" image="C861A79B-BC6E-4276-96FF-FBAE27AB2596">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -796,14 +804,22 @@ auf deiner Karte und in deinem Code</string>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6oH-4r-cuF">
                                                 <rect key="frame" x="72" y="173" width="221" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Ucg-F1-g7b" appends="YES" id="yLi-Br-iXE"/>
+                                                </connections>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZK3-vR-Uod">
                                                 <rect key="frame" x="72" y="201" width="221" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="4Qh-0I-FPi" appends="YES" id="fgG-ho-Xmv"/>
+                                                </connections>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="company" id="u7w-YK-Mbg">
                                                 <rect key="frame" x="34" y="118" width="18" height="18"/>
@@ -876,6 +892,8 @@ auf deiner Karte und in deinem Code</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="800"/>
                     <connections>
+                        <outlet property="_addressLabel" destination="ZK3-vR-Uod" id="4Dn-bg-AKD"/>
+                        <outlet property="_websiteLabel" destination="6oH-4r-cuF" id="SiY-Jv-KmK"/>
                         <outlet property="companyLabel" destination="gDO-kU-XDj" id="9Pm-kx-U8H"/>
                         <outlet property="deleteContactButton" destination="YOr-K1-tjp" id="cf8-rA-Zjt"/>
                         <outlet property="emailLabel" destination="06X-eh-ySV" id="AYv-Ja-S0Q"/>
@@ -898,6 +916,16 @@ auf deiner Karte und in deinem Code</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRI-2B-0hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ucg-F1-g7b" userLabel="Tap Gesture Recognizer - Website">
+                    <connections>
+                        <action selector="websiteClicked:" destination="MgR-wC-OmR" id="JW6-Bd-Y26"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="4Qh-0I-FPi" userLabel="Tap Gesture Recognizer - Address">
+                    <connections>
+                        <action selector="addressClicked:" destination="MgR-wC-OmR" id="ide-ze-g6I"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1232" y="655"/>
         </scene>
@@ -1079,8 +1107,29 @@ auf deiner Karte und in deinem Code</string>
                                             <outletCollection property="gestureRecognizers" destination="LCw-5M-cyR" appends="YES" id="wmH-xy-mwB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="share" id="arD-Aq-emk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedback" id="bHX-Fc-jha" userLabel="Table View Cell - twitter">
                                         <rect key="frame" x="0.0" y="465" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHX-Fc-jha" id="R7S-Jz-LfG">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nimple auf Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="019-h2-psV" userLabel="Label - twitter">
+                                                    <rect key="frame" x="20" y="11" width="164" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="faj-Uf-JhD" appends="YES" id="qOT-8w-9OL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="share" id="arD-Aq-emk">
+                                        <rect key="frame" x="0.0" y="509" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="arD-Aq-emk" id="ies-Vs-kax">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1101,7 +1150,7 @@ auf deiner Karte und in deinem Code</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedback" id="Fk2-ne-SRj">
-                                        <rect key="frame" x="0.0" y="509" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="553" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fk2-ne-SRj" id="x3H-Xb-UQB">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1140,25 +1189,26 @@ auf deiner Karte und in deinem Code</string>
                         <outlet property="_legalLabel" destination="0DQ-Fk-D1R" id="zE8-4d-0kG"/>
                         <outlet property="_settingsLabel" destination="udW-PA-7Pl" id="Yxf-iY-fa2"/>
                         <outlet property="_shareLabel" destination="8UU-9z-zGn" id="dWt-bt-hMd"/>
+                        <outlet property="_twitterLabel" destination="019-h2-psV" id="1l1-zl-GHh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VKN-Sl-cTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Cmn-NV-Xhg">
+                <tapGestureRecognizer id="Cmn-NV-Xhg" userLabel="Tap Gesture Recognizer - faq">
                     <connections>
                         <action selector="faqClicked:" destination="qLV-mL-T8G" id="hC6-My-Z2P"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="fCR-73-zit">
+                <tapGestureRecognizer id="fCR-73-zit" userLabel="Tap Gesture Recognizer - terms">
                     <connections>
                         <action selector="termsClicked:" destination="qLV-mL-T8G" id="4io-6w-oyD"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="l4J-E1-RSr">
+                <tapGestureRecognizer id="l4J-E1-RSr" userLabel="Tap Gesture Recognizer - disclaimer">
                     <connections>
                         <action selector="disclaimerClicked:" destination="qLV-mL-T8G" id="oU0-Kg-3c2"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="kY4-gj-FLM">
+                <tapGestureRecognizer id="kY4-gj-FLM" userLabel="Tap Gesture Recognizer - impressum">
                     <connections>
                         <action selector="impressumClicked:" destination="qLV-mL-T8G" id="cOc-HL-Xcn"/>
                     </connections>
@@ -1178,12 +1228,17 @@ auf deiner Karte und in deinem Code</string>
                         <action selector="feedbackClicked:" destination="qLV-mL-T8G" id="24F-dI-dQl"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="faj-Uf-JhD" userLabel="Tap Gesture Recognizer - twitter">
+                    <connections>
+                        <action selector="twitterClicked:" destination="qLV-mL-T8G" id="kxz-9p-QAQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="538" y="1196"/>
         </scene>
     </scenes>
     <resources>
-        <image name="253A6129-EAE7-4C02-BBE3-B20625C90A51" width="119" height="119">
+        <image name="C861A79B-BC6E-4276-96FF-FBAE27AB2596" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

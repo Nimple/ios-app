@@ -11,7 +11,10 @@
 #import "AddressBookUI/ABUnknownPersonViewController.h"
 #import "Logging.h"
 
-@interface DisplayContactViewController ()
+@interface DisplayContactViewController () {
+    __weak IBOutlet UILabel *_websiteLabel;
+    __weak IBOutlet UILabel *_addressLabel;
+}
 
 @end
 
@@ -83,7 +86,9 @@
     [self.jobLabel setText:self.nimpleContact.job];
     
     // new labels
-    
+    _websiteLabel.text = self.nimpleContact.website;
+    NSString *address = [[NSString alloc] initWithFormat:@"%@, @% @%", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
+    _addressLabel = address;
     
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if([language isEqualToString:@"de"]) {
@@ -161,6 +166,26 @@
     mailTapGestureRecognizer.numberOfTapsRequired = 1;
     [self.emailLabel addGestureRecognizer:mailTapGestureRecognizer];
     self.emailLabel.userInteractionEnabled = YES;
+}
+
+#pragma mark - Actions
+
+- (IBAction)websiteClicked:(id)sender
+{
+    if([_websiteLabel.text length] == 0) {
+        return;
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_websiteLabel.text]];
+}
+
+- (IBAction)addressClicked:(id)sender
+{
+    if([_addressLabel.text length] == 0) {
+        return;
+    }
+    NSString *addressString = [_addressLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=%@", addressString]];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Callbacks

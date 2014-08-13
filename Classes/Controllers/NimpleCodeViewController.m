@@ -18,6 +18,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     __weak IBOutlet UILabel *_tutorialAddLabel;
     __weak IBOutlet UILabel *_tutorialEditLabel;
     __weak IBOutlet UINavigationItem *_navigationLabel;
+    __weak IBOutlet UILabel *_barcodeNoteLabel;
 }
 @end
 
@@ -65,6 +66,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     _tutorialAddLabel.text = NimpleLocalizedString(@"tutorial_add_text");
     _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
     _navigationLabel.title = NimpleLocalizedString(@"nimple_code_title");
+    _barcodeNoteLabel.text = NimpleLocalizedString(@"nimple_code_footer");
 }
 
 - (void)updateView
