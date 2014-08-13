@@ -107,12 +107,14 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     {
         [self.nimpleQRCodeImage setHidden:TRUE];
         [self.welcomeView setHidden:FALSE];
+        _barcodeNoteLabel.hidden = YES;
     }
     else
     {
         [self.welcomeView setHidden:TRUE];
         [self.nimpleQRCodeImage setHidden:FALSE];
         [self updateQRCodeData];
+        _barcodeNoteLabel.hidden = NO;
     }
 }
 

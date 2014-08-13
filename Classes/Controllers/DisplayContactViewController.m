@@ -87,8 +87,8 @@
     
     // new labels
     _websiteLabel.text = self.nimpleContact.website;
-    NSString *address = [[NSString alloc] initWithFormat:@"%@, @% @%", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
-    _addressLabel = address;
+    NSString *address = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
+    _addressLabel.text = address;
     
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if([language isEqualToString:@"de"]) {
