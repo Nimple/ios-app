@@ -1,0 +1,100 @@
+/*
+ Localizable.strings
+ nimple-iOS
+ 
+ Created by Ben John on 30/04/14.
+ Copyright (c) 2014 nimple. All rights reserved.
+ */
+
+"personal_label" = "Лично";
+"firstname_label" = "Имя";
+"lastname_label" = "Фамилия";
+"phonenumber_label" = "Но́мер  телефона";
+"mail_label" = "Адрес электро́нной по́чты";
+"business_label" = "Служебный";
+"company_label" = "Компания/университе́т/шко́ла";
+"job_label" = "Профессия/Должность";
+"website_label" = "Веб-страни́ца";
+"street_label" = "Улица";
+"postal_label" = "Индекс";
+"city_label" = "Город";
+"address_label" = "Адрес";
+"social_label" = "Социальные сети";
+"facebook_label" = "подключиться к Facebook";
+"twitter_label" = "подключиться к Twitter";
+"xing_label" = "подключиться к XING";
+"linkedin_label" = "подключиться к LinkedIn";
+"connected_label" = "подключен";
+"fistname_first_contact_label" = "Nimple";
+"lastname_first_contact_label" = "App";
+"phone_first_contact_label" = "http://www.nimpleapp.com";
+"mail_first_contact_label" = "feedback.ios@nimple.de";
+"company_first_contact_label" = "Ваш первый контакт";
+"date_format" = "dd.MM.yyyy HH:mm";
+
+"detail_facebook_label" = "Нет профиль Facebook";
+"detail_twitter_label" = "Нет профиль Twitter";
+"detail_xing_label" = "Нет профиль XING";
+"detail_linkedin_label" = "Нет профиль LinkedIn";
+
+"settings.feedback-text" = "Мне нравится ваше приложение";
+"settings.feedback-header" = "[Обратная связь] Nimple iOS приложение";
+"settings.share-text" = "Я использовать приложение Nimple - Networking Simple. ска́чиваемый файл: www.nimpleapp.com";
+"settings.share-header" = "Nimple - Networking Simple приложение";
+
+"msg_box_wrong_code_header" = "Неверный код";
+"msg_box_wrong_code_text" = "Код не может быть отсканированы.";
+"msg_box_wrong_code_activity" = "Наза́д";
+
+"msg_box_right_code_header" = "Контакт был найден";
+"msg_box_right_code_text" = "Контакт добавлен в список контактов";
+"msg_box_right_code_activity" = "Готово";
+
+"msg_box_delete_contact_title" = "Удалить контакт?";
+"msg_box_delete_contact_activity1" = "Удалить";
+"msg_box_delete_contact_activity2" = "Отменить";
+
+"msg_box_duplicated_contact_title" = "Связаться уже существует.";
+"msg_box_duplicated_code_activity" = "Готово";
+
+"msg_box_save_contact_title" = "Сохранить контакт в адресной книге?";
+"msg_box_save_contact_activity1" = "Cохранять";
+"msg_box_save_contact_activity2" = "Отменить";
+
+"contacts_no_access_title" = "Нет доступа к контактам";
+"contacts_no_access_text" = "Это приложение не имеет доступа к вашим контактам. Пожалуйста, включите доступ к вашим контактам в группе Настройки iPhone > Приватность > Контакты > Nimple.";
+
+"error_names" = "Введите ваше имя и фамилию.";
+
+"display_contact_notes_label" = "Примечания";
+"add_to_addressbook_button" = "Сохранить контакт в адресной книге?";
+"delete_contact_button" = "Удалить контакт";
+
+"settings_faq" = "Помощь";
+"settings_legal" = "Условия использования";
+"settings_disclaimer" = "Приватность";
+"settings_imprint" = "Выходные данные";
+"settings_facebook" = "Nimple на Facebook";
+"settings_twitter" = "Nimple на Twitter";
+"settings_share" = "Рекомендовать Nimple";
+"settings_feedback" = "Обратная связь";
+
+"tutorial_add_text" = "Сканирование новый\nконтакт";
+"tutorial_edit_text" = "Введите даты, чтобы создать\nсвою карту и код";
+
+"display_contact_title" = "Подробности";
+"nimple_card_label" = "Моя карта";
+"nimple_code_title" = "Мой код";
+"settings_title" = "Настройки";
+"contacts_title" = "Мои контакты";
+"scanner_label" = "Добавить контакт";
+"edit_nimple_code_title" = "Изменить";
+
+"nimple_code_description" = "Коммутаторы управлять видимостью на\nвашей карте и в коде";
+
+"nimple_code_footer" = "Ваш код может быть отсканированы с\nсчитывания штрих-кода или Nimple";
+
+"tab_nimple_card_title" = "Карта";
+"tab_nimple_code_title" = "Код";
+"tab_contacts_title" = "Контакты";
+"tab_settings_title" = "Настройки";
