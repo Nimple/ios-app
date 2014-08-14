@@ -10,4 +10,6 @@
 
 @interface EditAddressInputViewCell : UITableViewCell
 
+- (void)configureCell;
+
 @end

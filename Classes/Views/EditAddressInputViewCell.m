@@ -8,27 +8,27 @@
 
 #import "EditAddressInputViewCell.h"
 
+@interface EditAddressInputViewCell() {
+    __weak IBOutlet UITextField *_streetTextField;
+    __weak IBOutlet UITextField *_postalTextField;
+    __weak IBOutlet UITextField *_cityTextField;
+    __weak IBOutlet UISwitch *_propertySwitch;
+}
+@end
+
 @implementation EditAddressInputViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)configureCell
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    [self localizeViewAttributes];
 }
 
-- (void)awakeFromNib
+- (void)localizeViewAttributes
 {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    _streetTextField.placeholder = @"Street";
+    _postalTextField.placeholder = @"Postal";
+    _cityTextField.placeholder = @"City";
+    _propertySwitch.hidden = YES;
 }
 
 @end

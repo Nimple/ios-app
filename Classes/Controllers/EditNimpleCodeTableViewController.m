@@ -148,7 +148,7 @@
 {
     NSInteger cellCount = 0;
     
-    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail 5. street no 6. postal city
+    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail 5. address 6. website
     if(section == 0)
         cellCount = 6;
     // 2. section (business): 1. job title 2. company
@@ -164,6 +164,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 2)
         return 60.0;
+    else if (indexPath.section == 0 && indexPath.row == 4)
+        return 86.0;
     else
         return 45.0;
 }
@@ -238,11 +240,16 @@
         }
         
         if(indexPath.row == 4) {
-            cell.inputField.placeholder = @"Street / Houseno.";
+            EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
+            if (!cell) {
+                cell = [[EditAddressInputViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditAddressInputViewCell"];
+            }
+            [cell configureCell];
+            return cell;
         }
-        
+
         if(indexPath.row == 5) {
-            cell.inputField.placeholder = @"Postal / City";
+            
         }
     }
     // Section: business

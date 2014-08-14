@@ -234,7 +234,7 @@ auf deiner Karte und in deinem Code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="D99FFE3C-ED55-4191-B8EA-592AFFE51EEB">
+                                            <state key="normal" title="Button" image="793A0AC7-3267-4580-A803-C7D03056B29F">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -256,25 +256,36 @@ auf deiner Karte und in deinem Code</string>
                                     <outlet property="socialNetworkButton" destination="xe9-8z-5WE" id="vuv-uS-aUr"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditAddressInputViewCell" id="2WJ-XE-ug6" userLabel="EditAddressInputViewCell" customClass="EditAddressInputViewCell">
-                                <rect key="frame" x="0.0" y="288" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditAddressInputViewCell" rowHeight="86" id="2WJ-XE-ug6" userLabel="EditAddressInputViewCell" customClass="EditAddressInputViewCell">
+                                <rect key="frame" x="0.0" y="288" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2WJ-XE-ug6" id="25U-rl-qEx">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Jk6-Az-eE6">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="Jk6-Az-eE6" userLabel="TextField - Street">
                                             <rect key="frame" x="20" y="2" width="221" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.52156862749999999" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
-                                            <connections>
-                                                <action selector="EditingDidEnd:" destination="2WJ-XE-ug6" eventType="editingDidEnd" id="pXz-st-qJ3"/>
-                                                <action selector="editingChanged:" destination="2WJ-XE-ug6" eventType="editingChanged" id="69j-lp-P0Z"/>
-                                                <action selector="valueChanged:" destination="2WJ-XE-ug6" eventType="valueChanged" id="dIZ-ix-kYB"/>
-                                            </connections>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="u8x-yb-Xf3" userLabel="TextField - Postal">
+                                            <rect key="frame" x="20" y="43" width="76" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.52156862749999999" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="kg1-6x-q0K" userLabel="TextField - City">
+                                            <rect key="frame" x="104" y="43" width="196" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" red="0.52156862749999999" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
                                         </textField>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="2FE-8Z-VBa">
                                             <rect key="frame" x="251" y="6" width="51" height="31"/>
@@ -290,8 +301,10 @@ auf deiner Karte und in deinem Code</string>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="inputField" destination="Jk6-Az-eE6" id="Pb9-fT-UvV"/>
-                                    <outlet property="propertySwitch" destination="2FE-8Z-VBa" id="xWg-l9-Rhj"/>
+                                    <outlet property="_cityTextField" destination="kg1-6x-q0K" id="gQE-6M-zt9"/>
+                                    <outlet property="_postalTextField" destination="u8x-yb-Xf3" id="kI0-XL-q9L"/>
+                                    <outlet property="_propertySwitch" destination="2FE-8Z-VBa" id="vIl-KS-cAa"/>
+                                    <outlet property="_streetTextField" destination="Jk6-Az-eE6" id="p8b-Ey-lB7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1240,7 +1253,7 @@ auf deiner Karte und in deinem Code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="D99FFE3C-ED55-4191-B8EA-592AFFE51EEB" width="119" height="119">
+        <image name="793A0AC7-3267-4580-A803-C7D03056B29F" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
