@@ -9,9 +9,6 @@
 #import "NimpleCodeViewController.h"
 #import "BarCodeReaderController.h"
 
-// Static template for generating vCards
-static NSString *VCARD_TEMPLATE = @"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@\nTEL;CELL:%@\nEMAIL:%@\nORG:%@\nTITLE:%@\nURL:%@\nX-FACEBOOK-ID:%@\nURL:%@\nX-TWITTER-ID:%@\nURL:%@\nURL:%@\nEND:VCARD";
-
 static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 @interface NimpleCodeViewController () {
@@ -81,6 +78,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"EMAIL:%@\n" forKey:@"vcard_email"];
     [VCARD_TEMPLATE_DIC setObject:@"TITLE:%@\n" forKey:@"vcard_role"];
     [VCARD_TEMPLATE_DIC setObject:@"ORG:%@\n" forKey:@"vcard_organisation"];
+    [VCARD_TEMPLATE_DIC setObject:@"ADR;type=HOME:%@\n" forKey:@"vcard_address"];
     [VCARD_TEMPLATE_DIC setObject:@"X-FACEBOOK-ID:%@\n" forKey:@"vcard_facebook_id"];
     [VCARD_TEMPLATE_DIC setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];
     [VCARD_TEMPLATE_DIC setObject:@"URL:%@\n" forKey:@"vcard_url"];
@@ -138,12 +136,14 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     {
         [self.nimpleQRCodeImage setHidden:TRUE];
         [self.welcomeView setHidden:FALSE];
+        _barcodeNoteLabel.hidden = YES;
     }
     else
     {
         [self.welcomeView setHidden:TRUE];
         [self.nimpleQRCodeImage setHidden:FALSE];
         [self updateQRCodeData];
+        _barcodeNoteLabel.hidden = NO;
     }
 }
 
@@ -236,15 +236,30 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         NSString *linkedin_URL = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[11]];
         [filled appendString: linkedin_URL];
     }
-    [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_end"]];
     
+    // address
+    //;;Werderstr. 10;Mannheim;;68165;   12/13/14
+    if([NSString stringWithString:p_data[12]].length != 0 && [NSString stringWithString:p_data[13]].length != 0 && [NSString stringWithString:p_data[14]].length != 0 && [self.myNimpleCode boolForKey:@"address_switch"])
+    {
+        NSString *address = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", p_data[12], p_data[13], p_data[14]]];
+        [filled appendString:address];
+    }
+    
+    // website
+    if([NSString stringWithString:p_data[15]].length != 0 && [self.myNimpleCode boolForKey:@"website_switch"])
+    {
+        NSString *website = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[15]];
+        [filled appendString:website];
+    }
+
+    [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_end"]];
     return filled;
 }
 
 // Update the QR code data
 -(void) updateQRCodeData
 {
-    [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] FacebookURL:[self.myNimpleCode valueForKey:@"facebook_URL"] FacebookID:[self.myNimpleCode valueForKey:@"facebook_ID"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"] TwitterID:[self.myNimpleCode valueForKey:@"twitter_ID"] XingURL:[self.myNimpleCode valueForKey:@"xing_URL"] LinkedInURL:[self.myNimpleCode valueForKey:@"linkedin_URL"]];
+    [self generateNimpleQRCodeSurname:[self.myNimpleCode valueForKey:@"surname"] Prename:[self.myNimpleCode valueForKey:@"prename"] Phone:[self.myNimpleCode valueForKey:@"phone"] Mail:[self.myNimpleCode valueForKey:@"email"] JobTitle:[self.myNimpleCode valueForKey:@"job"] CompanyName:[self.myNimpleCode valueForKey:@"company"] FacebookURL:[self.myNimpleCode valueForKey:@"facebook_URL"] FacebookID:[self.myNimpleCode valueForKey:@"facebook_ID"] TwitterURL:[self.myNimpleCode valueForKey:@"twitter_URL"] TwitterID:[self.myNimpleCode valueForKey:@"twitter_ID"] XingURL:[self.myNimpleCode valueForKey:@"xing_URL"] LinkedInURL:[self.myNimpleCode valueForKey:@"linkedin_URL"] withStreet:[self.myNimpleCode valueForKey:@"street"] andPostal:[self.myNimpleCode valueForKey:@"postal"] andCity:[self.myNimpleCode valueForKey:@"city"] andWebsite:[self.myNimpleCode valueForKey:@"website"]];
 }
 
 //
@@ -287,9 +302,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 }
 
 // Generates a nimple QR code with given parameters
-- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString *)p_linkedinURL
+- (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString *)p_linkedinURL withStreet:(NSString*)p_street andPostal:(NSString*)p_postal andCity:(NSString*)p_city andWebsite:(NSString*)p_website
 {
-    NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, p_facebookURL, p_facebookID, p_twitterURL, p_twitterID, p_xingURL, p_linkedinURL, nil];
+    NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, p_facebookURL, p_facebookID, p_twitterURL, p_twitterID, p_xingURL, p_linkedinURL, p_street, p_postal, p_city, p_website, nil];
     
     NSLog(@"count = %@", vcard_data);
     
