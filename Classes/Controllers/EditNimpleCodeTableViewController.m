@@ -175,7 +175,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"EditInputViewCell";
-    EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [cell.inputField setText:@""];
     cell.inputField.delegate = cell;
@@ -241,15 +241,22 @@
         
         if(indexPath.row == 4) {
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
-            if (!cell) {
-                cell = [[EditAddressInputViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EditAddressInputViewCell"];
-            }
             [cell configureCell];
             return cell;
         }
 
         if(indexPath.row == 5) {
+            BOOL websiteSwitch = [self.myNimpleCode boolForKey:@"company_switch"];
+            [cell.propertySwitch setOn:websiteSwitch];
             
+            if ([[self.myNimpleCode valueForKey:@"website"] length] == 0) {
+                [cell.inputField setPlaceholder:NimpleLocalizedString(@"website_label")];
+                [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:TRUE];
+                [self.myNimpleCode setBool:TRUE forKey:@"website_switch"];
+            } else {
+                cell.inputField.text = [self.myNimpleCode valueForKey:@"website"];
+            }
         }
     }
     // Section: business
