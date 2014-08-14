@@ -22,8 +22,8 @@
 - (void)configureCell
 {
     [self localizeViewAttributes];
-    [self configurePropertySwitch];
     [self updateView];
+    [self configurePropertySwitch];
 }
 
 - (void)localizeViewAttributes
@@ -31,7 +31,6 @@
     _streetTextField.placeholder = @"Street";
     _postalTextField.placeholder = @"Postal";
     _cityTextField.placeholder = @"City";
-    _propertySwitch.hidden = YES;
 }
 
 - (void)configurePropertySwitch
@@ -49,9 +48,9 @@
 {
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    _streetTextField.text = [viewController.myNimpleCode valueForKey:@"street"];
-    _postalTextField.text = [viewController.myNimpleCode valueForKey:@"postal"];
-    _cityTextField.text = [viewController.myNimpleCode valueForKey:@"city"];
+    _streetTextField.text = [viewController.myNimpleCode stringForKey:@"street"];
+    _postalTextField.text = [viewController.myNimpleCode stringForKey:@"postal"];
+    _cityTextField.text = [viewController.myNimpleCode stringForKey:@"city"];
 }
 
 - (BOOL)isFilled
