@@ -178,6 +178,7 @@
     if([_websiteLabel.text length] == 0) {
         return;
     }
+    NSLog(@"%@", _websiteLabel.text);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_websiteLabel.text]];
 }
 
@@ -188,6 +189,7 @@
     }
     NSString *addressString = [_addressLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=%@", addressString]];
+    NSLog(@"%@", _addressLabel.text);
     [[UIApplication sharedApplication] openURL:url];
 }
 
