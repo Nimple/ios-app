@@ -21,19 +21,7 @@
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="xing_URL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="OwnNimpleCode" representedClassName="OwnNimpleCode" syncable="YES">
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="postal" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="prename" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="NimpleContact" positionX="0" positionY="0" width="128" height="330"/>
-        <element name="OwnNimpleCode" positionX="0" positionY="0" width="128" height="180"/>
     </elements>
 </model>

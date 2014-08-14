@@ -106,6 +106,27 @@
     {
         [self.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
     }
+    
+    NSString* street = [self.myNimpleCode valueForKey:@"street"];
+    if (street.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"street"];
+    }
+    NSString* postal = [self.myNimpleCode valueForKey:@"postal"];
+    if (postal.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"postal"];
+    }
+    NSString* city = [self.myNimpleCode valueForKey:@"city"];
+    if (city.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"city"];
+    }
+    NSString* website = [self.myNimpleCode valueForKey:@"website"];
+    if (website.length == 0)
+    {
+        [self.myNimpleCode setValue:@"" forKey:@"website"];
+    }
     NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
     [self.myNimpleCode synchronize];
