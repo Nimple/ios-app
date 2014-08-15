@@ -30,9 +30,9 @@
 
 - (void)localizeViewAttributes
 {
-    _streetTextField.placeholder = @"Street";
-    _postalTextField.placeholder = @"Postal";
-    _cityTextField.placeholder = @"City";
+    _streetTextField.placeholder = NimpleLocalizedString(@"street_label");
+    _postalTextField.placeholder = NimpleLocalizedString(@"postal_label");
+    _cityTextField.placeholder = NimpleLocalizedString(@"city_label");
 }
 
 - (void)updateView
@@ -44,7 +44,7 @@
 
 - (void)configurePropertySwitch
 {
-    if(![self isFilled]) {
+    if (![self isFilled]) {
         [_propertySwitch setAlpha:0.0];
         [_propertySwitch setOn:YES];
     } else {
@@ -80,7 +80,7 @@
 
 - (IBAction)editingDidEnd:(id)sender
 {
-    if([self isFilled])
+    if ([self isFilled])
         [self animatePropertySwitchVisibilityTo:1.0];
     else
         [self animatePropertySwitchVisibilityTo:0.0];
