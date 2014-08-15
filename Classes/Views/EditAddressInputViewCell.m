@@ -7,13 +7,14 @@
 //
 
 #import "EditAddressInputViewCell.h"
-#import "EditNimpleCodeTableViewController.h"
 
 @interface EditAddressInputViewCell() {
     __weak IBOutlet UITextField *_streetTextField;
     __weak IBOutlet UITextField *_postalTextField;
     __weak IBOutlet UITextField *_cityTextField;
     __weak IBOutlet UISwitch *_propertySwitch;
+    
+    NimpleCode *_code;
 }
 @end
 
@@ -21,6 +22,7 @@
 
 - (void)configureCell
 {
+    _code = [NimpleCode sharedCode];
     [self localizeViewAttributes];
     [self updateView];
     [self configurePropertySwitch];
@@ -31,6 +33,13 @@
     _streetTextField.placeholder = @"Street";
     _postalTextField.placeholder = @"Postal";
     _cityTextField.placeholder = @"City";
+}
+
+- (void)updateView
+{
+    _streetTextField.text = _code.addressStreet;
+    _postalTextField.text = _code.addressPostal;
+    _cityTextField.text = _code.addressCity;
 }
 
 - (void)configurePropertySwitch
@@ -44,22 +53,13 @@
     }
 }
 
-- (void)updateView
-{
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    _streetTextField.text = [viewController.myNimpleCode stringForKey:@"street"];
-    _postalTextField.text = [viewController.myNimpleCode stringForKey:@"postal"];
-    _cityTextField.text = [viewController.myNimpleCode stringForKey:@"city"];
-}
-
 - (BOOL)isFilled
 {
-    if (_streetTextField.text.length != 0)
+    if (_streetTextField.text)
         return true;
-    if (_postalTextField.text.length != 0)
+    if (_postalTextField.text)
         return true;
-    if (_cityTextField.text.length != 0)
+    if (_cityTextField.text)
         return true;
     return false;
 }
@@ -68,33 +68,25 @@
 
 - (IBAction)propertySwitched:(id)sender
 {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    [viewController.myNimpleCode setBool:_propertySwitch.isOn forKey:@"address_switch"];
+    _code.addressSwitch = _propertySwitch.isOn;
 }
 
 - (IBAction)editingChanged:(id)sender
 {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    [viewController.myNimpleCode setValue:_streetTextField.text forKey:@"street"];
-    [viewController.myNimpleCode setValue:_postalTextField.text forKey:@"postal"];
-    [viewController.myNimpleCode setValue:_cityTextField.text forKey:@"city"];
+    _code.addressStreet = _streetTextField.text;
+    _code.addressPostal = _postalTextField.text;
+    _code.addressCity = _cityTextField.text;
 }
 
 - (IBAction)editingDidEnd:(id)sender
 {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
     if([self isFilled])
         [self animatePropertySwitchVisibilityTo:1.0];
     else
         [self animatePropertySwitchVisibilityTo:0.0];
-    
-    [viewController.myNimpleCode setValue:_streetTextField.text forKey:@"street"];
-    [viewController.myNimpleCode setValue:_postalTextField.text forKey:@"postal"];
-    [viewController.myNimpleCode setValue:_cityTextField.text forKey:@"city"];
+    _code.addressStreet = _streetTextField.text;
+    _code.addressPostal = _postalTextField.text;
+    _code.addressCity = _cityTextField.text;
 }
 
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value

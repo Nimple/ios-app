@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NimpleCode.h"
 
 @interface EditAddressInputViewCell : UITableViewCell
 

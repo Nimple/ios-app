@@ -60,6 +60,16 @@
     }
 }
 
+- (BOOL)boolForKey:(NSString *)key
+{
+    return [_defaults boolForKey:key];
+}
+
+- (void)setBool:(BOOL)value forKey:(NSString *)key
+{
+    [_defaults setBool:value forKey:key];
+}
+
 #pragma mark - Basic code
 
 - (void)setPrename:(NSString *)prename
@@ -214,6 +224,18 @@
 - (NSString *)linkedIn
 {
     return [self stringForKey:NimpleCodeLinkedInKey];
+}
+
+#pragma mark - Switches
+
+- (void)setAddressSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeAddressSwitch];
+}
+
+- (BOOL)addressSwitch
+{
+    return [self boolForKey:NimpleCodeAddressSwitch];
 }
 
 @end

@@ -27,6 +27,8 @@
 #define NimpleCodeXingKey @"xing_URL"
 #define NimpleCodeLinkedInKey @"linkedin_URL"
 
+#define NimpleCodeAddressSwitch @"address_switch"
+
 @interface NimpleCode : NSObject
 
 + (NimpleCode *)sharedCode;
@@ -63,5 +65,8 @@
 - (NSString *)xing;
 - (void)setLinkedIn:(NSString *)linkedIn;
 - (NSString *)linkedIn;
+
+- (void)setAddressSwitch:(BOOL) state;
+- (BOOL)addressSwitch;
 
 @end
