@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NimpleContact.h"
 
 @interface NimpleModel : NSObject
 
 + (NimpleModel *)sharedModel;
+
+- (void)save;
+
+- (NimpleContact *)getEntityForNewContact;
+- (void)deleteContact:(NimpleContact *)contact;
+- (NSArray *)contacts;
 
 @end

@@ -9,6 +9,9 @@
 #import "NimpleAppDelegate.h"
 #import "NimpleModel.h"
 
+#define NimpleContactEntityName @"NimpleContact"
+#define NimpleContactCreatedColumn @"created"
+
 @interface NimpleModel () {
     NSManagedObjectContext *_mainContext;
 }
@@ -57,13 +60,20 @@
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     NSURL *storeURL = [self storeURL];
+    NSDictionary *storeOptions = [self storeOptions];
     NSError *error = nil;
     NSPersistentStoreCoordinator *storeCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![storeCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![storeCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:storeOptions error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     return storeCoordinator;
+}
+
+- (NSDictionary *)storeOptions
+{
+    // we use lightweight core-data migration, should fit in our case
+    return @{NSMigratePersistentStoresAutomaticallyOption: @YES, NSInferMappingModelAutomaticallyOption: @YES};
 }
 
 - (NSURL *)storeURL
@@ -101,17 +111,36 @@
 
 #pragma mark - Contacts
 
+- (NimpleContact *)getEntityForNewContact
+{
+    return [self addObjectWithEntityName:NimpleContactEntityName];
+}
+
+- (void)deleteContact:(NimpleContact *)contact
+{
+    [self removeObjectWithID:contact.objectID];
+}
+
+- (NSSortDescriptor *)contactsSortDescriptor
+{
+    return [[NSSortDescriptor alloc] initWithKey:NimpleContactCreatedColumn ascending:NO];
+}
+
+- (NSArray *)contactsSortDescriptors
+{
+    return @[[self contactsSortDescriptor]];
+}
+
 - (NSArray *)contacts
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"NimpleContact" inManagedObjectContext:_mainContext];
-    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-    fetchRequest.sortDescriptors = @[sortDescriptor];
+    fetchRequest.entity = [NSEntityDescription entityForName:NimpleContactEntityName inManagedObjectContext:_mainContext];
+    fetchRequest.sortDescriptors = [self contactsSortDescriptors];
     NSError *error = nil;
     NSArray* contacts = [_mainContext executeFetchRequest:fetchRequest error:&error];
     if (error) {
         NSLog(@"Contacts fetch error %@", error);
-        return nil;
+        return [NSArray array];
     }
     return contacts;
 }
