@@ -55,11 +55,11 @@
 
 - (BOOL)isFilled
 {
-    if (_streetTextField.text)
+    if (_streetTextField.text.length != 0)
         return true;
-    if (_postalTextField.text)
+    if (_postalTextField.text.length != 0)
         return true;
-    if (_cityTextField.text)
+    if (_cityTextField.text.length != 0)
         return true;
     return false;
 }
