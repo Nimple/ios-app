@@ -71,7 +71,22 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
     if(!exampleUserDidExist) {
         NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        [contact setValueForPrename:@"Nimple" Surname:@"App" PhoneNumber:@"" MailAddress:@"feedback.ios@nimple.de" JobTitle:@"" Company:NimpleLocalizedString(@"company_first_contact_label") FacebookURL:@"http://www.facebook.de/nimpleapp" FacebookID:@"286113114869395" TwitterURL:@"https://twitter.com/Nimpleapp" TwitterID:@"2444364654" XingURL:@"https://www.xing.com/companies/appstronautengbr" LinkedInURL:@"https://www.linkedin.com/company/appstronauten-gbr" Created:[NSDate date] ContactHash:@"" Note:@"" withStreet:@"" andPostal:@"" andCity:@"" andWebsite:@"http://www.nimple.de"];
+        
+        contact.prename = @"Nimple";
+        contact.surname = @"App";
+        contact.phone = @"";
+        contact.email = @"feedback.ios@nimple.de";
+        contact.job = @"";
+        contact.company = NimpleLocalizedString(@"company_first_contact_label");
+        contact.facebook_URL = @"http://www.facebook.de/nimpleapp";
+        contact.facebook_ID = @"286113114869395";
+        contact.twitter_URL = @"https://twitter.com/Nimpleapp";
+        contact.twitter_ID = @"2444364654";
+        contact.xing_URL = @"https://www.xing.com/companies/appstronautengbr";
+        contact.linkedin_URL = @"https://www.linkedin.com/company/appstronauten-gbr";
+        contact.created = [NSDate date];
+        contact.website = @"http://www.nimple.de";
+        
         NSError *error;
         [self.managedObjectContext save:&error];
         [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];

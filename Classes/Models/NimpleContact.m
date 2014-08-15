@@ -2,9 +2,7 @@
 //  NimpleContact.m
 //  nimple-iOS
 //
-//  This class represents a Contact in Nimple with the specified attributes.
-//
-//  Created by Sebastian Lang on 07.03.14.
+//  Created by Ben John on 14/08/14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
@@ -12,53 +10,37 @@
 
 @implementation NimpleContact
 
-@dynamic company;
-@dynamic email;
-@dynamic job;
-@dynamic phone;
+// schema version 1.0
 @dynamic prename;
 @dynamic surname;
+
+@dynamic phone;
+@dynamic email;
+@dynamic job;
+@dynamic company;
+
 @dynamic facebook_URL;
 @dynamic facebook_ID;
 @dynamic twitter_URL;
 @dynamic twitter_ID;
 @dynamic xing_URL;
 @dynamic linkedin_URL;
+
 @dynamic created;
+
+// schema version 2.0
 @dynamic contactHash;
 @dynamic note;
+
+// schema version 3.0
 @dynamic street;
 @dynamic postal;
 @dynamic city;
 @dynamic website;
 
-// Sets all properties of a contact
--(void) setValueForPrename:(NSString*)p_prename Surname:(NSString*)p_surname PhoneNumber:(NSString*)p_phone MailAddress:(NSString*)p_mail JobTitle:(NSString*)p_job Company:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString*)p_linkedinURL Created:(NSDate *)p_created ContactHash:(NSString*)p_contactHash Note:(NSString*)p_note withStreet:(NSString*)p_street andPostal:(NSString*)p_postal andCity:(NSString*)p_city andWebsite:(NSString*)p_website
+- (NSString *)description
 {
-    self.prename        = p_prename;
-    self.surname        = p_surname;
-    self.phone          = p_phone;
-    self.email          = p_mail;
-    self.job            = p_job;
-    self.company        = p_company;
-    self.facebook_URL   = p_facebookURL;
-    self.facebook_ID    = p_facebookID;
-    self.twitter_URL    = p_twitterURL;
-    self.twitter_ID     = p_twitterID;
-    self.xing_URL       = p_xingURL;
-    self.linkedin_URL   = p_linkedinURL;
-    self.created        = p_created;
-    self.contactHash    = p_contactHash;
-    self.note           = p_note;
-    self.street         = p_street;
-    self.postal         = p_postal;
-    self.city           = p_city;
-    self.website        = p_website;
-}
-
--(NSString*) toString {
-    NSString* string = [NSString stringWithFormat:@"Contact: %@ %@, %@ @ %@, %@ %@ %@ %@, %@, %@ %@ %@, %@", self.prename, self.surname, self.job, self.company, self.phone, self.email, self.created, self.contactHash, self.note, self.street, self.postal, self.city, self.website];
-    return string;
+    return [NSString stringWithFormat:@"<NimpleContact: %@ %@, Created: %@>", self.prename, self.surname, self.created];
 }
 
 @end
