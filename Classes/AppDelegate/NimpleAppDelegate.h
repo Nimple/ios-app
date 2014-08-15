@@ -14,6 +14,7 @@
 #import <NSDictionary+BDBOAuth1Manager.h>
 
 // Nimple imports
+#import "NimpleCode.h"
 #import "NimpleContact.h"
 #import "NimpleCardViewController.h"
 #import "ContactsViewController.h"

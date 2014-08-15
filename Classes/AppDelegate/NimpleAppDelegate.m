@@ -52,6 +52,9 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     // Setup social network APIs
     [FBLoginView class];
     
+    // initialize nimpleCode
+    [NimpleCode sharedCode];
+    
     // Set nimple tint color for navigation bar
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
     [[UITabBar appearance] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];

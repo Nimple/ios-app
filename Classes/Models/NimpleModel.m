@@ -43,10 +43,8 @@
 {
     NSManagedObjectContext *context;
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
-        [context setPersistentStoreCoordinator:coordinator];
-    }
+    context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSConfinementConcurrencyType];
+    [context setPersistentStoreCoordinator:coordinator];
     return context;
 }
 
@@ -65,7 +63,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
     return storeCoordinator;
 }
 
