@@ -38,38 +38,35 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
-    // Nimple card view controller
     UINavigationController *nimpleCardController = (UINavigationController *)navigationController.childViewControllers[0];
     nimpleCardController.title = NimpleLocalizedString(@"tab_nimple_card_title");
     
-    // Nimple code view controller
-    UINavigationController *presentedController1 = (UINavigationController *)navigationController.childViewControllers[1];
-    presentedController1.title = NimpleLocalizedString(@"tab_nimple_code_title");
+    UINavigationController *nimpleCodeController = (UINavigationController *)navigationController.childViewControllers[1];
+    nimpleCodeController.title = NimpleLocalizedString(@"tab_nimple_code_title");
     
-    // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController *)navigationController.childViewControllers[2];
     contactsController.title = NimpleLocalizedString(@"tab_contacts_title");
     
-    // Settings controller
     UINavigationController *settingsController = (UINavigationController *)navigationController.childViewControllers[3];
     settingsController.title = NimpleLocalizedString(@"tab_settings_title");
     
-    UITabBarItem *tabbar_card     = [[self tabBar].items objectAtIndex:0];
-    UITabBarItem *tabbar_code     = [[self tabBar].items objectAtIndex:1];
-    UITabBarItem *tabbar_contacts = [[self tabBar].items objectAtIndex:2];
-    UITabBarItem *tabbar_settings = [[self tabBar].items objectAtIndex:3];
+    UITabBarItem *card = [[self tabBar].items objectAtIndex:0];
+    UITabBarItem *code = [[self tabBar].items objectAtIndex:1];
+    UITabBarItem *contacts = [[self tabBar].items objectAtIndex:2];
+    UITabBarItem *settings = [[self tabBar].items objectAtIndex:3];
     
-    tabbar_card.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabbar_card.image = [[UIImage imageNamed:@"tabbar_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    card.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    card.image = [[UIImage imageNamed:@"tabbar_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    tabbar_code.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabbar_code.image = [[UIImage imageNamed:@"tabbar_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    code.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    code.image = [[UIImage imageNamed:@"tabbar_nimple-code"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    tabbar_contacts.selectedImage = [[UIImage imageNamed:@"tabbar_selected_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabbar_contacts.image = [[UIImage imageNamed:@"tabbar_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    contacts.selectedImage = [[UIImage imageNamed:@"tabbar_selected_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    contacts.image = [[UIImage imageNamed:@"tabbar_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    tabbar_settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    tabbar_settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
     [[self tabBar] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
 }
 
