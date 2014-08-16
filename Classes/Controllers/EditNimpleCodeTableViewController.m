@@ -365,10 +365,12 @@
             BOOL xing_switch = [self.myNimpleCode boolForKey:@"xing_switch"];
             [cell.propertySwitch setOn:xing_switch];
             
+            NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
+            
             [cell setSection:2];
             [cell setIndex:2];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
-            [cell setNetworkManager: [NimpleAppDelegate sharedDelegate].networkManager];
+            [cell setNetworkManager: appDelegate.networkManager];
             
             NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
             if(xing_URL.length == 0)

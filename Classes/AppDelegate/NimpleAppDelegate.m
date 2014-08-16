@@ -18,80 +18,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "NimpleAppDelegate.h"
 #import "Logging.h"
-#import "NimpleContactPersistenceManager.h"
 
 @implementation NimpleAppDelegate
 
-static NimpleAppDelegate * _sharedDelegate = nil;
-
-@synthesize managedObjectContext       = _managedObjectContext;
-@synthesize managedObjectModel         = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize xingTableViewCell;
 
-+ (instancetype)sharedDelegate {
-    return _sharedDelegate;
-}
-
-- (instancetype)init
+- (void)setupNavigationBar
 {
-    self = [super init];
-    if (self)
-    {
-        _sharedDelegate = self;
-    }
-    return self;
-}
-
-// Application launched
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Init Logging/Mixpanel
-    [Logging initMixpanel];
-    
-    // Setup social network APIs
-    [FBLoginView class];
-    
-    // initialize nimpleCode
-    [NimpleCode sharedCode];
-    
-    // Set nimple tint color for navigation bar
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
     [[UITabBar appearance] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
-    
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    // Init Persistence Manager
-    [NimpleContactPersistenceManager getInstance:context];
-    
-    // bootstrap -> create initial contact
-    // Add default contact
-    BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
-    if(!exampleUserDidExist) {
-        NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
-        
-        contact.prename = @"Nimple";
-        contact.surname = @"App";
-        contact.phone = @"";
-        contact.email = @"feedback.ios@nimple.de";
-        contact.job = @"";
-        contact.company = NimpleLocalizedString(@"company_first_contact_label");
-        contact.facebook_URL = @"http://www.facebook.de/nimpleapp";
-        contact.facebook_ID = @"286113114869395";
-        contact.twitter_URL = @"https://twitter.com/Nimpleapp";
-        contact.twitter_ID = @"2444364654";
-        contact.xing_URL = @"https://www.xing.com/companies/appstronautengbr";
-        contact.linkedin_URL = @"https://www.linkedin.com/company/appstronauten-gbr";
-        contact.created = [NSDate date];
-        contact.website = @"http://www.nimple.de";
-        
-        NSError *error;
-        [self.managedObjectContext save:&error];
-        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];
-    }
-    
+}
+
+- (void)setupTabs
+{
     // Find and setup view controllers
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
@@ -99,22 +38,16 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     UINavigationController *nimpleCardController = (UINavigationController*) navigationController.childViewControllers[0];
     nimpleCardController.title = NimpleLocalizedString(@"tab_nimple_card_title");
     NSLog(@"Controller 0  is %@", nimpleCardController.title);
-    NimpleCardViewController *nimpleCardViewController = (NimpleCardViewController*)nimpleCardController.childViewControllers[0];
-    nimpleCardViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *presentedController1 = (UINavigationController*) navigationController.childViewControllers[1];
     presentedController1.title = NimpleLocalizedString(@"tab_nimple_code_title");
     NSLog(@"Controller 1 is %@", presentedController1.title);
-    NimpleCodeViewController *nimpleCodeViewController = (NimpleCodeViewController*)presentedController1.childViewControllers[0];
-    nimpleCodeViewController.managedObjectContext = context;
     
     // Nimple code view controller
     UINavigationController *contactsController = (UINavigationController*) navigationController.childViewControllers[2];
     contactsController.title = NimpleLocalizedString(@"tab_contacts_title");
     NSLog(@"Controller 2 is %@", contactsController.title);
-    ContactsViewController *contactsViewController = (ContactsViewController*)contactsController.childViewControllers[0];
-    contactsViewController.managedObjectContext = context;
     
     // Settings controller
     UINavigationController *settingsController = (UINavigationController*) navigationController.childViewControllers[3];
@@ -139,50 +72,57 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     tabbar_settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
     tabbar_settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
     [tabbar setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
+}
+
+- (void)bootstrapApplication
+{
+    [Logging initMixpanel];
+    [FBLoginView class];
+    [NimpleCode sharedCode];
+    [NimpleModel sharedModel];
+    [self createExampleContact];
+}
+
+- (void) createExampleContact
+{
+    // TODO move to NimpleModel
     
-    NSLog(@"Nimple launched successfully!");
-    return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
+    // bootstrap -> create initial contact
+    // Add default contact
+    BOOL exampleUserDidExist =[[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
+    if(!exampleUserDidExist) {
+        // NimpleContact *contact = [NSEntityDescription insertNewObjectForEntityForName:@"NimpleContact" inManagedObjectContext:self.managedObjectContext];
+        
+        NimpleContact *contact = [[NimpleContact alloc] init];
+        
+        contact.prename = @"Nimple";
+        contact.surname = @"App";
+        contact.phone = @"";
+        contact.email = @"feedback.ios@nimple.de";
+        contact.job = @"";
+        contact.company = NimpleLocalizedString(@"company_first_contact_label");
+        contact.facebook_URL = @"http://www.facebook.de/nimpleapp";
+        contact.facebook_ID = @"286113114869395";
+        contact.twitter_URL = @"https://twitter.com/Nimpleapp";
+        contact.twitter_ID = @"2444364654";
+        contact.xing_URL = @"https://www.xing.com/companies/appstronautengbr";
+        contact.linkedin_URL = @"https://www.linkedin.com/company/appstronauten-gbr";
+        contact.created = [NSDate date];
+        contact.website = @"http://www.nimple.de";
+        
+        NSError *error;
+        // [self.managedObjectContext save:&error];
+        [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"example_contact_once_existed"];
     }
+
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self bootstrapApplication];
+    [self setupNavigationBar];
+    [self setupTabs];
+    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -241,66 +181,8 @@ static NimpleAppDelegate * _sharedDelegate = nil;
     return NO;
 }
 
-#pragma mark - Core Data stack
+#pragma mark - Core Data integration
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
-}
-
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModel" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"NimpleContact.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    
-    // we use lightweight core-data migration, should fit in our case
-    NSDictionary *options = @{
-                              NSMigratePersistentStoresAutomaticallyOption : @YES,
-                              NSInferMappingModelAutomaticallyOption : @YES
-                              };
-    
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _persistentStoreCoordinator;
-}
-
-#pragma mark - Application's Documents directory
-
-// Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];

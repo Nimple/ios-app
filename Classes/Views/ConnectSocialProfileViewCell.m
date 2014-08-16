@@ -226,11 +226,14 @@
         // Introduce table view cell to app delegate, which handles the URL-opening in the browser
         self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.xing.com/"] consumerKey:XING_CONSUMER_KEY consumerSecret:XING_CONSUMER_SECRET];
         
-        if(![NimpleAppDelegate sharedDelegate].xingTableViewCell)
-            [NimpleAppDelegate sharedDelegate].xingTableViewCell = self;
+        NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        
+        if(!appDelegate.xingTableViewCell)
+            appDelegate.xingTableViewCell = self;
         
         if(self.networkManager)
-            [NimpleAppDelegate sharedDelegate].networkManager = self.networkManager;
+            appDelegate.networkManager = self.networkManager;
         
         if([self.networkManager isAuthorized])
         {
@@ -328,8 +331,9 @@
 // Deauthorized nimple from the XING API
 - (void)deauthorizeWithCompletion:(void (^)(void))completion
 {
-    [[NimpleAppDelegate sharedDelegate].networkManager deauthorize];
-    [[NimpleAppDelegate sharedDelegate].networkManager.requestSerializer removeAccessToken];
+    NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.networkManager deauthorize];
+    [appDelegate.networkManager.requestSerializer removeAccessToken];
     
     if(completion)
         completion();

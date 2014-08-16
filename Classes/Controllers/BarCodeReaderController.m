@@ -11,7 +11,6 @@
 #import "VCardParser.h"
 #import "Crypto.h"
 #import "Logging.h"
-#import "NimpleContactPersistenceManager.h"
 
 @interface BarCodeReaderController ()
 
@@ -198,8 +197,8 @@
     NSArray *array = [managedObjectContext executeFetchRequest:fetch error:nil];
     
     if(array.count == 0) {
-        NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
-        [Logging sendContactAddedEvent:nimpleContact];
+        //NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
+        //[Logging sendContactAddedEvent:nimpleContact];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.alertView show];
