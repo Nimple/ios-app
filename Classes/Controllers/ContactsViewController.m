@@ -12,14 +12,13 @@
 
 @interface ContactsViewController () {
     __weak IBOutlet UINavigationItem *_navigationLabel;
+    NimpleModel *_model;
+    NSArray *_contacts;
 }
 
 @end
 
 @implementation ContactsViewController
-
-@synthesize nimpleContacts;
-@synthesize managedObjectContext;
 
 -(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
@@ -40,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
     [self configureTableView];
     [self updateData];
@@ -70,69 +70,45 @@
 // Updates the data by fetchRequest from the managed object context
 - (void) updateData
 {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity  = [NSEntityDescription
-                                    entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
-    
-    // sort nimpleContactsArray by created:NSDate (DESC)
-    NSSortDescriptor* sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-    
-    NSArray* sortDescriptors = [[NSArray alloc] initWithObjects: sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    [fetchRequest setEntity:entity];
-    
-    NSError *error;
-    self.nimpleContacts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    _contacts = [_model contacts];
     [self.tableView reloadData];
 }
 
-// Prepare the segue by passing the managed object context
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddContact"])
-    {
-        BarCodeReaderController *destViewController = segue.destinationViewController;
-        destViewController.managedObjectContext = self.managedObjectContext;
-    }
-    if ([segue.identifier isEqualToString:@"DetailView"])
-    {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"DetailView"]) {
         DisplayContactViewController *destViewController = segue.destinationViewController;
         destViewController.delegate = self;
         
         // Get selected contact and pass it to the DisplayContactViewController
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NimpleContact *nimpleContact = [self.nimpleContacts objectAtIndex:indexPath.row];
-        [destViewController setNimpleContact:nimpleContact];
+        NimpleContact *contact = [_contacts objectAtIndex:indexPath.row];
+        [destViewController setNimpleContact:contact];
     }
 }
 
-// Default disallow editing of row
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return NO;
 }
 
 # pragma mark DisplayContactViewDelegate
 
-- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller {
+- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller
+{
     NSLog(@"displayContactViewControllerDidSave");
-    // Save notes and segueBack
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Error saving nimple contact.");
-    }
+    [_model save];
 }
 
-- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller {
+- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller
+{
     NSLog(@"displayContactViewControllerDidDelete");
     
     // Remove contact and segueBack
     //[self.navigationController popToRootViewControllerAnimated:YES];
     
-    [self.managedObjectContext deleteObject:controller.nimpleContact];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Error at deleting row -> fix error pls.");
+    if (controller.nimpleContact) {
+        [_model deleteContact:controller.nimpleContact];
     }
     
     NSLog(@"Deleted row.");
@@ -156,8 +132,7 @@
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [nimpleContacts count];
+    return [_contacts count];
 }
 
 //
@@ -166,7 +141,7 @@
     static NSString *CellIdentifier = @"ContactCell";
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NimpleContact *contact = [nimpleContacts objectAtIndex:indexPath.row];
+    NimpleContact *contact = [_contacts objectAtIndex:indexPath.row];
     [cell setContact:contact];
     
     // Set facebook icon state

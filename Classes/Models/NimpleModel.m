@@ -134,7 +134,10 @@
         contact.linkedin_URL = @"https://www.linkedin.com/company/appstronauten-gbr";
         contact.created = [NSDate date];
         contact.website = @"http://www.nimple.de";
-        contact.note = @"Created with nimple.de";
+        contact.note = @"";
+        contact.street = @"";
+        contact.postal = @"";
+        contact.city = @"";
         [self save];
     }
 }
@@ -171,6 +174,15 @@
         return [NSArray array];
     }
     return contacts;
+}
+
+- (BOOL)doesContactExistWithHash:(NSString *)contactHash
+{
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    fetch.entity = [NSEntityDescription entityForName:@"NimpleContact" inManagedObjectContext:_mainContext];
+    fetch.predicate = [NSPredicate predicateWithFormat:@"contactHash == %@", contactHash];
+    NSArray *result = [_mainContext executeFetchRequest:fetch error:nil];
+    return (result.count > 0);
 }
 
 @end

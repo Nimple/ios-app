@@ -15,7 +15,6 @@
 
 @interface BarCodeReaderController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UIView          *codeReaderCameraView;
 @property (weak, atomic) NSMutableArray              *capturedContactData;
 @property (strong, atomic) UIAlertView               *alertView;
