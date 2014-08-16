@@ -20,21 +20,11 @@
 
 @implementation EditNimpleCodeTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _code = [NimpleCode sharedCode];
     [self localizeViewAttributes];
-    [self updateView];
 }
 
 - (void)localizeViewAttributes
@@ -43,44 +33,28 @@
     _descriptionLabel.text = NimpleLocalizedString(@"nimple_code_description");
 }
 
-- (void)updateView
-{
-   // NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
-   // [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
-}
-
 #pragma mark - Table view data source
 
-// Returns the number of sections used in this table view
-// 1. personal section
-// 2. social section
-// 3. business section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
 
-// Returns the number of cells in the given section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger cellCount = 0;
-    
-    // 1. section (personal): 1. prename 2. surname 3. phone 4. mail 5. address 6. website
-    if(section == 0)
+    if (section == 0)
         cellCount = 6;
-    // 2. section (business): 1. job title 2. company
     else if (section == 1)
         cellCount = 2;
-    // 3. section (social): 1. facebook 2. twitter 3. xing 4. linkedin
-    else if(section == 2)
+    else if (section == 2)
         cellCount = 4;
-    
     return cellCount;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 2)
+    if (indexPath.section == 2)
         return 60.0;
     else if (indexPath.section == 0 && indexPath.row == 4)
         return 86.0;
@@ -88,7 +62,6 @@
         return 45.0;
 }
 
-// Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditInputViewCell"];
@@ -101,62 +74,56 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             [cell.propertySwitch setHidden:YES];
-            if (_code.prename.length == 0) {
-                cell.inputField.placeholder = NimpleLocalizedString(@"firstname_label");
-            } else {
-                cell.inputField.text = _code.prename;
-            }
+            cell.inputField.placeholder = NimpleLocalizedString(@"firstname_label");
+            cell.inputField.text = _code.prename;
         }
+        
         if (indexPath.row == 1) {
             [cell.propertySwitch setHidden:YES];
-            if (_code.surname.length == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
-            } else {
-                [cell.inputField setText:_code.surname];
-            }
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
+            [cell.inputField setText:_code.surname];
         }
+        
         if (indexPath.row == 2) {
             [cell.propertySwitch setOn:_code.cellPhoneSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
+            cell.inputField.text = _code.cellPhone;
             if([_code.cellPhone length] == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:YES];
                 _code.cellPhoneSwitch = YES;
-            } else {
-                cell.inputField.text = _code.cellPhone;
             }
         }
+        
         if (indexPath.row == 3) {
             [cell.propertySwitch setOn:_code.emailSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypeEmailAddress];
             [cell.inputField setAutocorrectionType:UITextAutocorrectionTypeNo];
             [cell.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
-            
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"mail_label")];
+            cell.inputField.text = _code.email;
             if(_code.email.length == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"mail_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:YES];
                 _code.emailSwitch = YES;
-            } else {
-                cell.inputField.text = _code.email;
             }
         }
+        
         if(indexPath.row == 4) {
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
             [cell configureCell];
             return cell;
         }
+        
         if (indexPath.row == 5) {
             [cell.propertySwitch setOn:_code.websiteSwitch];
-            
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"website_label")];
+            cell.inputField.text = _code.website;
             if (_code.website.length == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"website_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:YES];
                 _code.websiteSwitch = YES;
-            } else {
-                cell.inputField.text = _code.website;
             }
         }
     }
@@ -164,24 +131,23 @@
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             [cell.propertySwitch setOn:_code.companySwitch];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"company_label")];
+            [cell.inputField setText:_code.company];
             if (_code.company.length == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"company_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:YES];
                 _code.companySwitch = YES;
-            } else {
-                [cell.inputField setText:_code.company];
             }
         }
+        
         if (indexPath.row == 1) {
             [cell.propertySwitch setOn:_code.jobSwitch];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"job_label")];
+            [cell.inputField setText:_code.job];
             if (_code.job.length == 0) {
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"job_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:YES];
                 _code.jobSwitch = YES;
-            } else {
-                [cell.inputField setText:_code.job];
             }
         }
     }
@@ -232,7 +198,7 @@
             NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
             
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
-            [cell setNetworkManager: appDelegate.networkManager];
+            [cell setNetworkManager:appDelegate.networkManager];
             
             if (_code.xing.length == 0) {
                 _code.xingSwitch = YES;
