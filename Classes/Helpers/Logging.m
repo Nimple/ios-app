@@ -66,6 +66,8 @@
                                  @"has mail address": [self checkForEmptyStringAndFormatOutput:nimpleContact.email],
                                  @"has company": [self checkForEmptyStringAndFormatOutput:nimpleContact.company],
                                  @"has job title": [self checkForEmptyStringAndFormatOutput:nimpleContact.job],
+                                 @"has website": [self checkForEmptyStringAndFormatOutput:nimpleContact.website],
+                                 @"has address": [self checkBoolAndFormatOutput:nimpleContact.hasAddress],
                                  @"has facebook": [self checkForEmptyStringAndFormatOutput:nimpleContact.facebook_URL],
                                  @"has twitter": [self checkForEmptyStringAndFormatOutput:nimpleContact.twitter_URL],
                                  @"has xing": [self checkForEmptyStringAndFormatOutput:nimpleContact.xing_URL],
@@ -91,6 +93,8 @@
                                  @"has mail address": [self checkForEmptyStringAndFormatOutput:code.email],
                                  @"has company": [self checkForEmptyStringAndFormatOutput:code.company],
                                  @"has job title": [self checkForEmptyStringAndFormatOutput:code.job],
+                                 @"has website": [self checkForEmptyStringAndFormatOutput:code.website],
+                                 @"has address": [self checkBoolAndFormatOutput:code.hasAddress],
                                  @"has facebook": [self checkForEmptyStringAndFormatOutput:code.facebookUrl],
                                  @"has twitter": [self checkForEmptyStringAndFormatOutput:code.twitterUrl],
                                  @"has xing": [self checkForEmptyStringAndFormatOutput:code.xing],
@@ -100,6 +104,15 @@
 }
 
 #pragma mark - Small helper
+
+- (NSString *)checkBoolAndFormatOutput:(BOOL)state
+{
+    if (state) {
+        return @"true";
+    } else {
+        return @"false";
+    }
+}
 
 - (NSString *)checkForEmptyStringAndFormatOutput:(NSString*)needle
 {
