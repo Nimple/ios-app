@@ -20,10 +20,10 @@
 "city_label" = "Miasto";
 "address_label" = "Adres";
 "social_label" = "SIECI SPOŁECZNYCH";
-"facebook_label" = "połączyć się Facebookiem";
-"twitter_label" = "połączyć się Twitter";
-"xing_label" = "połączyć się XING";
-"linkedin_label" = "połączyć się LinkedIn";
+"facebook_label" = "połączyć się z Facebookiem";
+"twitter_label" = "połączyć się z Twitterem";
+"xing_label" = "połączyć się z XING";
+"linkedin_label" = "połączyć się z LinkedIn";
 "connected_label" = "podłączony";
 "fistname_first_contact_label" = "Nimple";
 "lastname_first_contact_label" = "App";
@@ -32,10 +32,10 @@
 "company_first_contact_label" = "Twój pierwszy kontakt";
 "date_format" = "dd.MM.yyyy HH:mm";
 
-"detail_facebook_label" = "Nie profil Facebook";
-"detail_twitter_label" = "Nie profil Twitter";
-"detail_xing_label" = "Nie profil XING";
-"detail_linkedin_label" = "Nie profil LinkedIn";
+"detail_facebook_label" = "Bez profil Facebooka";
+"detail_twitter_label" = "Bez profil Twittera";
+"detail_xing_label" = "Bez profil XING";
+"detail_linkedin_label" = "Bez profil LinkedIn";
 
 "settings.feedback-text" = "Lubię swoją aplikację";
 "settings.feedback-header" = "[Feedback] Nimple iOS App";
@@ -47,7 +47,7 @@
 "msg_box_wrong_code_activity" = "Cofnij ";
 
 "msg_box_right_code_header" = "Kontakt został znaleziony";
-"msg_box_right_code_text" = "Kontakt został dodany do listy kontaktów";
+"msg_box_right_code_text" = "Kontakt został dodany do twoich kontaktów";
 "msg_box_right_code_activity" = "Gotowe";
 
 "msg_box_delete_contact_title" = "Usuń kontakt?";
@@ -57,7 +57,7 @@
 "msg_box_duplicated_contact_title" = "Kontakt już istnieje.";
 "msg_box_duplicated_code_activity" = "Gotowe";
 
-"msg_box_save_contact_title" = "Dodaj kontakt do książki adresowej?";
+"msg_box_save_contact_title" = "Dodaj kontakt do listy kontaktowej?";
 "msg_box_save_contact_activity1" = "Zapisz";
 "msg_box_save_contact_activity2" = "Anuluj";
 
@@ -67,15 +67,15 @@
 "error_names" = "Wpisz swoje imię i nazwisko.";
 
 "display_contact_notes_label" = "Notatki";
-"add_to_addressbook_button" = "Dodaj kontakt do książki adresowej";
+"add_to_addressbook_button" = "Dodaj kontakt do listy kontaktowej";
 "delete_contact_button" = "Usuń kontakt";
 
 "settings_faq" = "Pomoc";
 "settings_legal" = "Regulamin";
 "settings_disclaimer" = "Prywatność";
 "settings_imprint" = "Impressum";
-"settings_facebook" = "Nimple na Facebook";
-"settings_twitter" = "Nimple na Twitter";
+"settings_facebook" = "Nimple na Facebooku";
+"settings_twitter" = "Nimple na Twitterze";
 "settings_share" = "Polecam Nimple";
 "settings_feedback" = "Feedback";
 
@@ -90,7 +90,7 @@
 "scanner_label" = "Dodaj kontakt";
 "edit_nimple_code_title" = "Edycja";
 
-"nimple_code_description" = "Przełączniki określić widoczność\nna karta i kodu";
+"nimple_code_description" = "Przełączniki określają widoczność\nna karcie i kodzie";
 
 "nimple_code_footer" = "Kod może być skanowany z czytnikiem\nkodów kreskowych lub Nimple";
 
