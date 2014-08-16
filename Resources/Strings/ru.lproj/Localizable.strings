@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "Коммутаторы управлять видимостью на\nвашей карте и в коде";
 
-"nimple_code_footer" = "Ваш код может быть отсканированы с\nсчитывания штрих-кода или Nimple";
+"nimple_code_footer" = "Ваш код может быть отсканированы с считывания штрих-кода или Nimple";
 
 "tab_nimple_card_title" = "Карта";
 "tab_nimple_code_title" = "Код";

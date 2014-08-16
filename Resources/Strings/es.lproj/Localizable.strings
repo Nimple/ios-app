@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "Los interruptores controlan la visibilidad\nen el mapa y en su código";
 
-"nimple_code_footer" = "Su código se puede escanear con un\nlector de código de barras o Nimple";
+"nimple_code_footer" = "Su código se puede escanear con un lector de código de barras o Nimple";
 
 "tab_nimple_card_title" = "Tarjeta";
 "tab_nimple_code_title" = "Código";

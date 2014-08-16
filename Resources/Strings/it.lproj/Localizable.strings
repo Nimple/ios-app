@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "Gli interruttori controllano la\nvisibilità sul biglietto e nel codice";
 
-"nimple_code_footer" = "Il codice può essere scansionato con\nun lettore di codice a barre o Nimple";
+"nimple_code_footer" = "Il codice può essere scansionato con un lettore di codice a barre o Nimple";
 
 "tab_nimple_card_title" = "Biglietto";
 "tab_nimple_code_title" = "Codice";

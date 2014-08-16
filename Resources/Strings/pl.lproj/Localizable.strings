@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "Przełączniki określają widoczność\nna karcie i kodzie";
 
-"nimple_code_footer" = "Kod może być skanowany z czytnikiem\nkodów kreskowych lub Nimple";
+"nimple_code_footer" = "Kod może być skanowany z czytnikiem kodów kreskowych lub Nimple";
 
 "tab_nimple_card_title" = "Karta";
 "tab_nimple_code_title" = "Kod";
