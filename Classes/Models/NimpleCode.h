@@ -55,6 +55,7 @@
 - (void)setCompany:(NSString *)company;
 - (NSString *)company;
 
+- (BOOL)hasAddress;
 - (void)setAddressStreet:(NSString *)street;
 - (NSString *)addressStreet;
 - (void)setAddressPostal:(NSString *)postal;

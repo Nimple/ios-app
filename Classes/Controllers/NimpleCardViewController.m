@@ -11,7 +11,15 @@
 @interface NimpleCardViewController () {
     __weak IBOutlet UILabel *_tutorialAddLabel;
     __weak IBOutlet UILabel *_tutorialEditLabel;
+    
     __weak IBOutlet UINavigationItem *_navigationLabel;
+    
+    __weak IBOutlet UILabel *_websiteLabel;
+    __weak IBOutlet UIImageView *_websiteIcon;
+    
+    __weak IBOutlet UILabel *_addressLabel;
+    __weak IBOutlet UIImageView *_addressIcon;
+    
     NimpleCode *_code;
 }
 @end
@@ -75,6 +83,17 @@
     [self.companyLabel setText:_code.company];
     [self.phoneLabel setText:_code.cellPhone];
     [self.emailLabel setText:_code.email];
+    _websiteLabel.text = _code.website;
+    
+    if (_code.hasAddress) {
+        if (_code.addressStreet > 0) {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", _code.addressStreet, _code.addressPostal, _code.addressCity];
+            _addressLabel.text = [address stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        } else {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", _code.addressPostal, _code.addressCity];
+            _addressLabel.text = [address stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        }
+    }
     
     if ((_code.facebookUrl.length != 0 || _code.facebookId.length != 0) && _code.facebookSwitch) {
         [self.facebookIcon setAlpha:1.0];
@@ -98,6 +117,22 @@
         [self.linkedinIcon setAlpha:1.0];
     } else {
         [self.linkedinIcon setAlpha:0.2];
+    }
+    
+    if (!_code.addressSwitch) {
+        [_addressLabel setAlpha:0.2];
+        [_addressIcon setAlpha:0.2];
+    } else {
+        [_addressLabel setAlpha:1.0];
+        [_addressIcon setAlpha:1.0];
+    }
+    
+    if (!_code.websiteSwitch) {
+        [_websiteLabel setAlpha:0.2];
+        [_websiteIcon setAlpha:0.2];
+    } else {
+        [_websiteLabel setAlpha:1.0];
+        [_websiteIcon setAlpha:1.0];
     }
     
     if (!_code.cellPhoneSwitch) {

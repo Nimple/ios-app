@@ -134,6 +134,11 @@
 
 #pragma mark - Address
 
+- (BOOL)hasAddress
+{
+    return self.addressStreet.length > 0 || self.addressPostal.length > 0 || self.addressCity.length > 0;
+}
+
 - (void)setAddressStreet:(NSString *)street
 {
     [self setString:street forKey:NimpleCodeAddressStreetKey];

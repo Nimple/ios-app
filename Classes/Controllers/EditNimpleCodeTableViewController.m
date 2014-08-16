@@ -118,6 +118,7 @@
         
         if (indexPath.row == 5) {
             [cell.propertySwitch setOn:_code.websiteSwitch];
+            cell.inputField.keyboardType = UIKeyboardTypeURL;
             [cell.inputField setPlaceholder:NimpleLocalizedString(@"website_label")];
             cell.inputField.text = _code.website;
             if (_code.website.length == 0) {
