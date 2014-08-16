@@ -181,7 +181,7 @@
     if([_addressLabel.text length] == 0) {
         return;
     }
-    NSString *addressString = [_addressLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *addressString = [[_addressLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"] stringByReplacingOccurrencesOfString:@"\n" withString:@"+"];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=%@", addressString]];
     NSLog(@"%@", _addressLabel.text);
     [[UIApplication sharedApplication] openURL:url];
@@ -330,7 +330,8 @@
     [self.navigationController pushViewController:addPersonView animated:YES];
 }
 
-- (void)checkForAccess {
+- (void)checkForAccess
+{
     // Request authorization to Address Book
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
     
@@ -357,13 +358,9 @@
     }
 }
 
-- (void)showAlertView {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"contacts_no_access_title")
-                                                      message:NimpleLocalizedString(@"contacts_no_access_text")
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    
+- (void)showAlertView
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"contacts_no_access_title") message:NimpleLocalizedString(@"contacts_no_access_text") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
 }
 
