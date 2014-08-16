@@ -11,6 +11,7 @@
 
 #define NimpleContactEntityName @"NimpleContact"
 #define NimpleContactCreatedColumn @"created"
+#define NimpleExampleUserCreatedKey @"example_contact_once_existed"
 
 @interface NimpleModel () {
     NSManagedObjectContext *_mainContext;
@@ -113,12 +114,12 @@
 
 - (BOOL)exampleUserCreated
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:NimpleExampleUserCreatedKey];
 }
 
 - (void)createExampleContact
 {
-    if ([self exampleUserCreated]) {
+    if (![self exampleUserCreated]) {
         NimpleContact *contact = [self getEntityForNewContact];
         contact.prename = @"Nimple";
         contact.surname = @"App";
@@ -139,6 +140,7 @@
         contact.postal = @"";
         contact.city = @"";
         [self save];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NimpleExampleUserCreatedKey];
     }
 }
 
