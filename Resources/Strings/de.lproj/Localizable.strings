@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "Die Schalter regeln die Sichtbarkeit\nauf deiner Karte und in deinem Code";
 
-"nimple_code_footer" = "Dein Code kann mit einem Barcode-Reader\noder Nimple eingescannt werden";
+"nimple_code_footer" = "Dein Code kann mit jedem Barcode-Reader\noder Nimple eingescannt werden";
 
 "tab_nimple_card_title" = "Karte";
 "tab_nimple_code_title" = "Code";

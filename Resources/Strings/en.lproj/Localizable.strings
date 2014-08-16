@@ -92,7 +92,7 @@
 
 "nimple_code_description" = "The swipes change the visibility\non your nimple-card and -code";
 
-"nimple_code_footer" = "Your code can be scanned with\na barcode reader or Nimple";
+"nimple_code_footer" = "Your code can be scanned with\nany barcode reader or Nimple";
 
 "tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";
