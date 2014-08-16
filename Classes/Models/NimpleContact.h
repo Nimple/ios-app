@@ -39,4 +39,6 @@
 @property (nonatomic, retain) NSString *city;
 @property (nonatomic, retain) NSString *website;
 
+- (BOOL)hasAddress;
+
 @end

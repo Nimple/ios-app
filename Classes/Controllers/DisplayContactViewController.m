@@ -84,9 +84,14 @@
     
     // new labels
     _websiteLabel.text = self.nimpleContact.website;
-    if (self.nimpleContact.street && self.nimpleContact.postal && self.nimpleContact.city) {
-        NSString *address = [[NSString alloc] initWithFormat:@"%@, %@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
-        _addressLabel.text = address;
+    if (self.nimpleContact.hasAddress) {
+        if (self.nimpleContact.street > 0) {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
+            _addressLabel.text = address;
+        } else {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", self.nimpleContact.postal, self.nimpleContact.city];
+            _addressLabel.text = address;
+        }
     }
     
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
