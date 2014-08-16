@@ -26,15 +26,6 @@
 
 @implementation NimpleCardViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -174,7 +165,7 @@
 
 - (void)handleChangedNimpleCode:(NSNotification *)note
 {
-    NSLog(@"Received changed NimpleCode event");
+    NSLog(@"Nimple code changed received in NimpleCardViewController");
     [self updateView];
 }
 

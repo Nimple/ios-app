@@ -37,14 +37,20 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 {
     [super viewDidLoad];
     _code = [NimpleCode sharedCode];
+    [self setupNotificationCenter];
     [self localizeViewAttributes];
-    [self updateView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self updateView];
+}
+
+- (void)setupNotificationCenter
+{
+    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
+    [notification addObserver:self selector:@selector(handleChangedNimpleCode:) name:@"nimpleCodeChanged" object:nil];
 }
 
 -(void)localizeViewAttributes
@@ -70,10 +76,6 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"URL:%@\n" forKey:@"vcard_url"];
     [VCARD_TEMPLATE_DIC setObject:@"END:VCARD" forKey:@"vcard_end"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleChangedNimpleCode:)
-                                                 name:@"nimpleCodeChanged"
-                                               object:nil];
     NSString* surname       = _code.surname;
     NSString* prename       = _code.prename;
     NSString* phone         = _code.cellPhone;
@@ -98,9 +100,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     }
 }
 
-// Handles the nimpleCodeChanged notifaction
 - (void)handleChangedNimpleCode:(NSNotification *)note {
-    NSLog(@"Received changed Nimple Code @ Nimple CODE VIEW CONTROLLER");
+    NSLog(@"Nimple code changed received in NimpleCodeViewController");
     [self.nimpleQRCodeImage setAlpha:0.0];
     [self updateQRCodeData];
 }
