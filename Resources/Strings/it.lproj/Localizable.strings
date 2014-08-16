@@ -9,9 +9,9 @@
 "personal_label" = "PERSONALE";
 "firstname_label" = "Nome";
 "lastname_label" = "Cognome";
-"phonenumber_label" = "Numero telefono";
+"phonenumber_label" = "Numero di telefono";
 "mail_label" = "E-mail";
-"business_label" = "AFFARI";
+"business_label" = "LAVORO";
 "company_label" = "Azienda/università/scuola";
 "job_label" = "Qualifica/posizione";
 "website_label" = "Sito internet ";
@@ -20,10 +20,10 @@
 "city_label" = "Città";
 "address_label" = "Indirizzo ";
 "social_label" = "SOCIAL NETWORKS";
-"facebook_label" = "collegati con Facebook";
-"twitter_label" = "collegati con Twitter";
-"xing_label" = "collegati con XING";
-"linkedin_label" = "collegati con LinkedIn";
+"facebook_label" = "collega con Facebook";
+"twitter_label" = "collega con Twitter";
+"xing_label" = "collega con XING";
+"linkedin_label" = "collega con LinkedIn";
 "connected_label" = "collegato";
 "fistname_first_contact_label" = "Nimple";
 "lastname_first_contact_label" = "App";
@@ -37,7 +37,7 @@
 "detail_xing_label" = "Nessun profilo XING";
 "detail_linkedin_label" = "Nessun profilo LinkedIn";
 
-"settings.feedback-text" = "Nimple come me, perché ";
+"settings.feedback-text" = "La vostra App mi piace/non mi piace, perché ";
 "settings.feedback-header" = "[Feedback] Nimple iOS App";
 "settings.share-text" = "Io uso l'app Nimple - Networking Simple. Download: www.nimpleapp.com";
 "settings.share-header" = "Nimple - Networking Simple App";
@@ -70,7 +70,7 @@
 "add_to_addressbook_button" = "Salva il contatto in rubrica";
 "delete_contact_button" = "Elimina contatto";
 
-"settings_faq" = "Domande più frequenti";
+"settings_faq" = "Domande frequenti";
 "settings_legal" = "Condizioni generali di contratto";
 "settings_disclaimer" = "Privacy";
 "settings_imprint" = "Informazione legale";
@@ -90,7 +90,7 @@
 "scanner_label" = "Aggiungi contatto";
 "edit_nimple_code_title" = "Modifica";
 
-"nimple_code_description" = "Gli interruttori controllano la\nvisibilità sulla biglietto e nel codice";
+"nimple_code_description" = "Gli interruttori controllano la\nvisibilità sul biglietto e nel codice";
 
 "nimple_code_footer" = "Il codice può essere scansionato con\nun lettore di codice a barre o Nimple";
 
