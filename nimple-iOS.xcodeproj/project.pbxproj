@@ -226,6 +226,7 @@
 		B5408B0D1904A1D60033DF1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */,
 				B5408B0E1904A1D60033DF1A /* ConnectSocialProfileViewCell.h */,
 				B5408B0F1904A1D60033DF1A /* ConnectSocialProfileViewCell.m */,
 				B5408B101904A1D60033DF1A /* ContactTableViewCell.h */,
@@ -234,7 +235,6 @@
 				B5408B131904A1D60033DF1A /* EditInputViewCell.m */,
 				4B1B7F3A199A24400098DB91 /* EditAddressInputViewCell.h */,
 				4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */,
-				4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
