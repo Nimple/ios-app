@@ -93,6 +93,8 @@
             NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", _code.addressPostal, _code.addressCity];
             _addressLabel.text = [address stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         }
+    } else {
+        _addressLabel.text = @"";
     }
     
     if ((_code.facebookUrl.length != 0 || _code.facebookId.length != 0) && _code.facebookSwitch) {

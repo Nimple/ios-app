@@ -111,6 +111,9 @@
         }
         
         if(indexPath.row == 4) {
+            if (!_code.hasAddress) {
+                _code.addressSwitch = YES;
+            }
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
             [cell configureCell];
             return cell;
