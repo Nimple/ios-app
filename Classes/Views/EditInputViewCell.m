@@ -2,168 +2,95 @@
 //  EditInputViewCell.m
 //  nimple-iOS
 //
-//  Created by Guido Schmidt on 03.03.14.
+//  Created by Ben John on 14/08/14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
 #import "EditInputViewCell.h"
 
+@interface EditInputViewCell () {
+    NimpleCode *_code;
+}
+
+@end
+
 @implementation EditInputViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+- (void)configureCell
+{
+    _code = [NimpleCode sharedCode];
 }
 
-- (IBAction)propertySwitched:(id)sender {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
-    if(self.section == 0) {
-        if(self.index == 2) {
-            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"phone_switch"];
+- (IBAction)propertySwitched:(id)sender
+{
+    if (self.section == 0) {
+        if (self.index == 2) {
+            _code.cellPhoneSwitch = [self.propertySwitch isOn];
         } else if(self.index == 3) {
-            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"email_switch"];
+            _code.emailSwitch = [self.propertySwitch isOn];
         }
-    } else if(self.section == 1) {
-        if(self.index == 0) {
-            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"company_switch"];
+    } else if (self.section == 1) {
+        if (self.index == 0) {
+            _code.companySwitch = [self.propertySwitch isOn];
         } else if(self.index == 1) {
-            [viewController.myNimpleCode setBool:[self.propertySwitch isOn] forKey:@"job_switch"];
+            _code.jobSwitch = [self.propertySwitch isOn];
         }
     }
 }
 
-// Editing of the input cell has changed
 - (IBAction)editingChanged:(id)sender
 {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
-    if(self.section == 0) {
-        if(self.index == 0) {
-            // Prename is required, no need to check propertySwitch
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
+    if (self.section == 0) {
+        if (self.index == 0) {
+            _code.prename = self.inputField.text;
         } else if(self.index ==  1) {
-            // Surname is required, no need to check propertySwitch
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
+            _code.surname = self.inputField.text;
         } else if(self.index == 2) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
+            _code.cellPhone = self.inputField.text;
         } else if(self.index == 3) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
+            _code.email = self.inputField.text;
         }
-    } else if(self.section == 1) {
-        if(self.index == 0) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
+    } else if (self.section == 1) {
+        if (self.index == 0) {
+            _code.company = self.inputField.text;
         } else if(self.index == 1) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
+            _code.job = self.inputField.text;
         }
     }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    // Configure the view for the selected state
-}
-
-// editing of a cell ended, saving input
-- (IBAction)EditingDidEnd:(id)sender {
-    UITableView *tableView = (UITableView *) self.superview.superview;
-    EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
-    
+- (IBAction)EditingDidEnd:(id)sender
+{
     if(self.inputField.text.length != 0)
         [self animatePropertySwitchVisibilityTo: 1.0];
     else
         [self animatePropertySwitchVisibilityTo: 0.0];
     
-    if(self.section == 0) {
-        if(self.index == 0) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"prename"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Dein Vorname"];
-            }
-        } else if(self.index == 1) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"surname"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Dein Nachname"];
-            }
+    if (self.section == 0) {
+        if (self.index == 0) {
+            _code.prename = self.inputField.text;
+        } else if(self.index ==  1) {
+            _code.surname = self.inputField.text;
         } else if(self.index == 2) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"phone"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Deine Telefonnummer"];
-            }
-            [self.propertySwitch setHidden:FALSE];
+            _code.cellPhone = self.inputField.text;
         } else if(self.index == 3) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"email"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
-            }
+            _code.email = self.inputField.text;
         }
-    } else if(self.section == 1) {
-        if(self.index == 0) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"company"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
-            }
-        }
-        if(self.index == 1) {
-            [viewController.myNimpleCode setValue:self.inputField.text forKey:@"job"];
-            if(self.inputField.text.length == 0) {
-                [self.inputField setPlaceholder:@"Dein Job/Position"];
-            }
+    } else if (self.section == 1) {
+        if (self.index == 0) {
+            _code.company = self.inputField.text;
+        } else if(self.index == 1) {
+            _code.job = self.inputField.text;
         }
     }
 }
 
--(void) animatePropertySwitchVisibilityTo:(NSInteger)value {
+- (void)animatePropertySwitchVisibilityTo:(NSInteger)value
+{
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
-    
-    [self.propertySwitch setAlpha:value];
-    
+    [_propertySwitch setAlpha:value];
     [UIView commitAnimations];
-}
-
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.inputField) {
-        [textField resignFirstResponder];
-        
-        if(textField.text.length != 0)
-            [self animatePropertySwitchVisibilityTo: 1.0];
-        else
-            [self animatePropertySwitchVisibilityTo: 0.0];
-        
-        if(textField.text.length == 0) {
-            if(self.section == 0) {
-                if(self.index == 0) {
-                    [self.inputField setPlaceholder:@"Dein Vorname"];
-                }
-                if(self.index == 1) {
-                    [self.inputField setPlaceholder:@"Dein Nachname"];
-                }
-                if(self.index == 2) {
-                    [self.inputField setPlaceholder:@"Deine Telefonnummer"];
-                }
-                if(self.index == 3) {
-                    [self.inputField setPlaceholder:@"Deine E-Mail Adresse"];
-                }
-            }
-            if(self.section == 1) {
-                if(self.index == 0) {
-                    [self.inputField setPlaceholder:@"Dein Unternehmen/Uni/Schule"];
-                }
-                if(self.index == 1) {
-                    [self.inputField setPlaceholder:@"Dein Job/Position"];
-                }
-            }
-        }
-        return NO;
-    }
-    return YES;
 }
 
 @end

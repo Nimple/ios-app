@@ -2,21 +2,20 @@
 //  EditInputViewCell.h
 //  nimple-iOS
 //
-//  Created by Guido Schmidt on 03.03.14.
+//  Created by Ben John on 14/08/14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "EditNimpleCodeTableViewController.h"
+#import "NimpleCode.h"
 
-@interface EditInputViewCell : UITableViewCell <UITextFieldDelegate>
+@interface EditInputViewCell : UITableViewCell
 
 @property (atomic) NSInteger                      index;
 @property (atomic) NSInteger                      section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
-@property (weak, nonatomic) NSString             *value;
 @property (weak, nonatomic) IBOutlet UISwitch    *propertySwitch;
 
--(void) animatePropertySwitchVisibilityTo:(NSInteger)value;
+- (void)animatePropertySwitchVisibilityTo:(NSInteger)value;
 
 @end

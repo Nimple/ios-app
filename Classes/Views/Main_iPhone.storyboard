@@ -191,7 +191,6 @@ auf deiner Karte und in deinem Code</string>
                                             <connections>
                                                 <action selector="EditingDidEnd:" destination="bQT-iM-lrq" eventType="editingDidEnd" id="vKO-tl-aZL"/>
                                                 <action selector="editingChanged:" destination="bQT-iM-lrq" eventType="editingChanged" id="6ub-j9-Y8l"/>
-                                                <action selector="valueChanged:" destination="bQT-iM-lrq" eventType="valueChanged" id="R1F-sJ-FeA"/>
                                             </connections>
                                         </textField>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ifn-Es-px3">
@@ -234,7 +233,7 @@ auf deiner Karte und in deinem Code</string>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xe9-8z-5WE">
                                             <rect key="frame" x="16" y="10" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="AC7D57C7-2A51-4FFC-B9B9-15C4E76E03F9">
+                                            <state key="normal" title="Button" image="7ADB6926-7DDC-489B-906B-AA1908AE5A1A">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
@@ -1265,7 +1264,7 @@ auf deiner Karte und in deinem Code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="AC7D57C7-2A51-4FFC-B9B9-15C4E76E03F9" width="119" height="119">
+        <image name="7ADB6926-7DDC-489B-906B-AA1908AE5A1A" width="119" height="119">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
