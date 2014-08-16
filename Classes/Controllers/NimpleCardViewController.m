@@ -7,7 +7,6 @@
 //
 
 #import "NimpleCardViewController.h"
-#import "BarCodeReaderController.h"
 
 @interface NimpleCardViewController () {
     __weak IBOutlet UILabel *_tutorialAddLabel;
@@ -60,90 +59,78 @@
         [self.nimpleCardView setHidden:FALSE];
         [self.welcomeView setHidden:TRUE];
         
-        // Fill the nimple card
-        [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", _code.prename, _code.surname]];
-        [self.jobLabel setText:_code.job];
-        [self.companyLabel setText:_code.company];
-        [self.phoneLabel setText:_code.cellPhone];
-        [self.emailLabel setText:_code.email];
-        
-        // facebook
-        NSString *facebook_URL = _code.facebookUrl;
-        NSString *facebook_ID  = _code.facebookId;
-        if ((facebook_URL.length != 0 || facebook_ID.length != 0) && [self.myNimpleCode boolForKey:@"facebook_switch"]) {
-            [self.facebookIcon setAlpha:1.0];
-        } else {
-            [self.facebookIcon setAlpha:0.2];
-        }
-        
-        if ((_code.twitterUrl.length != 0 || _code.twitterId.length != 0) && [self.myNimpleCode boolForKey:@"twitter_switch"]) {
-            [self.twitterIcon setAlpha:1.0];
-        } else {
-            [self.twitterIcon setAlpha:0.2];
-        }
-        
-        // xing
-        NSString *xing_URL = _code.xing;
-        if(xing_URL.length != 0 && [self.myNimpleCode boolForKey:@"xing_switch"])
-            [self.xingIcon setAlpha:1.0];
-        else
-            [self.xingIcon setAlpha:0.2];
-        
-        // linkedin
-        NSString *linkedin_URL = _code.linkedIn;
-        if(linkedin_URL.length != 0 && [self.myNimpleCode boolForKey:@"linkedin_switch"])
-            [self.linkedinIcon setAlpha:1.0];
-        else
-            [self.linkedinIcon setAlpha:0.2];
-        
-        if (!_code.cellPhoneSwitch) {
-            [self.phoneLabel setAlpha:0.2];
-            [self.phoneIcon setAlpha:0.2];
-        } else {
-            [self.phoneLabel setAlpha:1.0];
-            [self.phoneIcon setAlpha:1.0];
-        }
-        
-        if (!_code.emailSwitch) {
-            [self.emailLabel setAlpha:0.2];
-            [self.emailIcon setAlpha:0.2];
-        } else {
-            [self.emailLabel setAlpha:1.0];
-            [self.emailIcon setAlpha:1.0];
-        }
-
-        if (![self.myNimpleCode boolForKey:@"company_switch"]) {
-            [self.companyLabel setAlpha:0.2];
-            [self.companyIcon setAlpha:0.2];
-        } else {
-            [self.companyLabel setAlpha:1.0];
-            [self.companyIcon setAlpha:1.0];
-        }
-
-        if (![self.myNimpleCode boolForKey:@"job_switch"]) {
-            [self.jobLabel setAlpha:0.2];
-            [self.jobIcon setAlpha:0.2];
-        } else {
-            [self.jobLabel setAlpha:1.0];
-            [self.jobIcon setAlpha:1.0];
-        }
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    if (self.checkOwnProperties) {
-        [self.nimpleCardView setHidden:TRUE];
-        [self.welcomeView setHidden:FALSE];
-    } else {
-        [self.nimpleCardView setHidden:FALSE];
-        [self.welcomeView setHidden:TRUE];
+        [self fillNimpleCard];
     }
 }
 
 - (BOOL)checkOwnProperties
 {
     return (_code.prename.length == 0 && _code.surname.length == 0);
+}
+
+- (void)fillNimpleCard
+{
+    [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", _code.prename, _code.surname]];
+    [self.jobLabel setText:_code.job];
+    [self.companyLabel setText:_code.company];
+    [self.phoneLabel setText:_code.cellPhone];
+    [self.emailLabel setText:_code.email];
+    
+    if ((_code.facebookUrl.length != 0 || _code.facebookId.length != 0) && _code.facebookSwitch) {
+        [self.facebookIcon setAlpha:1.0];
+    } else {
+        [self.facebookIcon setAlpha:0.2];
+    }
+    
+    if ((_code.twitterUrl.length != 0 || _code.twitterId.length != 0) && _code.twitterSwitch) {
+        [self.twitterIcon setAlpha:1.0];
+    } else {
+        [self.twitterIcon setAlpha:0.2];
+    }
+    
+    if (_code.xing.length != 0 && _code.xingSwitch) {
+        [self.xingIcon setAlpha:1.0];
+    } else {
+        [self.xingIcon setAlpha:0.2];
+    }
+    
+    if (_code.linkedIn.length != 0 && _code.linkedInSwitch) {
+        [self.linkedinIcon setAlpha:1.0];
+    } else {
+        [self.linkedinIcon setAlpha:0.2];
+    }
+    
+    if (!_code.cellPhoneSwitch) {
+        [self.phoneLabel setAlpha:0.2];
+        [self.phoneIcon setAlpha:0.2];
+    } else {
+        [self.phoneLabel setAlpha:1.0];
+        [self.phoneIcon setAlpha:1.0];
+    }
+    
+    if (!_code.emailSwitch) {
+        [self.emailLabel setAlpha:0.2];
+        [self.emailIcon setAlpha:0.2];
+    } else {
+        [self.emailLabel setAlpha:1.0];
+        [self.emailIcon setAlpha:1.0];
+    }
+    
+    if (!_code.companySwitch) {
+        [self.companyLabel setAlpha:0.2];
+        [self.companyIcon setAlpha:0.2];
+    } else {
+        [self.companyLabel setAlpha:1.0];
+        [self.companyIcon setAlpha:1.0];
+    }
+    
+    if (!_code.jobSwitch) {
+        [self.jobLabel setAlpha:0.2];
+        [self.jobIcon setAlpha:0.2];
+    } else {
+        [self.jobLabel setAlpha:1.0];
+        [self.jobIcon setAlpha:1.0];
+    }
 }
 
 #pragma mark - Handles the nimpleCodeChanged notifaction

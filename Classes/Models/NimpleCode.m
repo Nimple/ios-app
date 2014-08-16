@@ -248,6 +248,26 @@
     return [self boolForKey:NimpleCodeEmailSwitch];
 }
 
+- (void)setJobSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeJobSwitch];
+}
+
+- (BOOL)jobSwitch
+{
+    return [self boolForKey:NimpleCodeJobSwitch];
+}
+
+- (void)setCompanySwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeCompanySwitch];
+}
+
+- (BOOL)companySwitch
+{
+    return [self boolForKey:NimpleCodeCompanySwitch];
+}
+
 - (void)setAddressSwitch:(BOOL)state
 {
     [self setBool:state forKey:NimpleCodeAddressSwitch];
@@ -256,6 +276,46 @@
 - (BOOL)addressSwitch
 {
     return [self boolForKey:NimpleCodeAddressSwitch];
+}
+
+- (void)setFacebookSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeFacebookSwitch];
+}
+
+- (BOOL)facebookSwitch
+{
+    return [self boolForKey:NimpleCodeFacebookSwitch];
+}
+
+- (void)setTwitterSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeTwitterSwitch];
+}
+
+- (BOOL)twitterSwitch
+{
+    return [self boolForKey:NimpleCodeTwitterSwitch];
+}
+
+- (void)setXingSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeXingSwitch];
+}
+
+- (BOOL)xingSwitch
+{
+    return [self boolForKey:NimpleCodeXingSwitch];
+}
+
+- (void)setLinkedInSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeLinkedInSwitch];
+}
+
+- (BOOL)linkedInSwitch
+{
+    return [self boolForKey:NimpleCodeLinkedInSwitch];
 }
 
 @end

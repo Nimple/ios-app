@@ -80,7 +80,25 @@
 - (void)setEmailSwitch:(BOOL)state;
 - (BOOL)emailSwitch;
 
+- (void)setJobSwitch:(BOOL)state;
+- (BOOL)jobSwitch;
+
+- (void)setCompanySwitch:(BOOL)state;
+- (BOOL)companySwitch;
+
 - (void)setAddressSwitch:(BOOL)state;
 - (BOOL)addressSwitch;
+
+- (void)setFacebookSwitch:(BOOL)state;
+- (BOOL)facebookSwitch;
+
+- (void)setTwitterSwitch:(BOOL)state;
+- (BOOL)twitterSwitch;
+
+- (void)setXingSwitch:(BOOL)state;
+- (BOOL)xingSwitch;
+
+- (void)setLinkedInSwitch:(BOOL)state;
+- (BOOL)linkedInSwitch;
 
 @end
