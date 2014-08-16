@@ -26,13 +26,15 @@
     if (self.section == 0) {
         if (self.index == 2) {
             _code.cellPhoneSwitch = [self.propertySwitch isOn];
-        } else if(self.index == 3) {
+        } else if (self.index == 3) {
             _code.emailSwitch = [self.propertySwitch isOn];
+        } else if (self.index == 5) {
+            _code.websiteSwitch = self.propertySwitch.isOn;
         }
     } else if (self.section == 1) {
         if (self.index == 0) {
             _code.companySwitch = [self.propertySwitch isOn];
-        } else if(self.index == 1) {
+        } else if (self.index == 1) {
             _code.jobSwitch = [self.propertySwitch isOn];
         }
     }
@@ -43,12 +45,14 @@
     if (self.section == 0) {
         if (self.index == 0) {
             _code.prename = self.inputField.text;
-        } else if(self.index ==  1) {
+        } else if (self.index ==  1) {
             _code.surname = self.inputField.text;
-        } else if(self.index == 2) {
+        } else if (self.index == 2) {
             _code.cellPhone = self.inputField.text;
-        } else if(self.index == 3) {
+        } else if (self.index == 3) {
             _code.email = self.inputField.text;
+        } else if (self.index == 5) {
+            _code.website = self.inputField.text;
         }
     } else if (self.section == 1) {
         if (self.index == 0) {
@@ -69,17 +73,19 @@
     if (self.section == 0) {
         if (self.index == 0) {
             _code.prename = self.inputField.text;
-        } else if(self.index ==  1) {
+        } else if (self.index ==  1) {
             _code.surname = self.inputField.text;
-        } else if(self.index == 2) {
+        } else if (self.index == 2) {
             _code.cellPhone = self.inputField.text;
-        } else if(self.index == 3) {
+        } else if (self.index == 3) {
             _code.email = self.inputField.text;
+        } else if (self.index == 5) {
+            _code.website = self.inputField.text;
         }
     } else if (self.section == 1) {
         if (self.index == 0) {
             _code.company = self.inputField.text;
-        } else if(self.index == 1) {
+        } else if (self.index == 1) {
             _code.job = self.inputField.text;
         }
     }
