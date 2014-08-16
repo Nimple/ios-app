@@ -105,7 +105,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     [self.networkManager GET:@"/v1/users/me/id_card" parameters:nil success:^(NSURLSessionDataTask *task, id response) {
         NSLog(@"Response %@", response);
-        NSString *permalink = response[@"id_card.permalink"];
+        NSString *permalink = [response valueForKeyPath:@"id_card.permalink"];
         NSLog(@"XING Permalink %@", permalink);
         
         dispatch_async(dispatch_get_main_queue(), ^{
