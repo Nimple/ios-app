@@ -393,6 +393,18 @@
     ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
     ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
     
+    ABMutableMultiValueRef multiUrl = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+    ABMultiValueAddValueAndLabel(multiUrl, (__bridge CFTypeRef) nimpleContact.website, kABPersonHomePageLabel, NULL);
+    ABRecordSetValue(result, kABPersonURLProperty, multiUrl, nil);
+
+    ABMutableMultiValueRef multiAddress = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
+    NSMutableDictionary *address = [[NSMutableDictionary alloc] init];
+    [address setObject:nimpleContact.street forKey:(NSString *)kABPersonAddressStreetKey];
+    [address setObject:nimpleContact.city forKey:(NSString *)kABPersonAddressCityKey];
+    [address setObject:nimpleContact.postal forKey:(NSString *)kABPersonAddressZIPKey];
+    ABMultiValueAddValueAndLabel(multiAddress, (__bridge CFTypeRef) address, kABWorkLabel, NULL);
+    ABRecordSetValue(result, kABPersonAddressProperty, multiAddress, nil);
+    
     ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
     ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
     
