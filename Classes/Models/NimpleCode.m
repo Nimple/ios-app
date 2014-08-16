@@ -238,6 +238,16 @@
     return [self boolForKey:NimpleCodeCellPhoneSwitch];
 }
 
+- (void)setEmailSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeEmailSwitch];
+}
+
+- (BOOL)emailSwitch
+{
+    return [self boolForKey:NimpleCodeEmailSwitch];
+}
+
 - (void)setAddressSwitch:(BOOL)state
 {
     [self setBool:state forKey:NimpleCodeAddressSwitch];

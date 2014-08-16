@@ -77,6 +77,9 @@
 - (void)setCellPhoneSwitch:(BOOL)state;
 - (BOOL)cellPhoneSwitch;
 
+- (void)setEmailSwitch:(BOOL)state;
+- (BOOL)emailSwitch;
+
 - (void)setAddressSwitch:(BOOL)state;
 - (BOOL)addressSwitch;
 

@@ -104,7 +104,7 @@
             [self.phoneIcon setAlpha:1.0];
         }
         
-        if (![self.myNimpleCode boolForKey:@"email_switch"]) {
+        if (!_code.emailSwitch) {
             [self.emailLabel setAlpha:0.2];
             [self.emailIcon setAlpha:0.2];
         } else {
