@@ -376,21 +376,22 @@
         return NULL;
     }
     
-    // FirstNameProperty and LastNameProperty seem to be swapped!
     ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
     ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
     
-    if (![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
+    if (nimpleContact.phone.length > 0 && ![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) nimpleContact.phone, kABPersonPhoneMainLabel, nil);
         ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
     }
     
-    ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
-    ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    if (nimpleContact.email.length > 0) {
+        ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
+        ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    }
     
-    if (nimpleContact.website > 0) {
+    if (nimpleContact.website.length > 0) {
         ABMutableMultiValueRef multiUrl = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         ABMultiValueAddValueAndLabel(multiUrl, (__bridge CFTypeRef) nimpleContact.website, kABPersonHomePageLabel, NULL);
         ABRecordSetValue(result, kABPersonURLProperty, multiUrl, nil);
@@ -406,8 +407,13 @@
         ABRecordSetValue(result, kABPersonAddressProperty, multiAddress, nil);
     }
     
-    ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
-    ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    if (nimpleContact.job.length > 0) {
+        ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
+    }
+    
+    if (nimpleContact.company.length > 0) {
+        ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    }
     
     return result;
 }

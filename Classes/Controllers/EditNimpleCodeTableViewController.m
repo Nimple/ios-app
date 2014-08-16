@@ -75,12 +75,14 @@
         if (indexPath.row == 0) {
             [cell.propertySwitch setHidden:YES];
             cell.inputField.placeholder = NimpleLocalizedString(@"firstname_label");
+            cell.inputField.autocapitalizationType = UITextAutocapitalizationTypeWords;
             cell.inputField.text = _code.prename;
         }
         
         if (indexPath.row == 1) {
             [cell.propertySwitch setHidden:YES];
             [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
+            cell.inputField.autocapitalizationType = UITextAutocapitalizationTypeWords;
             [cell.inputField setText:_code.surname];
         }
         
