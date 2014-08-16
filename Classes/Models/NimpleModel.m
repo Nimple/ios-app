@@ -111,6 +111,34 @@
 
 #pragma mark - Contacts
 
+- (BOOL)exampleUserCreated
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"example_contact_once_existed"];
+}
+
+- (void)createExampleContact
+{
+    if ([self exampleUserCreated]) {
+        NimpleContact *contact = [self getEntityForNewContact];
+        contact.prename = @"Nimple";
+        contact.surname = @"App";
+        contact.phone = @"";
+        contact.email = @"feedback.ios@nimple.de";
+        contact.job = @"";
+        contact.company = NimpleLocalizedString(@"company_first_contact_label");
+        contact.facebook_URL = @"http://www.facebook.de/nimpleapp";
+        contact.facebook_ID = @"286113114869395";
+        contact.twitter_URL = @"https://twitter.com/Nimpleapp";
+        contact.twitter_ID = @"2444364654";
+        contact.xing_URL = @"https://www.xing.com/companies/appstronautengbr";
+        contact.linkedin_URL = @"https://www.linkedin.com/company/appstronauten-gbr";
+        contact.created = [NSDate date];
+        contact.website = @"http://www.nimple.de";
+        contact.note = @"Created with nimple.de";
+        [self save];
+    }
+}
+
 - (NimpleContact *)getEntityForNewContact
 {
     return [self addObjectWithEntityName:NimpleContactEntityName];

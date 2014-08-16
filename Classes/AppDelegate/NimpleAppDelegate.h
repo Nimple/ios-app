@@ -2,7 +2,7 @@
 //  NimpleAppDelegate.h
 //  nimple-iOS
 //
-//  Created by Guido Schmidt on 19.02.14.
+//  Created by Ben John on 14/08/14.
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
