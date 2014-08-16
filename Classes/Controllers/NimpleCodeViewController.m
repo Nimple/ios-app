@@ -305,7 +305,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 {
     NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, p_facebookURL, p_facebookID, p_twitterURL, p_twitterID, p_xingURL, p_linkedinURL, p_street, p_postal, p_city, p_website, nil];
     
-    NSLog(@"count = %@", vcard_data);
+    // NSLog(@"count = %@", vcard_data);
     
     // Fill vcard template & create NSData for QRCode generation
     NSString *asciiString = [self fillVCardCardWithData:vcard_data];

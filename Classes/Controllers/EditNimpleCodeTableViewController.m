@@ -152,15 +152,15 @@
         }
     }
     
-    if(indexPath.section == 2) {
-        ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectSocialProfileCell"];
+    if (indexPath.section == 2) {
+        ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectSocialProfileCell" forIndexPath:indexPath];
         cell.index = indexPath.item;
         cell.section = indexPath.section;
         [cell configureCell];
         
         if (indexPath.row == 0) {
             [cell.propertySwitch setOn:_code.facebookSwitch];
-            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
+            [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"] forState:UIControlStateNormal];
             cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
             
