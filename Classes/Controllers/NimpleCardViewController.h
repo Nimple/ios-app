@@ -11,8 +11,6 @@
 
 @interface NimpleCardViewController : UIViewController<EditNimpleCodeTableControllerDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @property (weak, nonatomic) IBOutlet UILabel     *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel     *phoneLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *phoneIcon;

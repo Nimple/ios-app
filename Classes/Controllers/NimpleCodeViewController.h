@@ -11,8 +11,6 @@
 
 @interface NimpleCodeViewController : UIViewController <EditNimpleCodeTableControllerDelegate, UIViewControllerTransitioningDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem                     *editButton;
 @property (retain, nonatomic) IBOutlet UIImageView                       *nimpleQRCodeImage;
 @property (retain, nonatomic) IBOutlet EditNimpleCodeTableViewController *editController;
