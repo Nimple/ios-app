@@ -75,7 +75,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)bootstrapApplication
 {
-    [Logging initMixpanel];
+    [Logging sharedLogging];
     [FBLoginView class];
     [NimpleCode sharedCode];
     [[NimpleModel sharedModel] createExampleContact];

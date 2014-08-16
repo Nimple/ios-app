@@ -228,6 +228,16 @@
 
 #pragma mark - Switches
 
+- (void)setCellPhoneSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeCellPhoneSwitch];
+}
+
+- (BOOL)cellPhoneSwitch
+{
+    return [self boolForKey:NimpleCodeCellPhoneSwitch];
+}
+
 - (void)setAddressSwitch:(BOOL)state
 {
     [self setBool:state forKey:NimpleCodeAddressSwitch];

@@ -215,7 +215,7 @@
         scannedContact.website = capturedContactData[15];
         
         [_model save];
-        [Logging sendContactAddedEvent:scannedContact];
+        [[Logging sharedLogging] sendContactAddedEvent:scannedContact];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.alertView show];

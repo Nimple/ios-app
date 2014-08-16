@@ -27,7 +27,15 @@
 #define NimpleCodeXingKey @"xing_URL"
 #define NimpleCodeLinkedInKey @"linkedin_URL"
 
+#define NimpleCodeCellPhoneSwitch @"phone_switch"
+#define NimpleCodeEmailSwitch @"email_switch"
+#define NimpleCodeJobSwitch @"job_switch"
+#define NimpleCodeCompanySwitch @"company_switch"
 #define NimpleCodeAddressSwitch @"address_switch"
+#define NimpleCodeFacebookSwitch @"facebook_switch"
+#define NimpleCodeTwitterSwitch @"twitter_switch"
+#define NimpleCodeXingSwitch @"xing_switch"
+#define NimpleCodeLinkedInSwitch @"linkedin_switch"
 
 @interface NimpleCode : NSObject
 
@@ -66,7 +74,10 @@
 - (void)setLinkedIn:(NSString *)linkedIn;
 - (NSString *)linkedIn;
 
-- (void)setAddressSwitch:(BOOL) state;
+- (void)setCellPhoneSwitch:(BOOL)state;
+- (BOOL)cellPhoneSwitch;
+
+- (void)setAddressSwitch:(BOOL)state;
 - (BOOL)addressSwitch;
 
 @end

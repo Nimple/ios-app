@@ -13,13 +13,12 @@
 @interface EditNimpleCodeTableViewController () {
     __weak IBOutlet UINavigationItem *_editNimpleCode;
     __weak IBOutlet UILabel *_descriptionLabel;
+    NimpleCode *_code;
 }
 
 @end
 
 @implementation EditNimpleCodeTableViewController
-
-@synthesize myNimpleCode;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _code = [NimpleCode sharedCode];
     [self localizeViewAttributes];
     [self updateView];
 }
@@ -45,91 +45,8 @@
 
 - (void)updateView
 {
-    self.myNimpleCode = [NSUserDefaults standardUserDefaults];
-    NSString* surname = [self.myNimpleCode valueForKey:@"surname"];
-    if(surname.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"surname"];
-    }
-    NSString* prename = [self.myNimpleCode valueForKey:@"prename"];
-    if(prename.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"prename"];
-    }
-    NSString* phone = [self.myNimpleCode valueForKey:@"phone"];
-    if(phone.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"phone"];
-    }
-    NSString* email = [self.myNimpleCode valueForKey:@"email"];
-    if(email.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"email"];
-    }
-    NSString* job = [self.myNimpleCode valueForKey:@"job"];
-    if(job.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"job"];
-    }
-    NSString* company = [self.myNimpleCode valueForKey:@"company"];
-    if(company.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"company"];
-    }
-    NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
-    if(facebook_URL.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"facebook_URL"];
-    }
-    NSString* facebook_ID = [self.myNimpleCode valueForKey:@"facebook_ID"];
-    if(facebook_ID.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"facebook_ID"];
-    }
-    NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
-    if(twitter_URL.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"twitter_URL"];
-    }
-    NSString* twitter_ID = [self.myNimpleCode valueForKey:@"twitter_ID"];
-    if(twitter_ID.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"twitter_ID"];
-    }
-    NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-    if(xing_URL.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"xing_URL"];
-    }
-    NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-    if(linkedin_URL.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"linkedin_URL"];
-    }
-    
-    NSString* street = [self.myNimpleCode valueForKey:@"street"];
-    if (street.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"street"];
-    }
-    NSString* postal = [self.myNimpleCode valueForKey:@"postal"];
-    if (postal.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"postal"];
-    }
-    NSString* city = [self.myNimpleCode valueForKey:@"city"];
-    if (city.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"city"];
-    }
-    NSString* website = [self.myNimpleCode valueForKey:@"website"];
-    if (website.length == 0)
-    {
-        [self.myNimpleCode setValue:@"" forKey:@"website"];
-    }
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
-    [self.myNimpleCode synchronize];
+   // NSDictionary *dataDict = [NSDictionary dictionaryWithObject:self.myNimpleCode forKey:@"nimpleCode"];
+   // [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self userInfo:dataDict];
 }
 
 #pragma mark - Table view data source
@@ -161,7 +78,8 @@
     return cellCount;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if(indexPath.section == 2)
         return 60.0;
     else if (indexPath.section == 0 && indexPath.row == 4)
@@ -170,48 +88,40 @@
         return 45.0;
 }
 
-
 // Returns the cell for a given row index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"EditInputViewCell";
-    EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    [cell.inputField setText:@""];
+    EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditInputViewCell"];
+    cell.inputField.text = @"";
+    cell.inputField.tintColor = [UIColor colorWithHue:38 saturation:100 brightness:74 alpha:1.0];
     cell.inputField.delegate = cell;
-    
-    [cell setIndex: indexPath.item];
-    [cell setSection: indexPath.section];
-    [cell.inputField setTintColor:[UIColor colorWithHue:38 saturation:100 brightness:74 alpha:1.0]];
+    cell.index = indexPath.item;
+    cell.section = indexPath.section;
     
     // Configure the cell...
-    if (indexPath.section == 0)
-    {
-        if(indexPath.row == 0)
-        {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
             // No propertySwitch, prename is required field
             [cell.propertySwitch setHidden:TRUE];
-            if([[self.myNimpleCode valueForKey:@"prename"] length] == 0)
-                [cell.inputField setPlaceholder:NimpleLocalizedString(@"firstname_label")];
+            if (_code.prename.length == 0)
+                cell.inputField.placeholder = NimpleLocalizedString(@"firstname_label");
             else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"prename"]];
+                cell.inputField.text = _code.prename;
         }
-        if(indexPath.row == 1)
-        {
+        if (indexPath.row == 1) {
             // No propertySwitch, surname is required field
             [cell.propertySwitch setHidden:TRUE];
-            if([[self.myNimpleCode valueForKey:@"surname"] length] == 0)
+            if(_code.surname.length == 0)
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
             else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"surname"]];
+                [cell.inputField setText:_code.surname];
         }
-        if(indexPath.row == 2)
-        {
+        if (indexPath.row == 2) {
             BOOL phone_switch = [self.myNimpleCode boolForKey:@"phone_switch"];
             [cell.propertySwitch setOn:phone_switch];
             
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
-            if([[self.myNimpleCode valueForKey:@"phone"] length] == 0) {
+            if([_code.cellPhone length] == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
                 [cell.propertySwitch setAlpha:0.0];
                 [cell.propertySwitch setOn:TRUE];
@@ -437,18 +347,14 @@
 
 - (IBAction)done:(id)sender
 {
-    if([[self.myNimpleCode valueForKey:@"prename"] length] == 0 || [[self.myNimpleCode valueForKey:@"surname"] length] == 0) {
+    if (_code.prename.length == 0 || _code.surname.length == 0) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:NimpleLocalizedString(@"error_names") delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [alertView show];
         });
     } else {
-        [self.myNimpleCode synchronize];
+        [[Logging sharedLogging] sendNimpleCodeChangedEvent];
         
-        // Log Mixpanel
-        [Logging sendNimpleCodeChangedEvent:[self.myNimpleCode dictionaryRepresentation]];
-        
-        // Notification that the nimple code changed
         [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
         [self.delegate editNimpleCodeTableViewControllerDidSave:self];
         [self.navigationController popViewControllerAnimated:YES];
