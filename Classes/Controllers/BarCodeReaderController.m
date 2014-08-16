@@ -7,18 +7,16 @@
 //
 
 #import "BarCodeReaderController.h"
+#import "NimpleModel.h"
 #import "NimpleContact.h"
 #import "VCardParser.h"
 #import "Crypto.h"
 #import "Logging.h"
-#import "NimpleContactPersistenceManager.h"
 
-@interface BarCodeReaderController ()
-
-{
+@interface BarCodeReaderController () {
     BOOL isProcessing;
-    
     __weak IBOutlet UINavigationItem *_scannerLabel;
+    NimpleModel *_model;
 }
 
 @property (nonatomic) BOOL isReading;
@@ -36,9 +34,7 @@
     NSMutableString *mCode;
 }
 
-@synthesize managedObjectContext;
 @synthesize capturedContactData;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,12 +48,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
-    
     _isReading = FALSE;
     _captureSession = nil;
     [self startReading];
-    
     [self initializeAlertViews];
 }
 
@@ -66,8 +61,9 @@
     _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(buttonIndex == 0) {
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
         [self.tabBarController setSelectedIndex: 2];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -192,14 +188,34 @@
 
 // Save the scanned contact to database
 -(void) saveToDataBase:(NSString*)contactHash {
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-    fetch.entity = [NSEntityDescription entityForName:@"NimpleContact" inManagedObjectContext:managedObjectContext];
-    fetch.predicate = [NSPredicate predicateWithFormat:@"contactHash == %@", contactHash];
-    NSArray *array = [managedObjectContext executeFetchRequest:fetch error:nil];
-    
-    if(array.count == 0) {
-        NimpleContact* nimpleContact = [[NimpleContactPersistenceManager getInstance:managedObjectContext] saveNimpleContactWith:capturedContactData andContactHash:contactHash];
-        [Logging sendContactAddedEvent:nimpleContact];
+    if (![_model doesContactExistWithHash:contactHash]) {
+        NimpleContact *scannedContact = [_model getEntityForNewContact];
+        scannedContact.prename = capturedContactData[1];
+        scannedContact.surname = capturedContactData[0];
+        
+        scannedContact.phone = capturedContactData[2];
+        scannedContact.email = capturedContactData[3];
+        scannedContact.job = capturedContactData[4];
+        scannedContact.company = capturedContactData[5];
+        
+        scannedContact.facebook_URL = capturedContactData[6];
+        scannedContact.facebook_ID = capturedContactData[7];
+        scannedContact.twitter_URL = capturedContactData[8];
+        scannedContact.twitter_ID = capturedContactData[9];
+        scannedContact.xing_URL = capturedContactData[10];
+        scannedContact.linkedin_URL = capturedContactData[11];
+        
+        scannedContact.created = [NSDate date];
+        scannedContact.contactHash = contactHash;
+        scannedContact.note = @"Created with nimple.de";
+        
+        scannedContact.street = capturedContactData[12];
+        scannedContact.postal = capturedContactData[13];
+        scannedContact.city = capturedContactData[14];
+        scannedContact.website = capturedContactData[15];
+        
+        [_model save];
+        [[Logging sharedLogging] sendContactAddedEvent:scannedContact];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.alertView show];

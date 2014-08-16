@@ -15,8 +15,10 @@
 
 - (void)save;
 
+- (void)createExampleContact;
 - (NimpleContact *)getEntityForNewContact;
 - (void)deleteContact:(NimpleContact *)contact;
 - (NSArray *)contacts;
+- (BOOL)doesContactExistWithHash:(NSString *)contactHash;
 
 @end

@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-// Framework imports
 #import <UIKit/UIKit.h>
-// Nimple imports
 #import "NimpleAppDelegate.h"
 
 int main(int argc, char * argv[])

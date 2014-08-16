@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NimpleContact.h"
-#import "AddressBookUI/ABUnknownPersonViewController.h"
+#import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
+#import "NimpleContact.h"
 
 @class DisplayContactViewController;
 

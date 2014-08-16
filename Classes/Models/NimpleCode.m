@@ -134,6 +134,11 @@
 
 #pragma mark - Address
 
+- (BOOL)hasAddress
+{
+    return self.addressStreet.length > 0 || self.addressPostal.length > 0 || self.addressCity.length > 0;
+}
+
 - (void)setAddressStreet:(NSString *)street
 {
     [self setString:street forKey:NimpleCodeAddressStreetKey];
@@ -162,6 +167,16 @@
 - (NSString *)addressCity
 {
     return [self stringForKey:NimpleCodeAddressCityKey];
+}
+
+- (void)setWebsite:(NSString *)website
+{
+    [self setString:website forKey:NimpleCodeWebsiteKey];
+}
+
+- (NSString *)website
+{
+    return [self stringForKey:NimpleCodeWebsiteKey];
 }
 
 #pragma mark - Social networks
@@ -228,6 +243,46 @@
 
 #pragma mark - Switches
 
+- (void)setCellPhoneSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeCellPhoneSwitch];
+}
+
+- (BOOL)cellPhoneSwitch
+{
+    return [self boolForKey:NimpleCodeCellPhoneSwitch];
+}
+
+- (void)setEmailSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeEmailSwitch];
+}
+
+- (BOOL)emailSwitch
+{
+    return [self boolForKey:NimpleCodeEmailSwitch];
+}
+
+- (void)setJobSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeJobSwitch];
+}
+
+- (BOOL)jobSwitch
+{
+    return [self boolForKey:NimpleCodeJobSwitch];
+}
+
+- (void)setCompanySwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeCompanySwitch];
+}
+
+- (BOOL)companySwitch
+{
+    return [self boolForKey:NimpleCodeCompanySwitch];
+}
+
 - (void)setAddressSwitch:(BOOL)state
 {
     [self setBool:state forKey:NimpleCodeAddressSwitch];
@@ -236,6 +291,56 @@
 - (BOOL)addressSwitch
 {
     return [self boolForKey:NimpleCodeAddressSwitch];
+}
+
+- (void)setWebsiteSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeWebsiteSwitch];
+}
+
+- (BOOL)websiteSwitch
+{
+    return [self boolForKey:NimpleCodeWebsiteSwitch];
+}
+
+- (void)setFacebookSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeFacebookSwitch];
+}
+
+- (BOOL)facebookSwitch
+{
+    return [self boolForKey:NimpleCodeFacebookSwitch];
+}
+
+- (void)setTwitterSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeTwitterSwitch];
+}
+
+- (BOOL)twitterSwitch
+{
+    return [self boolForKey:NimpleCodeTwitterSwitch];
+}
+
+- (void)setXingSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeXingSwitch];
+}
+
+- (BOOL)xingSwitch
+{
+    return [self boolForKey:NimpleCodeXingSwitch];
+}
+
+- (void)setLinkedInSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeLinkedInSwitch];
+}
+
+- (BOOL)linkedInSwitch
+{
+    return [self boolForKey:NimpleCodeLinkedInSwitch];
 }
 
 @end

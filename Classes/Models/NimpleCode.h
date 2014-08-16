@@ -27,7 +27,16 @@
 #define NimpleCodeXingKey @"xing_URL"
 #define NimpleCodeLinkedInKey @"linkedin_URL"
 
+#define NimpleCodeCellPhoneSwitch @"phone_switch"
+#define NimpleCodeEmailSwitch @"email_switch"
+#define NimpleCodeJobSwitch @"job_switch"
+#define NimpleCodeCompanySwitch @"company_switch"
 #define NimpleCodeAddressSwitch @"address_switch"
+#define NimpleCodeWebsiteSwitch @"website_switch"
+#define NimpleCodeFacebookSwitch @"facebook_switch"
+#define NimpleCodeTwitterSwitch @"twitter_switch"
+#define NimpleCodeXingSwitch @"xing_switch"
+#define NimpleCodeLinkedInSwitch @"linkedin_switch"
 
 @interface NimpleCode : NSObject
 
@@ -46,12 +55,16 @@
 - (void)setCompany:(NSString *)company;
 - (NSString *)company;
 
+- (BOOL)hasAddress;
 - (void)setAddressStreet:(NSString *)street;
 - (NSString *)addressStreet;
 - (void)setAddressPostal:(NSString *)postal;
 - (NSString *)addressPostal;
 - (void)setAddressCity:(NSString *)city;
 - (NSString *)addressCity;
+
+- (void)setWebsite:(NSString *)website;
+- (NSString *)website;
 
 - (void)setFacebookUrl:(NSString *)facebookUrl;
 - (NSString *)facebookUrl;
@@ -66,7 +79,34 @@
 - (void)setLinkedIn:(NSString *)linkedIn;
 - (NSString *)linkedIn;
 
-- (void)setAddressSwitch:(BOOL) state;
+- (void)setCellPhoneSwitch:(BOOL)state;
+- (BOOL)cellPhoneSwitch;
+
+- (void)setEmailSwitch:(BOOL)state;
+- (BOOL)emailSwitch;
+
+- (void)setJobSwitch:(BOOL)state;
+- (BOOL)jobSwitch;
+
+- (void)setCompanySwitch:(BOOL)state;
+- (BOOL)companySwitch;
+
+- (void)setAddressSwitch:(BOOL)state;
 - (BOOL)addressSwitch;
+
+- (void)setWebsiteSwitch:(BOOL)state;
+- (BOOL)websiteSwitch;
+
+- (void)setFacebookSwitch:(BOOL)state;
+- (BOOL)facebookSwitch;
+
+- (void)setTwitterSwitch:(BOOL)state;
+- (BOOL)twitterSwitch;
+
+- (void)setXingSwitch:(BOOL)state;
+- (BOOL)xingSwitch;
+
+- (void)setLinkedInSwitch:(BOOL)state;
+- (BOOL)linkedInSwitch;
 
 @end

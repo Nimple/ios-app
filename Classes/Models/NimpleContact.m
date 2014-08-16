@@ -38,6 +38,11 @@
 @dynamic city;
 @dynamic website;
 
+- (BOOL)hasAddress
+{
+    return self.street.length > 0 || self.postal.length > 0 || self.city.length > 0;
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<NimpleContact: %@ %@, Created: %@>", self.prename, self.surname, self.created];
