@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) IBOutlet UISwitch    *propertySwitch;
 
+- (void)configureCell;
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value;
 
 @end

@@ -164,6 +164,16 @@
     return [self stringForKey:NimpleCodeAddressCityKey];
 }
 
+- (void)setWebsite:(NSString *)website
+{
+    [self setString:website forKey:NimpleCodeWebsiteKey];
+}
+
+- (NSString *)website
+{
+    return [self stringForKey:NimpleCodeWebsiteKey];
+}
+
 #pragma mark - Social networks
 
 - (void)setFacebookUrl:(NSString *)facebookUrl
@@ -276,6 +286,16 @@
 - (BOOL)addressSwitch
 {
     return [self boolForKey:NimpleCodeAddressSwitch];
+}
+
+- (void)setWebsiteSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodeWebsiteSwitch];
+}
+
+- (BOOL)websiteSwitch
+{
+    return [self boolForKey:NimpleCodeWebsiteSwitch];
 }
 
 - (void)setFacebookSwitch:(BOOL)state

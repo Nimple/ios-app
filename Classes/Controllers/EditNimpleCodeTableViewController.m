@@ -94,233 +94,169 @@
     EditInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditInputViewCell"];
     cell.inputField.text = @"";
     cell.inputField.tintColor = [UIColor colorWithHue:38 saturation:100 brightness:74 alpha:1.0];
-    cell.inputField.delegate = cell;
     cell.index = indexPath.item;
     cell.section = indexPath.section;
+    [cell configureCell];
     
-    // Configure the cell...
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            // No propertySwitch, prename is required field
-            [cell.propertySwitch setHidden:TRUE];
-            if (_code.prename.length == 0)
+            [cell.propertySwitch setHidden:YES];
+            if (_code.prename.length == 0) {
                 cell.inputField.placeholder = NimpleLocalizedString(@"firstname_label");
-            else
+            } else {
                 cell.inputField.text = _code.prename;
+            }
         }
         if (indexPath.row == 1) {
-            // No propertySwitch, surname is required field
-            [cell.propertySwitch setHidden:TRUE];
-            if(_code.surname.length == 0)
+            [cell.propertySwitch setHidden:YES];
+            if (_code.surname.length == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"lastname_label")];
-            else
+            } else {
                 [cell.inputField setText:_code.surname];
+            }
         }
         if (indexPath.row == 2) {
-            BOOL phone_switch = [self.myNimpleCode boolForKey:@"phone_switch"];
-            [cell.propertySwitch setOn:phone_switch];
-            
+            [cell.propertySwitch setOn:_code.cellPhoneSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
             if([_code.cellPhone length] == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-                [self.myNimpleCode setBool:TRUE forKey:@"phone_switch"];
+                [cell.propertySwitch setOn:YES];
+                _code.cellPhoneSwitch = YES;
+            } else {
+                cell.inputField.text = _code.cellPhone;
             }
-            else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"phone"]];
         }
-        if(indexPath.row == 3)
-        {
-            BOOL email_switch = [self.myNimpleCode boolForKey:@"email_switch"];
-            [cell.propertySwitch setOn:email_switch];
-            
+        if (indexPath.row == 3) {
+            [cell.propertySwitch setOn:_code.emailSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypeEmailAddress];
             [cell.inputField setAutocorrectionType:UITextAutocorrectionTypeNo];
             [cell.inputField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
             
-            if([[self.myNimpleCode valueForKey:@"email"] length] == 0) {
+            if(_code.email.length == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"mail_label")];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-                [self.myNimpleCode setBool:TRUE forKey:@"email_switch"];
+                [cell.propertySwitch setOn:YES];
+                _code.emailSwitch = YES;
+            } else {
+                cell.inputField.text = _code.email;
             }
-            else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"email"]];
         }
-        
         if(indexPath.row == 4) {
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
             [cell configureCell];
             return cell;
         }
-
-        if(indexPath.row == 5) {
-            BOOL websiteSwitch = [self.myNimpleCode boolForKey:@"company_switch"];
-            [cell.propertySwitch setOn:websiteSwitch];
+        if (indexPath.row == 5) {
+            [cell.propertySwitch setOn:_code.websiteSwitch];
             
-            if ([[self.myNimpleCode valueForKey:@"website"] length] == 0) {
+            if (_code.website.length == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"website_label")];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-                [self.myNimpleCode setBool:TRUE forKey:@"website_switch"];
+                [cell.propertySwitch setOn:YES];
+                _code.websiteSwitch = YES;
             } else {
-                cell.inputField.text = [self.myNimpleCode valueForKey:@"website"];
+                cell.inputField.text = _code.website;
             }
         }
     }
-    // Section: business
-    else if(indexPath.section == 1)
-    {
-        if(indexPath.row == 0)
-        {
-            BOOL company_switch = [self.myNimpleCode boolForKey:@"company_switch"];
-            [cell.propertySwitch setOn:company_switch];
-            
-            if([[self.myNimpleCode valueForKey:@"company"] length] == 0) {
+    
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [cell.propertySwitch setOn:_code.companySwitch];
+            if (_code.company.length == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"company_label")];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-                [self.myNimpleCode setBool:TRUE forKey:@"company_switch"];
+                [cell.propertySwitch setOn:YES];
+                _code.companySwitch = YES;
+            } else {
+                [cell.inputField setText:_code.company];
             }
-            else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"company"]];
         }
-        if(indexPath.row == 1)
-        {
-            BOOL job_switch = [self.myNimpleCode boolForKey:@"job_switch"];
-            [cell.propertySwitch setOn:job_switch];
-            
-            if([[self.myNimpleCode valueForKey:@"job"] length] == 0) {
+        if (indexPath.row == 1) {
+            [cell.propertySwitch setOn:_code.jobSwitch];
+            if (_code.job.length == 0) {
                 [cell.inputField setPlaceholder:NimpleLocalizedString(@"job_label")];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-                [self.myNimpleCode setBool:TRUE forKey:@"job_switch"];
+                [cell.propertySwitch setOn:YES];
+                _code.jobSwitch = YES;
+            } else {
+                [cell.inputField setText:_code.job];
             }
-            else
-                [cell.inputField setText:[self.myNimpleCode valueForKey:@"job"]];
         }
     }
-    // Section: social
-    else if(indexPath.section == 2)
-    {
-        // facebook
-        if(indexPath.row == 0)
-        {
-            
-            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            [cell setSection:2];
-            [cell setIndex:0];
-            
-            BOOL facebook_switch = [self.myNimpleCode boolForKey:@"facebook_switch"];
-            [cell.propertySwitch setOn:facebook_switch];
-            
+    
+    if(indexPath.section == 2) {
+        ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectSocialProfileCell"];
+        cell.index = indexPath.item;
+        cell.section = indexPath.section;
+        [cell configureCell];
+        
+        if (indexPath.row == 0) {
+            [cell.propertySwitch setOn:_code.facebookSwitch];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"]forState:UIControlStateNormal];
             cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
             
-            NSString* facebook_ID  = [self.myNimpleCode valueForKey:@"facebook_ID"];
-            NSString* facebook_URL = [self.myNimpleCode valueForKey:@"facebook_URL"];
-            
-            if(facebook_ID.length == 0 || facebook_URL.length == 0)
-            {
-                [self.myNimpleCode setBool:TRUE forKey:@"facebook_switch"];
+            if (_code.facebookId.length == 0 || _code.facebookUrl.length == 0) {
+                _code.facebookSwitch = YES;
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"facebook_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-            }
-            else
-            {
+                [cell.propertySwitch setOn:YES];
+            } else {
                 [cell.socialNetworkButton setAlpha:1.0];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
-        // twitter
-        if(indexPath.row == 1)
-        {
-            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            
-            BOOL twitter_switch = [self.myNimpleCode boolForKey:@"twitter_switch"];
-            [cell.propertySwitch setOn:twitter_switch];
-            
-            [cell setSection:2];
-            [cell setIndex:1];
+        
+        if (indexPath.row == 1) {
+            [cell.propertySwitch setOn:_code.twitterSwitch];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_twitter"] forState:UIControlStateNormal];
             
-            NSString* twitter_ID  = [self.myNimpleCode valueForKey:@"twitter_ID"];
-            NSString* twitter_URL = [self.myNimpleCode valueForKey:@"twitter_URL"];
-            if(twitter_ID.length == 0 || twitter_URL.length == 0)
-            {
-                [self.myNimpleCode setBool:TRUE forKey:@"twitter_switch"];
+            if (_code.twitterId.length == 0 || _code.twitterUrl.length == 0) {
+                _code.twitterSwitch = YES;
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"twitter_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-            }
-            else
-            {
+                [cell.propertySwitch setOn:YES];
+            } else {
                 [cell.socialNetworkButton setAlpha:1.0];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
-        // xing
-        if(indexPath.row == 2)
-        {
-            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            
-            BOOL xing_switch = [self.myNimpleCode boolForKey:@"xing_switch"];
-            [cell.propertySwitch setOn:xing_switch];
+        
+        if (indexPath.row == 2) {
+            [cell.propertySwitch setOn:_code.xing];
             
             NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
             
-            [cell setSection:2];
-            [cell setIndex:2];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
             [cell setNetworkManager: appDelegate.networkManager];
             
-            NSString* xing_URL = [self.myNimpleCode valueForKey:@"xing_URL"];
-            if(xing_URL.length == 0)
-            {
-                [self.myNimpleCode setBool:TRUE forKey:@"xing_switch"];
+            if (_code.xing.length == 0) {
+                _code.xingSwitch = YES;
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"xing_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-            }
-            else
-            {
+                [cell.propertySwitch setOn:YES];
+            } else {
                 [cell.socialNetworkButton setAlpha:1.0];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }
         }
-        // linkedin
-        if(indexPath.row == 3)
-        {
-            static NSString *CellIdentifierSocial = @"ConnectSocialProfileCell";
-            ConnectSocialProfileViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierSocial forIndexPath:indexPath];
-            
-            BOOL linkedin_switch = [self.myNimpleCode boolForKey:@"linkedin_switch"];
-            [cell.propertySwitch setOn:linkedin_switch];
-            
-            [cell setSection:2];
-            [cell setIndex:3];
+        
+        if (indexPath.row == 3) {
+            [cell.propertySwitch setOn:_code.linkedInSwitch];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_linkedin"] forState:UIControlStateNormal];
             
-            NSString* linkedin_URL = [self.myNimpleCode valueForKey:@"linkedin_URL"];
-            if(linkedin_URL.length == 0)
-            {
-                [self.myNimpleCode setBool:TRUE forKey:@"linkedin_switch"];
+            if (_code.linkedIn.length == 0) {
+                _code.linkedInSwitch = YES;
                 [cell.socialNetworkButton setAlpha:0.3];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"linkedin_label") forState:UIControlStateNormal];
                 [cell.propertySwitch setAlpha:0.0];
-                [cell.propertySwitch setOn:TRUE];
-            }
-            else
-            {
+                [cell.propertySwitch setOn:YES];
+            } else {
                 [cell.socialNetworkButton setAlpha:1.0];
                 [cell.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
             }

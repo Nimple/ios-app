@@ -11,12 +11,11 @@
 #import "EditAddressInputViewCell.h"
 #import "ConnectSocialProfileViewCell.h"
 
-@class EditNimpleCodeTableViewController;
-
 @protocol EditNimpleCodeTableControllerDelegate <NSObject>
 
 @required
-- (void) editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController*)controller;
+- (void) editNimpleCodeTableViewControllerDidSave:(id)controller;
+
 @end
 
 @interface EditNimpleCodeTableViewController : UITableViewController <UITextFieldDelegate>

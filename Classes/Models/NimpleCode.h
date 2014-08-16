@@ -32,6 +32,7 @@
 #define NimpleCodeJobSwitch @"job_switch"
 #define NimpleCodeCompanySwitch @"company_switch"
 #define NimpleCodeAddressSwitch @"address_switch"
+#define NimpleCodeWebsiteSwitch @"website_switch"
 #define NimpleCodeFacebookSwitch @"facebook_switch"
 #define NimpleCodeTwitterSwitch @"twitter_switch"
 #define NimpleCodeXingSwitch @"xing_switch"
@@ -61,6 +62,9 @@
 - (void)setAddressCity:(NSString *)city;
 - (NSString *)addressCity;
 
+- (void)setWebsite:(NSString *)website;
+- (NSString *)website;
+
 - (void)setFacebookUrl:(NSString *)facebookUrl;
 - (NSString *)facebookUrl;
 - (void)setFacebookId:(NSString *)facebookId;
@@ -88,6 +92,9 @@
 
 - (void)setAddressSwitch:(BOOL)state;
 - (BOOL)addressSwitch;
+
+- (void)setWebsiteSwitch:(BOOL)state;
+- (BOOL)websiteSwitch;
 
 - (void)setFacebookSwitch:(BOOL)state;
 - (BOOL)facebookSwitch;
