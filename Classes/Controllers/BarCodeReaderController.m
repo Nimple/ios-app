@@ -207,7 +207,7 @@
         
         scannedContact.created = [NSDate date];
         scannedContact.contactHash = contactHash;
-        scannedContact.note = @"Created with nimple.de";
+        scannedContact.note = @"";
         
         scannedContact.street = capturedContactData[12];
         scannedContact.postal = capturedContactData[13];
