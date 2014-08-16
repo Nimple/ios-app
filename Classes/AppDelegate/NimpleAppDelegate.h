@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-// Framework imports
 #import <CoreImage/CoreImage.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <NSDictionary+BDBOAuth1Manager.h>
-
-// Nimple imports
 #import "NimpleCode.h"
 #import "NimpleModel.h"
 #import "NimpleContact.h"
@@ -28,8 +24,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (nonatomic, readwrite) BDBOAuth1SessionManager             *networkManager;
-@property (atomic) ConnectSocialProfileViewCell                      *xingTableViewCell;
+@property (nonatomic, readwrite) BDBOAuth1SessionManager *networkManager;
+@property (atomic) ConnectSocialProfileViewCell *xingTableViewCell;
 
 - (NSURL *)applicationDocumentsDirectory;
 
