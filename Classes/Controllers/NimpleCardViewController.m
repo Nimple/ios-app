@@ -22,6 +22,7 @@
     
     NimpleCode *_code;
 }
+
 @end
 
 @implementation NimpleCardViewController

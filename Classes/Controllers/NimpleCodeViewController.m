@@ -39,6 +39,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     _code = [NimpleCode sharedCode];
     [self setupNotificationCenter];
     [self localizeViewAttributes];
+    [self updateView];
 }
 
 - (void)viewDidAppear:(BOOL)animated

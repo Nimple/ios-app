@@ -32,6 +32,7 @@
     _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
     [self configureTableView];
+    [self updateData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
