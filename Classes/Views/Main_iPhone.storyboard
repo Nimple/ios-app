@@ -130,11 +130,10 @@ Test</string>
                     <connections>
                         <outlet property="_barcodeNoteLabel" destination="als-zh-r6e" id="zbL-BO-TWg"/>
                         <outlet property="_navigationLabel" destination="93b-pI-kqe" id="p3I-TB-adR"/>
+                        <outlet property="_nimpleCodeImage" destination="6BA-IE-nrP" id="F53-tl-hIu"/>
                         <outlet property="_tutorialAddLabel" destination="8po-Mc-N33" id="Fko-kJ-2Xw"/>
                         <outlet property="_tutorialEditLabel" destination="MDw-2a-vt8" id="QnD-yf-vsY"/>
-                        <outlet property="editButton" destination="0yX-GC-7hd" id="Kxp-Hr-Nap"/>
-                        <outlet property="nimpleQRCodeImage" destination="6BA-IE-nrP" id="GeA-9m-UzG"/>
-                        <outlet property="welcomeView" destination="Eoc-tG-TqR" id="jrN-hY-ybs"/>
+                        <outlet property="_welcomeView" destination="Eoc-tG-TqR" id="e7D-WS-lBl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1297,7 +1296,7 @@ auf deiner Karte und in deinem Code</string>
         <image name="company" width="25" height="25"/>
         <image name="edit-card" width="25" height="25"/>
         <image name="email" width="25" height="25"/>
-        <image name="ic_nimple" width="214" height="215"/>
+        <image name="ic_nimple" width="107" height="107"/>
         <image name="ic_round_facebook" width="59" height="59"/>
         <image name="ic_round_linkedin" width="59" height="59"/>
         <image name="ic_round_twitter" width="59" height="59"/>

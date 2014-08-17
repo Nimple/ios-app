@@ -38,6 +38,34 @@
 @dynamic city;
 @dynamic website;
 
+- (void)fillWithContact:(NimpleContact *)contact
+{
+    self.prename = contact.prename;
+    self.surname = contact.surname;
+    
+    self.phone = contact.phone;
+    self.email = contact.email;
+    self.job = contact.job;
+    self.company = contact.company;
+    
+    self.facebook_URL = contact.facebook_URL;
+    self.facebook_ID = contact.facebook_ID;
+    self.twitter_URL = contact.twitter_URL;
+    self.twitter_ID = contact.twitter_ID;
+    self.xing_URL = contact.xing_URL;
+    self.linkedin_URL = contact.linkedin_URL;
+    
+    self.created = contact.created;
+    
+    self.contactHash = contact.contactHash;
+    self.note = contact.note;
+    
+    self.street = contact.street;
+    self.postal = contact.postal;
+    self.city = contact.city;
+    self.website = contact.website;
+}
+
 - (BOOL)hasAddress
 {
     return self.street.length > 0 || self.postal.length > 0 || self.city.length > 0;

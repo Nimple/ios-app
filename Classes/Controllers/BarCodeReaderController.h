@@ -15,17 +15,9 @@
 
 @interface BarCodeReaderController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView          *codeReaderCameraView;
-@property (weak, atomic) NSMutableArray              *capturedContactData;
-@property (strong, atomic) UIAlertView               *alertView;
-@property (strong, atomic) UIAlertView               *alertView2;
-@property (strong, atomic) UIAlertView               *alertView3;
-
-@property (nonatomic) BOOL isReading;
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-
-- (BOOL)startReading;
-- (void)stopReading;
+@property (weak, nonatomic) IBOutlet UIView *codeReaderCameraView;
+@property (strong, atomic) UIAlertView *alertView;
+@property (strong, atomic) UIAlertView *alertView2;
+@property (strong, atomic) UIAlertView *alertView3;
 
 @end

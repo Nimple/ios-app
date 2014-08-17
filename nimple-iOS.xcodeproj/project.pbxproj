@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */; };
 		4B22E34E198D251B0010C87A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */; };
+		4B4E678019A0FFBB00784D07 /* VCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E677F19A0FFBB00784D07 /* VCardCreator.m */; };
 		4B7E50A3199C087B00C174EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E5099199C087B00C174EE /* Localizable.strings */; };
 		4B7E50A6199C1EE400C174EE /* NimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E50A5199C1EE400C174EE /* NimpleModel.m */; };
 		4BC48748199E218100FA0BE4 /* NimpleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC48747199E218100FA0BE4 /* NimpleCode.m */; };
@@ -51,6 +52,8 @@
 		4B1B7F3A199A24400098DB91 /* EditAddressInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressInputViewCell.h; sourceTree = "<group>"; };
 		4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressInputViewCell.m; sourceTree = "<group>"; };
 		4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		4B4E677E19A0FFBB00784D07 /* VCardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardCreator.h; sourceTree = "<group>"; };
+		4B4E677F19A0FFBB00784D07 /* VCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardCreator.m; sourceTree = "<group>"; };
 		4B7E509A199C087B00C174EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B7E509B199C087B00C174EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B7E509C199C087B00C174EE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				B5E1AE031909C3330051589D /* Crypto.m */,
 				B526D76B1909AB1000055177 /* Logging.h */,
 				B526D76C1909AB1000055177 /* Logging.m */,
+				4B4E677E19A0FFBB00784D07 /* VCardCreator.h */,
+				4B4E677F19A0FFBB00784D07 /* VCardCreator.m */,
 				B53CD2381904AAB200928B43 /* VCardParser.h */,
 				B53CD2391904AAB200928B43 /* VCardParser.m */,
 			);
@@ -422,6 +427,7 @@
 				4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */,
 				B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */,
 				B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */,
+				4B4E678019A0FFBB00784D07 /* VCardCreator.m in Sources */,
 				B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */,
 				B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */,
 				B5408B191904A1D60033DF1A /* ContactsViewController.m in Sources */,

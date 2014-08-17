@@ -16,6 +16,7 @@
 - (void)save;
 
 - (void)createExampleContact;
+- (NimpleContact *)getTemporaryContact;
 - (NimpleContact *)getEntityForNewContact;
 - (void)deleteContact:(NimpleContact *)contact;
 - (NSArray *)contacts;

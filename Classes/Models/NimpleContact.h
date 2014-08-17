@@ -39,6 +39,7 @@
 @property (nonatomic, retain) NSString *city;
 @property (nonatomic, retain) NSString *website;
 
+- (void)fillWithContact:(NimpleContact *)contact;
 - (BOOL)hasAddress;
 
 @end

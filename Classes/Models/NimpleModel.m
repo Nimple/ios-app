@@ -144,6 +144,11 @@
     }
 }
 
+- (NimpleContact *)getTemporaryContact
+{
+    return [[NimpleContact alloc] initWithEntity:[NSEntityDescription entityForName:NimpleContactEntityName inManagedObjectContext:_mainContext] insertIntoManagedObjectContext:nil];
+}
+
 - (NimpleContact *)getEntityForNewContact
 {
     return [self addObjectWithEntityName:NimpleContactEntityName];

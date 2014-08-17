@@ -103,9 +103,21 @@
 
 - (IBAction)shareNimpleClicked:(id)sender
 {
-    NSString *shareText = NimpleLocalizedString(@"settings.share-text");
-    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[shareText] applicationActivities:nil];
+    NSString *text = NimpleLocalizedString(@"settings.share-text");
+    
+    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSURL *url;
+    if ([language isEqualToString:@"de"]) {
+        url = [NSURL URLWithString:@"http://www.nimple.de"];
+    } else {
+        url = [NSURL URLWithString:@"http://www.nimpleapp.com"];
+    }
+    
+    UIImage *image = [UIImage imageNamed:@"ic_nimple"];
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[text, url, image] applicationActivities:nil];
     [controller setValue:NimpleLocalizedString(@"settings.share-header") forKey:@"subject"];
+    controller.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAirDrop];
+    
     [self presentViewController:controller animated:YES completion:nil];
 }
 

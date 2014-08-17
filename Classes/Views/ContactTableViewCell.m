@@ -28,10 +28,12 @@
     [self.phoneButton setTitle:_contact.phone forState:UIControlStateNormal];
     [self.emailButton setTitle:_contact.email forState:UIControlStateNormal];
     
-    if (_contact.job.length != 0) {
+    if (_contact.job.length > 0 && _contact.company.length > 0) {
         self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ (%@)", _contact.company, _contact.job];
+    } else if (_contact.job.length > 0) {
+        self.jobCompanyLabel.text = _contact.job;
     } else {
-        self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@", _contact.company];
+        self.jobCompanyLabel.text = _contact.company;
     }
     
     if (_contact.facebook_ID.length == 0 && _contact.facebook_URL.length == 0) {

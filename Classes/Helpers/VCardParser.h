@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NimpleModel.h"
 
 @interface VCardParser : NSObject
 
-+(NSMutableArray*)getContactFromCard:(NSString*)card;
++ (NimpleContact *)getContactFromCard:(NSString*)card;
 
 @end
