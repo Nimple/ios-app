@@ -62,7 +62,8 @@
 
 
 #pragma mark - Tap Gesture Action
-- (IBAction)faqClicked:(id)sender {
+- (IBAction)faqClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
     [[UIApplication sharedApplication] openURL:url];
 }
@@ -75,37 +76,43 @@
 }
 
 
-- (IBAction)termsClicked:(id)sender {
+- (IBAction)termsClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/terms/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)disclaimerClicked:(id)sender {
+- (IBAction)disclaimerClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/disclaimer/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)impressumClicked:(id)sender {
+- (IBAction)impressumClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/imprint/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)visitFacebookClicked:(id)sender {
+- (IBAction)visitFacebookClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/facebook/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
-- (IBAction)shareNimpleClicked:(id)sender {
+- (IBAction)shareNimpleClicked:(id)sender
+{
     NSString *shareText = NimpleLocalizedString(@"settings.share-text");
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    [activityVC setValue:NimpleLocalizedString(@"settings.share-header") forKey:@"subject"];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
-- (IBAction)feedbackClicked:(id)sender {
+- (IBAction)feedbackClicked:(id)sender
+{
     NSString *recipient = NimpleLocalizedString(@"mail_first_contact_label");
     NSString *topic = NimpleLocalizedString(@"settings.feedback-header");
     NSString *text = NimpleLocalizedString(@"settings.feedback-text");
@@ -122,7 +129,8 @@
 }
 
 #pragma mark - MailComposeViewDelegate
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

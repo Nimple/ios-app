@@ -54,21 +54,15 @@
 {
     NSLog(@"Display contact %@", self.nimpleContact);
     
-    // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:NimpleLocalizedString(@"date_format")];
-    NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
-    
-    // Set labels
-    [self.nameLabel setText:name];
-    [self.phoneLabel setText:self.nimpleContact.phone];
-    [self.emailLabel setText:self.nimpleContact.email];
-    [self.companyLabel setText:self.nimpleContact.company];
-    [self.jobLabel setText:self.nimpleContact.job];
-    
-    // new labels
+    self.nameLabel.text = name;
+    self.phoneLabel.text = self.nimpleContact.phone;
+    self.emailLabel.text = self.nimpleContact.email;
+    self.companyLabel.text = self.nimpleContact.company;
+    self.jobLabel.text = self.nimpleContact.job;
     _websiteLabel.text = self.nimpleContact.website;
+    
+    // address
     if (self.nimpleContact.hasAddress) {
         if (self.nimpleContact.street.length > 0) {
             NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
@@ -81,52 +75,46 @@
         _addressLabel.text = @"";
     }
     
+    // timestamp and notes
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:NimpleLocalizedString(@"date_format")];
+    NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"de"]) {
-        [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
+        self.timestampLabel.text = [NSString stringWithFormat:@"%@ Uhr", formattedDate];
     } else {
-        [self.timestampLabel setText:[NSString stringWithFormat:@"%@", formattedDate]];
+        self.timestampLabel.text = [NSString stringWithFormat:@"%@", formattedDate];
     }
-    [self.notesTextField setText:self.nimpleContact.note];
+    self.notesTextField.text = self.nimpleContact.note;
     
-    // Social icons
-    // facebook
-    NSString *facebook_URL = self.nimpleContact.facebook_URL;
-    NSString *facebook_ID  = self.nimpleContact.facebook_ID;
-    if ((facebook_URL.length != 0 || facebook_ID.length != 0)) {
+    // social networks
+    if ((self.nimpleContact.facebook_URL.length != 0 || self.nimpleContact.facebook_ID.length != 0)) {
         [self.facebookIcon setAlpha:1.0];
-        [self.facebookURL setTitle:facebook_URL forState:UIControlStateNormal];
+        [self.facebookURL setTitle:self.nimpleContact.facebook_URL forState:UIControlStateNormal];
     } else {
         [self.facebookIcon setAlpha:0.2];
         [self.facebookURL setTitle:NimpleLocalizedString(@"detail_facebook_label") forState:UIControlStateNormal];
     }
     
-    // twitter
-    NSString *twitter_URL = self.nimpleContact.twitter_URL;
-    NSString *twitter_ID  = self.nimpleContact.twitter_ID;
-    if ((twitter_URL.length != 0 || twitter_ID.length != 0)) {
+    if ((self.nimpleContact.twitter_URL.length != 0 || self.nimpleContact.twitter_ID.length != 0)) {
         [self.twitterIcon setAlpha:1.0];
-        [self.twitterURL setTitle:twitter_URL forState:UIControlStateNormal];
+        [self.twitterURL setTitle:self.nimpleContact.twitter_URL forState:UIControlStateNormal];
     } else {
         [self.twitterIcon setAlpha:0.2];
         [self.twitterURL setTitle:NimpleLocalizedString(@"detail_twitter_label") forState:UIControlStateNormal];
     }
     
-    // xing
-    NSString *xing_URL = self.nimpleContact.xing_URL;
-    if (xing_URL.length != 0) {
+    if (self.nimpleContact.xing_URL.length != 0) {
         [self.xingIcon setAlpha:1.0];
-        [self.xingURL setTitle:xing_URL forState:UIControlStateNormal];
+        [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
     } else {
         [self.xingIcon setAlpha:0.2];
         [self.xingURL setTitle:NimpleLocalizedString(@"detail_xing_label") forState:UIControlStateNormal];
     }
     
-    // linkedin
-    NSString *linkedin_URL = self.nimpleContact.linkedin_URL;
-    if (linkedin_URL.length != 0) {
+    if (self.nimpleContact.linkedin_URL.length != 0) {
         [self.linkedinIcon setAlpha:1.0];
-        [self.linkedinURL setTitle:linkedin_URL forState:UIControlStateNormal];
+        [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
     } else {
         [self.linkedinIcon setAlpha:0.2];
         [self.linkedinURL setTitle:NimpleLocalizedString(@"detail_linkedin_label") forState:UIControlStateNormal];
@@ -134,11 +122,11 @@
     
     // Initalize action sheets
     self.actionSheetDelete = [[UIActionSheet alloc] initWithTitle:NimpleLocalizedString(@"msg_box_delete_contact_title") delegate:self
-                              cancelButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity2") destructiveButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity1") otherButtonTitles: nil];
+                                                cancelButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity2") destructiveButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity1") otherButtonTitles: nil];
     
     self.actionSheetAddressbook = [[UIActionSheet alloc] initWithTitle:NimpleLocalizedString(@"msg_box_save_contact_title") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity2") destructiveButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity1") otherButtonTitles: nil];
     
-    // Initialize on tap recognizer for mail and phone labels
+    // initialize on tap recognizer for mail and phone labels
     UITapGestureRecognizer *phoneTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneButtonClicked:)];
     phoneTapGestureRecognizer.numberOfTapsRequired = 1;
     [self.phoneLabel addGestureRecognizer:phoneTapGestureRecognizer];
