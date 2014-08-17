@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NimpleContact.h"
-#import "NimpleModel.h"
-#import "BarCodeReaderController.h"
 #import "DisplayContactViewController.h"
 
-@interface ContactsViewController : UITableViewController <UITabBarControllerDelegate, DisplayContactViewControllerDelegate>
+@interface ContactsViewController : UITableViewController <DisplayContactViewControllerDelegate>
 
 @end

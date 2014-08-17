@@ -8,7 +8,8 @@
 
 #import "ContactsViewController.h"
 #import "ContactTableViewCell.h"
-#import "DisplayContactViewController.h"
+#import "NimpleContact.h"
+#import "NimpleModel.h"
 
 @interface ContactsViewController () {
     __weak IBOutlet UINavigationItem *_navigationLabel;
@@ -20,25 +21,19 @@
 
 @implementation ContactsViewController
 
--(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
-{
-    NSLog(@"Tab Bar should select: %@", viewController.title);
-    return true;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
     [self configureTableView];
-    [self updateData];
+    [self updateView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self updateData];
+    [self updateView];
 }
 
 - (void)localizeViewAttributes
@@ -51,7 +46,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
 }
 
-- (void)updateData
+- (void)updateView
 {
     _contacts = [_model contacts];
     [self.tableView reloadData];
@@ -95,26 +90,17 @@
 
 # pragma mark - DisplayContactViewDelegate
 
-- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller
+- (void)contactShouldBeSaved
 {
-    NSLog(@"displayContactViewControllerDidSave");
+    NSLog(@"contactShouldBeSaved, saving context");
     [_model save];
 }
 
-- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller
+- (void)contactShouldBeDeleted:(NimpleContact *)contact
 {
-    NSLog(@"displayContactViewControllerDidDelete");
-    
-    if (controller.nimpleContact) {
-        [_model deleteContact:controller.nimpleContact];
-        NSLog(@"Deleted row.");
-    }
-    
-    // reset view
-    controller.nimpleContact = nil;
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    [self updateData];
+    NSLog(@"contactShouldBeDeleted");
+    [_model deleteContact:contact];
+    [self updateView];
 }
 
 @end

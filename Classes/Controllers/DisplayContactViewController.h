@@ -11,20 +11,17 @@
 #import <MessageUI/MessageUI.h>
 #import "NimpleContact.h"
 
-@class DisplayContactViewController;
-
 @protocol DisplayContactViewControllerDelegate <NSObject>
 
 @required
-- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller;
-- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller;
+- (void)contactShouldBeSaved;
+- (void)contactShouldBeDeleted:(NimpleContact *)contact;
 @end
 
 @interface DisplayContactViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, ABUnknownPersonViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
-
 // delegate
-@property (nonatomic, weak) id <DisplayContactViewControllerDelegate> delegate;
+@property (weak) id <DisplayContactViewControllerDelegate> delegate;
 
 // iOS ui-related
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -60,7 +57,7 @@
 @property (strong, atomic) UIActionSheet *actionSheetDelete;
 @property (strong, atomic) UIActionSheet *actionSheetAddressbook;
 
--(void)saved;
--(void)checkForAccess;
+- (void)saved;
+- (void)checkForAccess;
 
 @end

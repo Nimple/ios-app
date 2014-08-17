@@ -34,11 +34,6 @@
     [self saved];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)localizeViewAttributes
 {
     self.notesTextField.placeholder = NimpleLocalizedString(@"display_contact_notes_label");
@@ -57,9 +52,7 @@
 
 - (void)updateView
 {
-    // Do any additional setup after loading the view
-    NSLog(@"Display contact view loaded");
-    NSLog(@"With contact %@", self.nimpleContact.objectID);
+    NSLog(@"Display contact %@", self.nimpleContact);
     
     // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
@@ -184,7 +177,7 @@
 - (void) saved
 {
     self.nimpleContact.note = self.notesTextField.text;
-    [self.delegate displayContactViewControllerDidSave:self];
+    [_delegate contactShouldBeSaved];
 }
 
 - (IBAction)saveClicked:(id)sender
@@ -206,7 +199,8 @@
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet == self.actionSheetDelete && buttonIndex == 0) {
-        [self.delegate displayContactViewControllerDidDelete:self];
+        [_delegate contactShouldBeDeleted:self.nimpleContact];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     if (actionSheet == self.actionSheetAddressbook && buttonIndex == 0) {
         [self checkForAccess];
