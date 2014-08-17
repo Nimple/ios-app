@@ -62,7 +62,11 @@
 
 - (BOOL)boolForKey:(NSString *)key
 {
-    return [_defaults boolForKey:key];
+    if ([_defaults objectForKey:key]) {
+        return [_defaults boolForKey:key];
+    } else {
+        return YES;
+    }
 }
 
 - (void)setBool:(BOOL)value forKey:(NSString *)key

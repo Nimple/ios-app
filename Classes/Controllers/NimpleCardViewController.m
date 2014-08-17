@@ -153,9 +153,6 @@
         [self.companyIcon setAlpha:1.0];
     }
     
-    NSLog(@"companySwitch %d", _code.companySwitch);
-    NSLog(@"jobSwitch %d", _code.jobSwitch);
-    
     if (!_code.jobSwitch) {
         [self.jobLabel setAlpha:0.2];
         [self.jobIcon setAlpha:0.2];
