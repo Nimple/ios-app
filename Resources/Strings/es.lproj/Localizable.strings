@@ -67,7 +67,7 @@
 "error_names" = "Por favor, rellene el nombre y apellido.";
 
 "display_contact_notes_label" = "Notas";
-"add_to_addressbook_button" = "Guardar contacto en la libreta de direcciones";
+"add_to_addressbook_button" = "Guardar en la libreta de direcciones";
 "delete_contact_button" = "Borrar contacto";
 
 "settings_faq" = "Preguntas frecuentes";

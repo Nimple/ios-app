@@ -67,7 +67,7 @@
 "error_names" = "Entrer votre prénom et nom.";
 
 "display_contact_notes_label" = "Notes";
-"add_to_addressbook_button" = "Enregistrer le contact dans le carnet d'adresses";
+"add_to_addressbook_button" = "Enregistrer dans le carnet d'adresses";
 "delete_contact_button" = "Supprimer ce contact";
 
 "settings_faq" = "FAQ";
