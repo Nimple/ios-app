@@ -51,7 +51,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
 }
 
-- (void) updateData
+- (void)updateData
 {
     _contacts = [_model contacts];
     [self.tableView reloadData];
@@ -69,40 +69,6 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
-# pragma mark DisplayContactViewDelegate
-
-- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller
-{
-    NSLog(@"displayContactViewControllerDidSave");
-    [_model save];
-}
-
-- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller
-{
-    NSLog(@"displayContactViewControllerDidDelete");
-    
-    // Remove contact and segueBack
-    //[self.navigationController popToRootViewControllerAnimated:YES];
-    
-    if (controller.nimpleContact) {
-        [_model deleteContact:controller.nimpleContact];
-    }
-    
-    NSLog(@"Deleted row.");
-    
-    // reset view
-    controller.nimpleContact = nil;
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    // update view after delete
-    [self updateData];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -118,30 +84,37 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
-    
-    NimpleContact *contact = [_contacts objectAtIndex:indexPath.row];
-    [cell setContact:contact];
-    
-    if (contact.facebook_ID.length == 0 && contact.facebook_URL.length == 0)
-        [cell.facebookButton setAlpha:0.2];
-    else
-        [cell.facebookButton setAlpha:1.0];
-    
-    if (contact.twitter_ID.length == 0 && contact.twitter_URL.length == 0)
-        [cell.twitterButton setAlpha:0.2];
-    else
-        [cell.twitterButton setAlpha:1.0];
-    
-    if (contact.xing_URL.length == 0)
-        [cell.xingButton setAlpha:0.2];
-    else
-        [cell.xingButton setAlpha:1.0];
-    
-    if (contact.linkedin_URL.length == 0)
-        [cell.linkedinButton setAlpha:0.2];
-    else
-        [cell.linkedinButton setAlpha:1.0];
+    [cell setContact:[_contacts objectAtIndex:indexPath.row]];
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+# pragma mark - DisplayContactViewDelegate
+
+- (void) displayContactViewControllerDidSave:(DisplayContactViewController*)controller
+{
+    NSLog(@"displayContactViewControllerDidSave");
+    [_model save];
+}
+
+- (void) displayContactViewControllerDidDelete:(DisplayContactViewController*)controller
+{
+    NSLog(@"displayContactViewControllerDidDelete");
+    
+    if (controller.nimpleContact) {
+        [_model deleteContact:controller.nimpleContact];
+        NSLog(@"Deleted row.");
+    }
+    
+    // reset view
+    controller.nimpleContact = nil;
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self updateData];
 }
 
 @end

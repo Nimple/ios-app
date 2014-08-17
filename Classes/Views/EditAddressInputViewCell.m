@@ -8,7 +8,7 @@
 
 #import "EditAddressInputViewCell.h"
 
-@interface EditAddressInputViewCell() {
+@interface EditAddressInputViewCell () {
     __weak IBOutlet UITextField *_streetTextField;
     __weak IBOutlet UITextField *_postalTextField;
     __weak IBOutlet UITextField *_cityTextField;
