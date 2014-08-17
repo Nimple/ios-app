@@ -342,7 +342,7 @@
 - (ABRecordRef)prepareNimpleContactForAddressBook
 {
     ABRecordRef result = NULL;
-    CFErrorRef error   = NULL;
+    CFErrorRef error = NULL;
     
     result = ABPersonCreate();
     if (result == NULL) {
@@ -387,6 +387,10 @@
     
     if (nimpleContact.company.length > 0) {
         ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    }
+    
+    if (nimpleContact.note.length > 0) {
+        ABRecordSetValue(result, kABPersonNoteProperty, (__bridge CFTypeRef) nimpleContact.note, &error);
     }
     
     return result;

@@ -21,4 +21,11 @@
 @property (strong, atomic) UIAlertView               *alertView2;
 @property (strong, atomic) UIAlertView               *alertView3;
 
+@property (nonatomic) BOOL isReading;
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+
+- (BOOL)startReading;
+- (void)stopReading;
+
 @end

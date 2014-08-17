@@ -14,37 +14,19 @@
 #import "Logging.h"
 
 @interface BarCodeReaderController () {
-    BOOL isProcessing;
     __weak IBOutlet UINavigationItem *_scannerLabel;
     NimpleModel *_model;
-}
-
-@property (nonatomic) BOOL isReading;
-@property (nonatomic, strong) AVCaptureSession *captureSession;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-
--(BOOL)startReading;
--(void)stopReading;
-
-@end
-
-@implementation BarCodeReaderController
-{
+    
+    BOOL isProcessing;
     AVCaptureSession *mCaptureSession;
     NSMutableString *mCode;
 }
 
+@end
+
+@implementation BarCodeReaderController
+
 @synthesize capturedContactData;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,12 +38,12 @@
     [self initializeAlertViews];
 }
 
--(void)localizeViewAttributes
+- (void)localizeViewAttributes
 {
     _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
         [self.tabBarController setSelectedIndex: 2];
@@ -69,40 +51,22 @@
     }
 }
 
--(void)initializeAlertViews
+- (void)initializeAlertViews
 {
-    self.alertView = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header")
-                                                message:NimpleLocalizedString(@"msg_box_right_code_text")
-                                               delegate:self
-                                      cancelButtonTitle:NimpleLocalizedString(@"msg_box_right_code_activity")
-                                      otherButtonTitles:nil];
-    
-    self.alertView2 = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_wrong_code_header")
-                                                 message:NimpleLocalizedString(@"msg_box_wrong_code_header")
-                                                delegate:self
-                                       cancelButtonTitle:NimpleLocalizedString(@"msg_box_wrong_code_activity")
-                                       otherButtonTitles:nil];
-    
-    self.alertView3 = [[UIAlertView alloc] initWithTitle:nil
-                                                 message:NimpleLocalizedString(@"msg_box_duplicated_contact_title")
-                                                delegate:self
-                                       cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity")
-                                       otherButtonTitles:nil];
+    self.alertView = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header") message:NimpleLocalizedString(@"msg_box_right_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_right_code_activity") otherButtonTitles:nil];
+    self.alertView2 = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_wrong_code_header") message:NimpleLocalizedString(@"msg_box_wrong_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_wrong_code_activity") otherButtonTitles:nil];
+    self.alertView3 = [[UIAlertView alloc] initWithTitle:nil message:NimpleLocalizedString(@"msg_box_duplicated_contact_title") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity") otherButtonTitles:nil];
 }
 
 // Stops the capture session when the view will be undloaded from memory
-- (void) viewWillUnload {
+- (void) viewWillUnload
+{
     [self stopReading];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 // Starts the capture session
-- (BOOL)startReading {
+- (BOOL)startReading
+{
     NSError *error;
     
     AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

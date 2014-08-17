@@ -37,6 +37,9 @@
 
 - (void)updateView
 {
+    if (!_code.hasAddress && _code.addressSwitch == NO) {
+        _code.addressSwitch = YES;
+    }
     _streetTextField.text = _code.addressStreet;
     _postalTextField.text = _code.addressPostal;
     _cityTextField.text = _code.addressCity;

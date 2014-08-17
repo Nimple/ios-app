@@ -26,14 +26,6 @@
 
 @implementation SettingsTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,8 +56,14 @@
 #pragma mark - Tap Gesture Action
 - (IBAction)faqClicked:(id)sender
 {
-    NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
-    [[UIApplication sharedApplication] openURL:url];
+    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"de"]) {
+        NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        NSURL *url = [NSURL URLWithString:@"http://www.appstronauten.com/faq_en/"];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 
@@ -106,9 +104,9 @@
 - (IBAction)shareNimpleClicked:(id)sender
 {
     NSString *shareText = NimpleLocalizedString(@"settings.share-text");
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
-    [activityVC setValue:NimpleLocalizedString(@"settings.share-header") forKey:@"subject"];
-    [self presentViewController:activityVC animated:YES completion:nil];
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[shareText] applicationActivities:nil];
+    [controller setValue:NimpleLocalizedString(@"settings.share-header") forKey:@"subject"];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (IBAction)feedbackClicked:(id)sender

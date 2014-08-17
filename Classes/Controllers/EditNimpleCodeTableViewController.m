@@ -113,9 +113,6 @@
         }
         
         if(indexPath.row == 4) {
-            if (!_code.hasAddress) {
-                _code.addressSwitch = YES;
-            }
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
             [cell configureCell];
             return cell;
@@ -168,7 +165,7 @@
         if (indexPath.row == 0) {
             [cell.propertySwitch setOn:_code.facebookSwitch];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"] forState:UIControlStateNormal];
-            cell.fbLoginView = [[FBLoginView alloc]initWithReadPermissions:@[@"basic_info", @"email"]];
+            cell.fbLoginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
             cell.fbLoginView.delegate = cell;
             
             if (_code.facebookId.length == 0 || _code.facebookUrl.length == 0) {
@@ -200,7 +197,7 @@
         }
         
         if (indexPath.row == 2) {
-            [cell.propertySwitch setOn:_code.xing];
+            [cell.propertySwitch setOn:_code.xingSwitch];
             
             NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
             

@@ -75,6 +75,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [VCARD_TEMPLATE_DIC setObject:@"X-FACEBOOK-ID:%@\n" forKey:@"vcard_facebook_id"];
     [VCARD_TEMPLATE_DIC setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];
     [VCARD_TEMPLATE_DIC setObject:@"URL:%@\n" forKey:@"vcard_url"];
+    [VCARD_TEMPLATE_DIC setObject:@"NOTE:Created with nimple.de\n" forKey:@"vcard_note"];
     [VCARD_TEMPLATE_DIC setObject:@"END:VCARD" forKey:@"vcard_end"];
     
     NSString* surname       = _code.surname;
@@ -191,10 +192,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     }
     
     // address
-    //;;Werderstr. 10;Mannheim;;68165;   12/13/14
-    if([NSString stringWithString:p_data[12]].length != 0 && [NSString stringWithString:p_data[13]].length != 0 && [NSString stringWithString:p_data[14]].length != 0 && _code.addressSwitch)
-    {
-        NSString *address = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", p_data[12], p_data[13], p_data[14]]];
+    if (([NSString stringWithString:p_data[12]].length != 0 || [NSString stringWithString:p_data[13]].length != 0 || [NSString stringWithString:p_data[14]].length != 0) && _code.addressSwitch) {
+        NSString *address = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", p_data[12], p_data[14], p_data[13]]];
         [filled appendString:address];
     }
     
@@ -205,6 +204,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         [filled appendString:website];
     }
 
+    [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_note"]];
     [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_end"]];
     return filled;
 }
