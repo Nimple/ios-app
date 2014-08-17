@@ -11,7 +11,7 @@
 @implementation VCardParser
 
 +(NSMutableArray*)getContactFromCard:(NSString*)card {
-    NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
+    NSMutableArray *contactData = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", @"", nil];
     NSArray *lines = [card componentsSeparatedByString:@"\n"];
     
     NSLog(@"Tokenize VCARD.");
@@ -74,11 +74,31 @@
                 contactData[10] = url;
             } else if([newLine rangeOfString:@"linkedin"].location != NSNotFound) {
                 contactData[11] = url;
+            } else {
+                // assuming private website
+                contactData[15] = url;
             }
         } else if ([newLine hasPrefix:@"X-FACEBOOK-ID:"]) {
             contactData[7] = [newLine substringFromIndex:14];
         } else if ([newLine hasPrefix:@"X-TWITTER-ID:"]) {
             contactData[9] = [newLine substringFromIndex:13];
+        } else if ([newLine rangeOfString:@"ADR;"].location != NSNotFound) {
+            if ([newLine rangeOfString:@":"].location == NSNotFound) {
+                continue;
+            }
+            NSString *adr = [newLine substringFromIndex:[newLine rangeOfString:@":"].location];
+            NSArray *adrValues = [adr componentsSeparatedByString:@";"];
+            if (adrValues.count < 5) {
+                continue;
+            }
+            // 0;1;2street;3city;4state;5zip;6country
+            NSString *street = adrValues[2];
+            NSString *city = adrValues[3];
+            NSString *postal = adrValues[5];
+            
+            contactData[12] = street;
+            contactData[13] = postal;
+            contactData[14] = city;
         } else if ([newLine hasPrefix:@"END:VCARD"]) {
             break;
         } else {

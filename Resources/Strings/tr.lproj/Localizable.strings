@@ -1,0 +1,100 @@
+/*
+ Localizable.strings
+ nimple-iOS
+ 
+ Created by Ben John on 30/04/14.
+ Copyright (c) 2014 nimple. All rights reserved.
+ */
+
+"personal_label" = "KIŞISEL";
+"firstname_label" = "Ad";
+"lastname_label" = "Soyad";
+"phonenumber_label" = "Telefon numarası";
+"mail_label" = "E-posta adresi";
+"business_label" = "TICARI";
+"company_label" = "Şirket/üniversite/okul";
+"job_label" = "İş";
+"website_label" = "web sayfası";
+"street_label" = "Cadde";
+"postal_label" = "Posta kod";
+"city_label" = "Şehir";
+"address_label" = "Adres";
+"social_label" = "SOCIAL NETWORKS";
+"facebook_label" = "Facebook'a Bağlan";
+"twitter_label" = "Twitter bağlanın";
+"xing_label" = "XING bağlanın";
+"linkedin_label" = "LinkedIn bağlanın";
+"connected_label" = "bağlı";
+"fistname_first_contact_label" = "Nimple";
+"lastname_first_contact_label" = "App";
+"phone_first_contact_label" = "http://www.nimpleapp.com";
+"mail_first_contact_label" = "feedback.ios@nimple.de";
+"company_first_contact_label" = "Ilk temas";
+"date_format" = "dd.MM.yyyy HH:mm";
+
+"detail_facebook_label" = "Hiçbir Facebook profil";
+"detail_twitter_label" = "Hiçbir Twitter profil";
+"detail_xing_label" = "Hiçbir XING profil";
+"detail_linkedin_label" = "Hiçbir LinkedIn profil";
+
+"settings.feedback-text" = "Ben senin app beğendim";
+"settings.feedback-header" = "[Feedback] Nimple iOS App";
+"settings.share-text" = "Ben app Nimple kullanın. Indirme: www.nimpleapp.com";
+"settings.share-header" = "Nimple - Networking Simple App";
+
+"msg_box_wrong_code_header" = "Yanlış Kod";
+"msg_box_wrong_code_text" = "Kod taranmış olamazdı";
+"msg_box_wrong_code_activity" = "Geri";
+
+"msg_box_right_code_header" = "Bir kişi bulundu";
+"msg_box_right_code_text" = "Eklenen kişi";
+"msg_box_right_code_activity" = "Bitti";
+
+"msg_box_delete_contact_title" = "Kişiyi Sil?";
+"msg_box_delete_contact_activity1" = "Silmek";
+"msg_box_delete_contact_activity2" = "Vazgeç";
+
+"msg_box_duplicated_contact_title" = "Bu kontak zaten.";
+"msg_box_duplicated_code_activity" = "Bitti";
+
+"msg_box_save_contact_title" = "Adres defterinize bu kişiyi kaydet?";
+"msg_box_save_contact_activity1" = "Kaydetmek";
+"msg_box_save_contact_activity2" = "Vazgeç";
+
+"contacts_no_access_title" = "Bu uygulama kişilerinize erişemiyor";
+"contacts_no_access_text" = "Lütfen kişilerinize erişim izni vermek için iPhone Ayarları > Gizlilik > Kişiler > Nimple.";
+
+"error_names" = "Lütfen adınızı girin.";
+
+"display_contact_notes_label" = "Notlar";
+"add_to_addressbook_button" = "Adres defterinize bu kişiyi kaydet";
+"delete_contact_button" = "Kişiyi sil";
+
+"settings_faq" = "FAQ bölümü";
+"settings_legal" = "Koşullar";
+"settings_disclaimer" = "Gizlilik";
+"settings_imprint" = "Baskı bilgileri";
+"settings_facebook" = "Facebook Nimple";
+"settings_twitter" = "Twitter Nimple";
+"settings_share" = "Nimple tavsiye";
+"settings_feedback" = "Feedback";
+
+"tutorial_add_text" = "Burada kişiyi\ntarayabilir";
+"tutorial_edit_text" = "Veri girişi";
+
+"display_contact_title" = "Detaylar";
+"nimple_card_label" = "Kart";
+"nimple_code_title" = "Kod";
+"settings_title" = "Ayarlar";
+"contacts_title" = "Kişiler";
+"scanner_label" = "Kişi Ekle";
+"edit_nimple_code_title" = "Işlemek";
+
+"nimple_code_description" = "Anahtarlar görünürlüğünü kontrol";
+
+"nimple_code_footer" = "Sizin kod barkod okuyucu veya Nimple ile taranabilir";
+
+"tab_nimple_card_title" = "Kart";
+"tab_nimple_code_title" = "Kod";
+"tab_contacts_title" = "Kişiler";
+"tab_settings_title" = "Ayarlar";

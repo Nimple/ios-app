@@ -11,7 +11,10 @@
 #import "AddressBookUI/ABUnknownPersonViewController.h"
 #import "Logging.h"
 
-@interface DisplayContactViewController ()
+@interface DisplayContactViewController () {
+    __weak IBOutlet UILabel *_websiteLabel;
+    __weak IBOutlet UILabel *_addressLabel;
+}
 
 @end
 
@@ -20,109 +23,110 @@
 @synthesize nimpleContact;
 @synthesize scrollView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Setup scroll view
-    [self.scrollView setDelegate:self];
-    [self.scrollView setScrollEnabled:TRUE];
-    self.scrollView.contentSize = CGSizeMake(320, 700);
+    [self localizeViewAttributes];
+    [self configureScrollView];
+    [self updateView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self saved];
+}
+
+- (void)localizeViewAttributes
+{
+    self.notesTextField.placeholder = NimpleLocalizedString(@"display_contact_notes_label");
+    [self.saveToAddressBookButton setTitle:NimpleLocalizedString(@"add_to_addressbook_button") forState:UIControlStateNormal];
+    [self.deleteContactButton setTitle:NimpleLocalizedString(@"delete_contact_button") forState:UIControlStateNormal];
+    self.navBar.title = NimpleLocalizedString(@"display_contact_title");
+}
+
+- (void)configureScrollView
+{
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
+    self.scrollView.contentSize = CGSizeMake(320, 753);
     self.scrollView.frame = self.view.frame;
+}
+
+- (void)updateView
+{
+    NSLog(@"Display contact %@", self.nimpleContact);
     
-    // Do any additional setup after loading the view
-    NSLog(@"Display contact view loaded");
-    NSLog(@"With contact %@", self.nimpleContact.objectID);
-    
-    // Prepare output
     NSString* name = [NSString stringWithFormat:@"%@ %@", self.nimpleContact.prename, self.nimpleContact.surname];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:NSLocalizedStringFromTable(@"date_format", @"Localizable", nil)];
-    NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
+    self.nameLabel.text = name;
+    self.phoneLabel.text = self.nimpleContact.phone;
+    self.emailLabel.text = self.nimpleContact.email;
+    self.companyLabel.text = self.nimpleContact.company;
+    self.jobLabel.text = self.nimpleContact.job;
+    _websiteLabel.text = self.nimpleContact.website;
     
-    // Set labels
-    [self.nameLabel setText:name];
-    [self.phoneLabel setText:self.nimpleContact.phone];
-    [self.emailLabel setText:self.nimpleContact.email];
-    [self.companyLabel setText:self.nimpleContact.company];
-    [self.jobLabel setText:self.nimpleContact.job];
-    
-    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if([language isEqualToString:@"de"]) {
-        [self.timestampLabel setText:[NSString stringWithFormat:@"%@ Uhr", formattedDate]];
+    // address
+    if (self.nimpleContact.hasAddress) {
+        if (self.nimpleContact.street.length > 0) {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
+            _addressLabel.text = address;
+        } else {
+            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", self.nimpleContact.postal, self.nimpleContact.city];
+            _addressLabel.text = address;
+        }
     } else {
-        [self.timestampLabel setText:[NSString stringWithFormat:@"%@", formattedDate]];
+        _addressLabel.text = @"";
     }
-    [self.notesTextField setText:self.nimpleContact.note];
     
-    // Social icons
-    // facebook
-    NSString *facebook_URL = self.nimpleContact.facebook_URL;
-    NSString *facebook_ID  = self.nimpleContact.facebook_ID;
-    if((facebook_URL.length != 0 || facebook_ID.length != 0)) {
+    // timestamp and notes
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:NimpleLocalizedString(@"date_format")];
+    NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
+    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"de"]) {
+        self.timestampLabel.text = [NSString stringWithFormat:@"%@ Uhr", formattedDate];
+    } else {
+        self.timestampLabel.text = [NSString stringWithFormat:@"%@", formattedDate];
+    }
+    self.notesTextField.text = self.nimpleContact.note;
+    
+    // social networks
+    if ((self.nimpleContact.facebook_URL.length != 0 || self.nimpleContact.facebook_ID.length != 0)) {
         [self.facebookIcon setAlpha:1.0];
-        [self.facebookURL setTitle:facebook_URL forState:UIControlStateNormal];
+        [self.facebookURL setTitle:self.nimpleContact.facebook_URL forState:UIControlStateNormal];
     } else {
         [self.facebookIcon setAlpha:0.2];
-        [self.facebookURL setTitle:NSLocalizedStringFromTable(@"detail_facebook_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.facebookURL setTitle:NimpleLocalizedString(@"detail_facebook_label") forState:UIControlStateNormal];
     }
     
-    // twitter
-    NSString *twitter_URL = self.nimpleContact.twitter_URL;
-    NSString *twitter_ID  = self.nimpleContact.twitter_ID;
-    if((twitter_URL.length != 0 || twitter_ID.length != 0)) {
+    if ((self.nimpleContact.twitter_URL.length != 0 || self.nimpleContact.twitter_ID.length != 0)) {
         [self.twitterIcon setAlpha:1.0];
-        [self.twitterURL setTitle:twitter_URL forState:UIControlStateNormal];
+        [self.twitterURL setTitle:self.nimpleContact.twitter_URL forState:UIControlStateNormal];
     } else {
         [self.twitterIcon setAlpha:0.2];
-        [self.twitterURL setTitle:NSLocalizedStringFromTable(@"detail_twitter_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.twitterURL setTitle:NimpleLocalizedString(@"detail_twitter_label") forState:UIControlStateNormal];
     }
     
-    // xing
-    NSString *xing_URL = self.nimpleContact.xing_URL;
-    if(xing_URL.length != 0) {
+    if (self.nimpleContact.xing_URL.length != 0) {
         [self.xingIcon setAlpha:1.0];
-        [self.xingURL setTitle:xing_URL forState:UIControlStateNormal];
+        [self.xingURL setTitle:self.nimpleContact.xing_URL forState:UIControlStateNormal];
     } else {
         [self.xingIcon setAlpha:0.2];
-        [self.xingURL setTitle:NSLocalizedStringFromTable(@"detail_xing_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.xingURL setTitle:NimpleLocalizedString(@"detail_xing_label") forState:UIControlStateNormal];
     }
     
-    // linkedin
-    NSString *linkedin_URL = self.nimpleContact.linkedin_URL;
-    if(linkedin_URL.length != 0) {
+    if (self.nimpleContact.linkedin_URL.length != 0) {
         [self.linkedinIcon setAlpha:1.0];
-        [self.linkedinURL setTitle:linkedin_URL forState:UIControlStateNormal];
+        [self.linkedinURL setTitle:self.nimpleContact.linkedin_URL forState:UIControlStateNormal];
     } else {
         [self.linkedinIcon setAlpha:0.2];
-        [self.linkedinURL setTitle:NSLocalizedStringFromTable(@"detail_linkedin_label", @"Localizable", nil) forState:UIControlStateNormal];
+        [self.linkedinURL setTitle:NimpleLocalizedString(@"detail_linkedin_label") forState:UIControlStateNormal];
     }
     
     // Initalize action sheets
-    self.actionSheetDelete = [[UIActionSheet alloc]
-                              initWithTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_title", @"Localizable", nil)
-                              delegate:self
-                              cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity2", @"Localizable", nil)
-                              destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_delete_contact_activity1", @"Localizable", nil)
-                              otherButtonTitles: nil];
+    self.actionSheetDelete = [[UIActionSheet alloc] initWithTitle:NimpleLocalizedString(@"msg_box_delete_contact_title") delegate:self
+                                                cancelButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity2") destructiveButtonTitle:NimpleLocalizedString(@"msg_box_delete_contact_activity1") otherButtonTitles: nil];
     
-    self.actionSheetAddressbook = [[UIActionSheet alloc]
-                                   initWithTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_title", @"Localizable", nil)
-                                   delegate:self
-                                   cancelButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity2", @"Localizable", nil)
-                                   destructiveButtonTitle:NSLocalizedStringFromTable(@"msg_box_save_contact_activity1", @"Localizable", nil)
-                                   otherButtonTitles: nil];
+    self.actionSheetAddressbook = [[UIActionSheet alloc] initWithTitle:NimpleLocalizedString(@"msg_box_save_contact_title") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity2") destructiveButtonTitle:NimpleLocalizedString(@"msg_box_save_contact_activity1") otherButtonTitles: nil];
     
-    // Initialize on tap recognizer for mail and phone labels
+    // initialize on tap recognizer for mail and phone labels
     UITapGestureRecognizer *phoneTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneButtonClicked:)];
     phoneTapGestureRecognizer.numberOfTapsRequired = 1;
     [self.phoneLabel addGestureRecognizer:phoneTapGestureRecognizer];
@@ -134,60 +138,76 @@
     self.emailLabel.userInteractionEnabled = YES;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    NSLog(@"Save should be invoked!");
-    [self saved];
+#pragma mark - Actions
+
+- (IBAction)websiteClicked:(id)sender
+{
+    if([_websiteLabel.text length] == 0) {
+        return;
+    }
+    NSLog(@"%@", _websiteLabel.text);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_websiteLabel.text]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)addressClicked:(id)sender
+{
+    if([_addressLabel.text length] == 0) {
+        return;
+    }
+    NSString *addressString = [[_addressLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"] stringByReplacingOccurrencesOfString:@"\n" withString:@"+"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://maps.apple.com/?q=%@", addressString]];
+    NSLog(@"%@", _addressLabel.text);
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Callbacks
 
-- (void) saved {
+- (void) saved
+{
     self.nimpleContact.note = self.notesTextField.text;
-    [self.delegate displayContactViewControllerDidSave:self];
+    [_delegate contactShouldBeSaved];
 }
 
-- (IBAction)saveClicked:(id)sender {
+- (IBAction)saveClicked:(id)sender
+{
     [self saved];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)saveToAddressBookButtonClicked:(id)sender {
-    NSLog(@"Contact will be saved to address book");
+- (IBAction)saveToAddressBookButtonClicked:(id)sender
+{
     [self.actionSheetAddressbook showInView:self.view];
 }
 
-- (IBAction)deleteContactButtonClicked:(id)sender {
-    NSLog(@"Contact will be deleted");
+- (IBAction)deleteContactButtonClicked:(id)sender
+{
     [self.actionSheetDelete showInView:self.view];
 }
 
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if(actionSheet == self.actionSheetDelete && buttonIndex == 0) {
-        [self.delegate displayContactViewControllerDidDelete:self];
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (actionSheet == self.actionSheetDelete && buttonIndex == 0) {
+        [_delegate contactShouldBeDeleted:self.nimpleContact];
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    if(actionSheet == self.actionSheetAddressbook && buttonIndex == 0) {
+    if (actionSheet == self.actionSheetAddressbook && buttonIndex == 0) {
         [self checkForAccess];
     }
 }
 
 #pragma mark - Button Handling
 // Opens the browser with the linkedin url
-- (IBAction)linkedinButtonClicked:(id)sender {
-    NSLog(@"linkedin clicked");
-    if(self.nimpleContact.linkedin_URL.length != 0) {
+- (IBAction)linkedinButtonClicked:(id)sender
+{
+    if (self.nimpleContact.linkedin_URL.length != 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.nimpleContact.linkedin_URL]];
     }
 }
 
 // Opens the browser with the xing url
-- (IBAction)xingButtonClicked:(id)sender {
-    NSLog(@"xing clicked %@", self.nimpleContact.xing_URL);
-    if(self.nimpleContact.xing_URL.length != 0) {
+- (IBAction)xingButtonClicked:(id)sender
+{
+    if (self.nimpleContact.xing_URL.length != 0) {
         NSString *newXingUrl = [self.nimpleContact.xing_URL substringFromIndex:29];
         NSString *finalCallUrl = [NSString stringWithFormat:@"https://touch.xing.com/users/%@", newXingUrl];
         NSLog(@"%@", finalCallUrl);
@@ -196,16 +216,17 @@
 }
 
 // Opens the browser with the twitter url
-- (IBAction)twitterButtonClicked:(id)sender {
-    NSLog(@"twitter clicked %@", self.nimpleContact.twitter_URL);
-    if(self.nimpleContact.twitter_URL.length != 0) {
+- (IBAction)twitterButtonClicked:(id)sender
+{
+    if (self.nimpleContact.twitter_URL.length != 0) {
         NSURL *url = [NSURL URLWithString:self.nimpleContact.twitter_URL];
         [[UIApplication sharedApplication] openURL:url];
     }
 }
 
 // Opens the browser with the facebook url
-- (IBAction)facebookButtonClicked:(id)sender {
+- (IBAction)facebookButtonClicked:(id)sender
+{
     if(self.nimpleContact.facebook_URL.length == 0) {
         return;
     }
@@ -220,9 +241,9 @@
 }
 
 // Delegates calling a phone number to the phone app
-- (IBAction)phoneButtonClicked:(id)sender {
-    NSLog(@"Phone calling...");
-    if(self.nimpleContact.phone.length == 0) {
+- (IBAction)phoneButtonClicked:(id)sender
+{
+    if (self.nimpleContact.phone.length == 0) {
         return;
     }
     
@@ -240,47 +261,51 @@
 }
 
 // Delegates the sending of an email to the mail app
-- (IBAction)mailButtonClicked:(id)sender {
-    // From within your active view controller
-    if(self.nimpleContact.email.length == 0) {
+- (IBAction)mailButtonClicked:(id)sender
+{
+    if (self.nimpleContact.email.length == 0) {
         return;
     }
     
-    if([MFMailComposeViewController canSendMail]) {
+    if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
         // Required to invoke mailComposeController when send
         mailContent.mailComposeDelegate = self;
-        
         [mailContent setSubject:@""];
         [mailContent setToRecipients:[NSArray arrayWithObject:self.nimpleContact.email]];
         [mailContent setMessageBody:@"" isHTML:NO];
-        
         [self.navigationController presentViewController:mailContent animated:YES completion:nil];
-    } else
+    } else {
         NSLog(@"Error: Your Mail Account may not be set up.");
+    }
 }
 
 // Called when returning from mail app
-- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - AddressBook Handling
-- (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person {
+
+- (void)unknownPersonViewController:(ABUnknownPersonViewController *)unknownCardViewController didResolveToPerson:(ABRecordRef)person
+{
     [unknownCardViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)addToAddressBook {
+- (void)addToAddressBook
+{
     ABUnknownPersonViewController *addPersonView = [[ABUnknownPersonViewController alloc] init];
     addPersonView.unknownPersonViewDelegate = self;
     addPersonView.displayedPerson = [self prepareNimpleContactForAddressBook];
     addPersonView.allowsAddingToAddressBook = YES;
     addPersonView.allowsActions = YES;
-    [Logging sendContactTransferredEvent];
+    [[Logging sharedLogging] sendContactTransferredEvent];
     [self.navigationController pushViewController:addPersonView animated:YES];
 }
 
--(void)checkForAccess {
+- (void)checkForAccess
+{
     // Request authorization to Address Book
     ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
     
@@ -307,18 +332,15 @@
     }
 }
 
--(void)showAlertView {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"contacts_no_access_title", @"Localizable", nil)
-                                                      message:NSLocalizedStringFromTable(@"contacts_no_access_text", @"Localizable", nil)
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    
+- (void)showAlertView
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"contacts_no_access_title") message:NimpleLocalizedString(@"contacts_no_access_text") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
 }
 
 // Saves a contact to the address book of the phone
-- (ABRecordRef)prepareNimpleContactForAddressBook {
+- (ABRecordRef)prepareNimpleContactForAddressBook
+{
     ABRecordRef result = NULL;
     CFErrorRef error   = NULL;
     
@@ -328,25 +350,46 @@
         return NULL;
     }
     
-    // FirstNameProperty and LastNameProperty seem to be swapped!
     ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
     ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
     
-    if (![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
+    if (nimpleContact.phone.length > 0 && ![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) nimpleContact.phone, kABPersonPhoneMainLabel, nil);
         ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
     }
     
-    ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
-    ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    if (nimpleContact.email.length > 0) {
+        ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
+        ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
+    }
     
-    ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
-    ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    if (nimpleContact.website.length > 0) {
+        ABMutableMultiValueRef multiUrl = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        ABMultiValueAddValueAndLabel(multiUrl, (__bridge CFTypeRef) nimpleContact.website, kABPersonHomePageLabel, NULL);
+        ABRecordSetValue(result, kABPersonURLProperty, multiUrl, nil);
+    }
+    
+    if (nimpleContact.hasAddress) {
+        ABMutableMultiValueRef multiAddress = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
+        NSMutableDictionary *address = [[NSMutableDictionary alloc] init];
+        [address setObject:nimpleContact.street forKey:(NSString *)kABPersonAddressStreetKey];
+        [address setObject:nimpleContact.city forKey:(NSString *)kABPersonAddressCityKey];
+        [address setObject:nimpleContact.postal forKey:(NSString *)kABPersonAddressZIPKey];
+        ABMultiValueAddValueAndLabel(multiAddress, (__bridge CFTypeRef) address, kABWorkLabel, NULL);
+        ABRecordSetValue(result, kABPersonAddressProperty, multiAddress, nil);
+    }
+    
+    if (nimpleContact.job.length > 0) {
+        ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
+    }
+    
+    if (nimpleContact.company.length > 0) {
+        ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    }
     
     return result;
 }
-
 
 @end

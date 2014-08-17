@@ -9,8 +9,19 @@
 #import "SettingsTableViewController.h"
 #import "MessageUI/MessageUI.h"
 
-@interface SettingsTableViewController ()
-
+@interface SettingsTableViewController () {
+    __weak IBOutlet UILabel *_faqLabel;
+    __weak IBOutlet UILabel *_legalLabel;
+    __weak IBOutlet UILabel *_disclaimerLabel;
+    __weak IBOutlet UILabel *_imprintLabel;
+    
+    __weak IBOutlet UILabel *_facebookLabel;
+    __weak IBOutlet UILabel *_twitterLabel;
+    __weak IBOutlet UILabel *_shareLabel;
+    __weak IBOutlet UILabel *_feedbackLabel;
+    
+    __weak IBOutlet UINavigationItem *_settingsLabel;
+}
 @end
 
 @implementation SettingsTableViewController
@@ -23,15 +34,25 @@
     return self;
 }
 
-// Will be executed when the view is loaded to memory
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    [self localizeViewAttributes];
+}
+
+- (void)localizeViewAttributes
+{
+    _faqLabel.text = NimpleLocalizedString(@"settings_faq");
+    _legalLabel.text = NimpleLocalizedString(@"settings_legal");
+    _disclaimerLabel.text = NimpleLocalizedString(@"settings_disclaimer");
+    _imprintLabel.text = NimpleLocalizedString(@"settings_imprint");
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _facebookLabel.text = NimpleLocalizedString(@"settings_facebook");
+    _twitterLabel.text = NimpleLocalizedString(@"settings_twitter");
+    _shareLabel.text = NimpleLocalizedString(@"settings_share");
+    _feedbackLabel.text = NimpleLocalizedString(@"settings_feedback");
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _settingsLabel.title = NimpleLocalizedString(@"settings_title");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,46 +62,60 @@
 
 
 #pragma mark - Tap Gesture Action
-- (IBAction)faqClicked:(id)sender {
+- (IBAction)faqClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)termsClicked:(id)sender {
+- (IBAction)twitterClicked:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:@"https://twitter.com/Nimpleapp"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+
+- (IBAction)termsClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/terms/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)disclaimerClicked:(id)sender {
+- (IBAction)disclaimerClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/disclaimer/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)impressumClicked:(id)sender {
+- (IBAction)impressumClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/imprint/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
 
-- (IBAction)visitFacebookClicked:(id)sender {
+- (IBAction)visitFacebookClicked:(id)sender
+{
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/facebook/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
-- (IBAction)shareNimpleClicked:(id)sender {
-    NSString *shareText = NSLocalizedStringFromTable(@"settings.share-text", @"Localizable", nil);
+- (IBAction)shareNimpleClicked:(id)sender
+{
+    NSString *shareText = NimpleLocalizedString(@"settings.share-text");
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObjects:shareText, nil] applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll];
+    [activityVC setValue:NimpleLocalizedString(@"settings.share-header") forKey:@"subject"];
     [self presentViewController:activityVC animated:YES completion:nil];
 }
 
-- (IBAction)feedbackClicked:(id)sender {
-    NSString *recipient = NSLocalizedStringFromTable(@"mail_first_contact_label", @"Localizable", nil);
-    NSString *topic = NSLocalizedStringFromTable(@"settings.feedback-header", @"Localizable", nil);
-    NSString *text = NSLocalizedStringFromTable(@"settings.feedback-text", @"Localizable", nil);
+- (IBAction)feedbackClicked:(id)sender
+{
+    NSString *recipient = NimpleLocalizedString(@"mail_first_contact_label");
+    NSString *topic = NimpleLocalizedString(@"settings.feedback-header");
+    NSString *text = NimpleLocalizedString(@"settings.feedback-text");
     
     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
     [mailVC setMailComposeDelegate:self];
@@ -94,7 +129,8 @@
 }
 
 #pragma mark - MailComposeViewDelegate
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

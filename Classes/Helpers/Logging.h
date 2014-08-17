@@ -12,11 +12,12 @@
 
 @interface Logging : NSObject
 
-+ (void)initMixpanel;
-+ (void)sendApplicationStartedEvent;
-+ (void)sendContactAddedEvent:(NimpleContact*)nimpleContact;
-+ (void)sendContactTransferredEvent ;
-+ (void)sendNimpleCodeChangedEvent:(NSDictionary*)ownNimpleCode;
-+ (NSString*) checkForEmptyStringAndFormatOutput:(NSString*)needle;
++ (Logging *)sharedLogging;
+
+- (void)sendApplicationStartedEvent;
+- (void)sendContactAddedEvent:(NimpleContact*)nimpleContact;
+- (void)sendContactTransferredEvent;
+- (void)sendNimpleCodeChangedEvent;
+- (NSString *)checkForEmptyStringAndFormatOutput:(NSString*)needle;
 
 @end
