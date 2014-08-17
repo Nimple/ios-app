@@ -18,17 +18,15 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     __weak IBOutlet UILabel *_barcodeNoteLabel;
     
     NimpleCode *_code;
+    BOOL nimpleCodeExists;
+    UIImage *generatedCodeImage;
+    NSString *vCardTemplate;
+    NSString *vCardString;
+    CGImageRef result;
 }
 @end
 
 @implementation NimpleCodeViewController
-{
-    BOOL        nimpleCodeExists;
-    UIImage     *generatedCodeImage;
-    NSString    *vCardTemplate;
-    NSString    *vCardString;
-    CGImageRef  result;
-}
 
 @synthesize editButton;
 @synthesize editController;
@@ -108,11 +106,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [self updateQRCodeData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - QR-Code generation
 
 // Fills the vcard with given data
 /* Parameters in order of appearance
@@ -203,58 +197,12 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         NSString *website = [NSString stringWithFormat:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_url"], p_data[15]];
         [filled appendString:website];
     }
-
+    
     [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_note"]];
     [filled appendString:[VCARD_TEMPLATE_DIC valueForKey:@"vcard_end"]];
     return filled;
 }
 
-// Update the QR code data
--(void) updateQRCodeData
-{
-    [self generateNimpleQRCodeSurname:_code.surname Prename:_code.prename Phone:_code.cellPhone Mail:_code.email JobTitle:_code.job CompanyName:_code.company FacebookURL:_code.facebookUrl FacebookID:_code.facebookId TwitterURL:_code.twitterUrl TwitterID:_code.twitterId XingURL:_code.xing LinkedInURL:_code.linkedIn withStreet:_code.addressStreet andPostal:_code.addressPostal andCity:_code.addressCity andWebsite:_code.website];
-}
-
-//
-- (void) updateQRCodeImage
-{
-    generatedCodeImage  = [UIImage imageWithCGImage:result scale:1.0 orientation: UIImageOrientationUp];
-    //NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
-    
-    UIImage *resized = [self resizeImage:generatedCodeImage withQuality:kCGInterpolationNone rate:5.0];
-    //NSLog(@"QRCode size after resizing is: (%f, %f)", resized.size.width, resized.size.height);
-    
-    // free memory
-    CGImageRelease(result);
-    
-    self.nimpleQRCodeImage.image = resized;
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration: 1.3];
-    
-    [self.nimpleQRCodeImage setAlpha: 1.0];
-    
-    [UIView commitAnimations];
-}
-
-// Resizes image properly
-- (UIImage *)resizeImage:(UIImage *)image withQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate
-{
-	UIImage *resized = nil;
-	CGFloat width = image.size.width * rate;
-	CGFloat height = image.size.height * rate;
-    
-	UIGraphicsBeginImageContext(CGSizeMake(width, height));
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetInterpolationQuality(context, quality);
-	[image drawInRect:CGRectMake(0, 0, width, height)];
-	resized = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-    
-	return resized;
-}
-
-// Generates a nimple QR code with given parameters
 - (void) generateNimpleQRCodeSurname:(NSString*)p_surname Prename:(NSString*)p_prename Phone:(NSString*)p_phone Mail:(NSString*)p_mail JobTitle:(NSString*)p_job CompanyName:(NSString*)p_company FacebookURL:(NSString*)p_facebookURL FacebookID:(NSString*)p_facebookID TwitterURL:(NSString*)p_twitterURL TwitterID:(NSString*)p_twitterID XingURL:(NSString*)p_xingURL LinkedInURL:(NSString *)p_linkedinURL withStreet:(NSString*)p_street andPostal:(NSString*)p_postal andCity:(NSString*)p_city andWebsite:(NSString*)p_website
 {
     NSArray *vcard_data = [NSArray arrayWithObjects:p_surname, p_prename, p_phone, p_mail, p_company, p_job, p_facebookURL, p_facebookID, p_twitterURL, p_twitterID, p_xingURL, p_linkedinURL, p_street, p_postal, p_city, p_website, nil];
@@ -279,6 +227,42 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     result = [context createCGImage:output fromRect:[output extent]];
     
     [self updateQRCodeImage];
+}
+
+- (void)updateQRCodeData
+{
+    [self generateNimpleQRCodeSurname:_code.surname Prename:_code.prename Phone:_code.cellPhone Mail:_code.email JobTitle:_code.job CompanyName:_code.company FacebookURL:_code.facebookUrl FacebookID:_code.facebookId TwitterURL:_code.twitterUrl TwitterID:_code.twitterId XingURL:_code.xing LinkedInURL:_code.linkedIn withStreet:_code.addressStreet andPostal:_code.addressPostal andCity:_code.addressCity andWebsite:_code.website];
+}
+
+- (void)updateQRCodeImage
+{
+    generatedCodeImage  = [UIImage imageWithCGImage:result scale:1.0 orientation: UIImageOrientationUp];
+    // NSLog(@"QRCode size is: (%f, %f)", generatedCodeImage.size.width, generatedCodeImage.size.height);
+    UIImage *resized = [self resizeImage:generatedCodeImage withQuality:kCGInterpolationNone rate:16.0];
+    // NSLog(@"QRCode size after resizing is: (%f, %f)", resized.size.width, resized.size.height);
+    self.nimpleQRCodeImage.image = resized;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.3];
+    [self.nimpleQRCodeImage setAlpha:1.0];
+    [UIView commitAnimations];
+}
+
+#pragma mark - Small helper
+
+- (UIImage *)resizeImage:(UIImage *)image withQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate
+{
+	UIImage *resized = nil;
+	CGFloat width = image.size.width * rate;
+	CGFloat height = image.size.height * rate;
+    
+	UIGraphicsBeginImageContext(CGSizeMake(width, height));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	CGContextSetInterpolationQuality(context, quality);
+	[image drawInRect:CGRectMake(0, 0, width, height)];
+	resized = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    
+	return resized;
 }
 
 @end
