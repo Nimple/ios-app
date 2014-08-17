@@ -11,10 +11,10 @@
 
 @interface EditInputViewCell : UITableViewCell
 
-@property (atomic) NSInteger                      index;
-@property (atomic) NSInteger                      section;
+@property (atomic) NSInteger index;
+@property (atomic) NSInteger section;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
-@property (weak, nonatomic) IBOutlet UISwitch    *propertySwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *propertySwitch;
 
 - (void)configureCell;
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value;

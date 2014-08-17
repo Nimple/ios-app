@@ -20,17 +20,17 @@
 
 @implementation DisplayContactViewController
 
-@synthesize nimpleContact;
-@synthesize scrollView;
-
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self localizeViewAttributes];
     [self configureScrollView];
     [self updateView];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
     [self saved];
 }
 
@@ -318,7 +318,7 @@
                 } else {
                     // User denied access
                     // Display an alert telling user the contact could not be added
-                    [self showAlertView];
+                    [self showAlertViewAddressBook];
                 }
             });
         });
@@ -328,17 +328,18 @@
     } else {
         // The user has previously denied access
         // Send an alert telling user to change privacy setting in settings app
-        [self showAlertView];
+        [self showAlertViewAddressBook];
     }
 }
 
-- (void)showAlertView
+- (void)showAlertViewAddressBook
 {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"contacts_no_access_title") message:NimpleLocalizedString(@"contacts_no_access_text") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [message show];
 }
 
-// Saves a contact to the address book of the phone
+#pragma mark - Saving contact to address book
+
 - (ABRecordRef)prepareNimpleContactForAddressBook
 {
     ABRecordRef result = NULL;

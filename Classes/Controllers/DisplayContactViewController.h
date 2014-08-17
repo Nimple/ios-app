@@ -12,7 +12,6 @@
 #import "NimpleContact.h"
 
 @protocol DisplayContactViewControllerDelegate <NSObject>
-
 @required
 - (void)contactShouldBeSaved;
 - (void)contactShouldBeDeleted:(NimpleContact *)contact;
@@ -56,8 +55,5 @@
 // dialogs
 @property (strong, atomic) UIActionSheet *actionSheetDelete;
 @property (strong, atomic) UIActionSheet *actionSheetAddressbook;
-
-- (void)saved;
-- (void)checkForAccess;
 
 @end

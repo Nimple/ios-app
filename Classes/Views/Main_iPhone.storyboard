@@ -188,8 +188,8 @@ auf deiner Karte und in deinem Code</string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
                                             <connections>
-                                                <action selector="EditingDidEnd:" destination="bQT-iM-lrq" eventType="editingDidEnd" id="vKO-tl-aZL"/>
                                                 <action selector="editingChanged:" destination="bQT-iM-lrq" eventType="editingChanged" id="6ub-j9-Y8l"/>
+                                                <action selector="editingDidEnd:" destination="bQT-iM-lrq" eventType="editingDidEnd" id="7Lk-87-aLF"/>
                                             </connections>
                                         </textField>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ifn-Es-px3">

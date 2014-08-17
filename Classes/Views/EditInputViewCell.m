@@ -11,7 +11,6 @@
 @interface EditInputViewCell () {
     NimpleCode *_code;
 }
-
 @end
 
 @implementation EditInputViewCell
@@ -20,6 +19,37 @@
 {
     _code = [NimpleCode sharedCode];
 }
+
+- (void)updateCode
+{
+    if (self.inputField.text.length != 0) {
+        [self animatePropertySwitchVisibilityTo: 1.0];
+    } else {
+        [self animatePropertySwitchVisibilityTo: 0.0];
+    }
+    
+    if (self.section == 0) {
+        if (self.index == 0) {
+            _code.prename = self.inputField.text;
+        } else if (self.index ==  1) {
+            _code.surname = self.inputField.text;
+        } else if (self.index == 2) {
+            _code.cellPhone = self.inputField.text;
+        } else if (self.index == 3) {
+            _code.email = self.inputField.text;
+        } else if (self.index == 5) {
+            _code.website = self.inputField.text;
+        }
+    } else if (self.section == 1) {
+        if (self.index == 0) {
+            _code.company = self.inputField.text;
+        } else if(self.index == 1) {
+            _code.job = self.inputField.text;
+        }
+    }
+}
+
+#pragma mark - Listener
 
 - (IBAction)propertySwitched:(id)sender
 {
@@ -42,54 +72,15 @@
 
 - (IBAction)editingChanged:(id)sender
 {
-    if (self.section == 0) {
-        if (self.index == 0) {
-            _code.prename = self.inputField.text;
-        } else if (self.index ==  1) {
-            _code.surname = self.inputField.text;
-        } else if (self.index == 2) {
-            _code.cellPhone = self.inputField.text;
-        } else if (self.index == 3) {
-            _code.email = self.inputField.text;
-        } else if (self.index == 5) {
-            _code.website = self.inputField.text;
-        }
-    } else if (self.section == 1) {
-        if (self.index == 0) {
-            _code.company = self.inputField.text;
-        } else if(self.index == 1) {
-            _code.job = self.inputField.text;
-        }
-    }
+    [self updateCode];
 }
 
-- (IBAction)EditingDidEnd:(id)sender
+- (IBAction)editingDidEnd:(id)sender
 {
-    if(self.inputField.text.length != 0)
-        [self animatePropertySwitchVisibilityTo: 1.0];
-    else
-        [self animatePropertySwitchVisibilityTo: 0.0];
-    
-    if (self.section == 0) {
-        if (self.index == 0) {
-            _code.prename = self.inputField.text;
-        } else if (self.index ==  1) {
-            _code.surname = self.inputField.text;
-        } else if (self.index == 2) {
-            _code.cellPhone = self.inputField.text;
-        } else if (self.index == 3) {
-            _code.email = self.inputField.text;
-        } else if (self.index == 5) {
-            _code.website = self.inputField.text;
-        }
-    } else if (self.section == 1) {
-        if (self.index == 0) {
-            _code.company = self.inputField.text;
-        } else if (self.index == 1) {
-            _code.job = self.inputField.text;
-        }
-    }
+    [self updateCode];
 }
+
+#pragma mark - Small helper
 
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value
 {
