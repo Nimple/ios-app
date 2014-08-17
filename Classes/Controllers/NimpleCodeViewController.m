@@ -281,21 +281,4 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     [self updateQRCodeImage];
 }
 
-// Prepare the segue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Edit"]) {
-        EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
-        editNimpleCodeController.delegate = self;
-    }
-}
-
-#pragma mark - EditNimpleCodeTableControllerDelegate
-
-// Edit nimple code saved
-- (void)editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 @end

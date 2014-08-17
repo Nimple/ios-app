@@ -104,7 +104,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)receiveXingId
 {
     [self.networkManager GET:@"/v1/users/me/id_card" parameters:nil success:^(NSURLSessionDataTask *task, id response) {
-        NSLog(@"Response %@", response);
         NSString *permalink = [response valueForKeyPath:@"id_card.permalink"];
         NSLog(@"XING Permalink %@", permalink);
         

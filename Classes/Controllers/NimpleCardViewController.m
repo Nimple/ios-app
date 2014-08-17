@@ -153,6 +153,9 @@
         [self.companyIcon setAlpha:1.0];
     }
     
+    NSLog(@"companySwitch %d", _code.companySwitch);
+    NSLog(@"jobSwitch %d", _code.jobSwitch);
+    
     if (!_code.jobSwitch) {
         [self.jobLabel setAlpha:0.2];
         [self.jobIcon setAlpha:0.2];
@@ -168,23 +171,6 @@
 {
     NSLog(@"Nimple code changed received in NimpleCardViewController");
     [self updateView];
-}
-
-#pragma mark - Edit segue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"Edit"]) {
-        EditNimpleCodeTableViewController *editNimpleCodeController = segue.destinationViewController;
-        editNimpleCodeController.delegate = self;
-    }
-}
-
-#pragma mark - EditNimpleCodeTableControllerDelegate
-
-- (void)editNimpleCodeTableViewControllerDidSave:(EditNimpleCodeTableViewController *)controller
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

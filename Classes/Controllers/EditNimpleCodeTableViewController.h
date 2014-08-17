@@ -11,16 +11,7 @@
 #import "EditAddressInputViewCell.h"
 #import "ConnectSocialProfileViewCell.h"
 
-@protocol EditNimpleCodeTableControllerDelegate <NSObject>
-
-@required
-- (void) editNimpleCodeTableViewControllerDidSave:(id)controller;
-
-@end
-
 @interface EditNimpleCodeTableViewController : UITableViewController <UITextFieldDelegate>
-
-@property (nonatomic, weak) id <EditNimpleCodeTableControllerDelegate> delegate;
 
 - (IBAction)done:(id)sender;
 

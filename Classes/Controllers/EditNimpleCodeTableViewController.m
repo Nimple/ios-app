@@ -203,6 +203,7 @@
             
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_xing"] forState:UIControlStateNormal];
             [cell setNetworkManager:appDelegate.networkManager];
+            appDelegate.xingTableViewCell = cell;
             
             if (_code.xing.length == 0) {
                 _code.xingSwitch = YES;
@@ -262,7 +263,6 @@
         [[Logging sharedLogging] sendNimpleCodeChangedEvent];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeChanged" object:self];
-        [self.delegate editNimpleCodeTableViewControllerDidSave:self];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
