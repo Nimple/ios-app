@@ -628,28 +628,28 @@ auf deiner Karte und in deinem Code</string>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lzk-DW-Xcj">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lzk-DW-Xcj" userLabel="Button - Facebook">
                                             <rect key="frame" x="30" y="109" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="ic_round_facebook">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vbo-GS-Zix">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vbo-GS-Zix" userLabel="Button - Twitter">
                                             <rect key="frame" x="83" y="109" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="ic_round_twitter">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8K7-jc-RDN">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8K7-jc-RDN" userLabel="Button - Xing">
                                             <rect key="frame" x="136" y="109" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="ic_round_xing">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eql-KQ-gI6">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eql-KQ-gI6" userLabel="Button - LinkedIn">
                                             <rect key="frame" x="189" y="109" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="ic_round_linkedin">
@@ -659,14 +659,14 @@ auf deiner Karte und in deinem Code</string>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="emailButton" destination="2EL-di-PP3" id="Mhn-bg-M6T"/>
-                                    <outlet property="facebookButton" destination="lzk-DW-Xcj" id="jfg-X4-ahl"/>
-                                    <outlet property="jobCompanyLabel" destination="Rei-w7-hxh" id="2ME-y0-wGz"/>
-                                    <outlet property="linkedinButton" destination="eql-KQ-gI6" id="Af3-fK-KkY"/>
-                                    <outlet property="nameLabel" destination="SZm-ic-gp5" id="Qfe-dk-xr3"/>
-                                    <outlet property="phoneButton" destination="OKa-h7-Hc2" id="49g-Rh-YwK"/>
-                                    <outlet property="twitterButton" destination="vbo-GS-Zix" id="lH5-Yd-E6h"/>
-                                    <outlet property="xingButton" destination="8K7-jc-RDN" id="K4F-x4-E41"/>
+                                    <outlet property="_emailButton" destination="2EL-di-PP3" id="tU3-6x-MiC"/>
+                                    <outlet property="_facebookButton" destination="lzk-DW-Xcj" id="xlw-Bp-Pbh"/>
+                                    <outlet property="_jobCompanyLabel" destination="Rei-w7-hxh" id="buI-4y-5qv"/>
+                                    <outlet property="_linkedinButton" destination="eql-KQ-gI6" id="kwz-gM-goa"/>
+                                    <outlet property="_nameLabel" destination="SZm-ic-gp5" id="kuU-1H-Okd"/>
+                                    <outlet property="_phoneButton" destination="OKa-h7-Hc2" id="Zeu-hH-NVU"/>
+                                    <outlet property="_twitterButton" destination="vbo-GS-Zix" id="Ywg-pz-EOw"/>
+                                    <outlet property="_xingButton" destination="8K7-jc-RDN" id="ocd-ad-7Di"/>
                                     <segue destination="MgR-wC-OmR" kind="push" identifier="DetailView" id="4di-Oe-DbR"/>
                                 </connections>
                             </tableViewCell>

@@ -9,54 +9,69 @@
 #import "ContactTableViewCell.h"
 
 @interface ContactTableViewCell () {
+    __weak IBOutlet UILabel *_nameLabel;
+    __weak IBOutlet UILabel *_jobCompanyLabel;
+    __weak IBOutlet UIButton *_phoneButton;
+    __weak IBOutlet UIButton *_emailButton;
+    __weak IBOutlet UIButton *_facebookButton;
+    __weak IBOutlet UIButton *_twitterButton;
+    __weak IBOutlet UIButton *_xingButton;
+    __weak IBOutlet UIButton *_linkedinButton;
+    
     NimpleContact *_contact;
 }
 @end
 
 @implementation ContactTableViewCell
 
-- (void)setContact:(NimpleContact *)contact
+- (void)configureCellWithContact:(NimpleContact *)contact
 {
     _contact = contact;
-    [self configureCell];
+    [self updateView];
 }
 
-- (void)configureCell
+- (void)updateView
 {
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", _contact.prename, _contact.surname];
-    [self.phoneButton setTitle:_contact.phone forState:UIControlStateNormal];
-    [self.emailButton setTitle:_contact.email forState:UIControlStateNormal];
+    _nameLabel.text = [NSString stringWithFormat:@"%@ %@", _contact.prename, _contact.surname];
+    
+    if ([_contact.website isEqualToString:@"http://www.nimple.de"]) {
+        [_phoneButton setTitle:_contact.website forState:UIControlStateNormal];
+    } else {
+        [_phoneButton setTitle:_contact.phone forState:UIControlStateNormal];
+    }
+    
+    [_emailButton setTitle:_contact.email forState:UIControlStateNormal];
     
     if (_contact.job.length > 0 && _contact.company.length > 0) {
-        self.jobCompanyLabel.text = [NSString stringWithFormat:@"%@ (%@)", _contact.company, _contact.job];
+        _jobCompanyLabel.text = [NSString stringWithFormat:@"%@ (%@)", _contact.company, _contact.job];
     } else if (_contact.job.length > 0) {
-        self.jobCompanyLabel.text = _contact.job;
+        _jobCompanyLabel.text = _contact.job;
     } else {
-        self.jobCompanyLabel.text = _contact.company;
+        _jobCompanyLabel.text = _contact.company;
     }
     
     if (_contact.facebook_ID.length == 0 && _contact.facebook_URL.length == 0) {
-        self.facebookButton.alpha = 0.2;
+        _facebookButton.alpha = 0.2;
     } else {
-        self.facebookButton.alpha = 1.0;
+        _facebookButton.alpha = 1.0;
     }
     
     if (_contact.twitter_ID.length == 0 && _contact.twitter_URL.length == 0) {
-        self.twitterButton.alpha = 0.2;
+        _twitterButton.alpha = 0.2;
     } else {
-        self.twitterButton.alpha = 1.0;
+        _twitterButton.alpha = 1.0;
     }
     
     if (_contact.xing_URL.length == 0) {
-        self.xingButton.alpha = 0.2;
+        _xingButton.alpha = 0.2;
     } else {
-        self.xingButton.alpha = 1.0;
+        _xingButton.alpha = 1.0;
     }
     
     if (_contact.linkedin_URL.length == 0) {
-        self.linkedinButton.alpha = 0.2;
+        _linkedinButton.alpha = 0.2;
     } else {
-        self.linkedinButton.alpha = 1.0;
+        _linkedinButton.alpha = 1.0;
     }
 }
 

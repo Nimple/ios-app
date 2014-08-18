@@ -11,16 +11,6 @@
 
 @interface ContactTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *jobCompanyLabel;
-@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
-@property (weak, nonatomic) IBOutlet UIButton *emailButton;
-@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
-@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
-@property (weak, nonatomic) IBOutlet UIButton *xingButton;
-@property (weak, nonatomic) IBOutlet UIButton *linkedinButton;
-
-- (void)configureCell;
-- (void)setContact:(NimpleContact *)contact;
+- (void)configureCellWithContact:(NimpleContact *)contact;
 
 @end

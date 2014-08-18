@@ -77,7 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
-    [cell setContact:_contacts[indexPath.row]];
+    [cell configureCellWithContact:_contacts[indexPath.row]];
     return cell;
 }
 

@@ -82,7 +82,7 @@
 "tutorial_add_text" = "Scan a new contact";
 "tutorial_edit_text" = "Enter your data to create\nyour nimple-card and -code";
 
-"display_contact_title" = "Detailansicht";
+"display_contact_title" = "Details";
 "nimple_card_label" = "My Card";
 "nimple_code_title" = "My Code";
 "settings_title" = "Settings";
