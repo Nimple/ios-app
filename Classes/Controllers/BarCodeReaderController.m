@@ -14,12 +14,13 @@
 
 @interface BarCodeReaderController () {
     __weak IBOutlet UINavigationItem *_scannerLabel;
-    NimpleModel *_model;
+    __weak IBOutlet UIView *_readerView;
     
+    NimpleModel *_model;
     BOOL _isProcessing;
     BOOL _isReading;
-    AVCaptureSession *_captureSession;
-    AVCaptureVideoPreviewLayer *_videoPreviewLayer;
+    AVCaptureSession *_session;
+    AVCaptureVideoPreviewLayer *_previewLayer;
 }
 @end
 
@@ -29,13 +30,12 @@
     [super viewDidLoad];
     _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
-    [self initializeAlertViews];
     [self startScanner];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
     [self stopScanner];
 }
 
@@ -44,63 +44,69 @@
     _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+#pragma mark - Alert views
+
+- (void)showRightCodeAlert
 {
-    if (buttonIndex == 0) {
-        [self.tabBarController setSelectedIndex: 2];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    [[[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header") message:NimpleLocalizedString(@"msg_box_right_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_right_code_activity") otherButtonTitles:nil] show];
 }
 
-- (void)initializeAlertViews
+- (void)showWrongCodeAlert
 {
-    self.alertView = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_right_code_header") message:NimpleLocalizedString(@"msg_box_right_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_right_code_activity") otherButtonTitles:nil];
-    self.alertView2 = [[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_wrong_code_header") message:NimpleLocalizedString(@"msg_box_wrong_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_wrong_code_activity") otherButtonTitles:nil];
-    self.alertView3 = [[UIAlertView alloc] initWithTitle:nil message:NimpleLocalizedString(@"msg_box_duplicated_contact_title") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity") otherButtonTitles:nil];
+    [[[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"msg_box_wrong_code_header") message:NimpleLocalizedString(@"msg_box_wrong_code_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_wrong_code_activity") otherButtonTitles:nil] show];
+}
+
+- (void)showDuplicatedContactAlert
+{
+    [[[UIAlertView alloc] initWithTitle:nil message:NimpleLocalizedString(@"msg_box_duplicated_contact_title") delegate:self cancelButtonTitle:NimpleLocalizedString(@"msg_box_duplicated_code_activity") otherButtonTitles:nil] show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == alertView.cancelButtonIndex) {
+        [self.tabBarController setSelectedIndex:2];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Scanner control
 
 - (void)startScanner
 {
-    _isReading = FALSE;
-    _captureSession = nil;
+    _isReading = NO;
     NSError *error;
     
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] error:&error];
     if (!input) {
         NSLog(@"%@", [error localizedDescription]);
         return;
     }
     
-    _captureSession = [[AVCaptureSession alloc] init];
-    [_captureSession addInput:input];
+    _session = [[AVCaptureSession alloc] init];
+    [_session addInput:input];
     
-    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    [_captureSession addOutput:captureMetadataOutput];
+    AVCaptureMetadataOutput *metadataOutput = [[AVCaptureMetadataOutput alloc] init];
+    [_session addOutput:metadataOutput];
+    [metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
     
-    dispatch_queue_t dispatchQueue;
-    dispatchQueue = dispatch_queue_create("myQueue", NULL);
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    [captureMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_session];
+    _previewLayer.drawsAsynchronously = YES;
+    _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    _previewLayer.frame = _readerView.frame;
     
-    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-    _videoPreviewLayer.drawsAsynchronously = TRUE;
-    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [_videoPreviewLayer setFrame:_codeReaderCameraView.layer.bounds];
-    [_codeReaderCameraView.layer addSublayer:_videoPreviewLayer];
-    
-    [_captureSession startRunning];
+    [_readerView.layer addSublayer:_previewLayer];
+    [_session startRunning];
 }
 
 - (void)stopScanner
 {
-    if (_captureSession != nil) {
-        [_captureSession stopRunning];
-        _captureSession = nil;
-        [_videoPreviewLayer removeFromSuperlayer];
+    if (_session != nil) {
+        [_session stopRunning];
+        [_previewLayer removeFromSuperlayer];
+        _session = nil;
     }
 }
 
@@ -112,7 +118,7 @@
         return;
     }
     
-    // Valid bar code found
+    // valid qrcode found
     if (metadataObjects != nil && [metadataObjects count] == 1) {
         _isProcessing = YES;
         [self stopScanner];
@@ -123,9 +129,7 @@
             
             // check for valid vcard on the basis of prename/surname
             if(contact.prename.length == 0 || contact.surname.length == 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.alertView2 show];
-                });
+                [self showWrongCodeAlert];
                 return;
             }
             [self saveContact:contact];
@@ -142,14 +146,9 @@
         [newContact fillWithContact:contact];
         [_model save];
         [[Logging sharedLogging] sendContactAddedEvent:newContact];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.alertView show];
-        });
+        [self showRightCodeAlert];
     } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.alertView3 show];
-        });
+        [self showWrongCodeAlert];
     }
 }
 

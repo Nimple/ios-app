@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-#define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
+#define XING_CONSUMER_KEY @"247e95c9f304f6c5aaff"
 #define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
 
 #import "ConnectSocialProfileViewCell.h"
@@ -15,7 +15,6 @@
 @interface ConnectSocialProfileViewCell () {
     NimpleCode *_code;
 }
-
 @end
 
 @implementation ConnectSocialProfileViewCell
@@ -114,7 +113,7 @@
     self.fbLoginView = [[FBLoginView alloc] init];
     self.fbLoginView.readPermissions = @[@"basic_info"];
     [self addSubview:self.fbLoginView];
-    [self.fbLoginView setHidden:TRUE];
+    [self.fbLoginView setHidden:YES];
     self.fbLoginView.delegate = self;
     
     for (id object in self.fbLoginView.subviews) {
@@ -214,7 +213,7 @@
     self.networkManager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.xing.com/"] consumerKey:XING_CONSUMER_KEY consumerSecret:XING_CONSUMER_SECRET];
     NimpleAppDelegate *appDelegate = (NimpleAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if(!appDelegate.xingTableViewCell) {
+    if (!appDelegate.xingTableViewCell) {
         appDelegate.xingTableViewCell = self;
     }
     if (self.networkManager) {
@@ -247,8 +246,9 @@
     [appDelegate.networkManager deauthorize];
     [appDelegate.networkManager.requestSerializer removeAccessToken];
     
-    if(completion)
+    if (completion) {
         completion();
+    }
 }
 
 #pragma mark - Handle linkedin
@@ -287,7 +287,8 @@
     }
 }
 
-- (LIALinkedInHttpClient *)linkedInClient {
+- (LIALinkedInHttpClient *)linkedInClient
+{
     LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.nimple.de" clientId:@"77pixj2vchhmrj" clientSecret:@"XDzQSRgsL1BOO8nm" state:@"DCEEFWF45453sdffef424" grantedAccess:@[@"r_fullprofile"]];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;

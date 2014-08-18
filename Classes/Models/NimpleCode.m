@@ -11,7 +11,6 @@
 @interface NimpleCode () {
     NSUserDefaults *_defaults;
 }
-
 @end
 
 @implementation NimpleCode

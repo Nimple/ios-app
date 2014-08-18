@@ -6,22 +6,51 @@
 //  Copyright (c) 2014 nimple. All rights reserved.
 //
 
-#define NIMPLE_MAIN_COLOR 0x850032
-
 #define XING_CONSUMER_KEY    @"247e95c9f304f6c5aaff"
 #define XING_CONSUMER_SECRET @"cebe8869323e6d227257361eeabf05046c243721"
 
+#define NIMPLE_MAIN_COLOR 0x850032
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "NimpleAppDelegate.h"
+#import "NimpleCode.h"
+#import "NimpleModel.h"
 #import "Logging.h"
 
 @implementation NimpleAppDelegate
 
-@synthesize xingTableViewCell;
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([url.scheme isEqualToString:@"oauth"]) {
+        if ([url.host isEqualToString:@"xing"]) {
+            // send notification in order to avoid boilerplate code in AppDelegate
+            [self handleXingAuthForUrl:url];
+        }
+        return YES;
+    } else if ([FBAppCall handleOpenURL:url sourceApplication:sourceApplication]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [self bootstrapApplication];
+    [self setupNavigationBar];
+    [self setupTabs];
+    return YES;
+}
+
+- (void)bootstrapApplication
+{
+    [Logging sharedLogging];
+    [FBLoginView class];
+    [NimpleCode sharedCode];
+    [[NimpleModel sharedModel] createExampleContact];
+}
 
 - (void)setupNavigationBar
 {
@@ -70,21 +99,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [[self tabBar] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
 }
 
-- (void)bootstrapApplication
+#pragma mark - Core Data integration
+
+- (NSURL *)applicationDocumentsDirectory
 {
-    [Logging sharedLogging];
-    [FBLoginView class];
-    [NimpleCode sharedCode];
-    [[NimpleModel sharedModel] createExampleContact];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [self bootstrapApplication];
-    [self setupNavigationBar];
-    [self setupTabs];
-    return YES;
-}
+#pragma mark - Xing integration (should be moved into XingTableViewCell)
 
 - (void)handleXingAuthForUrl:(NSURL *)url
 {
@@ -117,26 +139,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"ERROR: %@", error);
     }];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    if ([url.scheme isEqualToString:@"oauth"]) {
-        if ([url.host isEqualToString:@"xing"]) {
-            [self handleXingAuthForUrl:url];
-        }
-        return YES;
-    } else if ([FBAppCall handleOpenURL:url sourceApplication:sourceApplication]) {
-        return YES;
-    }
-    return NO;
-}
-
-#pragma mark - Core Data integration
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

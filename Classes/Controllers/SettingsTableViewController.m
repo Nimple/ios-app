@@ -7,7 +7,6 @@
 //
 
 #import "SettingsTableViewController.h"
-#import "MessageUI/MessageUI.h"
 
 @interface SettingsTableViewController () {
     __weak IBOutlet UILabel *_faqLabel;
@@ -45,11 +44,6 @@
     _feedbackLabel.text = NimpleLocalizedString(@"settings_feedback");
     
     _settingsLabel.title = NimpleLocalizedString(@"settings_title");
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Tap Gesture Action

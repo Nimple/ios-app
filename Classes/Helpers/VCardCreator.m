@@ -11,7 +11,6 @@
 @interface VCardCreator () {
     NSMutableDictionary *_vcardTemplate;
 }
-
 @end
 
 @implementation VCardCreator

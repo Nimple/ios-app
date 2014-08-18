@@ -53,8 +53,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Kontakt hinzufügen" id="fWH-LC-fhZ"/>
                     <connections>
-                        <outlet property="_scannerLabel" destination="fWH-LC-fhZ" id="0T2-Iu-RhA"/>
-                        <outlet property="codeReaderCameraView" destination="rgd-LG-kyz" id="gki-yv-r0R"/>
+                        <outlet property="_readerView" destination="rgd-LG-kyz" id="2Es-9o-Og8"/>
+                        <outlet property="_scannerLabel" destination="fWH-LC-fhZ" id="p0s-02-oVP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dj7-po-nne" userLabel="First Responder" sceneMemberID="firstResponder"/>

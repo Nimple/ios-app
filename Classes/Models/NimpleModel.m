@@ -16,7 +16,6 @@
 @interface NimpleModel () {
     NSManagedObjectContext *_mainContext;
 }
-
 @end
 
 @implementation NimpleModel

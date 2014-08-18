@@ -10,14 +10,6 @@
 #import <CoreImage/CoreImage.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <NSDictionary+BDBOAuth1Manager.h>
-#import "NimpleCode.h"
-#import "NimpleModel.h"
-#import "NimpleContact.h"
-#import "NimpleCardViewController.h"
-#import "ContactsViewController.h"
-#import "BarCodeReaderController.h"
-#import "EditNimpleCodeTableViewController.h"
-#import "NimpleCodeViewController.h"
 #import "ConnectSocialProfileViewCell.h"
 
 @interface NimpleAppDelegate : UIResponder <UIApplicationDelegate>
