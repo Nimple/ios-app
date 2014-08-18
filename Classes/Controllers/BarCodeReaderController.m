@@ -21,7 +21,6 @@
     AVCaptureSession *_captureSession;
     AVCaptureVideoPreviewLayer *_videoPreviewLayer;
 }
-
 @end
 
 @implementation BarCodeReaderController

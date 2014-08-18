@@ -52,8 +52,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Tap Gesture Action
+
 - (IBAction)faqClicked:(id)sender
 {
     NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -66,13 +66,11 @@
     }
 }
 
-
 - (IBAction)twitterClicked:(id)sender
 {
     NSURL *url = [NSURL URLWithString:@"https://twitter.com/Nimpleapp"];
     [[UIApplication sharedApplication] openURL:url];
 }
-
 
 - (IBAction)termsClicked:(id)sender
 {
@@ -80,20 +78,17 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
-
 - (IBAction)disclaimerClicked:(id)sender
 {
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/disclaimer/"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
-
 - (IBAction)impressumClicked:(id)sender
 {
     NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/imprint/"];
     [[UIApplication sharedApplication] openURL:url];
 }
-
 
 - (IBAction)visitFacebookClicked:(id)sender
 {
@@ -139,6 +134,7 @@
 }
 
 #pragma mark - MailComposeViewDelegate
+
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];

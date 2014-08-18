@@ -15,7 +15,6 @@
     __weak IBOutlet UILabel *_websiteLabel;
     __weak IBOutlet UILabel *_addressLabel;
 }
-
 @end
 
 @implementation DisplayContactViewController
@@ -351,47 +350,47 @@
         return NULL;
     }
     
-    ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) nimpleContact.prename, &error);
-    ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) nimpleContact.surname, &error);
+    ABRecordSetValue(result, kABPersonFirstNameProperty, (__bridge CFTypeRef) self.nimpleContact.prename, &error);
+    ABRecordSetValue(result, kABPersonLastNameProperty, (__bridge CFTypeRef) self.nimpleContact.surname, &error);
     
-    if (nimpleContact.phone.length > 0 && ![nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
+    if (self.nimpleContact.phone.length > 0 && ![self.nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-        ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) nimpleContact.phone, kABPersonPhoneMainLabel, nil);
+        ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) self.nimpleContact.phone, kABPersonPhoneMainLabel, nil);
         ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
     }
     
-    if (nimpleContact.email.length > 0) {
+    if (self.nimpleContact.email.length > 0) {
         ABMutableMultiValueRef multiMail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-        ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) nimpleContact.email, kABHomeLabel, nil);
+        ABMultiValueAddValueAndLabel(multiMail, (__bridge CFTypeRef) self.nimpleContact.email, kABHomeLabel, nil);
         ABRecordSetValue(result, kABPersonEmailProperty, multiMail, nil);
     }
     
-    if (nimpleContact.website.length > 0) {
+    if (self.nimpleContact.website.length > 0) {
         ABMutableMultiValueRef multiUrl = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-        ABMultiValueAddValueAndLabel(multiUrl, (__bridge CFTypeRef) nimpleContact.website, kABPersonHomePageLabel, NULL);
+        ABMultiValueAddValueAndLabel(multiUrl, (__bridge CFTypeRef) self.nimpleContact.website, kABPersonHomePageLabel, NULL);
         ABRecordSetValue(result, kABPersonURLProperty, multiUrl, nil);
     }
     
-    if (nimpleContact.hasAddress) {
+    if (self.nimpleContact.hasAddress) {
         ABMutableMultiValueRef multiAddress = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
         NSMutableDictionary *address = [[NSMutableDictionary alloc] init];
-        [address setObject:nimpleContact.street forKey:(NSString *)kABPersonAddressStreetKey];
-        [address setObject:nimpleContact.city forKey:(NSString *)kABPersonAddressCityKey];
-        [address setObject:nimpleContact.postal forKey:(NSString *)kABPersonAddressZIPKey];
+        [address setObject:self.nimpleContact.street forKey:(NSString *)kABPersonAddressStreetKey];
+        [address setObject:self.nimpleContact.city forKey:(NSString *)kABPersonAddressCityKey];
+        [address setObject:self.nimpleContact.postal forKey:(NSString *)kABPersonAddressZIPKey];
         ABMultiValueAddValueAndLabel(multiAddress, (__bridge CFTypeRef) address, kABWorkLabel, NULL);
         ABRecordSetValue(result, kABPersonAddressProperty, multiAddress, nil);
     }
     
-    if (nimpleContact.job.length > 0) {
-        ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) nimpleContact.job, &error);
+    if (self.nimpleContact.job.length > 0) {
+        ABRecordSetValue(result, kABPersonJobTitleProperty, (__bridge CFTypeRef) self.nimpleContact.job, &error);
     }
     
-    if (nimpleContact.company.length > 0) {
-        ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) nimpleContact.company, &error);
+    if (self.nimpleContact.company.length > 0) {
+        ABRecordSetValue(result, kABPersonOrganizationProperty, (__bridge CFTypeRef) self.nimpleContact.company, &error);
     }
     
-    if (nimpleContact.note.length > 0) {
-        ABRecordSetValue(result, kABPersonNoteProperty, (__bridge CFTypeRef) nimpleContact.note, &error);
+    if (self.nimpleContact.note.length > 0) {
+        ABRecordSetValue(result, kABPersonNoteProperty, (__bridge CFTypeRef) self.nimpleContact.note, &error);
     }
     
     return result;
