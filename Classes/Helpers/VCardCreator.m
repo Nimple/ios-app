@@ -82,6 +82,16 @@
         [filled appendString: job];
     }
     
+    if (code.hasAddress && code.addressSwitch) {
+        NSString *address = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", code.addressStreet, code.addressCity, code.addressPostal]];
+        [filled appendString:address];
+    }
+    
+    if(code.website.length > 0 && code.websiteSwitch) {
+        NSString *website = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], code.website];
+        [filled appendString:website];
+    }
+    
     if (code.facebookUrl.length != 0 && code.facebookId.length != 0 && code.facebookSwitch) {
         NSString *facebook_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], code.facebookUrl];
         NSString *facebook_ID = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_facebook_id"], code.facebookId];
@@ -104,16 +114,6 @@
     if (code.linkedIn.length != 0 && code.linkedInSwitch) {
         NSString *linkedin_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], code.linkedIn];
         [filled appendString:linkedin_URL];
-    }
-    
-    if (code.hasAddress && code.addressSwitch) {
-        NSString *address = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", code.addressStreet, code.addressCity, code.addressPostal]];
-        [filled appendString:address];
-    }
-    
-    if(code.website.length > 0 && code.websiteSwitch) {
-        NSString *website = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], code.website];
-        [filled appendString:website];
     }
     
     [filled appendString:[_vcardTemplate valueForKey:@"vcard_note"]];

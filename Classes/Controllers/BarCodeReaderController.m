@@ -159,7 +159,7 @@
         [[Logging sharedLogging] sendContactAddedEvent:newContact];
         [self showRightCodeAlert];
     } else {
-        [self showWrongCodeAlert];
+        [self showDuplicatedContactAlert];
     }
 }
 

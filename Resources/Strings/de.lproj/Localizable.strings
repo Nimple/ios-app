@@ -98,3 +98,6 @@
 "tab_nimple_code_title" = "Code";
 "tab_contacts_title" = "Kontakte";
 "tab_settings_title" = "Einstellungen";
+
+"twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";
+"twitter_not_found_alert_message" = "Logge dich in den Einstellungen unter 'Twitter' ein.";

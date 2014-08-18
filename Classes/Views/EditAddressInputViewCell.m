@@ -49,11 +49,10 @@
 {
     if (![self isFilled]) {
         [_propertySwitch setAlpha:0.0];
-        [_propertySwitch setOn:YES];
     } else {
         [_propertySwitch setAlpha:1.0];
-        [_propertySwitch setOn:YES];
     }
+    [_propertySwitch setOn:_code.addressSwitch];
 }
 
 - (BOOL)isFilled

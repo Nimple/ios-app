@@ -80,10 +80,10 @@
     if (_code.hasAddress) {
         if (_code.addressStreet > 0) {
             NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", _code.addressStreet, _code.addressPostal, _code.addressCity];
-            _addressLabel.text = [address stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _addressLabel.text = address;
         } else {
-            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", _code.addressPostal, _code.addressCity];
-            _addressLabel.text = [address stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@\n", _code.addressPostal, _code.addressCity];
+            _addressLabel.text = address;
         }
     } else {
         _addressLabel.text = @"";

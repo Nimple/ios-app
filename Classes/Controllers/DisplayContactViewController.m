@@ -67,7 +67,7 @@
             NSString *address = [[NSString alloc] initWithFormat:@"%@\n%@ %@", self.nimpleContact.street, self.nimpleContact.postal, self.nimpleContact.city];
             _addressLabel.text = address;
         } else {
-            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@", self.nimpleContact.postal, self.nimpleContact.city];
+            NSString *address = [[NSString alloc] initWithFormat:@"%@ %@\n", self.nimpleContact.postal, self.nimpleContact.city];
             _addressLabel.text = address;
         }
     } else {

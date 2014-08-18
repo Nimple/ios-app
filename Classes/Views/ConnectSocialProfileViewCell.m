@@ -190,8 +190,8 @@
                 } else {
                     NSLog(@"No twitter profile found!");
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        self.alertView.title = @"Kein twitter Profil gefunden";
-                        self.alertView.message = @"Logge dich in den Einstellungen unter 'Twitter' ein";
+                        self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
+                        self.alertView.message = NimpleLocalizedString(@"twitter_not_found_alert_message");
                         [self.alertView show];
                     });
                 }
