@@ -15,7 +15,7 @@
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 #import "EditNimpleCodeTableViewController.h"
 
-@interface ConnectSocialProfileViewCell : UITableViewCell<FBLoginViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
+@interface ConnectSocialProfileViewCell : UITableViewCell <FBLoginViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
 @property NSInteger index;
 @property NSInteger section;
