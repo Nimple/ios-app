@@ -13,6 +13,7 @@
 @interface EditNimpleCodeTableViewController () {
     __weak IBOutlet UINavigationItem *_editNimpleCode;
     __weak IBOutlet UILabel *_descriptionLabel;
+    
     NimpleCode *_code;
 }
 

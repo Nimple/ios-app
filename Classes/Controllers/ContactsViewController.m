@@ -13,6 +13,7 @@
 
 @interface ContactsViewController () {
     __weak IBOutlet UINavigationItem *_navigationLabel;
+    
     NimpleModel *_model;
     NSArray *_contacts;
 }

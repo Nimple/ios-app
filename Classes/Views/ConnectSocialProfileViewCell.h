@@ -17,17 +17,19 @@
 
 @interface ConnectSocialProfileViewCell : UITableViewCell<FBLoginViewDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 
-@property (atomic) NSInteger index;
-@property (atomic) NSInteger section;
+@property NSInteger index;
+@property NSInteger section;
+
 @property (weak, nonatomic) IBOutlet UIButton *socialNetworkButton;
 @property (weak, nonatomic) IBOutlet UIButton *connectStatusButton;
-@property (atomic, strong) FBLoginView *fbLoginView;
-@property (nonatomic) ACAccountStore *twitterAcount;
+@property (weak, nonatomic) IBOutlet UISwitch *propertySwitch;
+
 @property (strong, atomic) UIActionSheet *actionSheet;
 @property (strong, atomic) UIAlertView *alertView;
-@property (nonatomic) LIALinkedInHttpClient *linkedInClient;
-@property (weak, nonatomic) IBOutlet UISwitch *propertySwitch;
+@property (strong, atomic) FBLoginView *fbLoginView;
+@property (nonatomic) ACAccountStore *twitterAcount;
 @property (nonatomic) BDBOAuth1SessionManager *networkManager;
+@property (nonatomic) LIALinkedInHttpClient *linkedInClient;
 
 - (void)configureCell;
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value;
