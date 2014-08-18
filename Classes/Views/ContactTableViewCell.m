@@ -11,7 +11,6 @@
 @interface ContactTableViewCell () {
     NimpleContact *_contact;
 }
-
 @end
 
 @implementation ContactTableViewCell

@@ -40,18 +40,18 @@
 - (void)configureVCardTemplate
 {
     _vcardTemplate = [NSMutableDictionary dictionary];
-    [_vcardTemplate setObject:@"BEGIN:VCARD\nVERSION:3.0\n" forKey:@"vcard_header"];
-    [_vcardTemplate setObject:@"N:%@;%@\n" forKey:@"vcard_name"];
-    [_vcardTemplate setObject:@"TEL;CELL:%@\n" forKey:@"vcard_phone"];
-    [_vcardTemplate setObject:@"EMAIL:%@\n" forKey:@"vcard_email"];
-    [_vcardTemplate setObject:@"TITLE:%@\n" forKey:@"vcard_role"];
-    [_vcardTemplate setObject:@"ORG:%@\n" forKey:@"vcard_organisation"];
-    [_vcardTemplate setObject:@"ADR;type=HOME:%@\n" forKey:@"vcard_address"];
-    [_vcardTemplate setObject:@"X-FACEBOOK-ID:%@\n" forKey:@"vcard_facebook_id"];
-    [_vcardTemplate setObject:@"X-TWITTER-ID:%@\n" forKey:@"vcard_twitter_id"];
-    [_vcardTemplate setObject:@"URL:%@\n" forKey:@"vcard_url"];
-    [_vcardTemplate setObject:@"NOTE:Created with nimple.de\n" forKey:@"vcard_note"];
-    [_vcardTemplate setObject:@"END:VCARD" forKey:@"vcard_end"];
+    _vcardTemplate[@"vcard_header"] = @"BEGIN:VCARD\nVERSION:3.0\n";
+    _vcardTemplate[@"vcard_name"] = @"N:%@;%@\n";
+    _vcardTemplate[@"vcard_phone"] = @"TEL;CELL:%@\n";
+    _vcardTemplate[@"vcard_email"] = @"EMAIL:%@\n";
+    _vcardTemplate[@"vcard_role"] = @"TITLE:%@\n";
+    _vcardTemplate[@"vcard_organisation"] = @"ORG:%@\n";
+    _vcardTemplate[@"vcard_address"] = @"ADR;type=HOME:%@\n";
+    _vcardTemplate[@"vcard_facebook_id"] = @"X-FACEBOOK-ID:%@\n";
+    _vcardTemplate[@"vcard_twitter_id"] = @"X-TWITTER-ID:%@\n";
+    _vcardTemplate[@"vcard_url"] = @"URL:%@\n";
+    _vcardTemplate[@"vcard_note"] = @"NOTE:Created with nimple.de\n";
+    _vcardTemplate[@"vcard_end"] = @"END:VCARD";
 }
 
 #pragma mark - Create vcard

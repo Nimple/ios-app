@@ -16,7 +16,6 @@
     NimpleModel *_model;
     NSArray *_contacts;
 }
-
 @end
 
 @implementation ContactsViewController
@@ -27,7 +26,6 @@
     _model = [NimpleModel sharedModel];
     [self localizeViewAttributes];
     [self configureTableView];
-    [self updateView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,12 +53,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"DetailView"]) {
-        DisplayContactViewController *destViewController = segue.destinationViewController;
-        destViewController.delegate = self;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        NimpleContact *contact = _contacts[indexPath.row];
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NimpleContact *contact = [_contacts objectAtIndex:indexPath.row];
-        [destViewController setNimpleContact:contact];
+        DisplayContactViewController *displayContactViewController = segue.destinationViewController;
+        displayContactViewController.delegate = self;
+        displayContactViewController.nimpleContact = contact;
     }
 }
 
@@ -79,7 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactCell" forIndexPath:indexPath];
-    [cell setContact:[_contacts objectAtIndex:indexPath.row]];
+    [cell setContact:_contacts[indexPath.row]];
     return cell;
 }
 

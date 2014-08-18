@@ -178,7 +178,7 @@
     NSArray* contacts = [_mainContext executeFetchRequest:fetchRequest error:&error];
     if (error) {
         NSLog(@"Contacts fetch error %@", error);
-        return [NSArray array];
+        return @[];
     }
     return contacts;
 }

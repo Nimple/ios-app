@@ -259,7 +259,7 @@
         self.linkedInClient = [self linkedInClient];
         [self.linkedInClient getAuthorizationCode:^(NSString *code) {
             [self.linkedInClient getAccessToken:code success:^(NSDictionary *accessTokenData) {
-                NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
+                NSString *accessToken = accessTokenData[@"access_token"];
                 [self.linkedInClient GET:[NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~?oauth2_access_token=%@&format=json", accessToken] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *result) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.socialNetworkButton setAlpha:1.0];

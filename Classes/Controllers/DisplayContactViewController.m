@@ -78,7 +78,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:NimpleLocalizedString(@"date_format")];
     NSString *formattedDate = [dateFormatter stringFromDate:self.nimpleContact.created];
-    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString* language = [NSLocale preferredLanguages][0];
     if ([language isEqualToString:@"de"]) {
         self.timestampLabel.text = [NSString stringWithFormat:@"%@ Uhr", formattedDate];
     } else {
@@ -271,7 +271,7 @@
         // Required to invoke mailComposeController when send
         mailContent.mailComposeDelegate = self;
         [mailContent setSubject:@""];
-        [mailContent setToRecipients:[NSArray arrayWithObject:self.nimpleContact.email]];
+        [mailContent setToRecipients:@[self.nimpleContact.email]];
         [mailContent setMessageBody:@"" isHTML:NO];
         [self.navigationController presentViewController:mailContent animated:YES completion:nil];
     } else {
@@ -374,9 +374,9 @@
     if (self.nimpleContact.hasAddress) {
         ABMutableMultiValueRef multiAddress = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
         NSMutableDictionary *address = [[NSMutableDictionary alloc] init];
-        [address setObject:self.nimpleContact.street forKey:(NSString *)kABPersonAddressStreetKey];
-        [address setObject:self.nimpleContact.city forKey:(NSString *)kABPersonAddressCityKey];
-        [address setObject:self.nimpleContact.postal forKey:(NSString *)kABPersonAddressZIPKey];
+        address[(NSString *)kABPersonAddressStreetKey] = self.nimpleContact.street;
+        address[(NSString *)kABPersonAddressCityKey] = self.nimpleContact.city;
+        address[(NSString *)kABPersonAddressZIPKey] = self.nimpleContact.postal;
         ABMultiValueAddValueAndLabel(multiAddress, (__bridge CFTypeRef) address, kABWorkLabel, NULL);
         ABRecordSetValue(result, kABPersonAddressProperty, multiAddress, nil);
     }

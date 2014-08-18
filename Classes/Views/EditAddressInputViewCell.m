@@ -76,26 +76,33 @@
 
 - (IBAction)editingChanged:(id)sender
 {
-    _code.addressStreet = _streetTextField.text;
-    _code.addressPostal = _postalTextField.text;
-    _code.addressCity = _cityTextField.text;
+    [self updateCode];
 }
 
 - (IBAction)editingDidEnd:(id)sender
 {
-    if ([self isFilled])
+    [self updateCode];
+}
+
+- (void)updateCode
+{
+    if ([self isFilled]) {
         [self animatePropertySwitchVisibilityTo:1.0];
-    else
+    } else {
         [self animatePropertySwitchVisibilityTo:0.0];
+    }
+    
     _code.addressStreet = _streetTextField.text;
     _code.addressPostal = _postalTextField.text;
     _code.addressCity = _cityTextField.text;
 }
 
+#pragma mark - Small helper
+
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value
 {
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDuration:0.5];
     [_propertySwitch setAlpha:value];
     [UIView commitAnimations];
 }

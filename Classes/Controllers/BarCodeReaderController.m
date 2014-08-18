@@ -84,7 +84,7 @@
     dispatch_queue_t dispatchQueue;
     dispatchQueue = dispatch_queue_create("myQueue", NULL);
     [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    [captureMetadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
     
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     _videoPreviewLayer.drawsAsynchronously = TRUE;
@@ -117,7 +117,7 @@
         _isProcessing = YES;
         [self stopScanner];
         
-        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        AVMetadataMachineReadableCodeObject *metadataObj = metadataObjects[0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             NimpleContact *contact = [VCardParser getContactFromCard:metadataObj.stringValue];
             

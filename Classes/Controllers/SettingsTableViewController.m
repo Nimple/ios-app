@@ -56,7 +56,7 @@
 
 - (IBAction)faqClicked:(id)sender
 {
-    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString* language = [NSLocale preferredLanguages][0];
     if ([language isEqualToString:@"de"]) {
         NSURL *url = [NSURL URLWithString:@"http://www.nimple.de/faq/"];
         [[UIApplication sharedApplication] openURL:url];
@@ -100,7 +100,7 @@
 {
     NSString *text = NimpleLocalizedString(@"settings.share-text");
     
-    NSString* language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString* language = [NSLocale preferredLanguages][0];
     NSURL *url;
     if ([language isEqualToString:@"de"]) {
         url = [NSURL URLWithString:@"http://www.nimple.de"];
@@ -126,7 +126,7 @@
     [mailVC setMailComposeDelegate:self];
     
     if ([MFMailComposeViewController canSendMail]) {
-        [mailVC setToRecipients:[NSArray arrayWithObjects:recipient, nil]];
+        [mailVC setToRecipients:@[recipient]];
         [mailVC setSubject:topic];
         [mailVC setMessageBody:text isHTML:NO];
         [self presentViewController:mailVC animated:YES completion:nil];

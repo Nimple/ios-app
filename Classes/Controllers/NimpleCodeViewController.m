@@ -104,7 +104,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 {
     _nimpleCodeImage.alpha = 0.0;
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1.3];
+    [UIView setAnimationDuration:1.0];
     _nimpleCodeImage.image = image;
     _nimpleCodeImage.alpha = 1.0;
     [UIView commitAnimations];

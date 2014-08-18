@@ -85,7 +85,7 @@
 - (void)animatePropertySwitchVisibilityTo:(NSInteger)value
 {
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationDuration:0.5];
     [_propertySwitch setAlpha:value];
     [UIView commitAnimations];
 }

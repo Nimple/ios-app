@@ -50,10 +50,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UINavigationController *settingsController = (UINavigationController *)navigationController.childViewControllers[3];
     settingsController.title = NimpleLocalizedString(@"tab_settings_title");
     
-    UITabBarItem *card = [[self tabBar].items objectAtIndex:0];
-    UITabBarItem *code = [[self tabBar].items objectAtIndex:1];
-    UITabBarItem *contacts = [[self tabBar].items objectAtIndex:2];
-    UITabBarItem *settings = [[self tabBar].items objectAtIndex:3];
+    UITabBarItem *card = ([self tabBar].items)[0];
+    UITabBarItem *code = ([self tabBar].items)[1];
+    UITabBarItem *contacts = ([self tabBar].items)[2];
+    UITabBarItem *settings = ([self tabBar].items)[3];
     
     card.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     card.image = [[UIImage imageNamed:@"tabbar_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
