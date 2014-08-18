@@ -33,6 +33,12 @@
     [self startScanner];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self startScanner];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -75,7 +81,11 @@
 
 - (void)startScanner
 {
-    _isReading = NO;
+    if (_isReading) {
+        return;
+    }
+    
+    _isReading = YES;
     NSError *error;
     
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] error:&error];
@@ -107,6 +117,7 @@
         [_session stopRunning];
         [_previewLayer removeFromSuperlayer];
         _session = nil;
+        _isReading = NO;
     }
 }
 
