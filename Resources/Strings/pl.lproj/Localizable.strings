@@ -99,5 +99,16 @@
 "tab_contacts_title" = "Kontakty";
 "tab_settings_title" = "Ustawieniach";
 
-"twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";
-"twitter_not_found_alert_message" = "Logge dich in den Einstellungen unter 'Twitter' ein.";
+"twitter_not_found_alert_title" = "Bez profil Twittera.";
+"twitter_not_found_alert_message" = "Zaloguj się do Twittera w Ustawieniach iPhone'a > Twitter.";
+
+"twitter_not_allowed_alert_title" = "Bez dostępu do Twittera.";
+"twitter_not_allowed_alert_message" = "Włącz dostęp do Twittera w Ustawieniach iPhone'a > Twitter > Nimple.";
+
+"msg_box_social_logout_facebook_title" = "Odłącz Facebooka?";
+"msg_box_social_logout_twitter_title" = "Odłącz Twittera?";
+"msg_box_social_logout_xing_title" = "Odłącz XING?";
+"msg_box_social_logout_linkedin_title" = "Odłącz LinkedIn?";
+
+"msg_box_social_logout_activity1" = "Odłącz";
+"msg_box_social_logout_activity2" = "Anuluj";

@@ -99,5 +99,16 @@
 "tab_contacts_title" = "Контакты";
 "tab_settings_title" = "Настройки";
 
-"twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";
-"twitter_not_found_alert_message" = "Logge dich in den Einstellungen unter 'Twitter' ein.";
+"twitter_not_found_alert_title" = "Нет профиль Twitter.";
+"twitter_not_found_alert_message" = "Пожалуйста, войдите, чтобы Twitter в Настройки iPhone > Twitter.";
+
+"twitter_not_allowed_alert_title" = "Нет доступа к Twitter.";
+"twitter_not_allowed_alert_message" = "Пожалуйста, включите доступ к Twitter в Настройки iPhone > Twitter > Nimple.";
+
+"msg_box_social_logout_facebook_title" = "Отключите Facebook?";
+"msg_box_social_logout_twitter_title" = "Отключите Twitter?";
+"msg_box_social_logout_xing_title" = "Отключите XING?";
+"msg_box_social_logout_linkedin_title" = "Отключите LinkedIn?";
+
+"msg_box_social_logout_activity1" = "Отключите";
+"msg_box_social_logout_activity2" = "Отменить";

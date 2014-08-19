@@ -99,5 +99,16 @@
 "tab_contacts_title" = "Kişiler";
 "tab_settings_title" = "Ayarlar";
 
-"twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";
-"twitter_not_found_alert_message" = "Logge dich in den Einstellungen unter 'Twitter' ein.";
+"twitter_not_found_alert_title" = "Hiçbir Twitter profil.";
+"twitter_not_found_alert_message" = "Twitter Giriş Yapın için iPhone Ayarları > Twitter.";
+
+"twitter_not_allowed_alert_title" = "Twitter'da erişim yok.";
+"twitter_not_allowed_alert_message" = "Lütfen Twitter erişim izni vermek için iPhone Ayarları > Twitter > Nimple.";
+
+"msg_box_social_logout_facebook_title" = "Ağ Facebook bağlantısını kes?";
+"msg_box_social_logout_twitter_title" = "Ağ Twitter bağlantısını kes?";
+"msg_box_social_logout_xing_title" = "Ağ XING bağlantısını kes?";
+"msg_box_social_logout_linkedin_title" = "Ağ LinkedIn bağlantısını kes?";
+
+"msg_box_social_logout_activity1" = "Bağlanti kes";
+"msg_box_social_logout_activity2" = "Vazgeç";
