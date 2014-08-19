@@ -47,7 +47,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        // facebook is handled in XYZ
+        // facebook is handled in FBLoginView
         if(self.index == 1) {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
@@ -85,8 +85,8 @@
 
 - (IBAction)connectButtonClicked:(id)sender
 {
-    NSString *destructiveTitle = @"Log out";
-    NSString *cancelTitle = @"Abbrechen";
+    NSString *destructiveTitle = NimpleLocalizedString(@"msg_box_social_logout_activity1");
+    NSString *cancelTitle = NimpleLocalizedString(@"msg_box_social_logout_activity2");
     
     // initialize dialogs for user-interaction
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:destructiveTitle otherButtonTitles: nil];
@@ -123,6 +123,8 @@
         }
     }
 }
+
+#pragma mark - FBLoginViewDelegate
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
@@ -168,39 +170,44 @@
 
 - (void)handleTwitter
 {
-    self.twitterAcount = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
     if (_code.twitterId.length == 0) {
-        [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-            if (granted == YES) {
-                NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
-                if ([accountsArray count] > 0) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.socialNetworkButton setAlpha:1.0];
-                        [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
+        self.twitterAcount = [[ACAccountStore alloc] init];
+        ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        if (accountType) {
+            [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+                if (granted == YES) {
+                    NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
+                    if ([accountsArray count] > 0) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.socialNetworkButton setAlpha:1.0];
+                            [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
+                            [self animatePropertySwitchVisibilityTo:1.0];
+                        });
+                        ACAccount *twitterAccount = [accountsArray lastObject];
+                        NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
+                        NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
+                        _code.twitterId = twitter_ID;
+                        _code.twitterUrl = twitter_URL;
                         [self animatePropertySwitchVisibilityTo:1.0];
-                    });
-                    ACAccount *twitterAccount = [accountsArray lastObject];
-                    NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
-                    NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
-                    _code.twitterId = twitter_ID;
-                    _code.twitterUrl = twitter_URL;
-                    [self animatePropertySwitchVisibilityTo:1.0];
+                    } else {
+                        NSLog(@"No twitter profile found!");
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
+                            self.alertView.message = NimpleLocalizedString(@"twitter_not_found_alert_message");
+                            [self.alertView show];
+                        });
+                    }
                 } else {
-                    NSLog(@"No twitter profile found!");
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
-                        self.alertView.message = NimpleLocalizedString(@"twitter_not_found_alert_message");
-                        [self.alertView show];
-                    });
+                    NSLog(@"%@", [error localizedDescription]);
                 }
-            } else {
-                NSLog(@"%@", [error localizedDescription]);
-            }
-        }];
+            }];
+        } else {
+            self.alertView.title = NimpleLocalizedString(@"twitter_not_allowed_alert_title");
+            self.alertView.message = NimpleLocalizedString(@"twitter_not_allowed_alert_message");
+            [self.alertView show];
+        }
     } else {
-        self.actionSheet.title = @"Logged in using twitter";
+        self.actionSheet.title = NimpleLocalizedString(@"msg_box_social_logout_twitter_title");
         [self.actionSheet showInView:self.superview.superview];
     }
 }
@@ -220,7 +227,7 @@
         appDelegate.networkManager = self.networkManager;
     }
     if ([self.networkManager isAuthorized]) {
-        self.actionSheet.title = @"Logged in using XING";
+        self.actionSheet.title = NimpleLocalizedString(@"msg_box_social_logout_xing_title");
         [self.actionSheet showInView:self.superview.superview];
     } else {
         [self authorizeXing];
@@ -282,7 +289,7 @@
             NSLog(@"Authorization failed %@", error);
         }];
     } else {
-        self.actionSheet.title = @"Logged in using LinkedIn";
+        self.actionSheet.title = NimpleLocalizedString(@"msg_box_social_logout_linkedin_title");
         [self.actionSheet showInView:self.superview.superview];
     }
 }

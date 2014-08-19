@@ -57,7 +57,7 @@
 {
     if (indexPath.section == 2)
         return 60.0;
-    else if (indexPath.section == 0 && indexPath.row == 4)
+    else if (indexPath.section == 0 && indexPath.row == 5)
         return 86.0;
     else
         return 45.0;
@@ -113,13 +113,7 @@
             }
         }
         
-        if(indexPath.row == 4) {
-            EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
-            [cell configureCell];
-            return cell;
-        }
-        
-        if (indexPath.row == 5) {
+        if (indexPath.row == 4) {
             [cell.propertySwitch setOn:_code.websiteSwitch];
             cell.inputField.keyboardType = UIKeyboardTypeURL;
             cell.inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -130,6 +124,12 @@
                 [cell.propertySwitch setOn:YES];
                 _code.websiteSwitch = YES;
             }
+        }
+        
+        if (indexPath.row == 5) {
+            EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
+            [cell configureCell];
+            return cell;
         }
     }
     

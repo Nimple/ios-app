@@ -37,7 +37,7 @@
             _code.cellPhone = self.inputField.text;
         } else if (self.index == 3) {
             _code.email = self.inputField.text;
-        } else if (self.index == 5) {
+        } else if (self.index == 4) {
             _code.website = self.inputField.text;
         }
     } else if (self.section == 1) {
@@ -58,7 +58,7 @@
             _code.cellPhoneSwitch = [self.propertySwitch isOn];
         } else if (self.index == 3) {
             _code.emailSwitch = [self.propertySwitch isOn];
-        } else if (self.index == 5) {
+        } else if (self.index == 4) {
             _code.websiteSwitch = self.propertySwitch.isOn;
         }
     } else if (self.section == 1) {

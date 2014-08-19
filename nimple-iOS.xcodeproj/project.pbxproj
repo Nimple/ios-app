@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */; };
-		4B22E34E198D251B0010C87A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */; };
+		4B220DC719A40BC900163E5C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */; };
 		4B4E678019A0FFBB00784D07 /* VCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E677F19A0FFBB00784D07 /* VCardCreator.m */; };
 		4B7E50A3199C087B00C174EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B7E5099199C087B00C174EE /* Localizable.strings */; };
 		4B7E50A6199C1EE400C174EE /* NimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E50A5199C1EE400C174EE /* NimpleModel.m */; };
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		4B1B7F3A199A24400098DB91 /* EditAddressInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressInputViewCell.h; sourceTree = "<group>"; };
 		4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressInputViewCell.m; sourceTree = "<group>"; };
-		4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		4B4E677E19A0FFBB00784D07 /* VCardCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardCreator.h; sourceTree = "<group>"; };
 		4B4E677F19A0FFBB00784D07 /* VCardCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardCreator.m; sourceTree = "<group>"; };
 		4B7E509A199C087B00C174EE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		B5408B0D1904A1D60033DF1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4B22E34D198D251B0010C87A /* Main_iPhone.storyboard */,
+				4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */,
 				B5408B0E1904A1D60033DF1A /* ConnectSocialProfileViewCell.h */,
 				B5408B0F1904A1D60033DF1A /* ConnectSocialProfileViewCell.m */,
 				B5408B101904A1D60033DF1A /* ContactTableViewCell.h */,
@@ -376,7 +376,7 @@
 			files = (
 				4B7E50A3199C087B00C174EE /* Localizable.strings in Resources */,
 				B5408B2F1904A2550033DF1A /* Images.xcassets in Resources */,
-				4B22E34E198D251B0010C87A /* Main_iPhone.storyboard in Resources */,
+				4B220DC719A40BC900163E5C /* Main_iPhone.storyboard in Resources */,
 				D1ABE42E18C1F50F00154101 /* Podfile in Resources */,
 				B5408B281904A2370033DF1A /* README.md in Resources */,
 			);
