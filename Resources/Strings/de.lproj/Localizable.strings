@@ -101,3 +101,14 @@
 
 "twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";
 "twitter_not_found_alert_message" = "Logge dich in den Einstellungen unter 'Twitter' ein.";
+
+"twitter_not_allowed_alert_title" = "Kein Zugriff auf Twitter-Account.";
+"twitter_not_allowed_alert_message" = "Bitte aktiviere den Zugang zu Twitter unter iPhone Einstellungen > Twitter > Nimple.";
+
+"msg_box_social_logout_facebook_title" = "Verbindung zu Facebook trennen?";
+"msg_box_social_logout_twitter_title" = "Verbindung zu Twitter trennen?";
+"msg_box_social_logout_xing_title" = "Verbindung zu XING trennen?";
+"msg_box_social_logout_linkedin_title" = "Verbindung zu LinkedIn trennen?";
+
+"msg_box_social_logout_activity1" = "Trennen";
+"msg_box_social_logout_activity2" = "Abbrechen";
