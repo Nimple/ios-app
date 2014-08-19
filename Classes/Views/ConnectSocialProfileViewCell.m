@@ -85,8 +85,8 @@
 
 - (IBAction)connectButtonClicked:(id)sender
 {
-    NSString *destructiveTitle = @"msg_box_social_logout_activity1";
-    NSString *cancelTitle = @"msg_box_social_logout_activity2";
+    NSString *destructiveTitle = @"Log out";
+    NSString *cancelTitle = @"Abbrechen";
     
     // initialize dialogs for user-interaction
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:destructiveTitle otherButtonTitles: nil];
@@ -200,7 +200,7 @@
             }
         }];
     } else {
-        self.actionSheet.title = @"msg_box_social_logout_twitter_title";
+        self.actionSheet.title = @"Logged in using twitter";
         [self.actionSheet showInView:self.superview.superview];
     }
 }
@@ -220,7 +220,7 @@
         appDelegate.networkManager = self.networkManager;
     }
     if ([self.networkManager isAuthorized]) {
-        self.actionSheet.title = @"msg_box_social_logout_xing_title";
+        self.actionSheet.title = @"Logged in using XING";
         [self.actionSheet showInView:self.superview.superview];
     } else {
         [self authorizeXing];
@@ -282,7 +282,7 @@
             NSLog(@"Authorization failed %@", error);
         }];
     } else {
-        self.actionSheet.title = @"msg_box_social_logout_linkedin_title";
+        self.actionSheet.title = @"Logged in using LinkedIn";
         [self.actionSheet showInView:self.superview.superview];
     }
 }
