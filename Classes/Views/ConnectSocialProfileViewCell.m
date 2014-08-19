@@ -85,8 +85,8 @@
 
 - (IBAction)connectButtonClicked:(id)sender
 {
-    NSString *destructiveTitle = @"Log out";
-    NSString *cancelTitle = @"Abbrechen";
+    NSString *destructiveTitle = @"msg_box_social_logout_activity1";
+    NSString *cancelTitle = @"msg_box_social_logout_activity2";
     
     // initialize dialogs for user-interaction
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:destructiveTitle otherButtonTitles: nil];
