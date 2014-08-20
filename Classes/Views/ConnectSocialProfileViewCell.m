@@ -173,39 +173,35 @@
     if (_code.twitterId.length == 0) {
         self.twitterAcount = [[ACAccountStore alloc] init];
         ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        if (accountType) {
-            [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-                if (granted == YES) {
-                    NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
-                    if ([accountsArray count] > 0) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.socialNetworkButton setAlpha:1.0];
-                            [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
-                            [self animatePropertySwitchVisibilityTo:1.0];
-                        });
-                        ACAccount *twitterAccount = [accountsArray lastObject];
-                        NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
-                        NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
-                        _code.twitterId = twitter_ID;
-                        _code.twitterUrl = twitter_URL;
+        [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+            if (granted == YES) {
+                NSArray* accountsArray = [self.twitterAcount accountsWithAccountType:accountType];
+                if ([accountsArray count] > 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.socialNetworkButton setAlpha:1.0];
+                        [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
                         [self animatePropertySwitchVisibilityTo:1.0];
-                    } else {
-                        NSLog(@"No twitter profile found!");
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
-                            self.alertView.message = NimpleLocalizedString(@"twitter_not_found_alert_message");
-                            [self.alertView show];
-                        });
-                    }
+                    });
+                    ACAccount *twitterAccount = [accountsArray lastObject];
+                    NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
+                    NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
+                    _code.twitterId = twitter_ID;
+                    _code.twitterUrl = twitter_URL;
                 } else {
-                    NSLog(@"%@", [error localizedDescription]);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
+                        self.alertView.message = NimpleLocalizedString(@"twitter_not_found_alert_message");
+                        [self.alertView show];
+                    });
                 }
-            }];
-        } else {
-            self.alertView.title = NimpleLocalizedString(@"twitter_not_allowed_alert_title");
-            self.alertView.message = NimpleLocalizedString(@"twitter_not_allowed_alert_message");
-            [self.alertView show];
-        }
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.alertView.title = NimpleLocalizedString(@"twitter_not_allowed_alert_title");
+                    self.alertView.message = NimpleLocalizedString(@"twitter_not_allowed_alert_message");
+                    [self.alertView show];
+                });
+            }
+        }];
     } else {
         self.actionSheet.title = NimpleLocalizedString(@"msg_box_social_logout_twitter_title");
         [self.actionSheet showInView:self.superview.superview];
