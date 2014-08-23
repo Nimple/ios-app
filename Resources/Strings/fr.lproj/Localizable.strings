@@ -50,7 +50,7 @@
 "msg_box_right_code_text" = "Le contact est ajouté à vos contacts";
 "msg_box_right_code_activity" = "OK";
 
-"msg_box_delete_contact_title" = "supprimer ce contact?";
+"msg_box_delete_contact_title" = "Supprimer ce contact?";
 "msg_box_delete_contact_activity1" = "Supprimer";
 "msg_box_delete_contact_activity2" = "Annuler";
 
@@ -80,7 +80,7 @@
 "settings_feedback" = "Feedback";
 
 "tutorial_add_text" = "Scanner un nouveau\ncontact";
-"tutorial_edit_text" = "Saisisser vos dates pour créer\nvotre carte et votre code";
+"tutorial_edit_text" = "Saisisser vos données pour créer\nvotre carte et votre code";
 
 "display_contact_title" = "Détails";
 "nimple_card_label" = "Ma carte";

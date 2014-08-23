@@ -14,11 +14,11 @@
 "business_label" = "LAVORO";
 "company_label" = "Azienda/università/scuola";
 "job_label" = "Qualifica/posizione";
-"website_label" = "Sito internet ";
+"website_label" = "Sito internet";
 "street_label" = "Via";
 "postal_label" = "CAP";
 "city_label" = "Città";
-"address_label" = "Indirizzo ";
+"address_label" = "Indirizzo";
 "social_label" = "SOCIAL NETWORKS";
 "facebook_label" = "collega con Facebook";
 "twitter_label" = "collega con Twitter";
