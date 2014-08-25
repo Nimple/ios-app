@@ -12,8 +12,8 @@
 "phonenumber_label" = "Número de teléfono";
 "mail_label" = "Correo";
 "business_label" = "COMERCIAL";
-"company_label" = "Empresa/Universidad/Escuela";
-"job_label" = "Cargo/Posición";
+"company_label" = "Empresa/universidad/escuela";
+"job_label" = "Cargo/posición";
 "website_label" = "Página web";
 "street_label" = "Calle";
 "postal_label" = "CP";
