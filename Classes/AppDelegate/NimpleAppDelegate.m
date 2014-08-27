@@ -44,6 +44,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return YES;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [FBSettings setDefaultAppID:@"1451876021700653"];
+    [FBAppEvents activateApp];
+}
+
 - (void)bootstrapApplication
 {
     [Logging sharedLogging];
