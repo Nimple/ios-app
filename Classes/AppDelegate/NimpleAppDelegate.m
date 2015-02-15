@@ -116,9 +116,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)handleXingAuthForUrl:(NSURL *)url
 {
-    NSDictionary *parameters = [NSDictionary dictionaryFromQueryString:url.query];
+    NSDictionary *parameters = [NSDictionary bdb_dictionaryFromQueryString:url.query];
     if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
-        [self.networkManager fetchAccessTokenWithPath:@"/v1/access_token" method:@"POST" requestToken:[BDBOAuthToken tokenWithQueryString:url.query] success:^(BDBOAuthToken *accessToken) {
+        [self.networkManager fetchAccessTokenWithPath:@"/v1/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
             [self receiveXingId];
         } failure:^(NSError *error) {
             NSLog(@"Error: %@", error.localizedDescription);

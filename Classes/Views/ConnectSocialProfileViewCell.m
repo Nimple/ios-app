@@ -232,7 +232,7 @@
 
 - (void)authorizeXing
 {
-    [self.networkManager fetchRequestTokenWithPath:@"/v1/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"oauth://xing"] scope:nil success:^(BDBOAuthToken *requestToken) {
+    [self.networkManager fetchRequestTokenWithPath:@"/v1/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"oauth://xing"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSString *authURL = [NSString stringWithFormat:@"https://api.xing.com/v1/authorize?oauth_token=%@", requestToken.token];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:authURL]];
     } failure:^(NSError *error) {
