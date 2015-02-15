@@ -10,6 +10,7 @@
             <objects>
                 <tabBarController title="Tab Bar Controller" definesPresentationContext="YES" id="9vL-qg-3SR" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="aJI-KD-ju4" userLabel="Tab Bar">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -336,9 +337,7 @@ auf deiner Karte und in deinem Code</string>
                 <navigationController title="Nimple Code Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Code" image="tabbar_nimple-code" id="H5F-wD-xYX"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ItV-Cv-Zb7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ItV-Cv-Zb7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -356,7 +355,7 @@ auf deiner Karte und in deinem Code</string>
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Karte" image="tabbar_nimple-card" id="ckg-b2-euJ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Lh6-LU-zaX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lh6-LU-zaX">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -532,9 +531,7 @@ auf deiner Karte und in deinem Code</string>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kontakte" image="tabbar_contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cmE-Bg-O4g">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cmE-Bg-O4g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -642,7 +639,6 @@ auf deiner Karte und in deinem Code</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="_navigationLabel" destination="bbO-qy-7D2" id="fbZ-Kv-cxg"/>
                         <outlet property="searchDisplayController" destination="3Qb-xY-CHO" id="nIS-rK-VVZ"/>
@@ -920,8 +916,7 @@ auf deiner Karte und in deinem Code</string>
             <objects>
                 <navigationController definesPresentationContext="YES" id="ckZ-cg-UXh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Einstellungen" image="tabbar_settings" id="BB2-e2-id0"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="fKZ-cu-f3R">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fKZ-cu-f3R">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1152,7 +1147,6 @@ auf deiner Karte und in deinem Code</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Einstellungen" id="udW-PA-7Pl"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="_disclaimerLabel" destination="Acu-UJ-gkX" id="VQy-QR-iBa"/>
                         <outlet property="_facebookLabel" destination="ph4-30-IRp" id="sq7-6B-eye"/>
@@ -1238,8 +1232,8 @@ auf deiner Karte und in deinem Code</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="vJY-OD-AU4"/>
         <segue reference="vl1-xC-OSz"/>
-        <segue reference="8mu-bB-DzI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
 </document>
