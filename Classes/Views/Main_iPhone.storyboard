@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller - Tab Bar Controller-->
         <scene sceneID="7Yv-QL-b6T">
             <objects>
                 <tabBarController title="Tab Bar Controller" definesPresentationContext="YES" id="9vL-qg-3SR" sceneMemberID="viewController">
@@ -28,14 +27,15 @@
                         <segue destination="iLO-4G-LNe" kind="relationship" relationship="viewControllers" id="oUH-aM-Dma"/>
                         <segue destination="Wfz-29-qjb" kind="relationship" relationship="viewControllers" id="IqV-hF-fzW"/>
                         <segue destination="S1k-kA-kGZ" kind="relationship" relationship="viewControllers" id="dd2-ih-CiJ"/>
+                        <segue destination="4zg-yl-INR" kind="relationship" relationship="viewControllers" id="nhV-SN-WuZ"/>
                         <segue destination="ckZ-cg-UXh" kind="relationship" relationship="viewControllers" id="f6j-cN-lKR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIT-Kq-A6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-861" y="-561"/>
+            <point key="canvasLocation" x="-871" y="-583"/>
         </scene>
-        <!--Bar Code View Controller -->
+        <!--Bar Code Reader Controller - Bar Code View Controller -->
         <scene sceneID="xF9-o1-4kp">
             <objects>
                 <viewController title="Bar Code View Controller " id="o5E-Ml-Dot" customClass="BarCodeReaderController" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="1838" y="-190"/>
         </scene>
-        <!--Nimple Code View Controller-->
+        <!--Nimple Code View Controller - Nimple Code View Controller-->
         <scene sceneID="LNO-1x-xf3">
             <objects>
                 <viewController title="Nimple Code View Controller" id="wdH-3I-tgZ" customClass="NimpleCodeViewController" sceneMemberID="viewController">
@@ -78,11 +78,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
-                                <rect key="frame" x="20" y="90" width="276" height="276"/>
+                                <rect key="frame" x="20" y="118" width="276" height="276"/>
                                 <color key="backgroundColor" red="0.91847826086956519" green="0.91847826086956519" blue="0.91847826086956519" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
-                                <rect key="frame" x="30" y="366" width="260" height="55"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
+                                <rect key="frame" x="20" y="394" width="276" height="55"/>
                                 <string key="text">Label
 Test</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -90,22 +90,22 @@ Test</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eoc-tG-TqR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="439" width="320" height="129"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="Shh-tn-YQu">
-                                        <rect key="frame" x="20" y="74" width="19" height="67"/>
+                                        <rect key="frame" x="20" y="-365" width="19" height="67"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-2a-vt8">
-                                        <rect key="frame" x="20" y="141" width="213" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-2a-vt8">
+                                        <rect key="frame" x="20" y="-298" width="213" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="RVr-Gd-d1W">
-                                        <rect key="frame" x="281" y="73" width="19" height="42"/>
+                                        <rect key="frame" x="281" y="-366" width="19" height="42"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8po-Mc-N33">
-                                        <rect key="frame" x="146" y="108" width="154" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="8po-Mc-N33">
+                                        <rect key="frame" x="146" y="-331" width="154" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -113,8 +113,18 @@ Test</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zgr-kg-PSz">
+                                <rect key="frame" x="20" y="80" width="276" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Card A"/>
+                                    <segment title="Card B" enabled="NO"/>
+                                    <segment title="Card C" enabled="NO"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mein Code" id="93b-pI-kqe">
                         <barButtonItem key="leftBarButtonItem" image="edit-card" id="0yX-GC-7hd">
@@ -139,14 +149,14 @@ Test</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-190"/>
+            <point key="canvasLocation" x="543" y="-190"/>
         </scene>
-        <!--Bearbeiten-->
+        <!--Edit Nimple Code Table View Controller - Bearbeiten-->
         <scene sceneID="nTM-yL-h1n">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="NPN-OI-Zij" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zjZ-IZ-T2f">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -154,7 +164,7 @@ Test</string>
                             <rect key="frame" x="0.0" y="64" width="320" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB9-zV-VmR">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="sB9-zV-VmR">
                                     <rect key="frame" x="14" y="24" width="280" height="35"/>
                                     <string key="text">Die Schalter regeln die Sichtbarkeit
 auf deiner Karte und in deinem Code</string>
@@ -331,7 +341,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="1838" y="-847"/>
         </scene>
-        <!--Nimple Code Navigation Controller-->
+        <!--Navigation Controller - Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
             <objects>
                 <navigationController title="Nimple Code Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
@@ -350,7 +360,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="-190"/>
         </scene>
-        <!--Nimple Card Navigation Controller-->
+        <!--Navigation Controller - Nimple Card Navigation Controller-->
         <scene sceneID="r79-0f-3OM">
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
@@ -366,7 +376,108 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="-847"/>
         </scene>
-        <!--Nimple-Card-->
+        <!--Pro View Controller - Pro Version-->
+        <scene sceneID="bWh-0r-REe">
+            <objects>
+                <viewController title="Pro Version" id="J8V-zr-huD" customClass="ProViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Isj-i2-L3p"/>
+                        <viewControllerLayoutGuide type="bottom" id="M8i-EU-QYX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WJ0-kv-ZwH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pro banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
+                                <rect key="frame" x="0.0" y="64" width="320" height="149"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46n-wd-tga">
+                                <rect key="frame" x="0.0" y="213" width="328" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Export and save your nimple card, code and contact/s" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i43-e0-jZD">
+                                        <rect key="frame" x="89" y="63" width="204" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Nimple Pro will give you incredible new useful features such as" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gru-K2-aOq">
+                                        <rect key="frame" x="28" y="8" width="265" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Share and send your nimple card, code and contact/s via mail or any other medium" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8J-gg-BTp">
+                                        <rect key="frame" x="89" y="120" width="204" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Create multiple nimple cards and codes (e.g. one for business, one for private and one for university)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-py-pZ9">
+                                        <rect key="frame" x="89" y="187" width="204" height="65"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit-card" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-xj-T3o">
+                                        <rect key="frame" x="28" y="195" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-ob-Nqa">
+                                        <rect key="frame" x="28" y="126" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-contact" translatesAutoresizingMaskIntoConstraints="NO" id="UdD-Xb-QDR">
+                                        <rect key="frame" x="28" y="63" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
+                                <rect key="frame" x="100" y="479" width="129" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Unlock pro version">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EFm-HE-oUs"/>
+                    <connections>
+                        <outlet property="UnlockButton" destination="yqw-2g-0kH" id="lhH-Vy-bae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6wj-Vq-GMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="-1563"/>
+        </scene>
+        <!--Navigation Controller - Pro Version-->
+        <scene sceneID="zqP-bE-6YP">
+            <objects>
+                <navigationController title="Pro Version" definesPresentationContext="YES" id="4zg-yl-INR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pro Version" image="MPCloseBtn.png" id="cwr-1S-oXW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NrT-o1-58q">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="J8V-zr-huD" kind="relationship" relationship="rootViewController" id="4PW-3O-VWi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlO-tz-chV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="-1563"/>
+        </scene>
+        <!--Nimple Card View Controller - Nimple-Card-->
         <scene sceneID="HA8-sB-OZd">
             <objects>
                 <viewController title="Nimple-Card" id="taH-pF-UcH" customClass="NimpleCardViewController" sceneMemberID="viewController">
@@ -375,26 +486,26 @@ auf deiner Karte und in deinem Code</string>
                         <viewControllerLayoutGuide type="bottom" id="GeZ-TH-kp7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wzE-OC-9mV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="456" width="320" height="112"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-09-7hh">
-                                        <rect key="frame" x="20" y="74" width="19" height="67"/>
+                                        <rect key="frame" x="20" y="-382" width="19" height="67"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
-                                        <rect key="frame" x="20" y="141" width="214" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
+                                        <rect key="frame" x="20" y="-315" width="214" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
-                                        <rect key="frame" x="281" y="73" width="19" height="42"/>
+                                        <rect key="frame" x="281" y="-383" width="19" height="42"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
-                                        <rect key="frame" x="146" y="108" width="154" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
+                                        <rect key="frame" x="146" y="-348" width="154" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -403,10 +514,10 @@ auf deiner Karte und in deinem Code</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="NimpleCard" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
-                                <rect key="frame" x="25" y="66" width="270" height="356"/>
+                                <rect key="frame" x="25" y="124" width="270" height="356"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Mustermann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-yf-iBD">
-                                        <rect key="frame" x="20" y="32" width="228" height="21"/>
+                                        <rect key="frame" x="20" y="22" width="228" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -435,7 +546,7 @@ auf deiner Karte und in deinem Code</string>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gId-oB-pTz" userLabel="Label - Address">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="gId-oB-pTz" userLabel="Label - Address">
                                         <rect key="frame" x="61" y="224" width="189" height="42"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -449,6 +560,15 @@ auf deiner Karte und in deinem Code</string>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="SEk-EL-W5A">
                                         <rect key="frame" x="22" y="86" width="21" height="21"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+49 176 1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-Xs-CG7">
+                                        <rect key="frame" x="61" y="57" width="189" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="tko-oa-nu0">
+                                        <rect key="frame" x="22" y="57" width="21" height="21"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
                                         <rect key="frame" x="22" y="114" width="21" height="21"/>
@@ -480,6 +600,16 @@ auf deiner Karte und in deinem Code</string>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C4V-GO-ts2">
+                                <rect key="frame" x="20" y="80" width="276" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Card A"/>
+                                    <segment title="Card B" enabled="NO"/>
+                                    <segment title="Card C" enabled="NO"/>
+                                </segments>
+                                <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
@@ -525,7 +655,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="543" y="-847"/>
         </scene>
-        <!--Contacts Navigation Controller-->
+        <!--Navigation Controller - Contacts Navigation Controller-->
         <scene sceneID="lQP-tk-8Xy">
             <objects>
                 <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
@@ -544,7 +674,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="515"/>
         </scene>
-        <!--Meine Kontakte-->
+        <!--Contacts View Controller - Meine Kontakte-->
         <scene sceneID="LLr-Di-jWV">
             <objects>
                 <tableViewController id="gqP-yl-IrF" customClass="ContactsViewController" sceneMemberID="viewController">
@@ -656,7 +786,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="538" y="515"/>
         </scene>
-        <!--Detailansicht-->
+        <!--Display Contact View Controller - Detailansicht-->
         <scene sceneID="NCG-87-JYQ">
             <objects>
                 <viewController storyboardIdentifier="DisplayContactViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="MgR-wC-OmR" customClass="DisplayContactViewController" sceneMemberID="viewController">
@@ -802,7 +932,7 @@ auf deiner Karte und in deinem Code</string>
                                                     <outletCollection property="gestureRecognizers" destination="Ucg-F1-g7b" appends="YES" id="yLi-Br-iXE"/>
                                                 </connections>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-vR-Uod">
+                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-vR-Uod">
                                                 <rect key="frame" x="72" y="201" width="221" height="42"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -911,7 +1041,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="1232" y="655"/>
         </scene>
-        <!--Einstellungen-->
+        <!--Navigation Controller - Einstellungen-->
         <scene sceneID="9cH-Zw-9Q5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ckZ-cg-UXh" sceneMemberID="viewController">
@@ -927,7 +1057,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="1196"/>
         </scene>
-        <!--Einstellungen-->
+        <!--Settings Table View Controller - Einstellungen-->
         <scene sceneID="HJI-kt-RXc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="qLV-mL-T8G" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -1205,6 +1335,7 @@ auf deiner Karte und in deinem Code</string>
         </scene>
     </scenes>
     <resources>
+        <image name="MPCloseBtn.png" width="25" height="25"/>
         <image name="add-contact" width="25" height="25"/>
         <image name="address" width="25" height="25"/>
         <image name="arrow_up_middle" width="42" height="142"/>
@@ -1219,6 +1350,7 @@ auf deiner Karte und in deinem Code</string>
         <image name="ic_round_xing" width="59" height="59"/>
         <image name="job" width="25" height="25"/>
         <image name="phone" width="25" height="25"/>
+        <image name="pro banner" width="1080" height="540"/>
         <image name="tabbar_contacts" width="21" height="24"/>
         <image name="tabbar_nimple-card" width="23" height="23"/>
         <image name="tabbar_nimple-code" width="25" height="25"/>
@@ -1226,14 +1358,14 @@ auf deiner Karte und in deinem Code</string>
         <image name="timestamp" width="14" height="14"/>
         <image name="website" width="25" height="25"/>
     </resources>
+    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vJY-OD-AU4"/>
+        <segue reference="8mu-bB-DzI"/>
         <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

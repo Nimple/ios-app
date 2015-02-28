@@ -82,7 +82,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UINavigationController *contactsController = (UINavigationController *)navigationController.childViewControllers[2];
     contactsController.title = NimpleLocalizedString(@"tab_contacts_title");
     
-    UINavigationController *settingsController = (UINavigationController *)navigationController.childViewControllers[3];
+    UINavigationController *proController = (UINavigationController *)navigationController.childViewControllers[3];
+    proController.title = NimpleLocalizedString(@"tab_pro_title");
+    
+    UINavigationController *settingsController = (UINavigationController *)navigationController.childViewControllers[4];
     settingsController.title = NimpleLocalizedString(@"tab_settings_title");
     
     UITabBarItem *card = ([self tabBar].items)[0];
