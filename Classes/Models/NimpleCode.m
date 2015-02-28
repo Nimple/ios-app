@@ -46,7 +46,7 @@
 
 - (NSMutableDictionary *)dictionaryDefault
 {
-    return [self dictionaryWithIndex:0];
+    return [self dictionaryWithIndex:[@0 stringValue]];
 }
 
 #pragma mark - Dict within User Defaults

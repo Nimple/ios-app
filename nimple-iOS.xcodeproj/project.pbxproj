@@ -15,7 +15,8 @@
 		4B7E50A6199C1EE400C174EE /* NimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E50A5199C1EE400C174EE /* NimpleModel.m */; };
 		4BC48748199E218100FA0BE4 /* NimpleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BC48747199E218100FA0BE4 /* NimpleCode.m */; };
 		4BC7816019CD85D50026F72E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC7815F19CD85D50026F72E /* StoreKit.framework */; };
-		4BF2C6261AA22F0E00B62DE8 /* NimplePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2C6251AA22F0E00B62DE8 /* NimplePurchase.m */; };
+		4BF2C62C1AA2423300B62DE8 /* NimplePurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2C62B1AA2423300B62DE8 /* NimplePurchaseModel.m */; };
+		4BF2C62E1AA2436D00B62DE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2C62D1AA2436D00B62DE8 /* main.m */; };
 		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
@@ -29,7 +30,6 @@
 		B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B011904A1D60033DF1A /* NimpleCardViewController.m */; };
 		B5408B1D1904A1D60033DF1A /* NimpleCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B031904A1D60033DF1A /* NimpleCodeViewController.m */; };
 		B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B051904A1D60033DF1A /* SettingsTableViewController.m */; };
-		B5408B1F1904A1D60033DF1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B071904A1D60033DF1A /* main.m */; };
 		B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5408B091904A1D60033DF1A /* DataModel.xcdatamodeld */; };
 		B5408B211904A1D60033DF1A /* NimpleContact.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B0C1904A1D60033DF1A /* NimpleContact.m */; };
 		B5408B221904A1D60033DF1A /* ConnectSocialProfileViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408B0F1904A1D60033DF1A /* ConnectSocialProfileViewCell.m */; };
@@ -75,8 +75,9 @@
 		4BC48747199E218100FA0BE4 /* NimpleCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCode.m; sourceTree = "<group>"; };
 		4BC7815F19CD85D50026F72E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
-		4BF2C6241AA22F0E00B62DE8 /* NimplePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimplePurchase.h; sourceTree = "<group>"; };
-		4BF2C6251AA22F0E00B62DE8 /* NimplePurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimplePurchase.m; sourceTree = "<group>"; };
+		4BF2C62A1AA2423300B62DE8 /* NimplePurchaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimplePurchaseModel.h; sourceTree = "<group>"; };
+		4BF2C62B1AA2423300B62DE8 /* NimplePurchaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimplePurchaseModel.m; sourceTree = "<group>"; };
+		4BF2C62D1AA2436D00B62DE8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +102,6 @@
 		B5408B031904A1D60033DF1A /* NimpleCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleCodeViewController.m; sourceTree = "<group>"; };
 		B5408B041904A1D60033DF1A /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		B5408B051904A1D60033DF1A /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		B5408B071904A1D60033DF1A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B5408B0A1904A1D60033DF1A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B5408B0B1904A1D60033DF1A /* NimpleContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleContact.h; sourceTree = "<group>"; };
 		B5408B0C1904A1D60033DF1A /* NimpleContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleContact.m; sourceTree = "<group>"; };
@@ -222,7 +222,6 @@
 		B5408B061904A1D60033DF1A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B5408B071904A1D60033DF1A /* main.m */,
 				B5E1AE021909C3330051589D /* Crypto.h */,
 				B5E1AE031909C3330051589D /* Crypto.m */,
 				B526D76B1909AB1000055177 /* Logging.h */,
@@ -245,8 +244,8 @@
 				4B7E50A5199C1EE400C174EE /* NimpleModel.m */,
 				4BC48746199E218100FA0BE4 /* NimpleCode.h */,
 				4BC48747199E218100FA0BE4 /* NimpleCode.m */,
-				4BF2C6241AA22F0E00B62DE8 /* NimplePurchase.h */,
-				4BF2C6251AA22F0E00B62DE8 /* NimplePurchase.m */,
+				4BF2C62A1AA2423300B62DE8 /* NimplePurchaseModel.h */,
+				4BF2C62B1AA2423300B62DE8 /* NimplePurchaseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +278,7 @@
 		B55B8919190498FB00561F17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4BF2C62D1AA2436D00B62DE8 /* main.m */,
 				B55B895619049AC400561F17 /* nimple-iOS-Info.plist */,
 				B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */,
 			);
@@ -454,24 +454,24 @@
 				B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */,
 				4B05A9C91AA2111000C121B9 /* NimpleProViewController.m in Sources */,
 				B5E1AE041909C3330051589D /* Crypto.m in Sources */,
+				4BF2C62C1AA2423300B62DE8 /* NimplePurchaseModel.m in Sources */,
 				4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */,
 				B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */,
 				B5408B201904A1D60033DF1A /* DataModel.xcdatamodeld in Sources */,
 				4B4E678019A0FFBB00784D07 /* VCardCreator.m in Sources */,
 				B5408B1C1904A1D60033DF1A /* NimpleCardViewController.m in Sources */,
 				B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */,
+				4BF2C62E1AA2436D00B62DE8 /* main.m in Sources */,
 				B5408B191904A1D60033DF1A /* ContactsViewController.m in Sources */,
 				B5408B1D1904A1D60033DF1A /* NimpleCodeViewController.m in Sources */,
 				B5408B181904A1D60033DF1A /* BarCodeReaderController.m in Sources */,
 				4B7E50A6199C1EE400C174EE /* NimpleModel.m in Sources */,
-				B5408B1F1904A1D60033DF1A /* main.m in Sources */,
 				B5408B241904A1D60033DF1A /* EditInputViewCell.m in Sources */,
 				B5408B1A1904A1D60033DF1A /* EditNimpleCodeTableViewController.m in Sources */,
 				B526D76D1909AB1000055177 /* Logging.m in Sources */,
 				B5408B221904A1D60033DF1A /* ConnectSocialProfileViewCell.m in Sources */,
 				B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */,
 				B5408B211904A1D60033DF1A /* NimpleContact.m in Sources */,
-				4BF2C6261AA22F0E00B62DE8 /* NimplePurchase.m in Sources */,
 				B5408B231904A1D60033DF1A /* ContactTableViewCell.m in Sources */,
 				4BC48748199E218100FA0BE4 /* NimpleCode.m in Sources */,
 			);

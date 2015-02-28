@@ -21,3 +21,6 @@
 #ifndef DEBUG
     #define NSLog(...) /* suppress NSLog when in release mode */
 #endif
+
+typedef void(^NimpleBlock)();
+typedef void(^NimpleErrorBlock)(NSError *error);
