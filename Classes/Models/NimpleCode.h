@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define NimpleCodeDictionaryKey @"dictionary"
+
 #define NimpleCodePrenameKey @"prename"
 #define NimpleCodeSurnameKey @"surname"
 #define NimpleCodeCellPhoneKey @"phone"
@@ -41,6 +43,8 @@
 @interface NimpleCode : NSObject
 
 + (NimpleCode *)sharedCode;
+
+- (void)switchToDictionaryWithIndex:(NSString *)index;
 
 - (void)setPrename:(NSString *)prename;
 - (NSString *)prename;

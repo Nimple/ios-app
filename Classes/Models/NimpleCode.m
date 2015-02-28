@@ -8,12 +8,16 @@
 
 #import "NimpleCode.h"
 
-@interface NimpleCode () {
-    NSUserDefaults *_defaults;
-}
+@interface NimpleCode ()
+
+@property NSUserDefaults *defaults;
+@property NSMutableDictionary *dict;
+
 @end
 
 @implementation NimpleCode
+
+#pragma mark - Initialization
 
 + (id)sharedCode
 {
@@ -29,22 +33,53 @@
 {
     self = [super init];
     if (self) {
-        _defaults = [self standardUserDefaults];
+        self.defaults = [self standardUserDefaults];
+        self.dict = [self dictionaryDefault];
     }
-    
     return self;
 }
-
-#pragma mark - User Defaults initialization
 
 - (NSUserDefaults *)standardUserDefaults
 {
     return [NSUserDefaults standardUserDefaults];
 }
 
+- (NSMutableDictionary *)dictionaryDefault
+{
+    return [self dictionaryWithIndex:0];
+}
+
+#pragma mark - Dict within User Defaults
+
+- (void)switchToDictionaryWithIndex:(NSString *)index
+{
+    [self saveCurrentDictionary];
+    self.dict = [self dictionaryWithIndex:index];
+}
+
+- (void)saveCurrentDictionary
+{
+    if (self.dict) {
+        [self.defaults setObject:self.dict forKey:[self.dict objectForKey:NimpleCodeDictionaryKey]];
+    }
+}
+
+- (NSMutableDictionary *)dictionaryWithIndex:(NSString *)index
+{
+    NSDictionary *dict = [self.defaults dictionaryForKey:index];
+    if (!dict) {
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        [dict setObject:index forKey:NimpleCodeDictionaryKey];
+        return dict;
+    }
+    return [dict mutableCopy];
+}
+
+#pragma mark - User Defaults Getter for NSDictionary
+
 - (NSString *)stringForKey:(NSString *)key
 {
-    NSString *value = [_defaults stringForKey:key];
+    NSString *value = [self.dict objectForKey:key];
     if (value) {
         return value;
     } else {
@@ -55,14 +90,15 @@
 - (void)setString:(NSString *)value forKey:(NSString *)key
 {
     if (value) {
-        [_defaults setObject:value forKey:key];
+        [self.dict setObject:value forKey:key];
+        [self saveCurrentDictionary];
     }
 }
 
 - (BOOL)boolForKey:(NSString *)key
 {
-    if ([_defaults objectForKey:key]) {
-        return [_defaults boolForKey:key];
+    if ([self.dict objectForKey:key]) {
+        return [[self.dict objectForKey:key] boolValue];
     } else {
         return YES;
     }
@@ -70,7 +106,8 @@
 
 - (void)setBool:(BOOL)value forKey:(NSString *)key
 {
-    [_defaults setBool:value forKey:key];
+    [self.dict setObject:[NSNumber numberWithBool:value] forKey:key];
+    [self saveCurrentDictionary];
 }
 
 #pragma mark - Basic code
