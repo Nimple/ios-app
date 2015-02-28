@@ -97,6 +97,7 @@
 "tab_nimple_card_title" = "Karte";
 "tab_nimple_code_title" = "Code";
 "tab_contacts_title" = "Kontakte";
+"tab_pro_title" = "Pro Version";
 "tab_settings_title" = "Einstellungen";
 
 "twitter_not_found_alert_title" = "Kein Twitter-Profil gefunden.";

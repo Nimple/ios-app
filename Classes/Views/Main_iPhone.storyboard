@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller - Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="7Yv-QL-b6T">
             <objects>
                 <tabBarController title="Tab Bar Controller" definesPresentationContext="YES" id="9vL-qg-3SR" sceneMemberID="viewController">
@@ -35,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="-871" y="-583"/>
         </scene>
-        <!--Bar Code Reader Controller - Bar Code View Controller -->
+        <!--Bar Code View Controller -->
         <scene sceneID="xF9-o1-4kp">
             <objects>
                 <viewController title="Bar Code View Controller " id="o5E-Ml-Dot" customClass="BarCodeReaderController" sceneMemberID="viewController">
@@ -65,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="1838" y="-190"/>
         </scene>
-        <!--Nimple Code View Controller - Nimple Code View Controller-->
+        <!--Nimple Code View Controller-->
         <scene sceneID="LNO-1x-xf3">
             <objects>
                 <viewController title="Nimple Code View Controller" id="wdH-3I-tgZ" customClass="NimpleCodeViewController" sceneMemberID="viewController">
@@ -115,7 +116,6 @@ Test</string>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zgr-kg-PSz">
                                 <rect key="frame" x="20" y="80" width="276" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Card A"/>
                                     <segment title="Card B" enabled="NO"/>
@@ -151,7 +151,7 @@ Test</string>
             </objects>
             <point key="canvasLocation" x="543" y="-190"/>
         </scene>
-        <!--Edit Nimple Code Table View Controller - Bearbeiten-->
+        <!--Bearbeiten-->
         <scene sceneID="nTM-yL-h1n">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="NPN-OI-Zij" customClass="EditNimpleCodeTableViewController" sceneMemberID="viewController">
@@ -341,10 +341,10 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="1838" y="-847"/>
         </scene>
-        <!--Navigation Controller - Nimple Code Navigation Controller-->
+        <!--Nimple Code Navigation Controller-->
         <scene sceneID="yMh-Po-ToZ">
             <objects>
-                <navigationController title="Nimple Code Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Wfz-29-qjb" sceneMemberID="viewController">
+                <navigationController title="Nimple Code Navigation Controller" definesPresentationContext="YES" id="Wfz-29-qjb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Code" image="tabbar_nimple-code" id="H5F-wD-xYX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ItV-Cv-Zb7">
@@ -360,7 +360,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="-190"/>
         </scene>
-        <!--Navigation Controller - Nimple Card Navigation Controller-->
+        <!--Nimple Card Navigation Controller-->
         <scene sceneID="r79-0f-3OM">
             <objects>
                 <navigationController title="Nimple Card Navigation Controller" definesPresentationContext="YES" id="iLO-4G-LNe" sceneMemberID="viewController">
@@ -376,10 +376,10 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="-847"/>
         </scene>
-        <!--Pro View Controller - Pro Version-->
+        <!--Pro Version-->
         <scene sceneID="bWh-0r-REe">
             <objects>
-                <viewController title="Pro Version" id="J8V-zr-huD" customClass="ProViewController" sceneMemberID="viewController">
+                <viewController title="Pro Version" id="J8V-zr-huD" customClass="NimpleProViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Isj-i2-L3p"/>
                         <viewControllerLayoutGuide type="bottom" id="M8i-EU-QYX"/>
@@ -390,15 +390,12 @@ auf deiner Karte und in deinem Code</string>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pro banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
                                 <rect key="frame" x="0.0" y="64" width="320" height="149"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46n-wd-tga">
                                 <rect key="frame" x="0.0" y="213" width="328" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Export and save your nimple card, code and contact/s" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i43-e0-jZD">
                                         <rect key="frame" x="89" y="63" width="204" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -406,7 +403,6 @@ auf deiner Karte und in deinem Code</string>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Nimple Pro will give you incredible new useful features such as" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gru-K2-aOq">
                                         <rect key="frame" x="28" y="8" width="265" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -414,7 +410,6 @@ auf deiner Karte und in deinem Code</string>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Share and send your nimple card, code and contact/s via mail or any other medium" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8J-gg-BTp">
                                         <rect key="frame" x="89" y="120" width="204" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -422,7 +417,6 @@ auf deiner Karte und in deinem Code</string>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Create multiple nimple cards and codes (e.g. one for business, one for private and one for university)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-py-pZ9">
                                         <rect key="frame" x="89" y="187" width="204" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -430,43 +424,45 @@ auf deiner Karte und in deinem Code</string>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit-card" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-xj-T3o">
                                         <rect key="frame" x="28" y="202" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-ob-Nqa">
                                         <rect key="frame" x="28" y="132" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-contact" translatesAutoresizingMaskIntoConstraints="NO" id="UdD-Xb-QDR">
                                         <rect key="frame" x="28" y="69" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
                                 <rect key="frame" x="100" y="479" width="129" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Unlock pro version">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wn7-VK-cVZ" appends="YES" id="bTc-QN-JWp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EFm-HE-oUs"/>
-                    <connections>
-                        <outlet property="UnlockButton" destination="yqw-2g-0kH" id="lhH-Vy-bae"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wj-Vq-GMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wn7-VK-cVZ">
+                    <connections>
+                        <action selector="unlockProClicked:" destination="J8V-zr-huD" id="0fj-dn-Ap6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="543" y="-1563"/>
         </scene>
-        <!--Navigation Controller - Pro Version-->
+        <!--Pro Version-->
         <scene sceneID="zqP-bE-6YP">
             <objects>
                 <navigationController title="Pro Version" definesPresentationContext="YES" id="4zg-yl-INR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pro Version" image="MPCloseBtn.png" id="cwr-1S-oXW"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NrT-o1-58q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="NrT-o1-58q">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -477,7 +473,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="30" y="-1563"/>
         </scene>
-        <!--Nimple Card View Controller - Nimple-Card-->
+        <!--Nimple-Card-->
         <scene sceneID="HA8-sB-OZd">
             <objects>
                 <viewController title="Nimple-Card" id="taH-pF-UcH" customClass="NimpleCardViewController" sceneMemberID="viewController">
@@ -602,7 +598,6 @@ auf deiner Karte und in deinem Code</string>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C4V-GO-ts2">
                                 <rect key="frame" x="20" y="80" width="276" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Card A"/>
                                     <segment title="Card B" enabled="NO"/>
@@ -657,10 +652,10 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="543" y="-847"/>
         </scene>
-        <!--Navigation Controller - Contacts Navigation Controller-->
+        <!--Contacts Navigation Controller-->
         <scene sceneID="lQP-tk-8Xy">
             <objects>
-                <navigationController title="Contacts Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="S1k-kA-kGZ" sceneMemberID="viewController">
+                <navigationController title="Contacts Navigation Controller" definesPresentationContext="YES" id="S1k-kA-kGZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Kontakte" image="tabbar_contacts" id="hFR-7f-QgP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cmE-Bg-O4g">
@@ -676,7 +671,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="515"/>
         </scene>
-        <!--Contacts View Controller - Meine Kontakte-->
+        <!--Meine Kontakte-->
         <scene sceneID="LLr-Di-jWV">
             <objects>
                 <tableViewController id="gqP-yl-IrF" customClass="ContactsViewController" sceneMemberID="viewController">
@@ -788,7 +783,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="538" y="515"/>
         </scene>
-        <!--Display Contact View Controller - Detailansicht-->
+        <!--Detailansicht-->
         <scene sceneID="NCG-87-JYQ">
             <objects>
                 <viewController storyboardIdentifier="DisplayContactViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="MgR-wC-OmR" customClass="DisplayContactViewController" sceneMemberID="viewController">
@@ -1043,7 +1038,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="1232" y="655"/>
         </scene>
-        <!--Navigation Controller - Einstellungen-->
+        <!--Einstellungen-->
         <scene sceneID="9cH-Zw-9Q5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ckZ-cg-UXh" sceneMemberID="viewController">
@@ -1059,7 +1054,7 @@ auf deiner Karte und in deinem Code</string>
             </objects>
             <point key="canvasLocation" x="20" y="1196"/>
         </scene>
-        <!--Settings Table View Controller - Einstellungen-->
+        <!--Einstellungen-->
         <scene sceneID="HJI-kt-RXc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="qLV-mL-T8G" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -1360,14 +1355,14 @@ auf deiner Karte und in deinem Code</string>
         <image name="timestamp" width="14" height="14"/>
         <image name="website" width="25" height="25"/>
     </resources>
-    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8mu-bB-DzI"/>
+        <segue reference="vJY-OD-AU4"/>
         <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
 </document>

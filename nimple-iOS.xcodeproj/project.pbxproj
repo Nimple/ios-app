@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B05A9C91AA2111000C121B9 /* NimpleProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B05A9C81AA2111000C121B9 /* NimpleProViewController.m */; };
 		4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */; };
 		4B220DC719A40BC900163E5C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */; };
 		4B4E678019A0FFBB00784D07 /* VCardCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E677F19A0FFBB00784D07 /* VCardCreator.m */; };
@@ -51,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		461CA1817BCE6A38C1B70AB7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4B05A9C71AA2111000C121B9 /* NimpleProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleProViewController.h; sourceTree = "<group>"; };
+		4B05A9C81AA2111000C121B9 /* NimpleProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleProViewController.m; sourceTree = "<group>"; };
 		4B1B7F3A199A24400098DB91 /* EditAddressInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressInputViewCell.h; sourceTree = "<group>"; };
 		4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressInputViewCell.m; sourceTree = "<group>"; };
 		4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 		B5408AF71904A1D60033DF1A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4B05A9C71AA2111000C121B9 /* NimpleProViewController.h */,
+				4B05A9C81AA2111000C121B9 /* NimpleProViewController.m */,
 				B5408AF81904A1D60033DF1A /* BarCodeReaderController.h */,
 				B5408AF91904A1D60033DF1A /* BarCodeReaderController.m */,
 				B5408AFA1904A1D60033DF1A /* ContactsViewController.h */,
@@ -442,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5408B1E1904A1D60033DF1A /* SettingsTableViewController.m in Sources */,
+				4B05A9C91AA2111000C121B9 /* NimpleProViewController.m in Sources */,
 				B5E1AE041909C3330051589D /* Crypto.m in Sources */,
 				4B1B7F3C199A24400098DB91 /* EditAddressInputViewCell.m in Sources */,
 				B5BE972B19053FD100F49DEC /* DisplayContactViewController.m in Sources */,
@@ -565,8 +571,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin John (7P3AB6M5XW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Benjamin John (V5WFM7AV79)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -576,8 +582,9 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2cebf407-42b9-4c86-9601-766b35fd4ae8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -589,8 +596,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Benjamin John (7P3AB6M5XW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Benjamin John (V5WFM7AV79)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
@@ -600,8 +607,9 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2cebf407-42b9-4c86-9601-766b35fd4ae8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

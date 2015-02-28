@@ -91,7 +91,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UITabBarItem *card = ([self tabBar].items)[0];
     UITabBarItem *code = ([self tabBar].items)[1];
     UITabBarItem *contacts = ([self tabBar].items)[2];
-    UITabBarItem *settings = ([self tabBar].items)[3];
+    UITabBarItem *pro = ([self tabBar].items)[3];
+    UITabBarItem *settings = ([self tabBar].items)[4];
     
     card.selectedImage = [[UIImage imageNamed:@"tabbar_selected_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     card.image = [[UIImage imageNamed:@"tabbar_nimple-card"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -101,6 +102,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     contacts.selectedImage = [[UIImage imageNamed:@"tabbar_selected_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     contacts.image = [[UIImage imageNamed:@"tabbar_contacts"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    pro.selectedImage = [[UIImage imageNamed:@"tabbar_selected_pro"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    pro.image = [[UIImage imageNamed:@"tabbar_pro"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
