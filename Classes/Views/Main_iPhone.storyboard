@@ -429,15 +429,15 @@ auf deiner Karte und in deinem Code</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="edit-card" translatesAutoresizingMaskIntoConstraints="NO" id="mp0-xj-T3o">
-                                        <rect key="frame" x="28" y="195" width="48" height="48"/>
+                                        <rect key="frame" x="28" y="202" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-ob-Nqa">
-                                        <rect key="frame" x="28" y="126" width="48" height="48"/>
+                                        <rect key="frame" x="28" y="132" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-contact" translatesAutoresizingMaskIntoConstraints="NO" id="UdD-Xb-QDR">
-                                        <rect key="frame" x="28" y="63" width="48" height="48"/>
+                                        <rect key="frame" x="28" y="69" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -523,7 +523,7 @@ auf deiner Karte und in deinem Code</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+49 176 1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-ch-ZzA">
-                                        <rect key="frame" x="61" y="86" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="85" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -642,10 +642,12 @@ auf deiner Karte und in deinem Code</string>
                         <outlet property="jobIcon" destination="DQh-HS-feO" id="Hzk-2A-iUS"/>
                         <outlet property="jobLabel" destination="PHS-O7-k9s" id="drb-FK-RVa"/>
                         <outlet property="linkedinIcon" destination="F5T-IT-3Qp" id="BS2-jg-Rs0"/>
+                        <outlet property="mobilePhoneIcon" destination="SEk-EL-W5A" id="YLE-gZ-inT"/>
+                        <outlet property="mobilePhoneLabel" destination="UnW-ch-ZzA" id="Ml4-dp-lK2"/>
                         <outlet property="nameLabel" destination="Yn7-yf-iBD" id="V6K-od-Zea"/>
                         <outlet property="nimpleCardView" destination="HNg-Lj-TNH" id="EpZ-T2-IAM"/>
-                        <outlet property="phoneIcon" destination="SEk-EL-W5A" id="TXb-Wt-VyB"/>
-                        <outlet property="phoneLabel" destination="UnW-ch-ZzA" id="sTF-JZ-hul"/>
+                        <outlet property="phoneIcon" destination="tko-oa-nu0" id="Qjl-m2-IvT"/>
+                        <outlet property="phoneLabel" destination="Yjs-Xs-CG7" id="nyu-zs-yXi"/>
                         <outlet property="twitterIcon" destination="u9j-gI-g0r" id="bh1-tA-1bS"/>
                         <outlet property="welcomeView" destination="lE6-UC-g2l" id="6WQ-nG-7Jc"/>
                         <outlet property="xingIcon" destination="baU-Re-0qS" id="WSA-9z-Ar9"/>

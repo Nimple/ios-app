@@ -12,6 +12,8 @@
 @interface NimpleCardViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mobilePhoneLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *mobilePhoneIcon;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *phoneIcon;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
