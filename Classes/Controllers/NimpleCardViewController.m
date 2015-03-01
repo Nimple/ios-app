@@ -8,6 +8,7 @@
 
 #import "NimpleCardViewController.h"
 #import "NimplePurchaseModel.h"
+#import "VCardCreator.h"
 
 @interface NimpleCardViewController () {
     __weak IBOutlet UILabel *_tutorialAddLabel;
@@ -164,6 +165,29 @@
         [self.jobLabel setAlpha:1.0];
         [self.jobIcon setAlpha:1.0];
     }
+}
+
+#pragma mark - Share card
+
+- (IBAction)shareCardButtonClicked:(id)sender
+{
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        NSString *string = [[VCardCreator sharedInstance] createVCardFromNimpleCode:_code];
+        NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+        
+        // send mail with attachment
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer addAttachmentData:data mimeType:@"text/vcard" fileName:@"contact.vcf"];
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    NSLog(@"%@", error);
 }
 
 #pragma mark - Handles the nimpleCodeChanged notifaction

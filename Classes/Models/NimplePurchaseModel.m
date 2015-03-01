@@ -58,8 +58,7 @@
 
 - (BOOL)isPurchased
 {
-    return YES;
-    //    return [self.defaults boolForKey:kNimpleProVersionProductIdentifier];
+    return [self.defaults boolForKey:kNimpleProVersionProductIdentifier];
 }
 
 - (void)purchase:(SKProduct *)product

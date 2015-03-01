@@ -189,7 +189,6 @@
     [self.actionSheetAddressbook showInView:self.view];
 }
 
-
 - (IBAction)shareContactButtonClicked:(id)sender
 {
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
@@ -197,12 +196,13 @@
         ABRecordRef people[1];
         people[0] = person;
         CFArrayRef peopleArray = CFArrayCreate(NULL, (void *)people, 1, &kCFTypeArrayCallBacks);
-        NSData *vCardData = CFBridgingRelease(ABPersonCreateVCardRepresentationWithPeople(peopleArray));
-        NSString *vCard = [[NSString alloc] initWithData:vCardData encoding:NSUTF8StringEncoding];
+        NSData *data = CFBridgingRelease(ABPersonCreateVCardRepresentationWithPeople(peopleArray));
         
-        NSArray *activityItems = @[vCard];
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        [self presentViewController:activityVC animated:TRUE completion:nil];
+        // send mail with attachment
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer addAttachmentData:data mimeType:@"text/vcard" fileName:@"contact.vcf"];
+        [self presentViewController:mailer animated:YES completion:nil];
     }
 }
 
@@ -220,6 +220,13 @@
     if (actionSheet == self.actionSheetAddressbook && buttonIndex == 0) {
         [self checkForAccess];
     }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    NSLog(@"%@", error);
 }
 
 #pragma mark - Button Handling
@@ -305,12 +312,6 @@
     } else {
         NSLog(@"Error: Your Mail Account may not be set up.");
     }
-}
-
-// Called when returning from mail app
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{
-    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - AddressBook Handling
