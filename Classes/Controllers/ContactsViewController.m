@@ -91,13 +91,11 @@
 
 - (void)contactShouldBeSaved
 {
-    NSLog(@"contactShouldBeSaved, saving context");
     [_model save];
 }
 
 - (void)contactShouldBeDeleted:(NimpleContact *)contact
 {
-    NSLog(@"contactShouldBeDeleted");
     [_model deleteContact:contact];
     [self updateView];
 }
