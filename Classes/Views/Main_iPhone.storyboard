@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
-                                <rect key="frame" x="20" y="118" width="276" height="276"/>
+                                <rect key="frame" x="20" y="128" width="276" height="276"/>
                                 <color key="backgroundColor" red="0.91847826086956519" green="0.91847826086956519" blue="0.91847826086956519" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
@@ -114,13 +114,16 @@ Test</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zgr-kg-PSz">
-                                <rect key="frame" x="20" y="80" width="276" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Z2-Fha">
+                                <rect key="frame" x="19" y="85" width="276" height="29"/>
                                 <segments>
-                                    <segment title="Card A"/>
-                                    <segment title="Card B" enabled="NO"/>
-                                    <segment title="Card C" enabled="NO"/>
+                                    <segment title="Code A"/>
+                                    <segment title="Code B"/>
+                                    <segment title="Code C"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="wdH-3I-tgZ" eventType="valueChanged" id="I1T-GA-xIV"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -145,6 +148,7 @@ Test</string>
                         <outlet property="_tutorialAddLabel" destination="8po-Mc-N33" id="Fko-kJ-2Xw"/>
                         <outlet property="_tutorialEditLabel" destination="MDw-2a-vt8" id="QnD-yf-vsY"/>
                         <outlet property="_welcomeView" destination="Eoc-tG-TqR" id="e7D-WS-lBl"/>
+                        <outlet property="codeSegmentedControl" destination="trE-Z2-Fha" id="eSv-b8-Uew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE3-JO-OQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,32 +489,8 @@ auf deiner Karte und in deinem Code</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
-                                <rect key="frame" x="0.0" y="456" width="320" height="112"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-09-7hh">
-                                        <rect key="frame" x="20" y="-382" width="19" height="67"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
-                                        <rect key="frame" x="20" y="-315" width="214" height="43"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
-                                        <rect key="frame" x="281" y="-383" width="19" height="42"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
-                                        <rect key="frame" x="146" y="-348" width="154" height="43"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="NimpleCard" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
-                                <rect key="frame" x="25" y="124" width="270" height="356"/>
+                                <rect key="frame" x="25" y="129" width="270" height="356"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Mustermann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-yf-iBD">
                                         <rect key="frame" x="20" y="22" width="228" height="21"/>
@@ -596,14 +576,41 @@ auf deiner Karte und in deinem Code</string>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C4V-GO-ts2">
-                                <rect key="frame" x="20" y="80" width="276" height="29"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
+                                <rect key="frame" x="0.0" y="456" width="320" height="112"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-09-7hh">
+                                        <rect key="frame" x="20" y="-382" width="19" height="67"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
+                                        <rect key="frame" x="20" y="-315" width="214" height="43"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
+                                        <rect key="frame" x="281" y="-383" width="19" height="42"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
+                                        <rect key="frame" x="146" y="-348" width="154" height="43"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-al-SQf">
+                                <rect key="frame" x="25" y="85" width="270" height="29"/>
                                 <segments>
                                     <segment title="Card A"/>
-                                    <segment title="Card B" enabled="NO"/>
-                                    <segment title="Card C" enabled="NO"/>
+                                    <segment title="Card B"/>
+                                    <segment title="Card C"/>
                                 </segments>
                                 <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="taH-pF-UcH" eventType="valueChanged" id="p2u-n5-Q0f"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -629,6 +636,7 @@ auf deiner Karte und in deinem Code</string>
                         <outlet property="_tutorialEditLabel" destination="Wii-dy-g7L" id="pvi-Nx-o3J"/>
                         <outlet property="_websiteIcon" destination="o5K-zF-43J" id="CmQ-tj-i3J"/>
                         <outlet property="_websiteLabel" destination="RPU-7l-ISG" id="BUC-NG-fOI"/>
+                        <outlet property="cardSegmentedControl" destination="I5j-al-SQf" id="bQc-ab-zGF"/>
                         <outlet property="companyIcon" destination="Fh3-Og-dzq" id="DoG-Bp-dDg"/>
                         <outlet property="companyLabel" destination="bvn-QE-TJ3" id="HUI-R8-ah1"/>
                         <outlet property="emailIcon" destination="GSi-L7-FTT" id="y2l-Md-zm8"/>
@@ -1391,8 +1399,8 @@ auf deiner Karte und in deinem Code</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vJY-OD-AU4"/>
+        <segue reference="8mu-bB-DzI"/>
         <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.99607843137254903" green="0.3276524697580645" blue="0.511750252016129" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.99505120515823364" green="0.99502140283584595" blue="0.99503827095031738" alpha="1" colorSpace="calibratedRGB"/>
 </document>

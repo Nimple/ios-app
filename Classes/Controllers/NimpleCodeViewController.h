@@ -10,4 +10,6 @@
 
 @interface NimpleCodeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *codeSegmentedControl;
+
 @end

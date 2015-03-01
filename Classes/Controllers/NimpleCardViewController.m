@@ -34,6 +34,8 @@
     [self setupNotificationCenter];
     [self localizeViewAttributes];
     [self updateView];
+    
+    NSLog(@"YOLO");
 }
 
 - (void)setupNotificationCenter
@@ -169,5 +171,16 @@
     NSLog(@"Nimple code changed received in NimpleCardViewController");
     [self updateView];
 }
+
+
+#pragma mark - Segmented control handling multiple nimple cards
+
+- (IBAction)segmentedControlValueChanged:(id)sender
+{
+    NSInteger segmentedControlIndex = self.cardSegmentedControl.selectedSegmentIndex;
+    [_code switchToDictionaryWithIndex:[[NSNumber numberWithInteger:segmentedControlIndex] stringValue]];
+    [self updateView];
+}
+
 
 @end

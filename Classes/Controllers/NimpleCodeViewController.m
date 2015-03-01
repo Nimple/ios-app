@@ -128,4 +128,13 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 	return resized;
 }
 
+#pragma mark - Handles segmented control selection
+
+- (IBAction)segmentedControlValueChanged:(id)sender
+{
+    NSInteger segmentedControlSelection = self.codeSegmentedControl.selectedSegmentIndex;
+    [_code switchToDictionaryWithIndex:[[NSNumber numberWithInteger:segmentedControlSelection] stringValue]];
+    [self updateView];
+}
+
 @end
