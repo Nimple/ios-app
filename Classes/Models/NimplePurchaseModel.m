@@ -8,9 +8,17 @@
 
 #import "NimplePurchaseModel.h"
 
-#define kNimpleProVersionProductIdentifier @"pro-version"
+#define kNimpleProVersionProductIdentifier @"nimple.ios.pro"
+
+@interface NimplePurchaseModel()
+
+@property NSUserDefaults *defaults;
+
+@end
 
 @implementation NimplePurchaseModel
+
+#pragma mark - Initialization
 
 + (id)sharedPurchaseModel
 {
@@ -20,6 +28,15 @@
         sharedPurchaseModel = [[self alloc] init];
     });
     return sharedPurchaseModel;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.defaults = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
 }
 
 #pragma mark - Purchase process
@@ -37,41 +54,34 @@
     }
 }
 
+- (void)purchased
+{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kNimpleProVersionProductIdentifier];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNimplePurchasedNotification object:self];
+}
+
 - (BOOL)isPurchased
 {
-    // check for purchase in queue
-    return NO;
+    return [self.defaults boolForKey:kNimpleProVersionProductIdentifier];
 }
 
-- (BOOL)isPurchasePending
+- (void)purchase:(SKProduct *)product
 {
-    // TODO
-    return NO;
-}
-
-- (void)purchase:(NimpleBlock)successBlock errorBlock:(NimpleErrorBlock)errorBlock
-{
-    // TODO fetch correct product from product request
-    SKProduct *product = nil;
     SKPayment *payment = [SKPayment paymentWithProduct:product];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
-    
-    // TODO
-    successBlock();
-    errorBlock(nil);
-}
-
-- (void)purchase
-{
-    
 }
 
 #pragma mark - SKProductsRequestDelegate delegate methods
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-    
+    if (response.products.count > 0) {
+        NSLog(@"products are available");
+        [self purchase:response.products[0]];
+    } else {
+        NSLog(@"nopey, %@, %@", request, response);
+    }
 }
 
 #pragma mark - SKPaymentTransactionObserver delegate methods
@@ -87,23 +97,22 @@
                 NSLog(@"Transaction state -> Purchasing");
                 break;
             case SKPaymentTransactionStatePurchased:
-                //this is called when the user has successfully purchased the package (Cha-Ching!)
-                [self purchase];
-                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Transaction state -> Purchased");
+                [self purchased];
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateRestored:
                 NSLog(@"Transaction state -> Restored");
-                //add the same code as you did from SKPaymentTransactionStatePurchased here
-                
+                [self purchased];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateFailed:
-                //called when the transaction does not finnish
+                NSLog(@"failed");
                 if(transaction.error.code != SKErrorPaymentCancelled){
                     NSLog(@"Transaction state -> Cancelled");
                     //the user cancelled the payment ;(
                 }
+                [self purchased];
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
         }

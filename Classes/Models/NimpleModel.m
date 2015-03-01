@@ -36,7 +36,6 @@
     if (self) {
         _mainContext = [self managedObjectContext];
     }
-    
     return self;
 }
 

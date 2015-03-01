@@ -42,6 +42,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [self bootstrapApplication];
     [self setupNavigationBar];
     [self setupTabs];
+    [self setupNotificationCenter];
     return YES;
 }
 
@@ -116,12 +117,33 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        NSMutableArray *tbViewControllers = [NSMutableArray arrayWithArray:[self.tabBarController viewControllers]];
-        [tbViewControllers removeObjectAtIndex:3];
-        [self.tabBarController setViewControllers:tbViewControllers];
+        [self removePurchaseProController];
     }
     
     [[self tabBar] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
+}
+
+- (void)removePurchaseProController
+{
+    NSMutableArray *tbViewControllers = [NSMutableArray arrayWithArray:[self.tabBarController viewControllers]];
+    [tbViewControllers removeObjectAtIndex:3];
+    [self.tabBarController setViewControllers:tbViewControllers];
+    [self.tabBarController setSelectedIndex:0];
+}
+
+#pragma mark - Notification for NimplePurchaseModel
+
+- (void)removePurchaseProController:(NSNotification *)note
+{
+    NSLog(@"Remove purchase pro controller notification received");
+    [self removePurchaseProController];
+    
+}
+
+- (void)setupNotificationCenter
+{
+    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
+    [notification addObserver:self selector:@selector(removePurchaseProController:) name:kNimplePurchasedNotification object:nil];
 }
 
 #pragma mark - Core Data integration
