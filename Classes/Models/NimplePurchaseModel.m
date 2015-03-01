@@ -44,13 +44,9 @@
 - (void)requestPurchase
 {
     if ([SKPaymentQueue canMakePayments]) {
-        NSLog(@"User can make payments");
-        
         SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:kNimpleProVersionProductIdentifier]];
         productsRequest.delegate = self;
         [productsRequest start];
-    } else {
-        NSLog(@"User cannot make payments due to parental controls");
     }
 }
 
@@ -77,10 +73,7 @@
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
     if (response.products.count > 0) {
-        NSLog(@"products are available");
         [self purchase:response.products[0]];
-    } else {
-        NSLog(@"nopey, %@, %@", request, response);
     }
 }
 
@@ -107,12 +100,7 @@
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
             case SKPaymentTransactionStateFailed:
-                NSLog(@"failed");
-                if(transaction.error.code != SKErrorPaymentCancelled){
-                    NSLog(@"Transaction state -> Cancelled");
-                    //the user cancelled the payment ;(
-                }
-                [self purchased];
+                NSLog(@"Transaction state -> Failed (%@)", transaction.error.description);
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 break;
         }
