@@ -9,14 +9,13 @@
 #import "DisplayContactViewController.h"
 #import "AddressBook/AddressBook.h"
 #import "AddressBookUI/ABUnknownPersonViewController.h"
+#import "NimplePurchaseModel.h"
 #import "Logging.h"
 
 @interface DisplayContactViewController () {
     __weak IBOutlet UILabel *_websiteLabel;
     __weak IBOutlet UILabel *_addressLabel;
 }
-
-
 
 @end
 
@@ -28,6 +27,15 @@
     [self localizeViewAttributes];
     [self configureScrollView];
     [self updateView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        self.shareContactButton.hidden = NO;
+    } else {
+        self.shareContactButton.hidden = YES;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -184,6 +192,9 @@
 
 - (IBAction)shareContactButtonClicked:(id)sender
 {
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        // TODO export contact
+    }
 }
 
 - (IBAction)deleteContactButtonClicked:(id)sender

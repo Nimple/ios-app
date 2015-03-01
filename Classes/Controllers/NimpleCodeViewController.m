@@ -54,6 +54,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
     _navigationLabel.title = NimpleLocalizedString(@"nimple_code_title");
     _barcodeNoteLabel.text = NimpleLocalizedString(@"nimple_code_footer");
+    
+    // TODO translate
     self.shareCodeLabel.text = @"Tap your code to share it.";
 }
 
@@ -83,7 +85,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 - (IBAction)codeTapped:(id)sender
 {
-    
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        // TODO export qr code
+    }
 }
 
 
