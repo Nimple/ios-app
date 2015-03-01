@@ -202,7 +202,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         [mailer addAttachmentData:data mimeType:@"text/vcard" fileName:@"contact.vcf"];
-        [self presentViewController:mailer animated:YES completion:nil];
+        [self.navigationController presentViewController:mailer animated:YES completion:nil];
     }
 }
 
