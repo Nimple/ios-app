@@ -7,6 +7,7 @@
 //
 
 #import "NimpleCardViewController.h"
+#import "NimplePurchaseModel.h"
 
 @interface NimpleCardViewController () {
     __weak IBOutlet UILabel *_tutorialAddLabel;
@@ -31,17 +32,18 @@
 {
     [super viewDidLoad];
     _code = [NimpleCode sharedCode];
-    [self.cardSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
-    [self setupNotificationCenter];
     [self localizeViewAttributes];
-    [self updateView];
 }
 
-- (void)setupNotificationCenter
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
-    [notification addObserver:self selector:@selector(handleChangedNimpleCode:) name:@"nimpleCodeChanged" object:nil];
-    [notification addObserver:self selector:@selector(handleChangedCodeSelection:) name:@"nimpleCodeSelecton" object:nil];
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        [self.cardSegmentedControl setHidden:NO];
+        [self.cardSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
+    } else {
+        [self.cardSegmentedControl setHidden:YES];
+    }
+    [self updateView];
 }
 
 -(void)localizeViewAttributes
@@ -172,22 +174,12 @@
     [self updateView];
 }
 
-
 #pragma mark - Segmented control handling multiple nimple cards
 
 - (IBAction)segmentedControlValueChanged:(id)sender
 {
-    NSInteger segmentedControlIndex = self.cardSegmentedControl.selectedSegmentIndex;
-    [_code switchToDictionaryWithIndexInteger:segmentedControlIndex];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCardSelecton" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:segmentedControlIndex] forKey:@"index"]];
+    [_code switchToDictionaryWithIndexInteger:self.cardSegmentedControl.selectedSegmentIndex];
     [self updateView];
-}
-
-- (void)handleChangedCodeSelection:(NSNotification *)note
-{
-    NSInteger selectedSegmentIndex = [(NSNumber*)[note.userInfo valueForKey:@"index"] integerValue];
-    [self.cardSegmentedControl setSelectedSegmentIndex:selectedSegmentIndex];
-    [self segmentedControlValueChanged:self.cardSegmentedControl];
 }
 
 

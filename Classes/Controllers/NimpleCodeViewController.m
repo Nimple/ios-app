@@ -8,6 +8,7 @@
 
 #import "NimpleCodeViewController.h"
 #import "NimpleCode.h"
+#import "NimplePurchaseModel.h"
 #import "VCardCreator.h"
 
 static NSMutableDictionary *VCARD_TEMPLATE_DIC;
@@ -30,17 +31,18 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 {
     [super viewDidLoad];
     _code = [NimpleCode sharedCode];
-    [self.codeSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
-    [self setupNotificationCenter];
     [self localizeViewAttributes];
-    [self updateView];
 }
 
-- (void)setupNotificationCenter
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
-    [notification addObserver:self selector:@selector(handleChangedNimpleCode:) name:@"nimpleCodeChanged" object:nil];
-    [notification addObserver:self selector:@selector(handleChangedCardSelection:) name:@"nimpleCardSelecton" object:nil];
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        [self.codeSegmentedControl setHidden:NO];
+        [self.codeSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
+    } else {
+        [self.codeSegmentedControl setHidden:YES];
+    }
+    [self updateView];
 }
 
 -(void)localizeViewAttributes
@@ -117,35 +119,26 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 - (UIImage *)resizeImage:(UIImage *)image withQuality:(CGInterpolationQuality)quality rate:(CGFloat)rate
 {
-	UIImage *resized = nil;
-	CGFloat width = image.size.width * rate;
-	CGFloat height = image.size.height * rate;
+    UIImage *resized = nil;
+    CGFloat width = image.size.width * rate;
+    CGFloat height = image.size.height * rate;
     
-	UIGraphicsBeginImageContext(CGSizeMake(width, height));
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSetInterpolationQuality(context, quality);
-	[image drawInRect:CGRectMake(0, 0, width, height)];
-	resized = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetInterpolationQuality(context, quality);
+    [image drawInRect:CGRectMake(0, 0, width, height)];
+    resized = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-	return resized;
+    return resized;
 }
 
 #pragma mark - Handles segmented control selection
 
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
 {
-    NSInteger segmentedControlIndex = self.codeSegmentedControl.selectedSegmentIndex;
-    [_code switchToDictionaryWithIndexInteger:segmentedControlIndex];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCodeSelecton" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:segmentedControlIndex] forKey:@"index"]];
+    [_code switchToDictionaryWithIndexInteger:self.codeSegmentedControl.selectedSegmentIndex];
     [self updateView];
-}
-
-- (void)handleChangedCardSelection:(NSNotification *)note
-{
-    NSInteger selectedIndex = [(NSNumber*)([note.userInfo valueForKey:@"index"]) integerValue];
-    [self.codeSegmentedControl setSelectedSegmentIndex:selectedIndex];
-    [self segmentedControlValueChanged:self.codeSegmentedControl];
 }
 
 @end

@@ -59,8 +59,7 @@
 
 - (void)switchToDictionaryWithIndexInteger:(NSInteger)index
 {
-    NSString *indexString = [NSString stringWithFormat:@"%i", index];
-    [self switchToDictionaryWithIndexString:indexString];
+    [self switchToDictionaryWithIndexString:[[NSNumber numberWithInteger:index] stringValue]];
 }
 
 - (void)switchToDictionaryWithIndexString:(NSString *)index
@@ -72,7 +71,8 @@
 - (void)saveCurrentDictionary
 {
     if (self.dict) {
-        [self.defaults setObject:self.dict forKey:[self.dict objectForKey:NimpleCodeDictionaryKey]];
+        NSString *key = [self.dict objectForKey:NimpleCodeDictionaryKey];
+        [self.defaults setObject:self.dict forKey:key];
     }
 }
 
