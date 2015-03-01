@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
+#define kNimplePurchasedNotification @"kNimplePurchasedNotification"
+
 @interface NimplePurchaseModel : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 
 + (NimplePurchaseModel *)sharedPurchaseModel;

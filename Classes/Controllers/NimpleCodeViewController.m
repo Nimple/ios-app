@@ -65,7 +65,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 #pragma mark - Notification Center
 
-- (void)handleChangedNimpleCode:(NSNotification *)note {
+- (void)handleChangedNimpleCode:(NSNotification *)note
+{
     NSLog(@"Nimple code changed received in NimpleCodeViewController");
     [self updateView];
 }
