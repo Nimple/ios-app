@@ -154,6 +154,16 @@
     return [self stringForKey:NimpleCodeCellPhoneKey];
 }
 
+- (void)setPhone:(NSString *)phone
+{
+    [self setString:phone forKey:NimpleCodePhoneKey];
+}
+
+- (NSString *)phone
+{
+    return [self stringForKey:NimpleCodePhoneKey];
+}
+
 - (void)setEmail:(NSString *)email
 {
     [self setString:email forKey:NimpleCodeEmailKey];
@@ -303,6 +313,16 @@
 - (BOOL)cellPhoneSwitch
 {
     return [self boolForKey:NimpleCodeCellPhoneSwitch];
+}
+
+- (void)setPhoneSwitch:(BOOL)state
+{
+    [self setBool:state forKey:NimpleCodePhoneSwitch];
+}
+
+- (BOOL)phoneSwitch
+{
+    return [self boolForKey:NimpleCodePhoneSwitch];
 }
 
 - (void)setEmailSwitch:(BOOL)state

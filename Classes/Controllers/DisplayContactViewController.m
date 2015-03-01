@@ -31,10 +31,17 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
         self.shareContactButton.hidden = NO;
     } else {
         self.shareContactButton.hidden = YES;
+        
+        // TODO maybe adjust
+        NSLayoutConstraint *c = self.shareContactButton.constraints[0];
+        c.constant = 0;
+        
+        [self.shareContactButton layoutIfNeeded];
     }
 }
 

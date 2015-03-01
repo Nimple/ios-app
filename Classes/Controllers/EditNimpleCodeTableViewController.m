@@ -166,9 +166,6 @@
         if (indexPath.row == 0) {
             [cell.propertySwitch setOn:_code.facebookSwitch];
             [cell.socialNetworkButton setImage:[UIImage imageNamed:@"ic_round_facebook"] forState:UIControlStateNormal];
-            cell.fbLoginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email"]];
-            cell.fbLoginView.delegate = cell;
-            
             if (_code.facebookId.length == 0 || _code.facebookUrl.length == 0) {
                 _code.facebookSwitch = YES;
                 [cell.socialNetworkButton setAlpha:0.3];

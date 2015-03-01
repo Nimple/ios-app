@@ -12,7 +12,8 @@
 
 #define NimpleCodePrenameKey @"prename"
 #define NimpleCodeSurnameKey @"surname"
-#define NimpleCodeCellPhoneKey @"phone"
+#define NimpleCodeCellPhoneKey @"cellphone"
+#define NimpleCodePhoneKey @"phone"
 #define NimpleCodeEmailKey @"email"
 #define NimpleCodeJobKey @"job"
 #define NimpleCodeCompanyKey @"company"
@@ -29,7 +30,8 @@
 #define NimpleCodeXingKey @"xing_URL"
 #define NimpleCodeLinkedInKey @"linkedin_URL"
 
-#define NimpleCodeCellPhoneSwitch @"phone_switch"
+#define NimpleCodeCellPhoneSwitch @"cellphone_switch"
+#define NimpleCodePhoneSwitch @"phone_switch"
 #define NimpleCodeEmailSwitch @"email_switch"
 #define NimpleCodeJobSwitch @"job_switch"
 #define NimpleCodeCompanySwitch @"company_switch"
@@ -54,6 +56,8 @@
 - (NSString *)surname;
 - (void)setCellPhone:(NSString *)cellPhone;
 - (NSString *)cellPhone;
+- (void)setPhone:(NSString *)cellPhone;
+- (NSString *)phone;
 - (void)setEmail:(NSString *)email;
 - (NSString *)email;
 - (void)setJob:(NSString *)job;
@@ -87,6 +91,9 @@
 
 - (void)setCellPhoneSwitch:(BOOL)state;
 - (BOOL)cellPhoneSwitch;
+
+- (void)setPhoneSwitch:(BOOL)state;
+- (BOOL)phoneSwitch;
 
 - (void)setEmailSwitch:(BOOL)state;
 - (BOOL)emailSwitch;
