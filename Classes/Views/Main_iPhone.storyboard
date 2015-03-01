@@ -784,6 +784,7 @@ Test</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Meine Kontakte" id="bbO-qy-7D2">
+                        <barButtonItem key="leftBarButtonItem" image="share" id="Qd7-Mf-Rms"/>
                         <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
                                 <segue destination="o5E-Ml-Dot" kind="push" identifier="AddContact" id="vJY-OD-AU4"/>
@@ -1435,8 +1436,8 @@ Test</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="vJY-OD-AU4"/>
         <segue reference="vl1-xC-OSz"/>
-        <segue reference="8mu-bB-DzI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99607843139999996" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
