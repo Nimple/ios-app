@@ -8,6 +8,8 @@
 
 #import "NimplePurchaseModel.h"
 
+#define kNimpleProVersionProductIdentifier @"pro-version"
+
 @implementation NimplePurchaseModel
 
 + (id)sharedPurchaseModel
@@ -21,6 +23,19 @@
 }
 
 #pragma mark - Purchase process
+
+- (void)requestPurchase
+{
+    if ([SKPaymentQueue canMakePayments]) {
+        NSLog(@"User can make payments");
+        
+        SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithObject:kNimpleProVersionProductIdentifier]];
+        productsRequest.delegate = self;
+        [productsRequest start];
+    } else {
+        NSLog(@"User cannot make payments due to parental controls");
+    }
+}
 
 - (BOOL)isPurchased
 {
@@ -52,7 +67,14 @@
     
 }
 
-#pragma mark - SKPaymentTransactionObserver Delegate
+#pragma mark - SKProductsRequestDelegate delegate methods
+
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
+{
+    
+}
+
+#pragma mark - SKPaymentTransactionObserver delegate methods
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {

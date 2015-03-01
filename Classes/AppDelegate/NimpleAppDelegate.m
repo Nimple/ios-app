@@ -18,6 +18,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #import "NimpleAppDelegate.h"
 #import "NimpleCode.h"
 #import "NimpleModel.h"
+#import "NimplePurchaseModel.h"
 #import "Logging.h"
 
 @implementation NimpleAppDelegate
@@ -64,9 +65,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [[UITabBar appearance] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
 }
 
+- (UITabBarController *)tabBarController
+{
+    return (UITabBarController *)self.window.rootViewController;
+}
+
 - (UITabBar *)tabBar
 {
-    return ((UITabBarController *)self.window.rootViewController).tabBar;
+    return [self tabBarController].tabBar;
 }
 
 - (void)setupTabs
@@ -108,6 +114,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        NSMutableArray *tbViewControllers = [NSMutableArray arrayWithArray:[self.tabBarController viewControllers]];
+        [tbViewControllers removeObjectAtIndex:3];
+        [self.tabBarController setViewControllers:tbViewControllers];
+    }
     
     [[self tabBar] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
 }

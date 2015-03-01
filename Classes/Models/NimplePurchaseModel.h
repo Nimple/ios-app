@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
 
-@interface NimplePurchaseModel : NSObject <SKPaymentTransactionObserver>
+@interface NimplePurchaseModel : NSObject <SKPaymentTransactionObserver, SKProductsRequestDelegate>
 
 + (NimplePurchaseModel *)sharedPurchaseModel;
 
+- (void)requestPurchase;
 - (BOOL)isPurchased;
-- (void)purchase:(NimpleBlock)successBlock errorBlock:(NimpleErrorBlock)errorBlock;
 
 @end

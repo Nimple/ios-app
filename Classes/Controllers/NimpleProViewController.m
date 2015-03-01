@@ -7,6 +7,7 @@
 //
 
 #import "NimpleProViewController.h"
+#import "NimplePurchaseModel.h"
 
 @interface NimpleProViewController ()
 
@@ -31,6 +32,7 @@
 - (IBAction)unlockProClicked:(id)sender
 {
     NSLog(@"unlock pro clicked");
+    [[NimplePurchaseModel sharedPurchaseModel] requestPurchase];
 }
 
 
