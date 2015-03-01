@@ -42,8 +42,10 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
         [self.codeSegmentedControl setHidden:NO];
         [self.codeSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
+        self.shareCodeLabel.hidden = NO;
     } else {
         [self.codeSegmentedControl setHidden:YES];
+        self.shareCodeLabel.hidden = YES;
     }
     [self updateView];
 }
@@ -86,7 +88,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 - (IBAction)codeTapped:(id)sender
 {
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        // TODO export qr code
+        NSArray *activityItems = @[_nimpleCodeImage.image];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        [self presentViewController:activityVC animated:TRUE completion:nil];
     }
 }
 

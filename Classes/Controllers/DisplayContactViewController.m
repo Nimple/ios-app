@@ -193,7 +193,16 @@
 - (IBAction)shareContactButtonClicked:(id)sender
 {
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        // TODO export contact
+        ABRecordRef person = [self prepareNimpleContactForAddressBook];
+        ABRecordRef people[1];
+        people[0] = person;
+        CFArrayRef peopleArray = CFArrayCreate(NULL, (void *)people, 1, &kCFTypeArrayCallBacks);
+        NSData *vCardData = CFBridgingRelease(ABPersonCreateVCardRepresentationWithPeople(peopleArray));
+        NSString *vCard = [[NSString alloc] initWithData:vCardData encoding:NSUTF8StringEncoding];
+        
+        NSArray *activityItems = @[vCard];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        [self presentViewController:activityVC animated:TRUE completion:nil];
     }
 }
 
