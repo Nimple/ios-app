@@ -58,7 +58,7 @@
 
 - (BOOL)isPurchased
 {
-    return YES;
+    return NO;
     //    return [self.defaults boolForKey:kNimpleProVersionProductIdentifier];
 }
 
