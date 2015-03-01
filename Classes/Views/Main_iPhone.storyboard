@@ -1402,5 +1402,5 @@ auf deiner Karte und in deinem Code</string>
         <segue reference="8mu-bB-DzI"/>
         <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.99505120515823364" green="0.99502140283584595" blue="0.99503827095031738" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
