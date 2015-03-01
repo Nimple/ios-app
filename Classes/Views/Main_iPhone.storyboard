@@ -795,7 +795,7 @@ auf deiner Karte und in deinem Code</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBN-dz-aRh">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBN-dz-aRh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="753"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOr-K1-tjp">
@@ -990,6 +990,12 @@ auf deiner Karte und in deinem Code</string>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gBN-dz-aRh" firstAttribute="top" secondItem="S8V-ag-8Gk" secondAttribute="top" id="Vbc-gG-zWY"/>
+                            <constraint firstAttribute="bottom" secondItem="gBN-dz-aRh" secondAttribute="bottom" constant="47" id="a98-Lt-eEo"/>
+                            <constraint firstItem="gBN-dz-aRh" firstAttribute="leading" secondItem="S8V-ag-8Gk" secondAttribute="leading" id="qzW-g0-nFe"/>
+                            <constraint firstAttribute="trailing" secondItem="gBN-dz-aRh" secondAttribute="trailing" id="weY-NT-RTT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detailansicht" id="fMY-bC-Mad">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5a9-ZP-pGV">
@@ -1087,7 +1093,7 @@ auf deiner Karte und in deinem Code</string>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version 1.2.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJn-dh-QoH">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version 2.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJn-dh-QoH">
                                                     <rect key="frame" x="92" y="61" width="110" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

@@ -97,6 +97,7 @@
 "tab_nimple_card_title" = "Карта";
 "tab_nimple_code_title" = "Код";
 "tab_contacts_title" = "Контакты";
+"tab_pro_title" = "Pro Version";
 "tab_settings_title" = "Настройки";
 
 "twitter_not_found_alert_title" = "Нет профиль Twitter.";

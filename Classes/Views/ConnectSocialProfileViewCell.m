@@ -12,32 +12,33 @@
 #import "ConnectSocialProfileViewCell.h"
 #import "NimpleAppDelegate.h"
 
-@interface ConnectSocialProfileViewCell () {
-    NimpleCode *_code;
-}
+@interface ConnectSocialProfileViewCell ()
+
+@property NimpleCode *code;
+
 @end
 
 @implementation ConnectSocialProfileViewCell
 
 - (void)configureCell
 {
-    _code = [NimpleCode sharedCode];
+    self.code = [NimpleCode sharedCode];
 }
 
 - (IBAction)propertySwitched:(id)sender
 {
     if (self.section == 2) {
         if (self.index == 0) {
-            _code.facebookSwitch = [self.propertySwitch isOn];
+            self.code.facebookSwitch = [self.propertySwitch isOn];
         }
         if (self.index == 1) {
-            _code.twitterSwitch = [self.propertySwitch isOn];
+            self.code.twitterSwitch = [self.propertySwitch isOn];
         }
         if (self.index == 2) {
-            _code.xingSwitch = [self.propertySwitch isOn];
+            self.code.xingSwitch = [self.propertySwitch isOn];
         }
         if (self.index == 3) {
-            _code.linkedInSwitch = [self.propertySwitch isOn];
+            self.code.linkedInSwitch = [self.propertySwitch isOn];
         }
     }
 }
@@ -52,22 +53,22 @@
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
             [self.connectStatusButton setTitle:NimpleLocalizedString(@"twitter_label") forState:UIControlStateNormal];
-            _code.twitterId = @"";
-            _code.twitterUrl = @"";
+            self.code.twitterId = @"";
+            self.code.twitterUrl = @"";
         }
         if (self.index == 2) {
             [self deauthorizeWithCompletion:^{
                 [self.socialNetworkButton setAlpha:0.3];
                 [self animatePropertySwitchVisibilityTo:0.0];
                 [self.connectStatusButton setTitle:NimpleLocalizedString(@"xing_label") forState:UIControlStateNormal];
-                _code.xing = @"";
+                self.code.xing = @"";
             }];
         }
         if (self.index == 3) {
             [self.socialNetworkButton setAlpha:0.3];
             [self animatePropertySwitchVisibilityTo:0.0];
             [self.connectStatusButton setTitle:NimpleLocalizedString(@"linkedin_label") forState:UIControlStateNormal];
-            _code.linkedIn = @"";
+            self.code.linkedIn = @"";
         }
     }
 }
@@ -131,14 +132,14 @@
     [self.socialNetworkButton setAlpha:0.3];
     [self animatePropertySwitchVisibilityTo:0.0];
     [self.connectStatusButton setTitle:NimpleLocalizedString(@"facebook_label") forState:UIControlStateNormal];
-    _code.facebookId = @"";
-    _code.facebookUrl = @"";
+    self.code.facebookId = @"";
+    self.code.facebookUrl = @"";
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
-    _code.facebookId = [user objectForKey:@"id"];
-    _code.facebookUrl = user.link;
+    self.code.facebookId = [user objectForKey:@"id"];
+    self.code.facebookUrl = user.link;
     [self.socialNetworkButton setAlpha:1.0];
     [self.connectStatusButton setTitle:NimpleLocalizedString(@"connected_label") forState:UIControlStateNormal];
     [self animatePropertySwitchVisibilityTo:1.0];
@@ -170,7 +171,7 @@
 
 - (void)handleTwitter
 {
-    if (_code.twitterId.length == 0) {
+    if (self.code.twitterId.length == 0) {
         self.twitterAcount = [[ACAccountStore alloc] init];
         ACAccountType *accountType = [self.twitterAcount accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
         [self.twitterAcount requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
@@ -185,8 +186,8 @@
                     ACAccount *twitterAccount = [accountsArray lastObject];
                     NSString *twitter_URL = [NSString stringWithFormat:@"https://twitter.com/%@", twitterAccount.username];
                     NSString *twitter_ID = [[twitterAccount valueForKey:@"properties"] valueForKey:@"user_id"];
-                    _code.twitterId = twitter_ID;
-                    _code.twitterUrl = twitter_URL;
+                    self.code.twitterId = twitter_ID;
+                    self.code.twitterUrl = twitter_URL;
                 } else {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.alertView.title = NimpleLocalizedString(@"twitter_not_found_alert_title");
@@ -258,7 +259,7 @@
 
 - (void)handleLinkedIn
 {
-    if (_code.linkedIn.length == 0) {
+    if (self.code.linkedIn.length == 0) {
         self.linkedInClient = [self linkedInClient];
         [self.linkedInClient getAuthorizationCode:^(NSString *code) {
             [self.linkedInClient getAccessToken:code success:^(NSDictionary *accessTokenData) {
@@ -272,7 +273,7 @@
                     NSDictionary *profileRequest = [result valueForKey:@"siteStandardProfileRequest"];
                     NSString *url = [profileRequest valueForKey:@"url"];
                     url = [url substringToIndex:[url rangeOfString:@"&"].location];
-                    _code.linkedIn = url;
+                    self.code.linkedIn = url;
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     NSLog(@"failed to fetch current user %@", error);
                 }];

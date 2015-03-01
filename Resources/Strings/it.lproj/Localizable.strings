@@ -97,6 +97,7 @@
 "tab_nimple_card_title" = "Biglietto";
 "tab_nimple_code_title" = "Codice";
 "tab_contacts_title" = "Contatti";
+"tab_pro_title" = "Pro Version";
 "tab_settings_title" = "Impostazioni";
 
 "twitter_not_found_alert_title" = "Nessun profilo Twitter.";
