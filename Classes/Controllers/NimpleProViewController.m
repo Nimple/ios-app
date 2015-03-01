@@ -19,6 +19,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.proIntroText setText:NimpleLocalizedString(@"pro_intro_text")];
+    [self.proFeatureA setText:NimpleLocalizedString(@"pro_feature_A")];
+    [self.proFeatureB setText:NimpleLocalizedString(@"pro_feature_B")];
 }
 
 - (void)didReceiveMemoryWarning
