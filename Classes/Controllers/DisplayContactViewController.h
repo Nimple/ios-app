@@ -51,6 +51,7 @@
 // buttons
 @property (weak, nonatomic) IBOutlet UIButton *saveToAddressBookButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteContactButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareContactButton;
 
 // dialogs
 @property (strong, atomic) UIActionSheet *actionSheetDelete;
