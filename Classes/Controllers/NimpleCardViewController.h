@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "EditNimpleCodeTableViewController.h"
 
-@interface NimpleCardViewController : UIViewController
+@interface NimpleCardViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *cardSegmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
