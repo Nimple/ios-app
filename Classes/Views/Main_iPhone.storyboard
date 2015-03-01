@@ -465,6 +465,11 @@ auf deiner Karte und in deinem Code</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EFm-HE-oUs"/>
+                    <connections>
+                        <outlet property="proFeatureA" destination="T8J-gg-BTp" id="mAY-69-aDI"/>
+                        <outlet property="proFeatureB" destination="ClP-py-pZ9" id="54d-2q-jGW"/>
+                        <outlet property="proIntroText" destination="gru-K2-aOq" id="zUW-jD-MoZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wj-Vq-GMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Wn7-VK-cVZ">

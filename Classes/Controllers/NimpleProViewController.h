@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface NimpleProViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *proIntroText;
+@property (weak, nonatomic) IBOutlet UITextView *proFeatureA;
+@property (weak, nonatomic) IBOutlet UITextView *proFeatureB;
 
 @end
