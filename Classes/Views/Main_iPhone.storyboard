@@ -388,7 +388,7 @@ auf deiner Karte und in deinem Code</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pro banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pro_version_banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
                                 <rect key="frame" x="0.0" y="64" width="320" height="149"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46n-wd-tga">
@@ -461,7 +461,7 @@ auf deiner Karte und in deinem Code</string>
         <scene sceneID="zqP-bE-6YP">
             <objects>
                 <navigationController title="Pro Version" definesPresentationContext="YES" id="4zg-yl-INR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pro Version" image="MPCloseBtn.png" id="cwr-1S-oXW"/>
+                    <tabBarItem key="tabBarItem" title="Pro Version" image="tabbar_pro" id="cwr-1S-oXW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="NrT-o1-58q">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1332,7 +1332,6 @@ auf deiner Karte und in deinem Code</string>
         </scene>
     </scenes>
     <resources>
-        <image name="MPCloseBtn.png" width="25" height="25"/>
         <image name="add-contact" width="25" height="25"/>
         <image name="address" width="25" height="25"/>
         <image name="arrow_up_middle" width="42" height="142"/>
@@ -1347,10 +1346,11 @@ auf deiner Karte und in deinem Code</string>
         <image name="ic_round_xing" width="59" height="59"/>
         <image name="job" width="25" height="25"/>
         <image name="phone" width="25" height="25"/>
-        <image name="pro banner" width="1080" height="540"/>
+        <image name="pro_version_banner" width="1080" height="540"/>
         <image name="tabbar_contacts" width="21" height="24"/>
         <image name="tabbar_nimple-card" width="23" height="23"/>
         <image name="tabbar_nimple-code" width="25" height="25"/>
+        <image name="tabbar_pro" width="25" height="25"/>
         <image name="tabbar_settings" width="21" height="24"/>
         <image name="timestamp" width="14" height="14"/>
         <image name="website" width="25" height="25"/>
