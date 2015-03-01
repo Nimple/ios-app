@@ -114,7 +114,8 @@
 "msg_box_social_logout_activity1" = "Disconnect";
 "msg_box_social_logout_activity2" = "Cancel";
 
+"pro_intro_text" = "Nimple Pro will give you incredible new useful features such as:";
+"pro_feature_A" = "Share and send your nimple card, code and contact/s via mail or any other medium.";
+"pro_feature_B" = "Create multiple nimple cards and codes (e.g. one for business, one for private and one for university).";
 
-"pro_intro_text" = "Nimple Pro will give you incredible new useful features such as";
-"pro_feature_A" = "Share and send your nimple card, code and contact/s via mail or any other medium";
-"pro_feature_B" = "Create multiple nimple cards and codes (e.g. one for business, one for private and one for university)";
+"share_contact" = "Share Contact"

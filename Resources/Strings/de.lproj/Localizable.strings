@@ -94,7 +94,7 @@
 
 "nimple_code_footer" = "Dein Code kann mit jedem Barcode-Reader oder Nimple eingescannt werden";
 
-"tab_nimple_card_title" = "Karte";
+"tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Code";
 "tab_contacts_title" = "Kontakte";
 "tab_pro_title" = "Pro Version";
@@ -113,3 +113,9 @@
 
 "msg_box_social_logout_activity1" = "Trennen";
 "msg_box_social_logout_activity2" = "Abbrechen";
+
+"pro_intro_text" = "Nimple Pro ermöglicht dir folgende wichtige Funktionen";
+"pro_feature_A" = "Teile und versende deine Nimple Karte, Code und Kontakte per E-Mail oder anderen Medien.";
+"pro_feature_B" = "Erstelle mehrere Nimple Karten und Codes (z.B. eine geschäftliche, eine private und eine für deinen Verein).";
+
+"share_contact" = "Kontakt teilen und versenden"
