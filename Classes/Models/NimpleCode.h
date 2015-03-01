@@ -44,7 +44,9 @@
 
 + (NimpleCode *)sharedCode;
 
-- (void)switchToDictionaryWithIndex:(NSString *)index;
+- (void)switchToDictionaryWithIndexInteger:(NSInteger)index;
+- (void)switchToDictionaryWithIndexString:(NSString *)index;
+- (NSInteger)dictionaryIndex;
 
 - (void)setPrename:(NSString *)prename;
 - (NSString *)prename;
