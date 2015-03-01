@@ -15,6 +15,9 @@
     __weak IBOutlet UILabel *_websiteLabel;
     __weak IBOutlet UILabel *_addressLabel;
 }
+
+
+
 @end
 
 @implementation DisplayContactViewController
@@ -176,6 +179,11 @@
 - (IBAction)saveToAddressBookButtonClicked:(id)sender
 {
     [self.actionSheetAddressbook showInView:self.view];
+}
+
+
+- (IBAction)shareContactButtonClicked:(id)sender
+{
 }
 
 - (IBAction)deleteContactButtonClicked:(id)sender

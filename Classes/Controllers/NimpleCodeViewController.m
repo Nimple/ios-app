@@ -23,6 +23,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     
     NimpleCode *_code;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *shareCodeLabel;
+
 @end
 
 @implementation NimpleCodeViewController
@@ -51,6 +54,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
     _navigationLabel.title = NimpleLocalizedString(@"nimple_code_title");
     _barcodeNoteLabel.text = NimpleLocalizedString(@"nimple_code_footer");
+    self.shareCodeLabel.text = @"Tap your code to share it.";
 }
 
 - (void)updateView
@@ -74,6 +78,14 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     NSLog(@"Nimple code changed received in NimpleCodeViewController");
     [self updateView];
 }
+
+#pragma mark - QR-Code share
+
+- (IBAction)codeTapped:(id)sender
+{
+    
+}
+
 
 #pragma mark - QR-Code generation
 
