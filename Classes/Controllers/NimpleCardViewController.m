@@ -31,17 +31,17 @@
 {
     [super viewDidLoad];
     _code = [NimpleCode sharedCode];
+    [self.cardSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
     [self setupNotificationCenter];
     [self localizeViewAttributes];
     [self updateView];
-    
-    NSLog(@"YOLO");
 }
 
 - (void)setupNotificationCenter
 {
     NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
     [notification addObserver:self selector:@selector(handleChangedNimpleCode:) name:@"nimpleCodeChanged" object:nil];
+    [notification addObserver:self selector:@selector(handleChangedCodeSelection:) name:@"nimpleCodeSelecton" object:nil];
 }
 
 -(void)localizeViewAttributes
@@ -178,8 +178,16 @@
 - (IBAction)segmentedControlValueChanged:(id)sender
 {
     NSInteger segmentedControlIndex = self.cardSegmentedControl.selectedSegmentIndex;
-    [_code switchToDictionaryWithIndex:[[NSNumber numberWithInteger:segmentedControlIndex] stringValue]];
+    [_code switchToDictionaryWithIndexInteger:segmentedControlIndex];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"nimpleCardSelecton" object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:segmentedControlIndex] forKey:@"index"]];
     [self updateView];
+}
+
+- (void)handleChangedCodeSelection:(NSNotification *)note
+{
+    NSInteger selectedSegmentIndex = [(NSNumber*)[note.userInfo valueForKey:@"index"] integerValue];
+    [self.cardSegmentedControl setSelectedSegmentIndex:selectedSegmentIndex];
+    [self segmentedControlValueChanged:self.cardSegmentedControl];
 }
 
 

@@ -115,7 +115,7 @@ Test</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Z2-Fha">
-                                <rect key="frame" x="19" y="85" width="276" height="29"/>
+                                <rect key="frame" x="25" y="85" width="270" height="29"/>
                                 <segments>
                                     <segment title="Code A"/>
                                     <segment title="Code B"/>
@@ -1402,5 +1402,5 @@ auf deiner Karte und in deinem Code</string>
         <segue reference="8mu-bB-DzI"/>
         <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.99607843139999996" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

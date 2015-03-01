@@ -51,7 +51,19 @@
 
 #pragma mark - Dict within User Defaults
 
-- (void)switchToDictionaryWithIndex:(NSString *)index
+- (NSInteger)dictionaryIndex
+{
+    NSString *index = [self.dict objectForKey:NimpleCodeDictionaryKey];
+    return [index integerValue];
+}
+
+- (void)switchToDictionaryWithIndexInteger:(NSInteger)index
+{
+    NSString *indexString = [NSString stringWithFormat:@"%i", index];
+    [self switchToDictionaryWithIndexString:indexString];
+}
+
+- (void)switchToDictionaryWithIndexString:(NSString *)index
 {
     [self saveCurrentDictionary];
     self.dict = [self dictionaryWithIndex:index];
