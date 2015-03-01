@@ -88,7 +88,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 - (IBAction)codeTapped:(id)sender
 {
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        // TODO export qr code
+        NSArray *activityItems = @[_nimpleCodeImage.image];
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        [self presentViewController:activityVC animated:TRUE completion:nil];
     }
 }
 
