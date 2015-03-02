@@ -845,7 +845,11 @@ Test</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Meine Kontakte" id="bbO-qy-7D2">
-                        <barButtonItem key="leftBarButtonItem" image="navbar_share_contacts" id="Qd7-Mf-Rms"/>
+                        <barButtonItem key="leftBarButtonItem" image="navbar_share_contacts" id="Qd7-Mf-Rms">
+                            <connections>
+                                <action selector="exportContacts:" destination="gqP-yl-IrF" id="CD1-Y8-ZHL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
                                 <segue destination="o5E-Ml-Dot" kind="push" identifier="AddContact" id="vJY-OD-AU4"/>

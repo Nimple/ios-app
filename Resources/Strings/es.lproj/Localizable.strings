@@ -113,3 +113,9 @@
 
 "msg_box_social_logout_activity1" = "Desconectar";
 "msg_box_social_logout_activity2" = "Cancelar";
+
+"share_contact" = "Share Contact";
+
+"alertview_camera_permission_title" = "No Camera-Access";
+"alertview_camera_permission_text" = "Nimple has no access to use your camera, thus Nimple is not able to scan QR-Codes. You can allow Nimple to use your camera by opening Settings -> Privacy -> Camera.";
+"alertview_camera_permission_button" = "Okay";

@@ -37,6 +37,7 @@
 {
     [super viewDidAppear:animated];
     [self startScanner];
+    [self checkForCamera];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -50,7 +51,28 @@
     _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
 }
 
+#pragma mark - Check for Camera access
+
+- (void)checkForCamera
+{
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
+        [self showCameraAlert];
+    } else if (status == AVAuthorizationStatusNotDetermined) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if (!granted){
+                [self showCameraAlert];
+            }
+        }];
+    }
+}
+
 #pragma mark - Alert views
+
+- (void)showCameraAlert
+{
+    [[[UIAlertView alloc] initWithTitle:NimpleLocalizedString(@"alertview_camera_permission_title") message:NimpleLocalizedString(@"alertview_camera_permission_text") delegate:self cancelButtonTitle:NimpleLocalizedString(@"alertview_camera_permission_button") otherButtonTitles:nil] show];
+}
 
 - (void)showRightCodeAlert
 {

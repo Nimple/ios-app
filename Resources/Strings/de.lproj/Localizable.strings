@@ -119,3 +119,7 @@
 "pro_feature_B" = "Erstelle mehrere Nimple Karten und Codes (z.B. eine geschäftliche, eine private und eine für deinen Verein).";
 
 "share_contact" = "Kontakt teilen und versenden";
+
+"alertview_camera_permission_title" = "Kein Kamera-Zugriff";
+"alertview_camera_permission_text" = "Leider hat Nimple keine Rechte um die Kamera nutzen zu können. Dies ist aber zwingend erforderlich um einen QR-Code zu scannnen. Du kannst Nimple die Rechte unter Einstellungen -> Privatsphäre -> Kamera -> Nimple geben.";
+"alertview_camera_permission_button" = "Okay";

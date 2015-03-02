@@ -17,6 +17,9 @@
     NimpleModel *_model;
     NSArray *_contacts;
 }
+
+
+
 @end
 
 @implementation ContactsViewController
@@ -87,7 +90,14 @@
     return NO;
 }
 
-# pragma mark - DisplayContactViewDelegate
+#pragma mark - Export Contacts
+
+- (IBAction)exportContacts:(id)sender
+{
+    
+}
+
+#pragma mark - DisplayContactViewDelegate
 
 - (void)contactShouldBeSaved
 {
