@@ -41,7 +41,8 @@
     _vcardTemplate = [NSMutableDictionary dictionary];
     _vcardTemplate[@"vcard_header"] = @"BEGIN:VCARD\nVERSION:3.0\n";
     _vcardTemplate[@"vcard_name"] = @"N:%@;%@\n";
-    _vcardTemplate[@"vcard_phone"] = @"TEL;CELL:%@\n";
+    _vcardTemplate[@"vcard_phone"] = @"TEL;HOME:%@\n";
+    _vcardTemplate[@"vcard_cellphone"] = @"TEL;CELL:%@\n";
     _vcardTemplate[@"vcard_email"] = @"EMAIL:%@\n";
     _vcardTemplate[@"vcard_role"] = @"TITLE:%@\n";
     _vcardTemplate[@"vcard_organisation"] = @"ORG:%@\n";
@@ -63,13 +64,18 @@
     [filled appendString:name];
     
     if (code.cellPhone.length > 0 && code.cellPhoneSwitch) {
-        NSString *phone = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_phone"], code.cellPhone];
-        [filled appendString: phone];
+        NSString *cellphone = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_cellphone"], code.cellPhone];
+        [filled appendString:cellphone];
+    }
+    
+    if (code.phone.length > 0 && code.phoneSwitch) {
+        NSString *phone = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_phone"], code.phone];
+        [filled appendString:phone];
     }
     
     if (code.email.length > 0 && code.emailSwitch) {
         NSString *email = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_email"], code.email];
-        [filled appendString: email];
+        [filled appendString:email];
     }
     
     if (code.company != 0 && code.companySwitch) {
@@ -79,7 +85,7 @@
     
     if (code.job.length != 0 && code.jobSwitch) {
         NSString *job = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_role"], code.job];
-        [filled appendString: job];
+        [filled appendString:job];
     }
     
     if (code.hasAddress && code.addressSwitch) {
@@ -118,6 +124,78 @@
     
     [filled appendString:[_vcardTemplate valueForKey:@"vcard_note"]];
     [filled appendString:[_vcardTemplate valueForKey:@"vcard_end"]];
+    return filled;
+}
+
+- (NSString *)createVCardFromNimpleContact:(NimpleContact *)contact
+{
+    NSMutableString *filled = [NSMutableString stringWithString:[_vcardTemplate valueForKey:@"vcard_header"]];
+    
+    NSString *name = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_name"], contact.surname, contact.prename];
+    [filled appendString:name];
+    
+    if (contact.cellphone) {
+        NSString *cellphone = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_cellphone"], contact.cellphone];
+        [filled appendString:cellphone];
+    }
+    
+    if (contact.phone) {
+        NSString *phone = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_phone"], contact.phone];
+        [filled appendString:phone];
+    }
+    
+    if (contact.email) {
+        NSString *email = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_email"], contact.email];
+        [filled appendString:email];
+    }
+    
+    if (contact.company) {
+        NSString *company = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_organisation"], contact.company];
+        [filled appendString: company];
+    }
+    
+    if (contact.job) {
+        NSString *job = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_role"], contact.job];
+        [filled appendString:job];
+    }
+    
+    if (contact.hasAddress) {
+        NSString *address = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_address"], [NSString stringWithFormat:@";;%@;%@;;%@;", contact.street, contact.city, contact.postal]];
+        [filled appendString:address];
+    }
+    
+    if(contact.website) {
+        NSString *website = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], contact.website];
+        [filled appendString:website];
+    }
+    
+    if (contact.facebook_URL && contact.facebook_ID) {
+        NSString *facebook_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], contact.facebook_URL];
+        NSString *facebook_ID = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_facebook_id"], contact.facebook_ID];
+        [filled appendString:facebook_URL];
+        [filled appendString:facebook_ID];
+    }
+    
+    if (contact.twitter_URL && contact.twitter_ID) {
+        NSString *twitter_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], contact.twitter_URL];
+        NSString *twitter_ID = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_twitter_id"], contact.twitter_ID];
+        [filled appendString:twitter_URL];
+        [filled appendString:twitter_ID];
+    }
+    
+    if (contact.xing_URL) {
+        NSString *xing_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], contact.xing_URL];
+        [filled appendString:xing_URL];
+    }
+    
+    if (contact.linkedin_URL) {
+        NSString *linkedin_URL = [NSString stringWithFormat:[_vcardTemplate valueForKey:@"vcard_url"], contact.linkedin_URL];
+        [filled appendString:linkedin_URL];
+    }
+    
+    [filled appendString:[_vcardTemplate valueForKey:@"vcard_note"]];
+    [filled appendString:[_vcardTemplate valueForKey:@"vcard_end"]];
+    
     return filled;
 }
 

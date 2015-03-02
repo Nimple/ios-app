@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "DisplayContactViewController.h"
 
-@interface ContactsViewController : UITableViewController <DisplayContactViewControllerDelegate>
+@interface ContactsViewController : UITableViewController <DisplayContactViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @end

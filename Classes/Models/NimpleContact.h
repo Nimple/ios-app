@@ -39,6 +39,9 @@
 @property (nonatomic, retain) NSString *city;
 @property (nonatomic, retain) NSString *website;
 
+// schema version 4.0
+@property (nonatomic, retain) NSString *cellphone;
+
 - (void)fillWithContact:(NimpleContact *)contact;
 - (BOOL)hasAddress;
 

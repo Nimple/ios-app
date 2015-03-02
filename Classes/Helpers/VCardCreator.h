@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "NimpleCode.h"
+#import "NimpleContact.h"
 
 @interface VCardCreator : NSObject
 
 + (VCardCreator *)sharedInstance;
 
 - (NSString *)createVCardFromNimpleCode:(NimpleCode *)code;
+- (NSString *)createVCardFromNimpleContact:(NimpleContact *)contact;
 
 @end

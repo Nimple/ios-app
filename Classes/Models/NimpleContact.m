@@ -38,12 +38,16 @@
 @dynamic city;
 @dynamic website;
 
+// schema version 4.0
+@dynamic cellphone;
+
 - (void)fillWithContact:(NimpleContact *)contact
 {
     self.prename = contact.prename;
     self.surname = contact.surname;
     
     self.phone = contact.phone;
+    self.cellphone = contact.cellphone;
     self.email = contact.email;
     self.job = contact.job;
     self.company = contact.company;

@@ -42,7 +42,9 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
         [self.codeSegmentedControl setHidden:NO];
         [self.codeSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
-        self.shareCodeLabel.hidden = NO;
+        if (![self emptyNimpleCode]) {
+            self.shareCodeLabel.hidden = NO;
+        }
     } else {
         [self.codeSegmentedControl setHidden:YES];
         self.shareCodeLabel.hidden = YES;
@@ -63,7 +65,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 - (void)updateView
 {
-    if (_code.surname.length == 0 && _code.prename.length == 0) {
+    if ([self emptyNimpleCode]) {
         _welcomeView.hidden = NO;
         _nimpleCodeImage.hidden = YES;
         _barcodeNoteLabel.hidden = YES;
@@ -73,6 +75,11 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         _barcodeNoteLabel.hidden = NO;
         [self updateQRCode];
     }
+}
+
+- (BOOL)emptyNimpleCode
+{
+    return _code.surname.length == 0 && _code.prename.length == 0;
 }
 
 #pragma mark - Notification Center

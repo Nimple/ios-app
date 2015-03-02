@@ -10,6 +10,7 @@
 #import "AddressBook/AddressBook.h"
 #import "AddressBookUI/ABUnknownPersonViewController.h"
 #import "NimplePurchaseModel.h"
+#import "VCardCreator.h"
 #import "Logging.h"
 
 @interface DisplayContactViewController () {
@@ -56,6 +57,7 @@
     self.notesTextField.placeholder = NimpleLocalizedString(@"display_contact_notes_label");
     [self.saveToAddressBookButton setTitle:NimpleLocalizedString(@"add_to_addressbook_button") forState:UIControlStateNormal];
     [self.deleteContactButton setTitle:NimpleLocalizedString(@"delete_contact_button") forState:UIControlStateNormal];
+    [self.shareContactButton setTitle:NimpleLocalizedString(@"share_contact") forState:UIControlStateNormal];
     self.navBar.title = NimpleLocalizedString(@"display_contact_title");
 }
 
@@ -199,16 +201,12 @@
 - (IBAction)shareContactButtonClicked:(id)sender
 {
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        ABRecordRef person = [self prepareNimpleContactForAddressBook];
-        ABRecordRef people[1];
-        people[0] = person;
-        CFArrayRef peopleArray = CFArrayCreate(NULL, (void *)people, 1, &kCFTypeArrayCallBacks);
-        NSData *data = CFBridgingRelease(ABPersonCreateVCardRepresentationWithPeople(peopleArray));
+        NSString *vcard = [[VCardCreator sharedInstance] createVCardFromNimpleContact:self.nimpleContact];
         
         // send mail with attachment
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer addAttachmentData:data mimeType:@"text/vcard" fileName:@"contact.vcf"];
+        [mailer addAttachmentData:[vcard dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/vcard" fileName:@"contact.vcf"];
         [self.navigationController presentViewController:mailer animated:YES completion:nil];
     }
 }

@@ -10,6 +10,8 @@
 #import "ContactTableViewCell.h"
 #import "NimpleContact.h"
 #import "NimpleModel.h"
+#import "NimplePurchaseModel.h"
+#import "VCardCreator.h"
 
 @interface ContactsViewController () {
     __weak IBOutlet UINavigationItem *_navigationLabel;
@@ -19,6 +21,7 @@
 }
 
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *exportContactsButton;
 
 @end
 
@@ -52,6 +55,9 @@
 {
     _contacts = [_model contacts];
     [self.tableView reloadData];
+    if (![[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        [self.exportContactsButton setEnabled:NO];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -94,7 +100,26 @@
 
 - (IBAction)exportContacts:(id)sender
 {
-    
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        NSMutableString *bigvcard = [NSMutableString new];
+        for (NimpleContact* contact in _contacts) {
+            NSString *vcard = [[VCardCreator sharedInstance] createVCardFromNimpleContact:contact];
+            [bigvcard appendString:vcard];
+        }
+        
+        // send mail with attachment
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer addAttachmentData:[bigvcard dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/vcard" fileName:@"contacts.cvf"];
+        [self.navigationController presentViewController:mailer animated:YES completion:nil];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - DisplayContactViewDelegate
