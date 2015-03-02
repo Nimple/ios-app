@@ -43,9 +43,12 @@
         } else if ([newLine hasPrefix:@"EMAIL"]) {
             NSString *email = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
             contact.email = email;
-        } else if ([newLine hasPrefix:@"TEL"]) {
+        } else if ([newLine hasPrefix:@"TEL;HOME"] || [newLine hasPrefix:@"TEL;Home"] || [newLine hasPrefix:@"TEL;home"]) {
             NSString *phone = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
             contact.phone = phone;
+        } else if ([newLine hasPrefix:@"TEL;CELL"] || [newLine hasPrefix:@"TEL;Cell"] || [newLine hasPrefix:@"TEL;cell"]) {
+            NSString *cellphone = [newLine substringFromIndex:[newLine rangeOfString:@":" options:NSBackwardsSearch].location + 1];
+            contact.cellphone = cellphone;
         } else if ([newLine hasPrefix:@"ORG:"]) {
             // handle organisation
             // take care of multiple units
