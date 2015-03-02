@@ -17,7 +17,7 @@
 - (void)contactShouldBeDeleted:(NimpleContact *)contact;
 @end
 
-@interface DisplayContactViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, ABUnknownPersonViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface DisplayContactViewController : UIViewController <UIActionSheetDelegate, ABUnknownPersonViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 // delegate
 @property (weak) id <DisplayContactViewControllerDelegate> delegate;

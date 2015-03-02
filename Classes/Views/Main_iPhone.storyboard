@@ -50,12 +50,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-LG-kyz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-LG-kyz">
                                 <rect key="frame" x="0.0" y="-7" width="320" height="535"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="rgd-LG-kyz" secondAttribute="bottom" constant="40" id="3q0-5D-xkt"/>
+                            <constraint firstItem="rgd-LG-kyz" firstAttribute="leading" secondItem="jog-LJ-klC" secondAttribute="leadingMargin" constant="-16" id="9da-Gy-j0j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rgd-LG-kyz" secondAttribute="trailing" constant="-16" id="Nye-Ld-PY8"/>
+                            <constraint firstItem="rgd-LG-kyz" firstAttribute="top" secondItem="jog-LJ-klC" secondAttribute="topMargin" constant="-7" id="UZV-bd-LCi"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Kontakt hinzufügen" id="fWH-LC-fhZ"/>
@@ -80,16 +86,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
-                                <rect key="frame" x="20" y="128" width="276" height="276"/>
+                            <imageView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6BA-IE-nrP">
+                                <rect key="frame" x="22" y="128" width="276" height="276"/>
                                 <color key="backgroundColor" red="0.91847826086956519" green="0.91847826086956519" blue="0.91847826086956519" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="LuE-I2-Jdt"/>
+                                    <constraint firstAttribute="width" secondItem="6BA-IE-nrP" secondAttribute="height" multiplier="1:1" id="dAw-ts-01e"/>
+                                    <constraint firstAttribute="height" constant="276" id="geD-6U-xSG"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="fCp-08-aSf" appends="YES" id="jsy-ym-cr3"/>
                                 </connections>
                             </imageView>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="als-zh-r6e" userLabel="Label - Barcode Note">
                                 <rect key="frame" x="20" y="407" width="276" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="P23-iw-hy3"/>
+                                </constraints>
                                 <string key="text">Label
 Test</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -120,8 +134,11 @@ Test</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Z2-Fha">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Z2-Fha">
                                 <rect key="frame" x="25" y="460" width="270" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="lRP-f7-drL"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Code A"/>
                                     <segment title="Code B"/>
@@ -131,8 +148,11 @@ Test</string>
                                     <action selector="segmentedControlValueChanged:" destination="wdH-3I-tgZ" eventType="valueChanged" id="I1T-GA-xIV"/>
                                 </connections>
                             </segmentedControl>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="7dE-Fy-tEd" userLabel="Label - Barcode Note">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="7dE-Fy-tEd" userLabel="Label - Barcode Note">
                                 <rect key="frame" x="20" y="79" width="276" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="IEF-zi-syo"/>
+                                </constraints>
                                 <string key="text">Label
 Test</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -142,6 +162,20 @@ Test</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="trE-Z2-Fha" secondAttribute="bottom" constant="80" id="29Q-Yl-vP5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="als-zh-r6e" secondAttribute="trailing" constant="8" id="DYt-Ug-ejK"/>
+                            <constraint firstAttribute="trailing" secondItem="trE-Z2-Fha" secondAttribute="trailing" constant="25" id="GaH-kp-78u"/>
+                            <constraint firstItem="7dE-Fy-tEd" firstAttribute="top" secondItem="c7o-rU-VLc" secondAttribute="top" constant="79" id="Skj-36-WkH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6BA-IE-nrP" secondAttribute="trailing" constant="6" id="YoR-iO-iDo"/>
+                            <constraint firstAttribute="trailing" secondItem="7dE-Fy-tEd" secondAttribute="trailing" constant="24" id="avP-7o-vZo"/>
+                            <constraint firstItem="trE-Z2-Fha" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leading" constant="25" id="d0i-4x-8Ce"/>
+                            <constraint firstItem="6BA-IE-nrP" firstAttribute="top" secondItem="c7o-rU-VLc" secondAttribute="topMargin" constant="128" id="ilP-MS-B3Y"/>
+                            <constraint firstItem="als-zh-r6e" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leadingMargin" constant="4" id="koG-qu-1Hz"/>
+                            <constraint firstItem="als-zh-r6e" firstAttribute="top" secondItem="6BA-IE-nrP" secondAttribute="bottom" constant="3" id="kri-8h-cOl"/>
+                            <constraint firstItem="7dE-Fy-tEd" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leading" constant="20" id="oqt-tB-mbU"/>
+                            <constraint firstItem="6BA-IE-nrP" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leadingMargin" constant="6" id="vgo-Na-jUy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mein Code" id="93b-pI-kqe">
                         <barButtonItem key="leftBarButtonItem" image="edit-card" id="0yX-GC-7hd">
@@ -640,6 +674,7 @@ auf deiner Karte und in deinem Code</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="D2D-8w-9xf"/>
+                                    <constraint firstAttribute="height" constant="326" id="cm1-PF-3xV"/>
                                     <constraint firstAttribute="width" secondItem="HNg-Lj-TNH" secondAttribute="height" multiplier="135:163" id="n4H-4u-2Ox"/>
                                 </constraints>
                             </view>
@@ -675,8 +710,11 @@ Test</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-al-SQf">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I5j-al-SQf">
                                 <rect key="frame" x="25" y="460" width="270" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="oB1-Pa-ek5"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Card A"/>
                                     <segment title="Card B"/>
@@ -691,9 +729,15 @@ Test</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
                         <constraints>
+                            <constraint firstItem="HNg-Lj-TNH" firstAttribute="top" secondItem="wzE-OC-9mV" secondAttribute="top" constant="119" id="2ui-CY-Ko7"/>
+                            <constraint firstItem="I5j-al-SQf" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leading" constant="25" id="9G1-f7-i9k"/>
                             <constraint firstItem="HNg-Lj-TNH" firstAttribute="top" secondItem="L3L-hg-KiA" secondAttribute="bottom" constant="55" id="Awo-sp-aMa"/>
+                            <constraint firstAttribute="trailing" secondItem="I5j-al-SQf" secondAttribute="trailing" constant="25" id="E4C-gU-txK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HNg-Lj-TNH" secondAttribute="trailing" constant="9" id="Md9-ui-e19"/>
                             <constraint firstItem="HNg-Lj-TNH" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leadingMargin" constant="9" id="PdX-vr-zpc"/>
+                            <constraint firstAttribute="bottom" secondItem="I5j-al-SQf" secondAttribute="bottom" constant="80" id="e9n-hd-cYH"/>
+                            <constraint firstAttribute="trailing" secondItem="HNg-Lj-TNH" secondAttribute="trailing" constant="25" id="rbY-lb-khf"/>
+                            <constraint firstItem="HNg-Lj-TNH" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leading" constant="25" id="yg0-iK-Bpy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Meine Karte" id="2Td-P6-r5s">
@@ -875,259 +919,267 @@ Test</string>
             </objects>
             <point key="canvasLocation" x="538" y="515"/>
         </scene>
-        <!--Detailansicht-->
+        <!--DisplayContactViewController-->
         <scene sceneID="NCG-87-JYQ">
             <objects>
-                <viewController storyboardIdentifier="DisplayContactViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="MgR-wC-OmR" customClass="DisplayContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisplayContactViewController" title="DisplayContactViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MgR-wC-OmR" customClass="DisplayContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FWC-iA-Gcu"/>
                         <viewControllerLayoutGuide type="bottom" id="Byq-1i-UCI"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="S8V-ag-8Gk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBN-dz-aRh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEW-8D-xvP">
-                                        <rect key="frame" x="0.0" y="631" width="320" height="47"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="WzW-ke-tQf"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Kontakt im Adressbuch speichern">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveToAddressBookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="B4i-RB-gba"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOr-K1-tjp">
-                                        <rect key="frame" x="0.0" y="688" width="320" height="47"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="VDX-F0-nGK"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Kontakt teilen">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="shareContactButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="mVh-Ot-C70"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyX-LR-8uj">
-                                        <rect key="frame" x="0.0" y="745" width="320" height="47"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="daP-ca-toe"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Kontakt löschen">
-                                            <color key="titleColor" red="0.76401656870000001" green="0.0" blue="0.24152520299999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deleteContactButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="s3Y-Fc-Y9p"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-rZ-WqO">
-                                        <rect key="frame" x="0.0" y="67" width="320" height="554"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pny-0i-Baj">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="job" translatesAutoresizingMaskIntoConstraints="NO" id="XCx-CQ-SdI">
-                                                <rect key="frame" x="34" y="160" width="18" height="18"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0F-GC-0cH">
-                                                <rect key="frame" x="34" y="343" width="40" height="40"/>
-                                                <state key="normal" image="ic_round_facebook">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="facebookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="T8Y-n0-1fg"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name@domain.de" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06X-eh-ySV">
-                                                <rect key="frame" x="72" y="101" width="221" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ0-Ae-uKu">
-                                                <rect key="frame" x="31" y="270" width="18" height="18"/>
-                                                <state key="normal" image="timestamp">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9D-nn-Qve">
-                                                <rect key="frame" x="34" y="498" width="40" height="40"/>
-                                                <state key="normal" image="ic_round_linkedin">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="linkedinButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="Qff-8W-Jsd"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notizen" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzH-p4-t7S">
-                                                <rect key="frame" x="31" y="296" width="262" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="g9q-5y-im2">
-                                                <rect key="frame" x="34" y="74" width="18" height="18"/>
-                                            </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+00 00 00 00 00 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz9-Hd-YF6">
-                                                <rect key="frame" x="72" y="43" width="221" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mobile" translatesAutoresizingMaskIntoConstraints="NO" id="ah9-aP-l77">
-                                                <rect key="frame" x="34" y="45" width="18" height="18"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyP-GK-fHg">
-                                                <rect key="frame" x="34" y="393" width="40" height="40"/>
-                                                <state key="normal" image="ic_round_twitter">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="twitterButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="7YL-1O-1f5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obb-ZN-sOy">
-                                                <rect key="frame" x="34" y="446" width="40" height="40"/>
-                                                <state key="normal" image="ic_round_xing">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="xingButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="ppT-4z-TMS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKb-M4-TPz">
-                                                <rect key="frame" x="90" y="399" width="203" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                                <state key="normal" title="url">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-rZ-WqO">
+                                                <rect key="frame" x="0.0" y="63" width="320" height="554"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="job" translatesAutoresizingMaskIntoConstraints="NO" id="XCx-CQ-SdI">
+                                                        <rect key="frame" x="34" y="160" width="18" height="18"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0F-GC-0cH">
+                                                        <rect key="frame" x="34" y="343" width="40" height="40"/>
+                                                        <state key="normal" image="ic_round_facebook">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="facebookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="T8Y-n0-1fg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name@domain.de" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06X-eh-ySV">
+                                                        <rect key="frame" x="72" y="101" width="221" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ0-Ae-uKu">
+                                                        <rect key="frame" x="31" y="270" width="18" height="18"/>
+                                                        <state key="normal" image="timestamp">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9D-nn-Qve">
+                                                        <rect key="frame" x="34" y="498" width="40" height="40"/>
+                                                        <state key="normal" image="ic_round_linkedin">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="linkedinButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="Qff-8W-Jsd"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notizen" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzH-p4-t7S">
+                                                        <rect key="frame" x="31" y="296" width="262" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="g9q-5y-im2">
+                                                        <rect key="frame" x="34" y="74" width="18" height="18"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mobile" translatesAutoresizingMaskIntoConstraints="NO" id="ah9-aP-l77">
+                                                        <rect key="frame" x="34" y="45" width="18" height="18"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyP-GK-fHg">
+                                                        <rect key="frame" x="34" y="393" width="40" height="40"/>
+                                                        <state key="normal" image="ic_round_twitter">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="twitterButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="7YL-1O-1f5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obb-ZN-sOy">
+                                                        <rect key="frame" x="34" y="446" width="40" height="40"/>
+                                                        <state key="normal" image="ic_round_xing">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="xingButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="ppT-4z-TMS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKb-M4-TPz">
+                                                        <rect key="frame" x="90" y="399" width="203" height="28"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                        <state key="normal" title="url">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="twitterButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="hRX-fE-KN0"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXC-KK-1Hy">
+                                                        <rect key="frame" x="90" y="504" width="203" height="28"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                        <state key="normal" title="url">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="linkedinButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="TQC-pW-2RI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Ie-4aV">
+                                                        <rect key="frame" x="57" y="268" width="236" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-XF-3a7">
+                                                        <rect key="frame" x="72" y="159" width="221" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-4r-cuF">
+                                                        <rect key="frame" x="72" y="187" width="221" height="21"/>
+                                                        <gestureRecognizers/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Ucg-F1-g7b" appends="YES" id="yLi-Br-iXE"/>
+                                                        </connections>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-vR-Uod">
+                                                        <rect key="frame" x="72" y="215" width="221" height="42"/>
+                                                        <gestureRecognizers/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="4Qh-0I-FPi" appends="YES" id="fgG-ho-Xmv"/>
+                                                        </connections>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="company" translatesAutoresizingMaskIntoConstraints="NO" id="u7w-YK-Mbg">
+                                                        <rect key="frame" x="34" y="132" width="18" height="18"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-6F-u9B">
+                                                        <rect key="frame" x="90" y="349" width="203" height="28"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                        <state key="normal" title="url">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="facebookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="zlV-en-ORS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="uwt-qe-f1s">
+                                                        <rect key="frame" x="34" y="103" width="18" height="18"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFi-Td-LbH">
+                                                        <rect key="frame" x="90" y="452" width="203" height="28"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                        <state key="normal" title="url">
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="xingButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="oHC-tR-czp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfJ-At-wgD">
+                                                        <rect key="frame" x="27" y="13" width="266" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kU-XDj">
+                                                        <rect key="frame" x="72" y="130" width="221" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-it-il0">
+                                                        <rect key="frame" x="33" y="213" width="21" height="25"/>
+                                                    </imageView>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="website" translatesAutoresizingMaskIntoConstraints="NO" id="0H2-U2-RrM">
+                                                        <rect key="frame" x="33" y="185" width="21" height="25"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+00 00 00 00 00 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-T6-oOt">
+                                                        <rect key="frame" x="72" y="72" width="221" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+00 00 00 00 00 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz9-Hd-YF6">
+                                                        <rect key="frame" x="72" y="43" width="221" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="554" id="8I2-dY-w38"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEW-8D-xvP">
+                                                <rect key="frame" x="0.0" y="630" width="320" height="47"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="47" id="WzW-ke-tQf"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Kontakt im Adressbuch speichern">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="twitterButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="hRX-fE-KN0"/>
+                                                    <action selector="saveToAddressBookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="B4i-RB-gba"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXC-KK-1Hy">
-                                                <rect key="frame" x="90" y="504" width="203" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                                <state key="normal" title="url">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOr-K1-tjp">
+                                                <rect key="frame" x="0.0" y="687" width="320" height="47"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="47" id="VDX-F0-nGK"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Kontakt teilen">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="linkedinButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="TQC-pW-2RI"/>
+                                                    <action selector="shareContactButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="mVh-Ot-C70"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Ie-4aV">
-                                                <rect key="frame" x="57" y="268" width="236" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-XF-3a7">
-                                                <rect key="frame" x="72" y="159" width="221" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oH-4r-cuF">
-                                                <rect key="frame" x="72" y="187" width="221" height="21"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="Ucg-F1-g7b" appends="YES" id="yLi-Br-iXE"/>
-                                                </connections>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="221" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-vR-Uod">
-                                                <rect key="frame" x="72" y="215" width="221" height="42"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="4Qh-0I-FPi" appends="YES" id="fgG-ho-Xmv"/>
-                                                </connections>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="company" translatesAutoresizingMaskIntoConstraints="NO" id="u7w-YK-Mbg">
-                                                <rect key="frame" x="34" y="132" width="18" height="18"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-6F-u9B">
-                                                <rect key="frame" x="90" y="349" width="203" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                                <state key="normal" title="url">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyX-LR-8uj">
+                                                <rect key="frame" x="0.0" y="744" width="320" height="47"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="47" id="daP-ca-toe"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Kontakt löschen">
+                                                    <color key="titleColor" red="0.76401656870000001" green="0.0" blue="0.24152520299999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="facebookButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="zlV-en-ORS"/>
+                                                    <action selector="deleteContactButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="s3Y-Fc-Y9p"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="uwt-qe-f1s">
-                                                <rect key="frame" x="34" y="103" width="18" height="18"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFi-Td-LbH">
-                                                <rect key="frame" x="90" y="452" width="203" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                                <state key="normal" title="url">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="xingButtonClicked:" destination="MgR-wC-OmR" eventType="touchUpInside" id="oHC-tR-czp"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfJ-At-wgD">
-                                                <rect key="frame" x="27" y="13" width="266" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kU-XDj">
-                                                <rect key="frame" x="72" y="130" width="221" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-it-il0">
-                                                <rect key="frame" x="33" y="213" width="21" height="25"/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="website" translatesAutoresizingMaskIntoConstraints="NO" id="0H2-U2-RrM">
-                                                <rect key="frame" x="33" y="185" width="21" height="25"/>
-                                            </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+00 00 00 00 00 00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-T6-oOt">
-                                                <rect key="frame" x="72" y="72" width="221" height="21"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="554" id="Xxe-jT-Bw2"/>
-                                            <constraint firstAttribute="width" constant="320" id="mV1-Jj-byZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="g7j-rZ-WqO" secondAttribute="trailing" id="5ur-9V-5bk"/>
+                                            <constraint firstAttribute="trailing" secondItem="YOr-K1-tjp" secondAttribute="trailing" id="AmJ-o7-8xB"/>
+                                            <constraint firstAttribute="height" constant="850" id="BGw-J5-PLV"/>
+                                            <constraint firstItem="CEW-8D-xvP" firstAttribute="top" secondItem="g7j-rZ-WqO" secondAttribute="bottom" constant="13" id="Dmx-Rl-RiI"/>
+                                            <constraint firstAttribute="trailing" secondItem="YyX-LR-8uj" secondAttribute="trailing" id="Jba-u8-imp"/>
+                                            <constraint firstItem="YyX-LR-8uj" firstAttribute="top" secondItem="YOr-K1-tjp" secondAttribute="bottom" constant="10" id="N5V-Sn-Qoj"/>
+                                            <constraint firstItem="g7j-rZ-WqO" firstAttribute="leading" secondItem="Pny-0i-Baj" secondAttribute="leading" id="S3d-Ig-Y9M"/>
+                                            <constraint firstItem="CEW-8D-xvP" firstAttribute="leading" secondItem="Pny-0i-Baj" secondAttribute="leading" id="Zhr-PK-tQx"/>
+                                            <constraint firstItem="YyX-LR-8uj" firstAttribute="leading" secondItem="Pny-0i-Baj" secondAttribute="leading" id="emx-dB-mCu"/>
+                                            <constraint firstItem="YOr-K1-tjp" firstAttribute="leading" secondItem="Pny-0i-Baj" secondAttribute="leading" id="gFs-hp-w1U"/>
+                                            <constraint firstAttribute="trailing" secondItem="CEW-8D-xvP" secondAttribute="trailing" id="gVS-YZ-3rL"/>
+                                            <constraint firstAttribute="width" constant="320" id="lt9-Lg-rvE"/>
+                                            <constraint firstItem="g7j-rZ-WqO" firstAttribute="top" secondItem="Pny-0i-Baj" secondAttribute="top" constant="63" id="opl-KR-nPd"/>
+                                            <constraint firstItem="YOr-K1-tjp" firstAttribute="top" secondItem="CEW-8D-xvP" secondAttribute="bottom" constant="10" id="xD9-hB-BWr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="CEW-8D-xvP" firstAttribute="top" secondItem="g7j-rZ-WqO" secondAttribute="bottom" constant="10" id="4CB-bU-zfU"/>
-                                    <constraint firstAttribute="trailing" secondItem="YOr-K1-tjp" secondAttribute="trailing" id="5hG-LY-m2z"/>
-                                    <constraint firstAttribute="bottom" secondItem="YyX-LR-8uj" secondAttribute="bottom" constant="110" id="7jL-JN-ajA"/>
-                                    <constraint firstItem="g7j-rZ-WqO" firstAttribute="top" secondItem="gBN-dz-aRh" secondAttribute="top" constant="67" id="DRo-xP-0jf"/>
-                                    <constraint firstItem="YyX-LR-8uj" firstAttribute="top" secondItem="YOr-K1-tjp" secondAttribute="bottom" constant="10" id="Fft-81-BJn"/>
-                                    <constraint firstItem="YOr-K1-tjp" firstAttribute="top" secondItem="CEW-8D-xvP" secondAttribute="bottom" constant="10" id="GE7-P6-s8t"/>
-                                    <constraint firstAttribute="trailing" secondItem="g7j-rZ-WqO" secondAttribute="trailing" id="LjV-4Y-aQG"/>
-                                    <constraint firstAttribute="trailing" secondItem="CEW-8D-xvP" secondAttribute="trailing" id="cY6-9V-cgO"/>
-                                    <constraint firstItem="CEW-8D-xvP" firstAttribute="top" secondItem="g7j-rZ-WqO" secondAttribute="bottom" constant="10" id="caa-xV-kmJ"/>
-                                    <constraint firstItem="g7j-rZ-WqO" firstAttribute="leading" secondItem="gBN-dz-aRh" secondAttribute="leading" id="j75-pe-Tq9"/>
-                                    <constraint firstItem="CEW-8D-xvP" firstAttribute="leading" secondItem="gBN-dz-aRh" secondAttribute="leading" id="kgd-rl-w51"/>
-                                    <constraint firstAttribute="trailing" secondItem="YyX-LR-8uj" secondAttribute="trailing" id="kpG-BW-EB2"/>
-                                    <constraint firstItem="YyX-LR-8uj" firstAttribute="leading" secondItem="gBN-dz-aRh" secondAttribute="leading" id="lhx-A2-ThP"/>
-                                    <constraint firstItem="YOr-K1-tjp" firstAttribute="leading" secondItem="gBN-dz-aRh" secondAttribute="leading" id="zbm-pb-Df0"/>
+                                    <constraint firstItem="Pny-0i-Baj" firstAttribute="top" secondItem="gBN-dz-aRh" secondAttribute="top" id="Iam-8Y-SGU"/>
+                                    <constraint firstItem="Pny-0i-Baj" firstAttribute="leading" secondItem="gBN-dz-aRh" secondAttribute="leading" id="YPG-i7-9Yg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pny-0i-Baj" secondAttribute="trailing" id="bQ9-ZY-WxY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pny-0i-Baj" secondAttribute="bottom" id="lq4-3g-WE9"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1147,11 +1199,12 @@ Test</string>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="900"/>
+                    <size key="freeformSize" width="320" height="850"/>
                     <connections>
                         <outlet property="_addressLabel" destination="ZK3-vR-Uod" id="4Dn-bg-AKD"/>
                         <outlet property="_websiteLabel" destination="6oH-4r-cuF" id="SiY-Jv-KmK"/>
                         <outlet property="companyLabel" destination="gDO-kU-XDj" id="9Pm-kx-U8H"/>
+                        <outlet property="contentView" destination="Pny-0i-Baj" id="GE3-vB-dFZ"/>
                         <outlet property="deleteContactButton" destination="YyX-LR-8uj" id="7wk-tr-EvJ"/>
                         <outlet property="emailLabel" destination="06X-eh-ySV" id="AYv-Ja-S0Q"/>
                         <outlet property="facebookIcon" destination="x0F-GC-0cH" id="xUN-mX-3QQ"/>
@@ -1514,8 +1567,8 @@ Test</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aVF-Tt-Z6G"/>
         <segue reference="vJY-OD-AU4"/>
+        <segue reference="vl1-xC-OSz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99607843139999996" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

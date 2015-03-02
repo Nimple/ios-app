@@ -18,6 +18,8 @@
     __weak IBOutlet UILabel *_addressLabel;
 }
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @end
 
 @implementation DisplayContactViewController
@@ -26,7 +28,6 @@
 {
     [super viewDidLoad];
     [self localizeViewAttributes];
-    [self configureScrollView];
     [self updateView];
 }
 
@@ -46,6 +47,12 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self configureScrollView];
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
@@ -63,10 +70,7 @@
 
 - (void)configureScrollView
 {
-    self.scrollView.delegate = self;
-    self.scrollView.scrollEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(320, 753);
-    self.scrollView.frame = self.view.frame;
+    
 }
 
 - (void)updateView

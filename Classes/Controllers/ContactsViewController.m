@@ -65,7 +65,6 @@
     if ([segue.identifier isEqualToString:@"DetailView"]) {
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         NimpleContact *contact = _contacts[indexPath.row];
-        
         DisplayContactViewController *displayContactViewController = segue.destinationViewController;
         displayContactViewController.delegate = self;
         displayContactViewController.nimpleContact = contact;
