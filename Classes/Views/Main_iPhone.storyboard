@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -410,48 +412,78 @@ auf deiner Karte und in deinem Code</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pro_version_banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_version_banner" translatesAutoresizingMaskIntoConstraints="NO" id="LFg-YD-Q8t">
                                 <rect key="frame" x="0.0" y="64" width="320" height="149"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LFg-YD-Q8t" secondAttribute="height" multiplier="320:149" id="bnt-eT-Mhs"/>
+                                </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46n-wd-tga">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46n-wd-tga">
                                 <rect key="frame" x="0.0" y="213" width="328" height="258"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" indicatorStyle="black" editable="NO" text="Nimple Pro will give you incredible new useful features such as" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gru-K2-aOq">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" indicatorStyle="black" editable="NO" text="Nimple Pro will give you incredible new useful features such as" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gru-K2-aOq">
                                         <rect key="frame" x="28" y="8" width="265" height="46"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="qNs-mr-A8H"/>
+                                        </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Share and send your nimple card, code and contact/s via mail or any other medium" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8J-gg-BTp">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Share and send your nimple card, code and contact/s via mail or any other medium" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8J-gg-BTp">
                                         <rect key="frame" x="95" y="69" width="198" height="59"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="NSB-nS-re7"/>
+                                        </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Create multiple nimple cards and codes (e.g. one for business, one for private and one for university)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-py-pZ9">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Create multiple nimple cards and codes (e.g. one for business, one for private and one for university)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-py-pZ9">
                                         <rect key="frame" x="95" y="145" width="198" height="65"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-ob-Nqa">
-                                        <rect key="frame" x="31" y="84" width="30" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_feature_multiple_cards" translatesAutoresizingMaskIntoConstraints="NO" id="nAk-sT-c3J">
+                                        <rect key="frame" x="28" y="158" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qfg-Ep-cpw"/>
+                                        </constraints>
                                     </imageView>
-                                    <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cfd-6k-d0A">
-                                        <rect key="frame" x="20" y="164" width="53" height="29"/>
-                                        <segments>
-                                            <segment title="A"/>
-                                            <segment title="B"/>
-                                        </segments>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </segmentedControl>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pro_feature_share" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-ob-Nqa">
+                                        <rect key="frame" x="28" y="79" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="TlS-QL-i0j"/>
+                                            <constraint firstAttribute="height" constant="40" id="psu-2a-7bj"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ClP-py-pZ9" firstAttribute="top" secondItem="T8J-gg-BTp" secondAttribute="bottom" constant="17" id="02E-a7-fba"/>
+                                    <constraint firstItem="T8J-gg-BTp" firstAttribute="top" secondItem="gru-K2-aOq" secondAttribute="bottom" constant="15" id="CWz-kE-zMa"/>
+                                    <constraint firstItem="gru-K2-aOq" firstAttribute="top" secondItem="46n-wd-tga" secondAttribute="topMargin" id="HEO-Dp-BJp"/>
+                                    <constraint firstItem="1oa-ob-Nqa" firstAttribute="top" secondItem="gru-K2-aOq" secondAttribute="bottom" constant="25" id="QxY-8B-eTt"/>
+                                    <constraint firstItem="nAk-sT-c3J" firstAttribute="trailing" secondItem="1oa-ob-Nqa" secondAttribute="trailing" id="UoG-y3-DSn"/>
+                                    <constraint firstItem="ClP-py-pZ9" firstAttribute="trailing" secondItem="T8J-gg-BTp" secondAttribute="trailing" id="UuH-F4-Cao"/>
+                                    <constraint firstAttribute="bottom" secondItem="ClP-py-pZ9" secondAttribute="bottom" constant="48" id="WjI-qR-JJi"/>
+                                    <constraint firstAttribute="trailing" secondItem="gru-K2-aOq" secondAttribute="trailing" constant="35" id="ZjF-cD-Emu"/>
+                                    <constraint firstItem="gru-K2-aOq" firstAttribute="leading" secondItem="46n-wd-tga" secondAttribute="leading" constant="28" id="Zoa-RN-UKG"/>
+                                    <constraint firstItem="gru-K2-aOq" firstAttribute="leading" secondItem="1oa-ob-Nqa" secondAttribute="leading" id="aWS-vQ-BcY"/>
+                                    <constraint firstItem="nAk-sT-c3J" firstAttribute="top" secondItem="1oa-ob-Nqa" secondAttribute="bottom" constant="39" id="cLQ-3q-bxz"/>
+                                    <constraint firstItem="ClP-py-pZ9" firstAttribute="leading" secondItem="T8J-gg-BTp" secondAttribute="leading" id="e93-DH-it1"/>
+                                    <constraint firstItem="T8J-gg-BTp" firstAttribute="top" secondItem="gru-K2-aOq" secondAttribute="bottom" constant="15" id="kzG-je-IG5"/>
+                                    <constraint firstItem="nAk-sT-c3J" firstAttribute="leading" secondItem="1oa-ob-Nqa" secondAttribute="leading" id="lg8-tC-lSu"/>
+                                    <constraint firstItem="ClP-py-pZ9" firstAttribute="leading" secondItem="nAk-sT-c3J" secondAttribute="trailing" constant="27" id="nYd-SX-NI6"/>
+                                    <constraint firstItem="gru-K2-aOq" firstAttribute="trailing" secondItem="T8J-gg-BTp" secondAttribute="trailing" id="rvy-SB-KQC"/>
+                                    <constraint firstAttribute="bottom" secondItem="nAk-sT-c3J" secondAttribute="bottom" constant="60" id="sG4-N0-xBm"/>
+                                </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
-                                <rect key="frame" x="100" y="479" width="129" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
+                                <rect key="frame" x="96" y="479" width="129" height="30"/>
                                 <gestureRecognizers/>
                                 <state key="normal" title="Unlock pro version">
                                     <color key="titleColor" red="0.76401656870000001" green="0.0" blue="0.24152520299999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -463,6 +495,17 @@ auf deiner Karte und in deinem Code</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="46n-wd-tga" secondAttribute="bottom" constant="8" symbolic="YES" id="736-vr-Aud"/>
+                            <constraint firstAttribute="trailing" secondItem="LFg-YD-Q8t" secondAttribute="trailing" id="Bix-jD-BVe"/>
+                            <constraint firstItem="LFg-YD-Q8t" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" id="HOl-yu-1M2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="46n-wd-tga" secondAttribute="trailing" constant="-24" id="SBx-6T-i0q"/>
+                            <constraint firstItem="46n-wd-tga" firstAttribute="centerX" secondItem="yqw-2g-0kH" secondAttribute="centerX" constant="3.5" id="VLi-md-Efh"/>
+                            <constraint firstItem="46n-wd-tga" firstAttribute="leading" secondItem="LFg-YD-Q8t" secondAttribute="leading" id="Z3e-rt-EH4"/>
+                            <constraint firstItem="LFg-YD-Q8t" firstAttribute="top" secondItem="Isj-i2-L3p" secondAttribute="bottom" id="bIj-Jm-Cyq"/>
+                            <constraint firstItem="46n-wd-tga" firstAttribute="top" secondItem="LFg-YD-Q8t" secondAttribute="bottom" id="dK8-7G-cwf"/>
+                            <constraint firstAttribute="bottom" secondItem="46n-wd-tga" secondAttribute="bottom" constant="97" id="uyo-oO-KVZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EFm-HE-oUs"/>
                     <connections>
@@ -508,8 +551,8 @@ auf deiner Karte und in deinem Code</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="NimpleCard" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
-                                <rect key="frame" x="25" y="124" width="270" height="326"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="NimpleCard" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Lj-TNH">
+                                <rect key="frame" x="25" y="119" width="270" height="326"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Mustermann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-yf-iBD">
                                         <rect key="frame" x="20" y="22" width="228" height="21"/>
@@ -518,91 +561,104 @@ auf deiner Karte und in deinem Code</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+49 176 1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-Xs-CG7">
-                                        <rect key="frame" x="61" y="57" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="53" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="tko-oa-nu0">
-                                        <rect key="frame" x="22" y="57" width="21" height="21"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mobile" translatesAutoresizingMaskIntoConstraints="NO" id="tko-oa-nu0">
+                                        <rect key="frame" x="22" y="53" width="21" height="21"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_facebook" translatesAutoresizingMaskIntoConstraints="NO" id="DMZ-qB-kMk">
-                                        <rect key="frame" x="20" y="261" width="45" height="45"/>
+                                        <rect key="frame" x="22" y="273" width="45" height="45"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="F5T-IT-3Qp">
-                                        <rect key="frame" x="194" y="261" width="45" height="45"/>
+                                        <rect key="frame" x="193" y="273" width="45" height="45"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="max@mustermann.de" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjM-m1-SNy">
-                                        <rect key="frame" x="61" y="86" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="109" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unternehmen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvn-QE-TJ3">
-                                        <rect key="frame" x="61" y="112" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="137" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHS-O7-k9s">
-                                        <rect key="frame" x="61" y="140" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="165" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="189" translatesAutoresizingMaskIntoConstraints="NO" id="gId-oB-pTz" userLabel="Label - Address">
-                                        <rect key="frame" x="61" y="196" width="189" height="42"/>
+                                        <rect key="frame" x="61" y="221" width="189" height="42"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPU-7l-ISG" userLabel="Label - Website">
-                                        <rect key="frame" x="61" y="168" width="189" height="21"/>
+                                        <rect key="frame" x="61" y="193" width="189" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-L7-FTT">
-                                        <rect key="frame" x="22" y="86" width="21" height="21"/>
+                                        <rect key="frame" x="22" y="109" width="21" height="21"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="company" translatesAutoresizingMaskIntoConstraints="NO" id="Fh3-Og-dzq">
-                                        <rect key="frame" x="22" y="112" width="21" height="21"/>
+                                        <rect key="frame" x="22" y="137" width="21" height="21"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="job" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-HS-feO">
-                                        <rect key="frame" x="22" y="140" width="21" height="21"/>
+                                        <rect key="frame" x="22" y="165" width="21" height="21"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="address" translatesAutoresizingMaskIntoConstraints="NO" id="jRB-EV-w9p">
-                                        <rect key="frame" x="22" y="196" width="21" height="21"/>
+                                        <rect key="frame" x="22" y="221" width="21" height="21"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="website" translatesAutoresizingMaskIntoConstraints="NO" id="o5K-zF-43J">
-                                        <rect key="frame" x="22" y="168" width="21" height="21"/>
+                                        <rect key="frame" x="22" y="193" width="21" height="21"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_twitter" translatesAutoresizingMaskIntoConstraints="NO" id="u9j-gI-g0r">
-                                        <rect key="frame" x="78" y="261" width="45" height="45"/>
+                                        <rect key="frame" x="79" y="273" width="45" height="45"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_round_xing" translatesAutoresizingMaskIntoConstraints="NO" id="baU-Re-0qS">
-                                        <rect key="frame" x="133" y="261" width="45" height="45"/>
+                                        <rect key="frame" x="136" y="273" width="45" height="45"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+49 176 1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b79-ui-hKg">
+                                        <rect key="frame" x="61" y="81" width="189" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Dyv-HH-sHF">
+                                        <rect key="frame" x="22" y="81" width="21" height="21"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="D2D-8w-9xf"/>
+                                    <constraint firstAttribute="width" secondItem="HNg-Lj-TNH" secondAttribute="height" multiplier="135:163" id="n4H-4u-2Ox"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
-                                <rect key="frame" x="0.0" y="454" width="320" height="114"/>
+                                <rect key="frame" x="0.0" y="447" width="320" height="121"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-09-7hh">
-                                        <rect key="frame" x="20" y="-380" width="19" height="67"/>
+                                        <rect key="frame" x="20" y="-373" width="19" height="67"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
-                                        <rect key="frame" x="20" y="-313" width="214" height="43"/>
+                                        <rect key="frame" x="20" y="-306" width="214" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
-                                        <rect key="frame" x="281" y="-381" width="19" height="42"/>
+                                        <rect key="frame" x="281" y="-374" width="19" height="42"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
-                                        <rect key="frame" x="146" y="-346" width="154" height="43"/>
+                                        <rect key="frame" x="146" y="-339" width="154" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -633,6 +689,11 @@ Test</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label="Nimple Card View Controller"/>
+                        <constraints>
+                            <constraint firstItem="HNg-Lj-TNH" firstAttribute="top" secondItem="L3L-hg-KiA" secondAttribute="bottom" constant="36" id="Awo-sp-aMa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HNg-Lj-TNH" secondAttribute="trailing" constant="9" id="Md9-ui-e19"/>
+                            <constraint firstItem="HNg-Lj-TNH" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leadingMargin" constant="9" id="PdX-vr-zpc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Meine Karte" id="2Td-P6-r5s">
                         <barButtonItem key="leftBarButtonItem" image="edit-card" id="Aay-Qv-MfA">
@@ -784,7 +845,7 @@ Test</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Meine Kontakte" id="bbO-qy-7D2">
-                        <barButtonItem key="leftBarButtonItem" image="share" id="Qd7-Mf-Rms"/>
+                        <barButtonItem key="leftBarButtonItem" image="navbar_share_contacts" id="Qd7-Mf-Rms"/>
                         <barButtonItem key="rightBarButtonItem" image="add-contact" id="BBF-qX-XYA">
                             <connections>
                                 <segue destination="o5E-Ml-Dot" kind="push" identifier="AddContact" id="vJY-OD-AU4"/>
@@ -1419,9 +1480,12 @@ Test</string>
         <image name="ic_round_twitter" width="59" height="59"/>
         <image name="ic_round_xing" width="59" height="59"/>
         <image name="job" width="36" height="36"/>
+        <image name="mobile" width="36" height="36"/>
+        <image name="navbar_share_contacts" width="50" height="50"/>
         <image name="phone" width="36" height="36"/>
+        <image name="pro_feature_multiple_cards" width="92" height="90"/>
+        <image name="pro_feature_share" width="79" height="97"/>
         <image name="pro_version_banner" width="1080" height="540"/>
-        <image name="share" width="32" height="41"/>
         <image name="tabbar_contacts" width="21" height="24"/>
         <image name="tabbar_nimple-card" width="23" height="23"/>
         <image name="tabbar_nimple-code" width="25" height="25"/>
@@ -1436,8 +1500,8 @@ Test</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="vJY-OD-AU4"/>
         <segue reference="vl1-xC-OSz"/>
-        <segue reference="8mu-bB-DzI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99607843139999996" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
