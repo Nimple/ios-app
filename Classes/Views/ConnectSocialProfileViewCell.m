@@ -112,7 +112,7 @@
 - (void)handleFacebook
 {
     self.fbLoginView = [[FBLoginView alloc] init];
-    self.fbLoginView.readPermissions = @[@"basic_info"];
+    self.fbLoginView.readPermissions = @[@"public_profile"];
     [self addSubview:self.fbLoginView];
     [self.fbLoginView setHidden:YES];
     self.fbLoginView.delegate = self;

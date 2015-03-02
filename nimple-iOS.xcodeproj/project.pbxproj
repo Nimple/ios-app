@@ -22,7 +22,6 @@
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
 		B526D76D1909AB1000055177 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = B526D76C1909AB1000055177 /* Logging.m */; };
 		B53CD23A1904AAB200928B43 /* VCardParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CD2391904AAB200928B43 /* VCardParser.m */; };
-		B5408AF21904A1A70033DF1A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5408AF11904A1A70033DF1A /* FacebookSDK.framework */; };
 		B5408B171904A1D60033DF1A /* NimpleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF61904A1D60033DF1A /* NimpleAppDelegate.m */; };
 		B5408B181904A1D60033DF1A /* BarCodeReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AF91904A1D60033DF1A /* BarCodeReaderController.m */; };
 		B5408B191904A1D60033DF1A /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5408AFB1904A1D60033DF1A /* ContactsViewController.m */; };
@@ -147,7 +146,6 @@
 				D1E55F1718C1F1450035D828 /* CoreData.framework in Frameworks */,
 				9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */,
 				9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */,
-				B5408AF21904A1A70033DF1A /* FacebookSDK.framework in Frameworks */,
 				D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */,
 				D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */,
 				D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */,
