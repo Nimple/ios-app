@@ -123,3 +123,6 @@
 "alertview_camera_permission_title" = "Kein Kamera-Zugriff";
 "alertview_camera_permission_text" = "Leider hat Nimple keine Rechte um die Kamera nutzen zu können. Dies ist aber zwingend erforderlich um einen QR-Code zu scannnen. Du kannst Nimple die Rechte unter Einstellungen -> Privatsphäre -> Kamera -> Nimple geben.";
 "alertview_camera_permission_button" = "Okay";
+
+"header_code" = "Klicke auf deinen Code, um ihn zu teilen";
+"header_card" = "Klicke auf deine Karte, um sie zu teilen";
