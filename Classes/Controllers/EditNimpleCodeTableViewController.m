@@ -57,7 +57,7 @@
 {
     if (indexPath.section == 2)
         return 60.0;
-    else if (indexPath.section == 0 && indexPath.row == 5)
+    else if (indexPath.section == 0 && indexPath.row == 6)
         return 86.0;
     else
         return 45.0;

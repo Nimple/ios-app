@@ -20,8 +20,7 @@
     NSArray *_contacts;
 }
 
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *exportContactsButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *exportContactsButton;
 
 @end
 
@@ -55,9 +54,21 @@
 {
     _contacts = [_model contacts];
     [self.tableView reloadData];
-    if (![[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
-        [self.exportContactsButton setEnabled:NO];
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        [self addExportContactsButton];
+    } else {
+        [self removeExportContactsButton];
     }
+}
+
+- (void)addExportContactsButton
+{
+    self.navigationItem.leftBarButtonItem = self.exportContactsButton;
+}
+
+- (void)removeExportContactsButton
+{
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
