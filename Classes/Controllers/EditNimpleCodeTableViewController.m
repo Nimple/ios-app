@@ -90,7 +90,7 @@
         if (indexPath.row == 2) {
             [cell.propertySwitch setOn:_code.cellPhoneSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
-            [cell.inputField setPlaceholder:NimpleLocalizedString(@"cellphonenumber_label")];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"mobilenumber_label")];
             cell.inputField.text = _code.cellPhone;
             if([_code.cellPhone length] == 0) {
                 [cell.propertySwitch setAlpha:0.0];

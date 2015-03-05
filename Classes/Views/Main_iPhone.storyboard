@@ -230,7 +230,7 @@ auf deiner Karte und in deinem Code</string>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <switch opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CP-rF-Y18">
+                                <switch opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8CP-rF-Y18">
                                     <rect key="frame" x="251" y="26" width="51" height="31"/>
                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,6 +238,10 @@ auf deiner Karte und in deinem Code</string>
                                 </switch>
                             </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="8CP-rF-Y18" secondAttribute="trailing" constant="20" id="Tkz-LY-QRS"/>
+                                <constraint firstItem="8CP-rF-Y18" firstAttribute="top" secondItem="QIW-ZU-DBK" secondAttribute="top" constant="26" id="t5m-Ha-lK1"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditInputViewCell" id="bQT-iM-lrq" userLabel="EditInputViewCell" customClass="EditInputViewCell">
@@ -247,7 +251,7 @@ auf deiner Karte und in deinem Code</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Es-px3">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Es-px3">
                                             <rect key="frame" x="251" y="6" width="51" height="31"/>
                                             <color key="tintColor" red="0.52156862745098043" green="0.0" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="onTintColor" red="0.55294117647058827" green="0.031372549019607843" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,6 +272,10 @@ auf deiner Karte und in deinem Code</string>
                                         </textField>
                                     </subviews>
                                     <color key="tintColor" red="0.5" green="0.0" blue="0.36254722010000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ifn-Es-px3" secondAttribute="trailing" constant="20" id="YmN-jh-LMh"/>
+                                        <constraint firstItem="ifn-Es-px3" firstAttribute="top" secondItem="Zkh-j9-886" secondAttribute="top" constant="6" id="yRe-eN-0gi"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -299,7 +307,7 @@ auf deiner Karte und in deinem Code</string>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIF-k7-vYh">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIF-k7-vYh">
                                             <rect key="frame" x="254" y="16" width="51" height="31"/>
                                             <color key="tintColor" red="0.52156862745098043" green="0.0" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="onTintColor" red="0.55294117647058827" green="0.031372549019607843" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,6 +316,10 @@ auf deiner Karte und in deinem Code</string>
                                             </connections>
                                         </switch>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bIF-k7-vYh" firstAttribute="top" secondItem="XCc-uI-3Up" secondAttribute="top" constant="16" id="1kK-3M-ypM"/>
+                                        <constraint firstAttribute="trailing" secondItem="bIF-k7-vYh" secondAttribute="trailing" constant="17" id="mrL-84-s06"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -356,7 +368,7 @@ auf deiner Karte und in deinem Code</string>
                                                 <action selector="editingDidEnd:" destination="2WJ-XE-ug6" eventType="editingDidEnd" id="pU5-OI-rg8"/>
                                             </connections>
                                         </textField>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FE-8Z-VBa">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2FE-8Z-VBa">
                                             <rect key="frame" x="251" y="6" width="51" height="31"/>
                                             <color key="tintColor" red="0.52156862749999999" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="onTintColor" red="0.55294117649999996" green="0.031372549020000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
