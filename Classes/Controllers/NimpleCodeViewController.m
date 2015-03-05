@@ -65,6 +65,15 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
 
 - (void)updateView
 {
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        if (![self emptyNimpleCode]) {
+            self.shareCodeLabel.hidden = NO;
+        } else {
+            self.shareCodeLabel.hidden = YES;
+        }
+    } else {
+        self.shareCodeLabel.hidden = YES;
+    }
     if ([self emptyNimpleCode]) {
         _welcomeView.hidden = NO;
         _nimpleCodeImage.hidden = YES;

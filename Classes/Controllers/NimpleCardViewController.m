@@ -64,6 +64,14 @@
 
 - (void)updateView
 {
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        [self.headerCard setHidden:NO];
+        if (self.checkOwnProperties) {
+            [self.headerCard setHidden:YES];
+        }
+    } else {
+        [self.headerCard setHidden:YES];
+    }
     if (self.checkOwnProperties) {
         [self.nimpleCardView setHidden:TRUE];
         [self.welcomeView setHidden:FALSE];
