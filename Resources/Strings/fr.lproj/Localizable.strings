@@ -10,6 +10,7 @@
 "firstname_label" = "Prénom";
 "lastname_label" = "Nom";
 "phonenumber_label" = "Numéro de téléphone";
+"mobilenumber_label" = "Numéro de mobile";
 "mail_label" = "Adresse e-mail";
 "business_label" = "COMMERCIAL";
 "company_label" = "Société/université/école";

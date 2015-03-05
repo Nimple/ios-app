@@ -10,6 +10,7 @@
 "firstname_label" = "Ad";
 "lastname_label" = "Soyad";
 "phonenumber_label" = "Telefon numarası";
+"mobilenumber_label" = "Cep numarası";
 "mail_label" = "E-posta adresi";
 "business_label" = "TICARI";
 "company_label" = "Şirket/üniversite/okul";
