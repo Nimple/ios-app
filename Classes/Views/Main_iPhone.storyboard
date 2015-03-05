@@ -97,29 +97,45 @@ Test</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eoc-tG-TqR">
-                                <rect key="frame" x="0.0" y="496" width="320" height="72"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eoc-tG-TqR">
+                                <rect key="frame" x="0.0" y="70" width="320" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="Shh-tn-YQu">
-                                        <rect key="frame" x="20" y="-422" width="19" height="67"/>
+                                        <rect key="frame" x="20" y="0.0" width="19" height="67"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="213" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-2a-vt8">
-                                        <rect key="frame" x="20" y="-355" width="213" height="43"/>
+                                        <rect key="frame" x="20" y="70" width="213" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="RVr-Gd-d1W">
-                                        <rect key="frame" x="281" y="-423" width="19" height="42"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="RVr-Gd-d1W">
+                                        <rect key="frame" x="281" y="0.0" width="19" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="iui-zK-0CA"/>
+                                            <constraint firstAttribute="width" constant="19" id="km7-oI-xDQ"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="8po-Mc-N33">
-                                        <rect key="frame" x="146" y="-388" width="154" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="8po-Mc-N33">
+                                        <rect key="frame" x="146" y="40" width="154" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="154" id="AvM-Uj-zHP"/>
+                                            <constraint firstAttribute="height" constant="43" id="Eoj-lI-Cjo"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="6VS-Ds-smu"/>
+                                    <constraint firstAttribute="trailing" secondItem="8po-Mc-N33" secondAttribute="trailing" constant="20" id="ICl-hP-qEO"/>
+                                    <constraint firstItem="RVr-Gd-d1W" firstAttribute="top" secondItem="Eoc-tG-TqR" secondAttribute="top" id="evk-Jv-TD5"/>
+                                    <constraint firstAttribute="width" constant="320" id="peh-bP-Wj3"/>
+                                    <constraint firstAttribute="trailing" secondItem="RVr-Gd-d1W" secondAttribute="trailing" constant="20" id="rKo-tT-ROf"/>
+                                    <constraint firstItem="8po-Mc-N33" firstAttribute="top" secondItem="Eoc-tG-TqR" secondAttribute="top" constant="40" id="wCh-Ne-0d3"/>
+                                </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="trE-Z2-Fha">
                                 <rect key="frame" x="25" y="460" width="270" height="29"/>
@@ -171,10 +187,13 @@ Test</string>
                             <constraint firstAttribute="trailing" secondItem="7dE-Fy-tEd" secondAttribute="trailing" constant="24" id="avP-7o-vZo"/>
                             <constraint firstItem="trE-Z2-Fha" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leading" constant="25" id="d0i-4x-8Ce"/>
                             <constraint firstItem="6BA-IE-nrP" firstAttribute="top" secondItem="c7o-rU-VLc" secondAttribute="topMargin" constant="128" id="ilP-MS-B3Y"/>
+                            <constraint firstItem="Eoc-tG-TqR" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leading" id="jFs-vh-LZy"/>
                             <constraint firstItem="als-zh-r6e" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leadingMargin" constant="4" id="koG-qu-1Hz"/>
                             <constraint firstItem="als-zh-r6e" firstAttribute="top" secondItem="6BA-IE-nrP" secondAttribute="bottom" constant="3" id="kri-8h-cOl"/>
                             <constraint firstItem="7dE-Fy-tEd" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leading" constant="20" id="oqt-tB-mbU"/>
+                            <constraint firstAttribute="trailing" secondItem="Eoc-tG-TqR" secondAttribute="trailing" id="sSl-fE-X9M"/>
                             <constraint firstItem="6BA-IE-nrP" firstAttribute="leading" secondItem="c7o-rU-VLc" secondAttribute="leadingMargin" constant="24" id="vgo-Na-jUy"/>
+                            <constraint firstItem="Eoc-tG-TqR" firstAttribute="top" secondItem="LQm-3b-JN1" secondAttribute="bottom" constant="6" id="ymI-yN-Sni"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mein Code" id="93b-pI-kqe">
@@ -554,7 +573,7 @@ auf deiner Karte und in deinem Code</string>
                             <constraint firstAttribute="bottom" secondItem="46n-wd-tga" secondAttribute="bottom" constant="120" id="uyo-oO-KVZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EFm-HE-oUs"/>
+                    <navigationItem key="navigationItem" title="Pro Version" id="EFm-HE-oUs"/>
                     <connections>
                         <outlet property="proFeatureA" destination="T8J-gg-BTp" id="mAY-69-aDI"/>
                         <outlet property="proFeatureB" destination="ClP-py-pZ9" id="54d-2q-jGW"/>
@@ -694,29 +713,45 @@ auf deiner Karte und in deinem Code</string>
                                     <outletCollection property="gestureRecognizers" destination="PGo-jH-V7s" appends="YES" id="hcw-jD-KET"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
-                                <rect key="frame" x="0.0" y="447" width="320" height="121"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-UC-g2l">
+                                <rect key="frame" x="0.0" y="70" width="320" height="121"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_middle" translatesAutoresizingMaskIntoConstraints="NO" id="2vT-09-7hh">
-                                        <rect key="frame" x="20" y="-373" width="19" height="67"/>
+                                        <rect key="frame" x="20" y="0.0" width="19" height="67"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gib deine Daten ein, um deine Karte und deinen Code zu erstellen" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dy-g7L">
-                                        <rect key="frame" x="20" y="-306" width="214" height="43"/>
+                                        <rect key="frame" x="20" y="70" width="214" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
-                                        <rect key="frame" x="281" y="-374" width="19" height="42"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up_short" translatesAutoresizingMaskIntoConstraints="NO" id="Xoe-La-ct1">
+                                        <rect key="frame" x="281" y="0.0" width="19" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="GDQ-rv-SMX"/>
+                                            <constraint firstAttribute="width" constant="19" id="mMI-Xc-EQA"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
-                                        <rect key="frame" x="146" y="-339" width="154" height="43"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanne einen neuen Kontakt" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="5rB-IY-lNI">
+                                        <rect key="frame" x="146" y="40" width="154" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="KcK-cN-uLO"/>
+                                            <constraint firstAttribute="width" constant="154" id="nY2-YZ-3Gi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Xoe-La-ct1" secondAttribute="trailing" constant="20" id="8TP-uj-uSl"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5rB-IY-lNI" secondAttribute="trailing" constant="20" id="BwW-6b-gev"/>
+                                    <constraint firstItem="Xoe-La-ct1" firstAttribute="top" secondItem="lE6-UC-g2l" secondAttribute="top" id="HbO-tD-SL2"/>
+                                    <constraint firstAttribute="trailing" secondItem="5rB-IY-lNI" secondAttribute="trailing" constant="20" id="aFU-1k-nUO"/>
+                                    <constraint firstAttribute="height" constant="121" id="nnA-7p-80E"/>
+                                    <constraint firstItem="5rB-IY-lNI" firstAttribute="top" secondItem="lE6-UC-g2l" secondAttribute="top" constant="40" id="xLo-bC-enj"/>
+                                </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="Mn2-IW-mwl" userLabel="Label - Barcode Note">
                                 <rect key="frame" x="25" y="74" width="270" height="46"/>
@@ -751,7 +786,10 @@ Test</string>
                             <constraint firstAttribute="trailing" secondItem="I5j-al-SQf" secondAttribute="trailing" constant="25" id="E4C-gU-txK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HNg-Lj-TNH" secondAttribute="trailing" constant="9" id="Md9-ui-e19"/>
                             <constraint firstItem="HNg-Lj-TNH" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leadingMargin" constant="9" id="PdX-vr-zpc"/>
+                            <constraint firstItem="lE6-UC-g2l" firstAttribute="top" secondItem="L3L-hg-KiA" secondAttribute="bottom" constant="6" id="Teq-Kq-ffl"/>
+                            <constraint firstItem="lE6-UC-g2l" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leading" id="ZPx-hS-jIl"/>
                             <constraint firstAttribute="bottom" secondItem="I5j-al-SQf" secondAttribute="bottom" constant="80" id="e9n-hd-cYH"/>
+                            <constraint firstAttribute="trailing" secondItem="lE6-UC-g2l" secondAttribute="trailing" id="qB9-Qk-YqC"/>
                             <constraint firstAttribute="trailing" secondItem="HNg-Lj-TNH" secondAttribute="trailing" constant="25" id="rbY-lb-khf"/>
                             <constraint firstItem="HNg-Lj-TNH" firstAttribute="leading" secondItem="wzE-OC-9mV" secondAttribute="leading" constant="25" id="yg0-iK-Bpy"/>
                         </constraints>
@@ -1600,8 +1638,8 @@ Test</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vl1-xC-OSz"/>
-        <segue reference="vJY-OD-AU4"/>
+        <segue reference="aVF-Tt-Z6G"/>
+        <segue reference="Rj6-jk-hGm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99607843139999996" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
