@@ -45,7 +45,7 @@
 {
     NSInteger cellCount = 0;
     if (section == 0)
-        cellCount = 6;
+        cellCount = 7;
     else if (section == 1)
         cellCount = 2;
     else if (section == 2)
@@ -90,7 +90,7 @@
         if (indexPath.row == 2) {
             [cell.propertySwitch setOn:_code.cellPhoneSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
-            [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"cellphonenumber_label")];
             cell.inputField.text = _code.cellPhone;
             if([_code.cellPhone length] == 0) {
                 [cell.propertySwitch setAlpha:0.0];
@@ -100,6 +100,18 @@
         }
         
         if (indexPath.row == 3) {
+            [cell.propertySwitch setOn:_code.phoneSwitch];
+            [cell.inputField setKeyboardType:UIKeyboardTypePhonePad];
+            [cell.inputField setPlaceholder:NimpleLocalizedString(@"phonenumber_label")];
+            cell.inputField.text = _code.phone;
+            if([_code.phone length] == 0) {
+                [cell.propertySwitch setAlpha:0.0];
+                [cell.propertySwitch setOn:YES];
+                _code.phoneSwitch = YES;
+            }
+        }
+        
+        if (indexPath.row == 4) {
             [cell.propertySwitch setOn:_code.emailSwitch];
             [cell.inputField setKeyboardType:UIKeyboardTypeEmailAddress];
             [cell.inputField setAutocorrectionType:UITextAutocorrectionTypeNo];
@@ -113,7 +125,7 @@
             }
         }
         
-        if (indexPath.row == 4) {
+        if (indexPath.row == 5) {
             [cell.propertySwitch setOn:_code.websiteSwitch];
             cell.inputField.keyboardType = UIKeyboardTypeURL;
             cell.inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -126,7 +138,7 @@
             }
         }
         
-        if (indexPath.row == 5) {
+        if (indexPath.row == 6) {
             EditAddressInputViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditAddressInputViewCell"];
             [cell configureCell];
             return cell;

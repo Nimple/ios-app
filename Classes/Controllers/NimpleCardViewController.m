@@ -25,6 +25,8 @@
     NimpleCode *_code;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *headerCard;
+
 @end
 
 @implementation NimpleCardViewController
@@ -41,17 +43,23 @@
     if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
         [self.cardSegmentedControl setHidden:NO];
         [self.cardSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
+        [self.headerCard setHidden:NO];
+        if (self.checkOwnProperties) {
+            [self.headerCard setHidden:YES];
+        }
     } else {
         [self.cardSegmentedControl setHidden:YES];
+        [self.headerCard setHidden:YES];
     }
     [self updateView];
 }
 
--(void)localizeViewAttributes
+- (void)localizeViewAttributes
 {
     _tutorialAddLabel.text = NimpleLocalizedString(@"tutorial_add_text");
     _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
     _navigationLabel.title = NimpleLocalizedString(@"nimple_card_label");
+    self.headerCard.text = NimpleLocalizedString(@"header_card");
 }
 
 - (void)updateView
@@ -63,7 +71,6 @@
     } else {
         [self.nimpleCardView setHidden:FALSE];
         [self.welcomeView setHidden:TRUE];
-        
         [self fillNimpleCard];
     }
 }
@@ -78,7 +85,8 @@
     [self.nameLabel setText:[NSString stringWithFormat:@"%@ %@", _code.prename, _code.surname]];
     [self.jobLabel setText:_code.job];
     [self.companyLabel setText:_code.company];
-    [self.phoneLabel setText:_code.cellPhone];
+    [self.phoneLabel setText:_code.phone];
+    [self.mobilePhoneLabel setText:_code.cellPhone];
     [self.emailLabel setText:_code.email];
     _websiteLabel.text = _code.website;
     
@@ -134,12 +142,20 @@
         [_websiteIcon setAlpha:1.0];
     }
     
-    if (!_code.cellPhoneSwitch) {
+    if (!_code.phoneSwitch) {
         [self.phoneLabel setAlpha:0.2];
         [self.phoneIcon setAlpha:0.2];
     } else {
         [self.phoneLabel setAlpha:1.0];
         [self.phoneIcon setAlpha:1.0];
+    }
+    
+    if (!_code.cellPhoneSwitch) {
+        [self.mobilePhoneLabel setAlpha:0.2];
+        [self.mobilePhoneIcon setAlpha:0.2];
+    } else {
+        [self.mobilePhoneLabel setAlpha:1.0];
+        [self.mobilePhoneIcon setAlpha:1.0];
     }
     
     if (!_code.emailSwitch) {
@@ -183,11 +199,26 @@
     }
 }
 
+#pragma mark - Share Card
+
+- (IBAction)shareCard:(id)sender
+{
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+        NSString *vcard = [[VCardCreator sharedInstance] createVCardFromNimpleCode:_code];
+        
+        // send mail with attachment
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer addAttachmentData:[vcard dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/vcard" fileName:@"contact.vcf"];
+        [self.navigationController presentViewController:mailer animated:YES completion:nil];
+    }
+}
+
 #pragma mark - MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    NSLog(@"%@", error);
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Handles the nimpleCodeChanged notifaction

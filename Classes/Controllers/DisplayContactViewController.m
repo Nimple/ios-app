@@ -18,6 +18,7 @@
     __weak IBOutlet UILabel *_addressLabel;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *cellPhoneLabel;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
@@ -84,6 +85,7 @@
     self.companyLabel.text = self.nimpleContact.company;
     self.jobLabel.text = self.nimpleContact.job;
     _websiteLabel.text = self.nimpleContact.website;
+    self.cellPhoneLabel.text = self.nimpleContact.cellphone;
     
     // address
     if (self.nimpleContact.hasAddress) {
@@ -220,7 +222,7 @@
     [self.actionSheetDelete showInView:self.view];
 }
 
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (actionSheet == self.actionSheetDelete && buttonIndex == 0) {
         [_delegate contactShouldBeDeleted:self.nimpleContact];
@@ -303,23 +305,40 @@
     }
 }
 
-// Delegates the sending of an email to the mail app
-- (IBAction)mailButtonClicked:(id)sender
+- (IBAction)cellPhoneClicked:(id)sender
 {
-    if (self.nimpleContact.email.length == 0) {
+    if (self.nimpleContact.phone.length == 0) {
         return;
     }
     
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailContent = [[MFMailComposeViewController alloc] init];
-        // Required to invoke mailComposeController when send
-        mailContent.mailComposeDelegate = self;
-        [mailContent setSubject:@""];
-        [mailContent setToRecipients:@[self.nimpleContact.email]];
-        [mailContent setMessageBody:@"" isHTML:NO];
-        [self.navigationController presentViewController:mailContent animated:YES completion:nil];
+    UIDevice *device = [UIDevice currentDevice];
+    
+    if ([self.nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.nimpleContact.phone]];
+    } else if ([[device model] isEqualToString:@"iPhone"]) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.nimpleContact.phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     } else {
-        NSLog(@"Error: Your Mail Account may not be set up.");
+        UIAlertView *warning =[[UIAlertView alloc] initWithTitle:@"Note" message:@"Error: Phone Calls does not work on an iPad" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warning show];
+    }
+}
+
+
+- (IBAction)mailButtonClicked:(id)sender
+{
+    if (self.nimpleContact.cellphone.length == 0) {
+        return;
+    }
+    
+    UIDevice *device = [UIDevice currentDevice];
+    
+    if ([[device model] isEqualToString:@"iPhone"]) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.nimpleContact.cellphone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    } else {
+        UIAlertView *warning =[[UIAlertView alloc] initWithTitle:@"Note" message:@"Error: Phone Calls does not work on an iPad" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warning show];
     }
 }
 
@@ -394,6 +413,12 @@
     if (self.nimpleContact.phone.length > 0 && ![self.nimpleContact.phone isEqualToString:@"http://www.nimple.de"]) {
         ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
         ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) self.nimpleContact.phone, kABPersonPhoneMainLabel, nil);
+        ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
+    }
+    
+    if (self.nimpleContact.cellphone) {
+        ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef) self.nimpleContact.cellphone, kABPersonPhoneMobileLabel, nil);
         ABRecordSetValue(result, kABPersonPhoneProperty, multiPhone, nil);
     }
     

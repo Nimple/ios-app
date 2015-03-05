@@ -36,8 +36,10 @@
         } else if (self.index == 2) {
             _code.cellPhone = self.inputField.text;
         } else if (self.index == 3) {
-            _code.email = self.inputField.text;
+            _code.phone = self.inputField.text;
         } else if (self.index == 4) {
+            _code.email = self.inputField.text;
+        } else if (self.index == 5) {
             _code.website = self.inputField.text;
         }
     } else if (self.section == 1) {
@@ -57,8 +59,10 @@
         if (self.index == 2) {
             _code.cellPhoneSwitch = [self.propertySwitch isOn];
         } else if (self.index == 3) {
-            _code.emailSwitch = [self.propertySwitch isOn];
+            _code.phoneSwitch = [self.propertySwitch isOn];
         } else if (self.index == 4) {
+            _code.emailSwitch = [self.propertySwitch isOn];
+        } else if (self.index == 5) {
             _code.websiteSwitch = self.propertySwitch.isOn;
         }
     } else if (self.section == 1) {

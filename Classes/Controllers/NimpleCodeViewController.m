@@ -44,6 +44,8 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
         [self.codeSegmentedControl setSelectedSegmentIndex:[[NimpleCode sharedCode] dictionaryIndex]];
         if (![self emptyNimpleCode]) {
             self.shareCodeLabel.hidden = NO;
+        } else {
+            self.shareCodeLabel.hidden = YES;
         }
     } else {
         [self.codeSegmentedControl setHidden:YES];
@@ -58,9 +60,7 @@ static NSMutableDictionary *VCARD_TEMPLATE_DIC;
     _tutorialEditLabel.text = NimpleLocalizedString(@"tutorial_edit_text");
     _navigationLabel.title = NimpleLocalizedString(@"nimple_code_title");
     _barcodeNoteLabel.text = NimpleLocalizedString(@"nimple_code_footer");
-    
-    // TODO translate
-    self.shareCodeLabel.text = @"Tap your code to share it.";
+    self.shareCodeLabel.text = NimpleLocalizedString(@"header_code");
 }
 
 - (void)updateView

@@ -109,7 +109,7 @@
         // send mail with attachment
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
-        [mailer addAttachmentData:[bigvcard dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/vcard" fileName:@"contacts.cvf"];
+        [mailer addAttachmentData:[bigvcard dataUsingEncoding:NSUTF8StringEncoding] mimeType:@"text/vcard" fileName:@"contacts.vcf"];
         [self.navigationController presentViewController:mailer animated:YES completion:nil];
     }
 }

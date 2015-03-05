@@ -36,6 +36,8 @@
     
     if ([_contact.website isEqualToString:@"http://www.nimple.de"]) {
         [_phoneButton setTitle:_contact.website forState:UIControlStateNormal];
+    } else if (_contact.cellphone) {
+        [_phoneButton setTitle:_contact.cellphone forState:UIControlStateNormal];
     } else {
         [_phoneButton setTitle:_contact.phone forState:UIControlStateNormal];
     }
