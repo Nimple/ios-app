@@ -10,9 +10,10 @@
 "firstname_label" = "Nome";
 "lastname_label" = "Sobrenome";
 "phonenumber_label" = "Número de telefone";
+"mobilenumber_label" = "Número de telemóvel";
 "mail_label" = "E-mail";
 "business_label" = "COMERCIAL";
-"company_label" = "Unternehmen/Uni/Schule";
+"company_label" = "Negócio/faculdade/escola";
 "job_label" = "Cargo/posição";
 "website_label" = "Home page";
 "street_label" = "Rua";

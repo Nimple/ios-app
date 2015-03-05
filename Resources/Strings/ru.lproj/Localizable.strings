@@ -9,7 +9,8 @@
 "personal_label" = "Лично";
 "firstname_label" = "Имя";
 "lastname_label" = "Фамилия";
-"phonenumber_label" = "Но́мер  телефона";
+"phonenumber_label" = "Но́мер телефона";
+"mobilenumber_label" = "Номер Мобильного";
 "mail_label" = "Адрес электро́нной по́чты";
 "business_label" = "Служебный";
 "company_label" = "Компания/университе́т/шко́ла";
