@@ -10,7 +10,8 @@
 
 @interface NimpleProViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *proIntroText;
-@property (weak, nonatomic) IBOutlet UITextView *proFeatureA;
-@property (weak, nonatomic) IBOutlet UITextView *proFeatureB;
+@property (weak, nonatomic) IBOutlet UILabel *proFeatureA;
+@property (weak, nonatomic) IBOutlet UILabel *proFeatureB;
+@property (weak, nonatomic) IBOutlet UIButton *unlockProButton;
 
 @end

@@ -22,6 +22,7 @@
     [self.proIntroText setText:NimpleLocalizedString(@"pro_intro_text")];
     [self.proFeatureA setText:NimpleLocalizedString(@"pro_feature_A")];
     [self.proFeatureB setText:NimpleLocalizedString(@"pro_feature_B")];
+    [self.unlockProButton setTitle:NimpleLocalizedString(@"unlock_pro_button") forState: UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning

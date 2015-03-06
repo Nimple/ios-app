@@ -116,11 +116,33 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     settings.selectedImage = [[UIImage imageNamed:@"tabbar_selected_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     settings.image = [[UIImage imageNamed:@"tabbar_settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased]) {
+    if ([[NimplePurchaseModel sharedPurchaseModel] isPurchased] || ![self isAbleToPurchase]) {
         [self removePurchaseProController];
     }
     
     [[self tabBar] setTintColor:UIColorFromRGB(NIMPLE_MAIN_COLOR)];
+}
+
+- (NSString *)deviceModel
+{
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *model = malloc(size);
+    sysctlbyname("hw.machine", model, &size, NULL, 0);
+    NSString *deviceModel = [NSString stringWithCString:model encoding:NSUTF8StringEncoding];
+    free(model);
+    NSLog(@"%@", deviceModel);
+    return deviceModel;
+}
+
+- (BOOL)isAbleToPurchase
+{
+    NSString *deviceModel = [self deviceModel];
+    if ([deviceModel isEqual:@"iPhone3,1"]) return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone3,2"]) return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone3,3"]) return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone4,1"]) return NO; // iPhone4S
+    return YES;
 }
 
 - (void)removePurchaseProController
