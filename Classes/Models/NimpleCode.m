@@ -84,8 +84,8 @@
         // if migrate from old nimple version, transfer nimple code
         if ([index isEqualToString:[@0 stringValue]]) {
             NSDictionary *userDict = [[self standardUserDefaults] dictionaryRepresentation];
-            if (!userDict) {
-                self.dict = [userDict mutableCopy];
+            if (userDict) {
+                dict = [userDict mutableCopy];
             }
         }
         [dict setObject:index forKey:NimpleCodeDictionaryKey];
