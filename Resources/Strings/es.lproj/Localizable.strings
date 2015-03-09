@@ -95,7 +95,7 @@
 
 "nimple_code_footer" = "Su código se puede escanear con un lector de código de barras o Nimple";
 
-"tab_nimple_card_title" = "Tarjeta";
+"tab_nimple_card_title" = "Card";
 "tab_nimple_code_title" = "Código";
 "tab_contacts_title" = "Contactos";
 "tab_pro_title" = "Pro Version";
@@ -115,8 +115,17 @@
 "msg_box_social_logout_activity1" = "Desconectar";
 "msg_box_social_logout_activity2" = "Cancelar";
 
-"share_contact" = "Share Contact";
+"pro_intro_text" = "Nimple Pro le dará nuevas características útiles increíbles como:";
+"pro_feature_A" = "Compartir y enviar su tarjeta, código y contactos través de correo electrónico o cualquier otro medio.";
+"pro_feature_B" = "Crear varias tarjetas nimple y códigos (por ejemplo una para el trabajo uno para privado y uno para la universidad).";
+
+"share_contact" = "Compartir contacto";
 
 "alertview_camera_permission_title" = "No Camera-Access";
 "alertview_camera_permission_text" = "Nimple has no access to use your camera, thus Nimple is not able to scan QR-Codes. You can allow Nimple to use your camera by opening Settings -> Privacy -> Camera.";
 "alertview_camera_permission_button" = "Okay";
+
+"header_code" = "Haga clic en su código para compartir";
+"header_card" = "Haga clic en su tarjeta para compartir";
+
+"unlock_pro_button" = "Comprar la versión Pro";

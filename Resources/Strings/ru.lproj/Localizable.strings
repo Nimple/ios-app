@@ -115,8 +115,17 @@
 "msg_box_social_logout_activity1" = "Отключите";
 "msg_box_social_logout_activity2" = "Отменить";
 
-"share_contact" = "Share Contact";
+"pro_intro_text" = "Nimple Pro даст вам новые полезные функции, такие как:";
+"pro_feature_A" = "Отправьте карты , код и контакты по электронной почте.";
+"pro_feature_B" = "Создать несколько карт и коды (Например, для компании или университета).";
+
+"share_contact" = "Отправить контакт";
 
 "alertview_camera_permission_title" = "No Camera-Access";
 "alertview_camera_permission_text" = "Nimple has no access to use your camera, thus Nimple is not able to scan QR-Codes. You can allow Nimple to use your camera by opening Settings -> Privacy -> Camera.";
 "alertview_camera_permission_button" = "Okay";
+
+"header_code" = "Нажмите код , чтобы отправить его";
+"header_card" = "Нажмите на карту, чтобы отправить его";
+
+"unlock_pro_button" = "Купить Pro версию";
