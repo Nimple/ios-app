@@ -115,8 +115,17 @@
 "msg_box_social_logout_activity1" = "Bağlanti kes";
 "msg_box_social_logout_activity2" = "Vazgeç";
 
-"share_contact" = "Share Contact";
+"pro_intro_text" = "Nimple Pro gibi, size yeni ve kullanışlı özellikler verecek:";
+"pro_feature_A" = "E-posta yoluyla kart, kodu ve kişileri gönderin.";
+"pro_feature_B" = "Birden fazla kart ve kodları oluşturun (Örneğin, şirket veya Üniversite için).";
+
+"share_contact" = "İletişim gönder";
 
 "alertview_camera_permission_title" = "No Camera-Access";
 "alertview_camera_permission_text" = "Nimple has no access to use your camera, thus Nimple is not able to scan QR-Codes. You can allow Nimple to use your camera by opening Settings -> Privacy -> Camera.";
 "alertview_camera_permission_button" = "Okay";
+
+"header_code" = "Onu göndermek için bir kod dokunun";
+"header_card" = "Gemi için haritayı dokunun";
+
+"unlock_pro_button" = "Pro sürümü satın";
