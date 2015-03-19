@@ -644,7 +644,7 @@
 				4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */,
 				B5408B0A1904A1D60033DF1A /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 4BD6F144198AFAAE003C7B6F /* DataModel 3.xcdatamodel */;
+			currentVersion = 4BFDE0121AA511B500F96F44 /* DataModel 4.xcdatamodel */;
 			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
