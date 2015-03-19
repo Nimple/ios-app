@@ -140,10 +140,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (BOOL)isAbleToPurchase
 {
     NSString *deviceModel = [self deviceModel];
-    if ([deviceModel isEqual:@"iPhone3,1"]) return NO; // iPhone4
-    if ([deviceModel isEqual:@"iPhone3,2"]) return NO; // iPhone4
-    if ([deviceModel isEqual:@"iPhone3,3"]) return NO; // iPhone4
-    if ([deviceModel isEqual:@"iPhone4,1"]) return NO; // iPhone4S
+    if ([deviceModel isEqual:@"iPhone3,1"])   return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone3,2"])   return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone3,3"])   return NO; // iPhone4
+    if ([deviceModel isEqual:@"iPhone4,1"])   return NO; // iPhone4S
+    if ([deviceModel containsString:@"iPad"]) return NO;
     return YES;
 }
 
