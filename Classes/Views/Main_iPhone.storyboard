@@ -488,7 +488,7 @@ auf deiner Karte und in deinem Code</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
-                                <rect key="frame" x="50" y="442" width="220" height="30"/>
+                                <rect key="frame" x="50" y="446" width="220" height="30"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="3QB-Dq-Nbk"/>
@@ -587,7 +587,7 @@ auf deiner Karte und in deinem Code</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ1-hG-T20">
-                                <rect key="frame" x="50" y="479" width="220" height="34"/>
+                                <rect key="frame" x="50" y="478" width="220" height="34"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="Bib-N8-znZ"/>
@@ -605,7 +605,7 @@ auf deiner Karte und in deinem Code</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mJ1-hG-T20" firstAttribute="top" secondItem="yqw-2g-0kH" secondAttribute="bottom" constant="7" id="2Sa-wV-sXg"/>
+                            <constraint firstItem="mJ1-hG-T20" firstAttribute="top" secondItem="yqw-2g-0kH" secondAttribute="bottom" constant="2" id="2Sa-wV-sXg"/>
                             <constraint firstItem="LFg-YD-Q8t" firstAttribute="top" secondItem="Isj-i2-L3p" secondAttribute="bottom" id="3Mg-hW-A5x"/>
                             <constraint firstAttribute="trailing" secondItem="Pnq-Wa-pC7" secondAttribute="trailing" constant="28" id="4no-20-4QL"/>
                             <constraint firstAttribute="trailing" secondItem="mJ1-hG-T20" secondAttribute="trailing" constant="50" id="7Yy-mk-TEy"/>
@@ -613,8 +613,8 @@ auf deiner Karte und in deinem Code</string>
                             <constraint firstItem="onI-sk-pJo" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="28" id="CgO-yP-Xyg"/>
                             <constraint firstItem="onI-sk-pJo" firstAttribute="top" secondItem="Pnq-Wa-pC7" secondAttribute="bottom" constant="15" id="DHb-3D-xC1"/>
                             <constraint firstItem="Pnq-Wa-pC7" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="28" id="IqZ-29-H4Q"/>
-                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="8" id="KAt-fT-Rcr"/>
-                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="8" id="KcB-5L-wZe"/>
+                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="12" id="KAt-fT-Rcr"/>
+                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="12" id="KcB-5L-wZe"/>
                             <constraint firstAttribute="trailing" secondItem="onI-sk-pJo" secondAttribute="trailing" constant="28" id="ThN-cI-KeM"/>
                             <constraint firstItem="LFg-YD-Q8t" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" id="WIi-Yd-NIU"/>
                             <constraint firstItem="mJ1-hG-T20" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="50" id="YYe-S7-JMP"/>
