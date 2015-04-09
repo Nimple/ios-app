@@ -16,6 +16,7 @@
 + (NimplePurchaseModel *)sharedPurchaseModel;
 
 - (void)requestPurchase;
+- (void)requestRestore;
 - (BOOL)isPurchased;
 
 @end

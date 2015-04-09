@@ -41,6 +41,12 @@
 
 #pragma mark - Purchase process
 
+- (void)requestRestore
+{
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
+
 - (void)requestPurchase
 {
     if ([SKPaymentQueue canMakePayments]) {

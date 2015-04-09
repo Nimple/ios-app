@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9vL-qg-3SR">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -488,7 +488,7 @@ auf deiner Karte und in deinem Code</string>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqw-2g-0kH">
-                                <rect key="frame" x="50" y="467" width="220" height="30"/>
+                                <rect key="frame" x="50" y="442" width="220" height="30"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="3QB-Dq-Nbk"/>
@@ -586,19 +586,38 @@ auf deiner Karte und in deinem Code</string>
                                     <constraint firstItem="luv-0H-BsM" firstAttribute="leading" secondItem="gfo-Oi-MKo" secondAttribute="trailing" constant="20" id="xGD-I0-CNT"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJ1-hG-T20">
+                                <rect key="frame" x="50" y="479" width="220" height="34"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="Bib-N8-znZ"/>
+                                    <constraint firstAttribute="height" constant="34" id="HOV-iM-bdv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Restore pro version">
+                                    <color key="titleColor" red="0.76401656870000001" green="0.0" blue="0.24152520299999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sQf-YW-WOY" appends="YES" id="Cqe-Q4-Xcs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mJ1-hG-T20" firstAttribute="top" secondItem="yqw-2g-0kH" secondAttribute="bottom" constant="7" id="2Sa-wV-sXg"/>
                             <constraint firstItem="LFg-YD-Q8t" firstAttribute="top" secondItem="Isj-i2-L3p" secondAttribute="bottom" id="3Mg-hW-A5x"/>
                             <constraint firstAttribute="trailing" secondItem="Pnq-Wa-pC7" secondAttribute="trailing" constant="28" id="4no-20-4QL"/>
+                            <constraint firstAttribute="trailing" secondItem="mJ1-hG-T20" secondAttribute="trailing" constant="50" id="7Yy-mk-TEy"/>
                             <constraint firstItem="eAe-Ir-S60" firstAttribute="top" secondItem="onI-sk-pJo" secondAttribute="bottom" constant="13" id="7Zt-ye-OtA"/>
                             <constraint firstItem="onI-sk-pJo" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="28" id="CgO-yP-Xyg"/>
                             <constraint firstItem="onI-sk-pJo" firstAttribute="top" secondItem="Pnq-Wa-pC7" secondAttribute="bottom" constant="15" id="DHb-3D-xC1"/>
                             <constraint firstItem="Pnq-Wa-pC7" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="28" id="IqZ-29-H4Q"/>
-                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="33" id="KAt-fT-Rcr"/>
-                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="33" id="KcB-5L-wZe"/>
+                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="8" id="KAt-fT-Rcr"/>
+                            <constraint firstItem="yqw-2g-0kH" firstAttribute="top" secondItem="eAe-Ir-S60" secondAttribute="bottom" constant="8" id="KcB-5L-wZe"/>
                             <constraint firstAttribute="trailing" secondItem="onI-sk-pJo" secondAttribute="trailing" constant="28" id="ThN-cI-KeM"/>
                             <constraint firstItem="LFg-YD-Q8t" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" id="WIi-Yd-NIU"/>
+                            <constraint firstItem="mJ1-hG-T20" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="50" id="YYe-S7-JMP"/>
                             <constraint firstAttribute="trailing" secondItem="eAe-Ir-S60" secondAttribute="trailing" constant="28" id="kuB-tL-DQn"/>
                             <constraint firstAttribute="trailing" secondItem="LFg-YD-Q8t" secondAttribute="trailing" id="mIx-HM-bso"/>
                             <constraint firstItem="yqw-2g-0kH" firstAttribute="leading" secondItem="WJ0-kv-ZwH" secondAttribute="leading" constant="50" id="oqL-6N-F1k"/>
@@ -612,6 +631,7 @@ auf deiner Karte und in deinem Code</string>
                         <outlet property="proFeatureA" destination="2bk-df-R2s" id="ZCk-6d-Cvb"/>
                         <outlet property="proFeatureB" destination="luv-0H-BsM" id="DaN-oL-rzQ"/>
                         <outlet property="proIntroText" destination="Pnq-Wa-pC7" id="DIF-Ip-ue6"/>
+                        <outlet property="restoreProButton" destination="mJ1-hG-T20" id="0gT-Pv-z4x"/>
                         <outlet property="unlockProButton" destination="yqw-2g-0kH" id="jM0-0a-KuY"/>
                     </connections>
                 </viewController>
@@ -619,6 +639,11 @@ auf deiner Karte und in deinem Code</string>
                 <tapGestureRecognizer id="Wn7-VK-cVZ">
                     <connections>
                         <action selector="unlockProClicked:" destination="J8V-zr-huD" id="0fj-dn-Ap6"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="sQf-YW-WOY">
+                    <connections>
+                        <action selector="restoreProClicked:" destination="J8V-zr-huD" id="ebo-YH-1TL"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

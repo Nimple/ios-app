@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *proFeatureA;
 @property (weak, nonatomic) IBOutlet UILabel *proFeatureB;
 @property (weak, nonatomic) IBOutlet UIButton *unlockProButton;
+@property (weak, nonatomic) IBOutlet UIButton *restoreProButton;
 
 @end
