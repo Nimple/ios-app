@@ -293,7 +293,7 @@
 
 - (LIALinkedInHttpClient *)linkedInClient
 {
-    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.nimple.de" clientId:@"77pixj2vchhmrj" clientSecret:@"XDzQSRgsL1BOO8nm" state:@"DCEEFWF45453sdffef424" grantedAccess:@[@"r_fullprofile"]];
+    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.nimple.de" clientId:@"77pixj2vchhmrj" clientSecret:@"XDzQSRgsL1BOO8nm" state:@"DCEEFWF45453sdffef424" grantedAccess:@[@"r_basicprofile"]];
     UITableView *tableView = (UITableView *) self.superview.superview;
     EditNimpleCodeTableViewController *viewController = (EditNimpleCodeTableViewController *) tableView.dataSource;
     return [LIALinkedInHttpClient clientForApplication:application presentingViewController:viewController];
