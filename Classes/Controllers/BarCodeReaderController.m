@@ -46,6 +46,12 @@
     [self stopScanner];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    _previewLayer.frame = _readerView.bounds;
+}
+
 - (void)localizeViewAttributes
 {
     _scannerLabel.title = NimpleLocalizedString(@"scanner_label");
@@ -127,7 +133,7 @@
     _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_session];
     _previewLayer.drawsAsynchronously = YES;
     _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    _previewLayer.frame = _readerView.frame;
+    _previewLayer.frame = _readerView.bounds;
     
     [_readerView.layer addSublayer:_previewLayer];
     [_session startRunning];
