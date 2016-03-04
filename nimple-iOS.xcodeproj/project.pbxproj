@@ -357,7 +357,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Nimple;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = nimple;
 				TargetAttributes = {
 					D151DA6C18B432F700C5850F = {
@@ -530,6 +530,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Lang (NDQDXE29S6)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -599,6 +600,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e797b283-1480-4920-8050-b3dbe9fba308";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -619,6 +621,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.nimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a525488d-2d86-47e1-a5da-7b7d78fa3242";
 				TARGETED_DEVICE_FAMILY = 1;
