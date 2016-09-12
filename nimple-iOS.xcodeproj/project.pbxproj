@@ -54,6 +54,8 @@
 		461CA1817BCE6A38C1B70AB7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4B05A9C71AA2111000C121B9 /* NimpleProViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimpleProViewController.h; sourceTree = "<group>"; };
 		4B05A9C81AA2111000C121B9 /* NimpleProViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimpleProViewController.m; sourceTree = "<group>"; };
+		4B1348DD1D86A4DF006956D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/nimple-iOS-Info.plist"; sourceTree = "<group>"; };
+		4B1348DF1D86A4E2006956D8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = "de.lproj/nimple-iOS-Info.plist"; sourceTree = "<group>"; };
 		4B1B7F3A199A24400098DB91 /* EditAddressInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddressInputViewCell.h; sourceTree = "<group>"; };
 		4B1B7F3B199A24400098DB91 /* EditAddressInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddressInputViewCell.m; sourceTree = "<group>"; };
 		4B220DC619A40BC900163E5C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -113,7 +115,6 @@
 		B5408B131904A1D60033DF1A /* EditInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInputViewCell.m; sourceTree = "<group>"; };
 		B5408B271904A2370033DF1A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		B5408B2A1904A2550033DF1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B55B895619049AC400561F17 /* nimple-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nimple-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nimple-iOS-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B5BE972919053FD100F49DEC /* DisplayContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayContactViewController.h; sourceTree = "<group>"; };
 		B5BE972A19053FD100F49DEC /* DisplayContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DisplayContactViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -277,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF2C62D1AA2436D00B62DE8 /* main.m */,
-				B55B895619049AC400561F17 /* nimple-iOS-Info.plist */,
+				4B1348DE1D86A4DF006956D8 /* nimple-iOS-Info.plist */,
 				B55B895719049AC400561F17 /* nimple-iOS-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -362,6 +363,7 @@
 				TargetAttributes = {
 					D151DA6C18B432F700C5850F = {
 						DevelopmentTeam = BRCR8B3TM9;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -493,6 +495,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		4B1348DE1D86A4DF006956D8 /* nimple-iOS-Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B1348DD1D86A4DF006956D8 /* en */,
+				4B1348DF1D86A4E2006956D8 /* de */,
+			);
+			name = "nimple-iOS-Info.plist";
+			sourceTree = SOURCE_ROOT;
+		};
 		4B7E5099199C087B00C174EE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -609,15 +620,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Lang (NDQDXE29S6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BRCR8B3TM9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/en.lproj/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.nimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5663eba9-837b-4658-9f7c-8958d688b2d9";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -631,15 +644,17 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Appstronauten GbR (BRCR8B3TM9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BRCR8B3TM9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/nimple-iOS-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/nimple-iOS-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/en.lproj/nimple-iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.nimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6568f128-1b41-4aac-a666-fe7b6817222b";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
