@@ -18,7 +18,6 @@
 		4BC7816019CD85D50026F72E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC7815F19CD85D50026F72E /* StoreKit.framework */; };
 		4BF2C62C1AA2423300B62DE8 /* NimplePurchaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2C62B1AA2423300B62DE8 /* NimplePurchaseModel.m */; };
 		4BF2C62E1AA2436D00B62DE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2C62D1AA2436D00B62DE8 /* main.m */; };
-		946A20D5F5C647489F69E299 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A798CAD0311D484FB6A0B5A1 /* libPods.a */; };
 		9E6858BA18C0F47E00C7D889 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6858B918C0F47E00C7D889 /* AVFoundation.framework */; };
 		9E9CAB2018C11C7F00A4FE27 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */; };
 		B526D76D1909AB1000055177 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = B526D76C1909AB1000055177 /* Logging.m */; };
@@ -85,7 +84,6 @@
 		67CF8ED252A77D3E692AF3CB /* Pods-nimple-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nimple-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nimple-iOS/Pods-nimple-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9E6858B918C0F47E00C7D889 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9E9CAB1F18C11C7F00A4FE27 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		A798CAD0311D484FB6A0B5A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0433634D5D5B22A9E4BA45F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B501C8FB19071D40008F02CF /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		B526D76B1909AB1000055177 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				D151DA7318B432F700C5850F /* CoreGraphics.framework in Frameworks */,
 				D151DA7518B432F700C5850F /* UIKit.framework in Frameworks */,
 				D151DA7118B432F700C5850F /* Foundation.framework in Frameworks */,
-				946A20D5F5C647489F69E299 /* libPods.a in Frameworks */,
 				2F2F618F091C65992BDB64D3 /* libPods-nimple-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +327,6 @@
 				D151DA7218B432F700C5850F /* CoreGraphics.framework */,
 				D151DA7418B432F700C5850F /* UIKit.framework */,
 				B5408AF11904A1A70033DF1A /* FacebookSDK.framework */,
-				A798CAD0311D484FB6A0B5A1 /* libPods.a */,
 				2F70FAB14162A0F50ECE7A34 /* libPods-nimple-iOS.a */,
 			);
 			name = Frameworks;
