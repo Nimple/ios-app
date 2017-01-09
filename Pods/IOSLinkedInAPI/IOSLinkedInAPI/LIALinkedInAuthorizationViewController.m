@@ -125,12 +125,11 @@ BOOL handlingRedirectURL;
 
 - (NSString *)extractGetParameter: (NSString *) parameterName fromURLString:(NSString *)urlString {
     NSMutableDictionary *mdQueryStrings = [[NSMutableDictionary alloc] init];
-    urlString = [[urlString componentsSeparatedByString:@"#"] objectAtIndex:0];
     urlString = [[urlString componentsSeparatedByString:@"?"] objectAtIndex:1];
     for (NSString *qs in [urlString componentsSeparatedByString:@"&"]) {
         [mdQueryStrings setValue:[[[[qs componentsSeparatedByString:@"="] objectAtIndex:1]
-                                   stringByReplacingOccurrencesOfString:@"+" withString:@" "]
-                                  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                stringByReplacingOccurrencesOfString:@"+" withString:@" "]
+                stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                           forKey:[[qs componentsSeparatedByString:@"="] objectAtIndex:0]];
     }
     return [mdQueryStrings objectForKey:parameterName];
