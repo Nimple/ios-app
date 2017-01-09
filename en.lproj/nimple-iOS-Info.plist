@@ -63,5 +63,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>For saving contacts in your address book, Nimple needs this permission.</string>
 </dict>
 </plist>
