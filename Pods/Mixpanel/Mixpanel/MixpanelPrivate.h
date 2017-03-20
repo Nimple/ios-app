@@ -76,6 +76,7 @@
 @property (atomic, strong) MixpanelPeople *people;
 @property (atomic, strong) MPNetwork *network;
 @property (atomic, copy) NSString *distinctId;
+@property (atomic, copy) NSString *alias;
 
 @property (nonatomic, copy) NSString *apiToken;
 @property (atomic, strong) NSDictionary *superProperties;
@@ -84,6 +85,7 @@
 @property (nonatomic, strong) NSMutableArray *eventsQueue;
 @property (nonatomic, strong) NSMutableArray *peopleQueue;
 @property (nonatomic) dispatch_queue_t serialQueue;
+@property (nonatomic) dispatch_queue_t networkQueue;
 @property (nonatomic, strong) NSMutableDictionary *timedEvents;
 
 @property (nonatomic) BOOL decideResponseCached;
